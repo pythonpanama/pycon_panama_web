@@ -233,11 +233,10 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">9:20 - 10:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="images/person/500x500/Tatiana_Delgadillo.png"
-                                                                alt="">
+                                                            <img src="images/person/500x500/Tatiana_Delgadillo.png" alt="" class="speaker-image" data-speaker-id="Tatiana_Delgadillo">
                                                         </div>
                                                         <div class="sc-name">
-                                                            <h4>Tatiana Delgadillo </h4>
+                                                            <h4>Tatiana Delgadillo</h4>
                                                             <span>Ponente (Bolivia)</span>
                                                         </div>
                                                         <div class="sc-info">
@@ -254,6 +253,7 @@
                                                         <div class="clearfix"></div>
                                                     </div>
                                                 </div>
+                                                
 
                                                 <div class="schedule-listing">
                                                     <div class="schedule-item">
@@ -282,7 +282,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">10:50 - 11:30 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="images/person/500x500/Carlos_Alarcon.png" alt="">
+                                                            <img src="images/person/500x500/Carlos_Alarcon.png" alt="" class="speaker-image" data-speaker-id="Carlos_Alarcon">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Carlos Alarcón </h4>
@@ -363,7 +363,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">9:40 - 10:20 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="images/person/500x500/Carlos_Alarcon.png" alt="">
+                                                            <img src="images/person/500x500/Carlos_Alarcon.png" alt="" class="speaker-image" data-speaker-id="Carlos_Alarcon">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Carlos Alarcón </h4>
@@ -412,8 +412,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">11:00 - 11:30AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="images/person/500x500/Tatiana_Delgadillo.png"
-                                                                alt="">
+                                                            <img src="images/person/500x500/Tatiana_Delgadillo.png" alt="" class="speaker-image" data-speaker-id="Tatiana_Delgadillo">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Tatiana Delgadillo </h4>
@@ -516,8 +515,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">9:30 - 10:00 AM</div>
                                                         <div class="sc-pic">
-                                                            <img src="images/person/500x500/Tatiana_Delgadillo.png"
-                                                                alt="">
+                                                            <img src="images/person/500x500/Tatiana_Delgadillo.png" alt="" class="speaker-image" data-speaker-id="Tatiana_Delgadillo">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Tatiana Delgadillo </h4>
@@ -704,7 +702,7 @@
                                                     <div class="schedule-item">
                                                         <div class="sc-time">01:40 - 02:10 PM</div>
                                                         <div class="sc-pic">
-                                                            <img src="images/person/500x500/Carlos_Alarcon.png" alt="">
+                                                            <img src="images/person/500x500/Carlos_Alarcon.png" alt="" class="speaker-image" data-speaker-id="Carlos_Alarcon">
                                                         </div>
                                                         <div class="sc-name">
                                                             <h4>Carlos Alarcón </h4>
@@ -1254,6 +1252,204 @@
     <script src="js/custom-marquee.js"></script>
     <script src="js/jquery.countdown.js"></script>
     <script src="js/countdown-custom.js"></script>
+
+
+
+<!-- Popup para los speakers -->
+<div id="speakers-popup" style="display: none;">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <div class="popup-header">
+            <img id="speaker-img" src="images/person/default.png" alt="Speaker Image">
+            <h2 id="speaker-name">Nombre del Speaker</h2>
+        </div>
+        <div class="popup-body">
+            <p id="speaker-description">Descripción del speaker.</p>
+            <div id="speaker-socials"></div> <!-- Esta sección debe estar aquí -->
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    /* Estilos generales para el popup */
+    #speakers-popup {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro translúcido */
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background-color: #fffffff1; /* Fondo blanco */
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 600px;
+        max-height: 80%;
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        color: #333; /* Color de texto oscuro por defecto */
+    }
+
+    .popup-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .popup-header img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .popup-body {
+        overflow-y: auto;
+        margin-top: 20px;
+        max-height: 400px;
+        text-align: left;
+    }
+
+    .popup-body p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333; 
+    }
+
+    .popup-header h2 {
+        color: #007BFF; 
+        margin: 10px 0; 
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #333; 
+    }
+
+    #speaker-socials h4 {
+    margin: 10px 0; 
+    font-size: 18px; 
+    color: #007BFF; 
+}
+
+#speaker-socials ul {
+    list-style: none;
+    padding: 0; 
+}
+
+#speaker-socials li {
+    margin: 5px 0; 
+}
+
+#speaker-socials a {
+    color: #007BFF; 
+    text-decoration: none; 
+}
+
+#speaker-socials a:hover {
+    text-decoration: underline;
+}
+
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const speakersPopup = document.getElementById('speakers-popup');
+    const closeBtn = document.querySelector('.close-btn');
+    const speakerImg = document.getElementById('speaker-img');
+    const speakerName = document.getElementById('speaker-name');
+    const speakerDescription = document.getElementById('speaker-description');
+    const speakerSocials = document.getElementById('speaker-socials'); // Añade esta línea
+
+    // Datos de prueba para varios speakers
+    const speakersData = {
+        "Tatiana_Delgadillo": {
+            name: "Tatiana Delgadillo",
+            img: "images/person/500x500/Tatiana_Delgadillo.png",
+            description: "<p>Tatiana Delgadillo es una profesional versátil con una sólida formación en programación, desarrollo backend y ciencia de datos.</p><p>Cuenta con una profunda pasión por el análisis de datos y la inteligencia artificial.</p><p>A lo largo de su carrera, ha acumulado experiencia en diversas industrias, aplicando sus habilidades técnicas para resolver problemas complejos.</p><p>Actualmente, se desempeña como Data Scientist en una startup de educación, donde integra su experiencia en programación y estadística para desarrollar soluciones innovadoras que transforman el aprendizaje en línea.</p><p>Además, lidera la comunidad Python La Paz, organizando eventos que fomentan el crecimiento profesional y el aprendizaje colaborativo.</p>",
+            socials: {
+                LinkedIn: "https://www.linkedin.com/in/taicoding/",
+                Twitter: "https://x.com/taicoding",
+                Instagram: "https://www.instagram.com/taicoding",
+                GitHub: "https://github.com/taicoding"
+            }
+        }, 
+        "Carlos_Alarcon": {
+            name: "Carlos Alarcón",
+            img: "images/person/500x500/Carlos_Alarcon.png",
+            description: "Carlos Andrés Alarcón,  es un destacado profesional en el campo de la ciencia de datos e inteligencia artificial y reconocido youtuber, con reconocimientos como Microsoft MVP en AI/ML y Google Developer Expert(GDE) en AI/ML . Ha ocupado diversos roles en el sector empresarial y en la plataforma de educación en línea Platzi, donde contribuyó al crecimiento de la compañía mediante la creación de métricas relevantes, la implementación de nuevas características basadas en IA para el producto y el fomento de una cultura basada en datos como director de la escuela de AI en Platzi. En su papel actual, se desempeña como CTO en Quix y consultor de AI asesorando a organizaciones en su transformación hacia un modelo guiado por datos y la inteligencia artificial. Carlos es un líder y divulgador reconocido en su campo, dedicado a impulsar la innovación y la eficiencia a través de la inteligencia artificial y el manejo de datos",
+            socials: {
+                LinkedIn: "https://www.linkedin.com/in/taicoding/",
+                Twitter: "https://x.com/taicoding",
+                Instagram: "https://www.instagram.com/taicoding",
+                GitHub: "https://github.com/taicoding"
+            }
+        }
+        // Agrega más speakers aquí según necesites
+    };
+
+    // Añadir evento a todas las imágenes de los ponentes
+    document.querySelectorAll('.speaker-image').forEach(img => {
+        img.addEventListener('click', function() {
+            const speakerId = this.getAttribute('data-speaker-id'); // Obtener el ID del speaker desde el atributo data
+            const speaker = speakersData[speakerId];
+
+            if (speaker) {
+                // Cargar la información del speaker
+                speakerImg.src = speaker.img;
+                speakerName.textContent = speaker.name;
+                speakerDescription.innerHTML = speaker.description; // Usar innerHTML para permitir etiquetas HTML
+                
+                // Construir los enlaces de redes sociales
+                speakerSocials.innerHTML = `
+                    <h4>Redes Sociales:</h4>
+                    <ul>
+                        <li><a href="${speaker.socials.LinkedIn}" target="_blank">LinkedIn</a></li>
+                        <li><a href="${speaker.socials.Twitter}" target="_blank">Twitter</a></li>
+                        <li><a href="${speaker.socials.Instagram}" target="_blank">Instagram</a></li>
+                        <li><a href="${speaker.socials.GitHub}" target="_blank">GitHub</a></li>
+                    </ul>
+                `;
+
+                // Mostrar el popup
+                speakersPopup.style.display = 'flex'; 
+            }
+        });
+    });
+
+    // Cerrar el popup al hacer clic en la "x"
+    closeBtn.onclick = function() {
+        speakersPopup.style.display = 'none';
+    }
+
+    // Cerrar el popup si se hace clic fuera de él
+    window.onclick = function(event) {
+        if (event.target == speakersPopup) {
+            speakersPopup.style.display = 'none';
+        }
+    }
+});
+
+</script>
+
+        
 
 </body>
 
