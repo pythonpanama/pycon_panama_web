@@ -5,3 +5,8 @@
   from = "/"
   to = "/2024/"
   status = 200
+
+[[redirects]]
+  from = "/2024"
+  to = "/2024/"
+  status = 301
