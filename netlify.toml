@@ -1,7 +1,7 @@
 [build]
-  publish = "." 
+  publish = "."
 
 [[redirects]]
   from = "/"
-  to = "/2024/index.html"
+  to = "/2024/"
   status = 200
