@@ -43,8 +43,7 @@ reflex run
 Esto abrirá la aplicación en tu navegador en http://localhost:3000.
 
 ## 📁 Estructura del proyecto
-
-.
+```plaintext
 ├── assets/                     # Archivos estáticos (imágenes, CSS, JS)
 │   ├── js/
 │   ├── bootstrap.min.css
@@ -68,7 +67,7 @@ Esto abrirá la aplicación en tu navegador en http://localhost:3000.
 ├── requirements.txt           # Dependencias del proyecto
 ├── rxconfig.py                # Configuración de Reflex
 └── pyrightconfig.json         # Configuración opcional para Pyright (linter)
-
+```
 
 ## 📚 Recursos
 https://reflex.dev/
