@@ -11,40 +11,35 @@ def footer() -> rx.Component:
             rx.text(
                 "Python Panama 2025.",
                 font_size=Size.MEDIUM.value,
-                margin_bottom=Size.ZERO.value
-                ),
+                margin_bottom=Size.ZERO.value,
+            ),
             rx.link(
                 "creado por la comunidad python con amor para que todos puedan conocernos mejor",
                 href=constants.PYCON_HASHTAG_URL,
                 is_external=True,
                 font_size=Size.MEDIUM.value,
-                color=TextColor.FOURTH.value
+                color=TextColor.FIFTH.value,
             ),
             align_items="start",
-            #lo mismo de antes, spacing no acepta valores 4em, tiene que usar definidos ya por reflex
+            # lo mismo de antes, spacing no acepta valores 4em, tiene que usar definidos ya por reflex
             spacing="4",
         ),
         rx.spacer(),
         rx.image(
             src="PyConPet.jpg",
             alt="mascota python",
-            #aca mauro uso un class_name de el estilo que el importo para el tamaño
-            #como el mio no tiene estilos para imagenes ajuste con width y height
+            # aca mauro uso un class_name de el estilo que el importo para el tamaño
+            # como el mio no tiene estilos para imagenes ajuste con width y height
             width="5em",
-            height="5em"
+            height="5em",
         ),
-            rx.vstack(
-                link_icon("youtube", 
-                      constants.YOUTUBE_URL
-                      ),
-            link_icon("twitter",
-                      constants.TWITTER_URL
-                      ),
-            link_icon("instagram",
-                      constants.INSTAGRAM_URL
-                      ),
-            ),
-            width="100%",
+        rx.vstack(
+            link_icon("youtube", constants.YOUTUBE_URL),
+            link_icon("twitter", constants.TWITTER_URL),
+            link_icon("instagram", constants.INSTAGRAM_URL),
+        ),
+        width="100%",
         padding_bottom=Size.BIG.value,
         style=styles.max_width_style,
     )
+
