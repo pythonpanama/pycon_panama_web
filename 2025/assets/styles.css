@@ -30,3 +30,13 @@
       background-color: var(--color1);
     }
   }
+  
+  .color_fondo{
+    background: linear-gradient(120deg, #6FC7E1 0%, #FDE3C8 25%, #FFAA88 50%, #AB62CD 75%, #1E4171 100%),
+    background-size: 400% 400%,
+    animation: fondoAnimado 20s ease-in-out infinite,
+    @keyframes fondoAnimado {
+    0%{background-position: 0% 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0% 50%;}},
+  }
