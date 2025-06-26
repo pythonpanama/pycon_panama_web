@@ -55,4 +55,3 @@ app.add_page(
     description="Recopilacion de expositores y fechas de presentacion",
     route="/calendar",
 )
-

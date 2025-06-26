@@ -3,9 +3,10 @@ import my_first_page.constants as constants
 from my_first_page.styles.styles import Size, TextColor, Color
 import my_first_page.styles.styles as styles
 
+
 def header() -> rx.Component:
     return rx.vstack(
-        #cabezera de bienvenida
+        # cabezera de bienvenida
         rx.box(
             rx.el.span(
                 "BIENVENIDOS A ",
@@ -19,17 +20,16 @@ def header() -> rx.Component:
                 "2025",
                 color=TextColor.FOURTH.value,
             ),
-            #size y spacing solo aceptan literales de tipo ["1","2","3","4","5","6","7","8","9"]
-            #no aceptan cosas como lg, sm, ni 2rem, 2em, nada de esto acepta
+            # size y spacing solo aceptan literales de tipo ["1","2","3","4","5","6","7","8","9"]
+            # no aceptan cosas como lg, sm, ni 2rem, 2em, nada de esto acepta
             width="100%",
             font_size=["2em", "2em", "3em", "4em", "4em", "4em"],
             text_align="start",
-            text_shadow= "black 2px 2px",
+            text_shadow="black 2px 2px",
         ),
-
-        #SECCION LOGO CON CONTADOR
-        #EL LOGO TODAVIA ESTA ABIERTO A CAMBIOS
-        #revisar diferencia entre rx.hstack y rx.flex
+        # SECCION LOGO CON CONTADOR
+        # EL LOGO TODAVIA ESTA ABIERTO A CAMBIOS
+        # revisar diferencia entre rx.hstack y rx.flex
         rx.hstack(
             rx.image(
                 src="PyConPet.jpg",
@@ -44,14 +44,16 @@ def header() -> rx.Component:
                     font_size=[Size.MEDIUM.value, Size.DEFAULT.value, Size.BIG.value],
                     color=TextColor.FIFTH.value,
                     text_align="center",
-                    text_shadow= "black 1px 1px",
+                    text_shadow="black 1px 1px",
                 ),
-                #CAJA DONDE SE MUESTRA EL CONTADOR
-                #EL CONTADOR ES UNA FUNCION QUE SE ENCUENTRA EN LOS ASSETS ECHO CON JS
-                #DE SER NECESARIO UN CAMBIO DE FORMATO DIRIGIRSE A ESA FUNCION LA CUAL ES "countdown.js"
+                # CAJA DONDE SE MUESTRA EL CONTADOR
+                # EL CONTADOR ES UNA FUNCION QUE SE ENCUENTRA EN LOS ASSETS ECHO CON JS
+                # DE SER NECESARIO UN CAMBIO DE FORMATO DIRIGIRSE A ESA FUNCION LA CUAL ES "countdown.js"
                 rx.hstack(
                     rx.box(
-                        rx.text(id="days",),
+                        rx.text(
+                            id="days",
+                        ),
                         rx.text("Días", style=styles.countdown_text),
                         style=styles.countdown,
                         class_name="alert alert-dismissible",
@@ -77,8 +79,7 @@ def header() -> rx.Component:
                     id="countdown",
                     spacing="4",
                 ),
-
-                #MENSAJE QUE SE MUESTRA CUANDO TERMINA EL CONTEO
+                # MENSAJE QUE SE MUESTRA CUANDO TERMINA EL CONTEO
                 rx.box(
                     rx.text("¡Comienza la PyCon!"),
                     id="event-started",
@@ -86,8 +87,7 @@ def header() -> rx.Component:
                     class_name="alert alert-dismissible",
                     style=styles.countdown,
                 ),
-
-                #HASHTAG PARA COMPARTIR REDES SOCIALES
+                # HASHTAG PARA COMPARTIR REDES SOCIALES
                 rx.link(
                     "#PYTHON PANAMA",
                     href=constants.PYCON_HASHTAG_URL,
@@ -95,10 +95,11 @@ def header() -> rx.Component:
                     color=TextColor.FIFTH.value,
                     font_size=Size.DEFAULT.value,
                 ),
-            align_items="center",
+                align_items="center",
             ),
-        style=styles.header,
+            style=styles.header,
         ),
         rx.script(src="/js/countdown.js"),
         padding_y=Size.VERY_BIG.value,
     )
+
