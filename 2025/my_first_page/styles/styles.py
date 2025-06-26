@@ -160,3 +160,26 @@ nav_links = dict(
     font_size=Size.MEDIUM.value,
     margin_right=Size.BIG.value,
 )
+
+# ESTILOS ESPECIFICOS PARA EL FORMULARIO
+STYLE_FORM = {
+    "input, select, label": {
+        "margin_bottom": "1em",
+    },
+    "button": {
+        "background_color": Color.PRIMARY.value,
+        "height": Size.BUTTON.value,
+        "color": f"{TextColor.TERTIARY.value} !important",
+        "_hover": {
+            "background_color": f"{Color.PRIMARY.value}",
+            "color": f"{TextColor.TERTIARY.value} !important",
+            "text_decoration": "none",
+        },
+    },
+    "background_color": Color.FOURTH.value,
+    "padding": Size.BIG.value,
+    "align_items": "start",
+    "width": "100%",
+    "color": TextColor.FIFTH.value,
+    "font_size": [Size.SMALL.value, Size.MEDIUM.value, Size.DEFAULT.value],
+}

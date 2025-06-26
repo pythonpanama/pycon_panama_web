@@ -2,23 +2,18 @@ import reflex as rx
 from my_first_page.constants import EVENTS
 from my_first_page.styles.styles import Size, TextColor, Color
 import my_first_page.styles.styles as styles
+from my_first_page.components.presentation import presentation
+
 
 def calendar() -> rx.Component:
     return rx.box(
+        presentation(),
         rx.text(
             "Calendario de Eventos",
             font_size=Size.BIG.value,
             color=TextColor.PRIMARY.value,
             padding_bottom=Size.BIG.value,
         ),
-        rx.hstack(
-                rx.text("El evento comenzara en"),
-                rx.text(id="countdown",
-                        color="#ffffff",
-                        font_size="2rem",
-                        font_weight="bold",),
-                align_items="start",
-            ),
         rx.grid(
             rx.foreach(
                 EVENTS,
@@ -61,6 +56,5 @@ def calendar() -> rx.Component:
             gap="2rem",
             width="100%",
         ),
-        rx.script(src="/js/countdown.js"),
         style=styles.max_width_style,
     )
