@@ -1,7 +1,9 @@
+from my_first_page.styles.colors import TextColor
 import reflex as rx
 import my_first_page.styles.styles as styles
-from my_first_page.styles.styles import Color, Size
 from my_first_page.components.header_text import header_text
+
+from my_first_page.styles.styles import Size, TextColor, Color
 
 
 def partners() -> rx.Component:
@@ -14,7 +16,11 @@ def partners() -> rx.Component:
     all_logos = logos * 2  # Se duplican para permitir efecto infinito
 
     return rx.vstack(
-        header_text("star", "Patrocinado por", False),
+        rx.text(
+            "Sponsors",
+            font_size=Size.BIG.value,
+            color=TextColor.FIFTH.value,
+        ),
         rx.box(
             rx.hstack(
                 *[
@@ -26,5 +32,4 @@ def partners() -> rx.Component:
             style=styles.carousel_container,
         ),
         style=styles.sponsors,
-        class_name="card",
     )
