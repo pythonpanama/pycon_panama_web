@@ -5,26 +5,116 @@ PYCON_HASHTAG_URL = "https://linktr.ee/pythonpanama"
 FORM_URL = "/form"
 CALENDAR_URL = "/calendar"
 
-EVENTS = [
+EVENTS_DAY_1 = [
     {
-        "image": "perfil1.jpg",
-        "topic": "Introducción a Python",
-        "social_link": "https://twitter.com/presenter1",
-        "date": "2025-10-08",
+        "image_url": "/PyConPet.jpg",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
         "time": "10:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
     },
     {
-        "image": "perfil2.jpg",
-        "topic": "Desarrollo Web con Reflex",
-        "social_link": "https://linkedin.com/in/presenter2",
-        "date": "2025-10-08",
-        "time": "2:00 PM",
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "2:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
     },
     {
-        "image": "perfil3.jpg",
-        "topic": "Machine Learning en Producción",
-        "social_link": "https://github.com/presenter3",
-        "date": "2025-10-09",
-        "time": "11:00 AM",
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+]
+
+EVENTS_DAY_2 = [
+    {
+        "image_url": "/PyConPet.jpg",
+        "name": "Mc Python 2",
+        "title": "FrontEnd Developer",
+        "time": "10:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "2:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+]
+
+EVENTS_DAY_3 = [
+    {
+        "image_url": "/PyConPet.jpg",
+        "name": "Mc Python 3",
+        "title": "FrontEnd Developer",
+        "time": "10:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "2:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+    },
+    {
+        "image_url": "",
+        "name": "Mc Python",
+        "title": "FrontEnd Developer",
+        "time": "5:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
     },
 ]

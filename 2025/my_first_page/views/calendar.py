@@ -1,66 +1,99 @@
 import reflex as rx
-from my_first_page.constants import EVENTS
-from my_first_page.styles.styles import Size, TextColor, Color
-import my_first_page.styles.styles as styles
+from my_first_page.styles.styles import Size
+from my_first_page.components.presentation import (
+    presentation_day_1,
+    presentation_day_2,
+    presentation_day_3,
+)
+
+
+# Creamos el State
+class CalendarState(rx.State):
+    selected_day: int = 1  # Por defecto mostrar el día 1
+
 
 def calendar() -> rx.Component:
     return rx.box(
-        rx.text(
-            "Calendario de Eventos",
-            font_size=Size.BIG.value,
-            color=TextColor.PRIMARY.value,
-            padding_bottom=Size.BIG.value,
-        ),
-        rx.hstack(
-                rx.text("El evento comenzara en"),
-                rx.text(id="countdown",
-                        color="#ffffff",
-                        font_size="2rem",
-                        font_weight="bold",),
-                align_items="start",
-            ),
-        rx.grid(
-            rx.foreach(
-                EVENTS,
-                lambda event: rx.box(
-                    rx.image(
-                        src=event["image"],
-                        alt="Imagen del presentador",
-                        width="150px",
-                        height="150px",
-                        border_radius="50%",
-                        margin_bottom="1rem",
-                    ),
-                    rx.text(
-                        event["topic"],
-                        font_size="1.2rem",
-                        font_weight="bold",
-                        margin_bottom="0.5rem",
-                    ),
-                    rx.text(
-                        f"Fecha: {event['date']} - Hora: {event['time']}",
-                        font_size="1rem",
-                        margin_bottom="0.5rem",
-                    ),
-                    rx.link(
-                        "Ver Redes Sociales",
-                        href=event["social_link"],
-                        color=TextColor.ACCENT.value,
-                        is_external=True,
-                    ),
-                    padding="1rem",
-                    border="1px solid #ccc",
-                    border_radius="8px",
-                    box_shadow="0 4px 6px rgba(0, 0, 0, 0.1)",
-                    width="100%",
-                    text_align="start",
-                    bg_color=Color.TERTIARY.value,
+        rx.html('<link rel="stylesheet" href="/styles.css">'),
+        rx.vstack(
+            rx.hstack(
+                rx.link(
+                    "Día 1",
+                    on_click=lambda: CalendarState.set_selected_day(1),
+                    class_name="btn",
                 ),
+                rx.link(
+                    "Día 2",
+                    on_click=lambda: CalendarState.set_selected_day(2),
+                    class_name="btn",
+                ),
+                rx.link(
+                    "Día 3",
+                    on_click=lambda: CalendarState.set_selected_day(3),
+                    class_name="btn",
+                ),
+                padding_y=Size.BIG.value,
+                width="100%",
+                align_items="center",
+                justify_content="center",
+                margin_x="auto",
             ),
-            template_columns="repeat(auto-fit, minmax(250px, 1fr))",
-            gap="2rem",
+            rx.cond(
+                CalendarState.selected_day == 1,
+                presentation_day_1(),
+            ),
+            rx.cond(
+                CalendarState.selected_day == 2,
+                presentation_day_2(),
+            ),
+            rx.cond(
+                CalendarState.selected_day == 3,
+                presentation_day_3(),
+            ),
             width="100%",
+            align_items="center",
+            justify_content="center",
+            margin_x="auto",
         ),
-        rx.script(src="/js/countdown.js"),
-        style=styles.max_width_style,
+        padding_y=Size.BIG.value,
+        padding_x=Size.BIG.value,
+        width="100%",
     )
+
+
+# viejo calendar
+# import reflex as rx
+# from my_first_page.styles.styles import Size
+# from my_first_page.components.presentation import (
+#     presentation_day_1,
+#     presentation_day_2,
+#     presentation_day_3,
+# )
+#
+#
+# def calendar() -> rx.Component:
+#     return rx.box(
+#         rx.hstack(
+#             rx.link(
+#                 "Día 1",
+#             ),
+#             rx.link(
+#                 "Día 2",
+#             ),
+#             rx.link(
+#                 "Día 3",
+#             ),
+#             padding_y=Size.BIG.value,
+#             width="100%",
+#             align_items="center",
+#             justify_content="center",
+#             margin_x="auto",
+#         ),
+#         rx.hstack(
+#             presentation_day_1(),
+#             # wrap="wrap",
+#         ),
+#         padding_y=Size.BIG.value,
+#         padding_x=Size.BIG.value,
+#         width="100%",
+#     )
