@@ -102,4 +102,3 @@ def header() -> rx.Component:
         rx.script(src="/js/countdown.js"),
         padding_y=Size.VERY_BIG.value,
     )
-

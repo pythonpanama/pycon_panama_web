@@ -44,17 +44,18 @@ BASE_STYLE = {
     rx.el.span: {
         "font_size": Size.MEDIUM.value,
     },
-    rx.button: {
-        "border_color": Color.FIFTH.value,
-        "background_color": Color.PRIMARY.value,
-        "height": Size.BUTTON.value,
-        "color": f"{TextColor.TERTIARY.value} !important",
-        "_hover": {
-            "background_color": f"{Color.PRIMARY.value}",
-            "color": f"{TextColor.TERTIARY.value} !important",
-            "text_decoration": "none",
-        },
-    },
+    # antiguo diseño
+    # rx.button: {
+    # "border_color": Color.FIFTH.value,
+    # "background_color": Color.PRIMARY.value,
+    # "height": Size.BUTTON.value,
+    # "color": f"{TextColor.TERTIARY.value} !important",
+    # "_hover": {
+    #     "background_color": f"{Color.PRIMARY.value}",
+    #     "color": f"{TextColor.TERTIARY.value} !important",
+    #     "text_decoration": "none",
+    # },
+    # },
 }
 
 # estilos del header
@@ -67,6 +68,25 @@ header = dict(
     padding_y=Size.BIG.value,
     flex_direction=["column", "column", "column", "row", "row", "row"],
 )
+
+BUTTON = {
+    "display": "inline-block",
+    "padding": "10px 20px",
+    "background": "#AB62CD",
+    "color": "#FDE3C8",
+    "text-decoration": "none",
+    "font-weight": "bold",
+    "border": "3px solid #1E4171",
+    "box-shadow": "4px 4px 0 #6FC7E1",
+    "transition": "all 0.2s ease",
+    "hover": {
+        "background": "#AB62CD",
+        "color": "#FDE3C8",
+        "border": "3px solid #1E4171",
+        "box-shadow": "none",
+    },
+}
+
 
 # estilos de el contador
 countdown = dict(

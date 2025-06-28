@@ -1,42 +1,61 @@
-:root{
-    --color1:#D49EE7;
-    --color2:#AB62CD;
-    --color3:#FFAA88;
-    --color4:#FDE3C8;
-    --color5:#6FC7E1;
-    --color6:#1E4171;
+/* :root{ */
+/*     --color1:#D49EE7; */
+/*     --color2:#AB62CD; */
+/*     --color3:#FFAA88; */
+/*     --color4:#FDE3C8; */
+/*     --color5:#6FC7E1; */
+/*     --color6:#1E4171; */
+/* } */
+/* .fondo { */
+/*     animation: rotate-bg-color 10s infinite; */
+/*   } */
+/**/
+/*   @keyframes rotate-bg-color { */
+/*     0% { */
+/*       background-color: var(--color1); */
+/*     } */
+/*     20% { */
+/*       background-color: var(--color2); */
+/*     } */
+/*     40% { */
+/*       background-color: var(--color3); */
+/*     } */
+/*     60% { */
+/*       background-color: var(--color4); */
+/*     } */
+/*     80% { */
+/*       background-color: var(--color5); */
+/*     } */
+/*     100% { */
+/*       background-color: var(--color1); */
+/*     } */
+/*   } */
+/**/
+/*   .color_fondo{ */
+/*     background: linear-gradient(120deg, #6FC7E1 0%, #FDE3C8 25%, #FFAA88 50%, #AB62CD 75%, #1E4171 100%), */
+/*     background-size: 400% 400%, */
+/*     animation: fondoAnimado 20s ease-in-out infinite, */
+/*     @keyframes fondoAnimado { */
+/*     0%{background-position: 0% 50%;} */
+/*     50%{background-position: 100% 50%;} */
+/*     100%{background-position: 0% 50%;}}, */
+/*   } */
+/**/
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #AB62CD;
+    color: #FDE3C8;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid #1E4171;
+    box-shadow: 4px 4px 0 #6FC7E1;
+    transition: all 0.2s ease;
+  }
+
+.btn:hover {
+    background: #AB62CD;
+    color: #FDE3C8;
+    border: 3px solid #1E4171;
+    box-shadow: none;
 }
-.fondo {
-    animation: rotate-bg-color 10s infinite;
-  }
-  
-  @keyframes rotate-bg-color {
-    0% {
-      background-color: var(--color1);
-    }
-    20% {
-      background-color: var(--color2);
-    }
-    40% {
-      background-color: var(--color3);
-    }
-    60% {
-      background-color: var(--color4);
-    }
-    80% {
-      background-color: var(--color5);
-    }
-    100% {
-      background-color: var(--color1);
-    }
-  }
-  
-  .color_fondo{
-    background: linear-gradient(120deg, #6FC7E1 0%, #FDE3C8 25%, #FFAA88 50%, #AB62CD 75%, #1E4171 100%),
-    background-size: 400% 400%,
-    animation: fondoAnimado 20s ease-in-out infinite,
-    @keyframes fondoAnimado {
-    0%{background-position: 0% 50%;}
-    50%{background-position: 100% 50%;}
-    100%{background-position: 0% 50%;}},
-  }
