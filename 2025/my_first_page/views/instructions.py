@@ -7,7 +7,7 @@ import my_first_page.styles.styles as styles
 
 def instructions() -> rx.Component:
     return rx.box(
-        rx.html('<link rel="stylesheet" href="/styles.css">'),
+        # rx.html('<link rel="stylesheet" href="/styles.css">'),
         rx.vstack(
             rx.text(
                 "Como funciona el evento", size="8", color=TextColor.TERTIARY.value
@@ -17,20 +17,22 @@ def instructions() -> rx.Component:
             rx.el.span("Solo tienes que registrarte en nuestra pagina"),
             rx.link(
                 "Registrarse",
-                class_name="btn",
                 on_click=rx.redirect(
                     "/form",
                 ),
+                class_name="btn",
+                style=styles.boton,
             ),
             rx.el.span(
                 "loremp ipsum dolor sit amet, consectetur adipiscing elit. ",
             ),
             rx.link(
                 "Ver charlas",
-                class_name="btn",
                 on_click=rx.redirect(
                     "/calendar",
                 ),
+                class_name="btn",
+                style=styles.boton,
             ),
             rx.el.span("loremp ipsum dolor sit amet, consectetur adipiscing elit. "),
             background_color=TextColor.SECONDARY.value,

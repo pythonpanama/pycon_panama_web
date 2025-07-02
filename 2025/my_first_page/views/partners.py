@@ -1,9 +1,8 @@
 from my_first_page.styles.colors import TextColor
 import reflex as rx
 import my_first_page.styles.styles as styles
-from my_first_page.components.header_text import header_text
 
-from my_first_page.styles.styles import Size, TextColor, Color
+from my_first_page.styles.styles import Size
 
 
 def partners() -> rx.Component:
