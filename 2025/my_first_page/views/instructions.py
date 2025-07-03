@@ -17,9 +17,10 @@ def instructions() -> rx.Component:
             rx.el.span("Solo tienes que registrarte en nuestra pagina"),
             rx.link(
                 "Registrarse",
-                on_click=rx.redirect(
-                    "/form",
-                ),
+                # on_click=rx.redirect(
+                #     "/form",
+                # ),
+                href="/form",
                 class_name="btn",
                 style=styles.boton,
             ),
@@ -28,9 +29,10 @@ def instructions() -> rx.Component:
             ),
             rx.link(
                 "Ver charlas",
-                on_click=rx.redirect(
-                    "/calendar",
-                ),
+                # on_click=rx.redirect(
+                #     "/calendar",
+                # ),
+                href="/calendar",
                 class_name="btn",
                 style=styles.boton,
             ),

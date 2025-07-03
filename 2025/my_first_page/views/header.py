@@ -10,11 +10,12 @@ def header() -> rx.Component:
         rx.box(
             rx.el.span(
                 "BIENVENIDOS A ",
-                color=TextColor.SECONDARY.value,
+                color=TextColor.ACCENT.value,
             ),
             rx.el.span(
                 "PYCON PANAMÁ ",
-                color=TextColor.PRIMARY.value,
+                bg=Color.ACCENT.value,
+                color=TextColor.SECONDARY.value,
             ),
             rx.el.span(
                 "2025",
@@ -42,7 +43,7 @@ def header() -> rx.Component:
                 rx.text(
                     "No te lo pierdas, el dia 20 de octubre, faltan:",
                     font_size=[Size.MEDIUM.value, Size.DEFAULT.value, Size.BIG.value],
-                    color=TextColor.FIFTH.value,
+                    color=TextColor.PRIMARY.value,
                     text_align="center",
                     text_shadow="black 1px 1px",
                 ),

@@ -11,11 +11,11 @@ def navbar() -> rx.Component:
                     rx.box(
                         rx.el.span(
                             "PyCon ",
-                            color=TextColor.SECONDARY.value,
+                            color=TextColor.PRIMARY.value,
                         ),
                         rx.el.span(
                             "Panamá ",
-                            color=TextColor.TERTIARY.value,
+                            color=TextColor.SECONDARY.value,
                         ),
                         rx.el.span(
                             "2025 ",
@@ -28,7 +28,7 @@ def navbar() -> rx.Component:
                         ],
                     ),
                     rx.spacer(),
-                    rx.box(
+                    rx.hstack(
                         rx.link(
                             "Inicio",
                             style=styles.nav_links,
@@ -77,19 +77,23 @@ def navbar() -> rx.Component:
                                 "text_decoration": "underline",
                             },
                         ),
-                        justyfy="end",
-                        spacing="5",
+                        justify_content="flex_end",
+                        align_items="center",
+                        # spacing="5",
                     ),
+                    # width="100%",
+                    # align_items="center",
                     width="100%",
+                    justify_content="space-between",
                     align_items="center",
+                    bg=Color.TERTIARY.value,
+                    position="sticky",
+                    border_bottom=f"0.25em solid {Color.SECONDARY.value}",
+                    padding_x=Size.BIG.value,
+                    padding_y=Size.DEFAULT.value,
+                    z_index="999",
+                    top="0",
                 ),
-                bg=Color.PRIMARY.value,
-                position="sticky",
-                border_bottom=f"0.25em solid {Color.SECONDARY.value}",
-                padding_x=Size.BIG.value,
-                padding_y=Size.DEFAULT.value,
-                z_index="999",
-                top="0",
                 width="100%",
             ),
             rx.mobile_and_tablet(
@@ -97,11 +101,11 @@ def navbar() -> rx.Component:
                     rx.box(
                         rx.el.span(
                             "PyCon ",
-                            color=TextColor.SECONDARY.value,
+                            color=TextColor.PRIMARY.value,
                         ),
                         rx.el.span(
                             "Panamá ",
-                            color=TextColor.TERTIARY.value,
+                            color=TextColor.SECONDARY.value,
                         ),
                         rx.el.span(
                             "2025 ",
@@ -137,5 +141,6 @@ def navbar() -> rx.Component:
                 top="0",
                 width="100%",
             ),
+            width="100%",
         ),
     )

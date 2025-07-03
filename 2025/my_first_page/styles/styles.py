@@ -19,6 +19,7 @@ class Size(Enum):
 # https://bootswatch.com/brite/
 STYLESHEETS = [
     "bootstrap.min.css",
+    "https://fonts.googleapis.com/css2?family=Gravitas+One&family=Luckiest+Guy&display=swap",
     # "https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap",
     # "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
     # "https://fonts.googleapis.com/css2?family=Space+Mono&display=swap",
@@ -28,8 +29,10 @@ STYLESHEETS = [
 # estilo base, de uso general para toda la pagina
 BASE_STYLE = {
     "font_family": Font.DEFAULT.value,
-    "color": TextColor.FIFTH.value,
-    "background": "linear-gradient(120deg, #D49EE7 25%, #FDE3C8 50%, #D49EE7 75%, #FDE3C8 100%)",
+    "font-weight": "400",
+    "font-style": "normal",
+    # "color": TextColor.FOURTH.value,
+    "background": "linear-gradient(120deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
     "background-size": "400% 400%",
     "animation": "fondoAnimado 20s ease infinite",
     "@keyframes fondoAnimado": {
@@ -45,18 +48,6 @@ BASE_STYLE = {
     rx.el.span: {
         "font_size": Size.MEDIUM.value,
     },
-    # antiguo diseño
-    # rx.button: {
-    # "border_color": Color.FIFTH.value,
-    # "background_color": Color.PRIMARY.value,
-    # "height": Size.BUTTON.value,
-    # "color": f"{TextColor.TERTIARY.value} !important",
-    # "_hover": {
-    #     "background_color": f"{Color.PRIMARY.value}",
-    #     "color": f"{TextColor.TERTIARY.value} !important",
-    #     "text_decoration": "none",
-    # },
-    # },
 }
 
 # estilos del header
@@ -127,7 +118,7 @@ countdown_text = {
 # esta area es para los estilos de la vista de sponsors
 sponsors = {
     "padding_y": Size.VERY_BIG.value,
-    "bg": Color.ACCENT.value,
+    # "bg": Color.ACCENT.value,
     "align_items": "center",
     "width": "100%",
 }
@@ -180,7 +171,7 @@ max_width_style = {
 
 # estilos de los links en el navbar
 nav_links = {
-    "color": TextColor.TERTIARY.value,
+    "color": TextColor.PRIMARY.value,
     "font_size": Size.MEDIUM.value,
     "margin_right": Size.BIG.value,
 }
