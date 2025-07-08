@@ -1,22 +1,34 @@
+from my_first_page.styles.colors import TextColor
 import reflex as rx
 import my_first_page.styles.styles as styles
-from my_first_page.styles.styles import Color, Size
-from my_first_page.components.header_text import header_text
+
+from my_first_page.styles.styles import Size
 
 
 def partners() -> rx.Component:
-    return rx.vstack(
-        rx.vstack(
-            header_text("star", "Patrocinado por", False),
-            rx.el.span("loremp ipsum dolor sit amet, consectetur adipiscing elit. "),
-            rx.el.span("loremp ipsum dolor sit amet, consectetur adipiscing elit. "),
-            padding_y=Size.VERY_BIG.value,
-            style=styles.max_width_style,
-            bg=Color.ACCENT.value,
-            class_name="card",
-            # padding=Size.BIG.value,
-        ),
-        align_items="center",
-        width="100%",
-    )
+    logos = [
+        "img/PSF-DenK-THt.png",
+        "img/Pyladies-B4VQ2QPR.png",
+        "img/SoftD3v-DxBzIADV.png",
+        "img/jb_beam-2O1FuFIW.png",
+    ]
+    all_logos = logos * 2  # Se duplican para permitir efecto infinito
 
+    return rx.vstack(
+        rx.text(
+            "Sponsors",
+            font_size=Size.BIG.value,
+            color=TextColor.FIFTH.value,
+        ),
+        rx.box(
+            rx.hstack(
+                *[
+                    rx.image(src=logo, height="100px", margin_x="30px")
+                    for logo in all_logos
+                ],
+                style=styles.carousel_track,
+            ),
+            style=styles.carousel_container,
+        ),
+        style=styles.sponsors,
+    )
