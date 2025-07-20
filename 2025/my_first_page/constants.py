@@ -90,13 +90,6 @@ EVENTS_DAY_2 = [
         "time": "5:00 AM",
         "description": "El Machine Learning afectaciones y mejoras",
     },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
-    },
 ]
 
 EVENTS_DAY_3 = [

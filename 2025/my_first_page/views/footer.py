@@ -24,17 +24,18 @@ def footer() -> rx.Component:
         ),
         rx.spacer(),
         # la idea es tener la mascota junto con los links, abierto a cambios
-        rx.image(
-            src="PyConPet.jpg",
-            alt="mascota python",
-            width="5em",
-            height="5em",
-        ),
-        rx.vstack(
+        # rx.image(
+        #     src="PyConPet.jpg",
+        #     alt="mascota python",
+        #     width="5em",
+        #     height="5em",
+        # ),
+        rx.hstack(
             link_icon("youtube", constants.YOUTUBE_URL),
             link_icon("twitter", constants.TWITTER_URL),
             link_icon("instagram", constants.INSTAGRAM_URL),
         ),
+        align_items="center",
         padding_y=Size.BIG.value,
         style=styles.estilo_footer,
     )

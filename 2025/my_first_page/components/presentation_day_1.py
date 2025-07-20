@@ -47,7 +47,7 @@ def presentation_day_1():
                                         "Ver mas",
                                         style=styles.boton,
                                         _hover={
-                                            "background": "#D49EE7",
+                                            "background": "#AB62CD",
                                             "color": "#FDE3C8",
                                             "border": "3px solid #FDE3C8",
                                             "box-shadow": "none",
@@ -109,6 +109,12 @@ def presentation_day_1():
                                             mt="1.5rem",
                                             # variant="soft",
                                             style=styles.boton,
+                                            _hover={
+                                                "background": "#AB62CD",
+                                                "color": "#FDE3C8",
+                                                "border": "3px solid #FDE3C8",
+                                                "box-shadow": "none",
+                                            },
                                         )
                                     ),
                                     # padding="2rem",
@@ -130,6 +136,7 @@ def presentation_day_1():
             align_items="center",
             justify_content="center",
             margin_x="auto",
+            margin_y="2rem",
             gap="2rem",
             flex_direction=["column", "column", "column", "row", "row", "row"],
             # "repeat(auto-fit, minmax(250px, 1fr))"

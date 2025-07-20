@@ -4,6 +4,7 @@ from my_first_page.views.navbar import navbar
 from my_first_page.components.presentation_day_1 import presentation_day_1
 from my_first_page.components.presentation_day_2 import presentation_day_2
 from my_first_page.components.presentation_day_3 import presentation_day_3
+from my_first_page.views.footer import footer
 
 
 # Creamos el State
@@ -22,7 +23,7 @@ def calendar() -> rx.Component:
                 # class_name="btn",
                 style=styles.boton,
                 _hover={
-                    "background": "#D49EE7",
+                    "background": "#AB62CD",
                     "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
@@ -34,7 +35,7 @@ def calendar() -> rx.Component:
                 # class_name="btn",
                 style=styles.boton,
                 _hover={
-                    "background": "#D49EE7",
+                    "background": "#AB62CD",
                     "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
@@ -46,7 +47,7 @@ def calendar() -> rx.Component:
                 # class_name="btn",
                 style=styles.boton,
                 _hover={
-                    "background": "#D49EE7",
+                    "background": "#AB62CD",
                     "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
@@ -70,6 +71,7 @@ def calendar() -> rx.Component:
             CalendarState.selected_day == 3,
             presentation_day_3(),
         ),
+        footer(),
         width="100%",
         align_items="center",
         justify_content="center",

@@ -204,12 +204,18 @@ STYLE_FORM = {
 # APARTADO PARA LAS CARTAS DE PRESENTACION
 card_container = (
     {
-        "width": "320px",
-        "max_width": "400px",
-        "min_height": "400px",
+        "width": "90%",  # responsivo
+        "max_width": "300px",  # límite en pantallas grandes
+        "height": "auto",  # más flexible
+        "min_height": "500px",  # mantener consistencia visual
+        "box-sizing": "border-box",  # evitar desbordes
+        # "width": "320px",
+        # "max_width": "400px",
+        # "height": "500px",
+        "overflow": "hidden",
         "background": "#FDE3C8",
         "border": "4px solid #1E4171",
-        "border-radius": "5px",
+        "border-radius": "10px",
         "box-shadow": "8px 8px 0 #AB62CD",
     },
 )
@@ -273,6 +279,13 @@ lower_container_p = (
         "padding": "10px",
         "background": "#D49EE7",
         "margin-bottom": "20px",
+        "height": "50px",  # Limita la altura del párrafo
+        "overflow": "hidden",  # Muestra scroll si hay mucho texto
+        "display": "flex",
+        "-webkit-line-clamp": "4",  # Número máximo de líneas visibles
+        "-webkit-box-orient": "vertical",
+        "align_items": "center",
+        "justify_content": "center",
     },
 )
 
@@ -284,7 +297,7 @@ boton = (
         "background": Color.ACCENT,
         "color": Color.FIFTH,
         "text-decoration": "none",
-        "font-weight": "bold",
+        # "font-weight": "bold",
         "border-radius": "15px",
         "border": "3px solid #AB62CD",
         "transition": "all 0.2s ease",
@@ -307,4 +320,9 @@ ver_mas = {
         "50%": {"background-position": "100% 50%"},
         "100%": {"background-position": "0% 50%"},
     },
+}
+
+legend = {
+    "color": "1E4171",
+    "size": "2rem",
 }

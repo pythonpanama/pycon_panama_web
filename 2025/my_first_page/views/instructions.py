@@ -24,7 +24,7 @@ def instructions() -> rx.Component:
                 # class_name="btn",
                 style=styles.boton,
                 _hover={
-                    "background": "#D49EE7",
+                    "background": "#AB62CD",
                     "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
@@ -42,7 +42,7 @@ def instructions() -> rx.Component:
                 # class_name="btn",
                 style=styles.boton,
                 _hover={
-                    "background": "#D49EE7",
+                    "background": "#AB62CD",
                     "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
