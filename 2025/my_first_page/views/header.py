@@ -14,7 +14,6 @@ def header() -> rx.Component:
             ),
             rx.el.span(
                 "PYCON PANAMÁ ",
-                bg=Color.ACCENT.value,
                 color=TextColor.SECONDARY.value,
             ),
             rx.el.span(
@@ -24,7 +23,7 @@ def header() -> rx.Component:
             # size y spacing solo aceptan literales de tipo ["1","2","3","4","5","6","7","8","9"]
             # no aceptan cosas como lg, sm, ni 2rem, 2em, nada de esto acepta
             width="100%",
-            font_size=["2em", "2em", "3em", "4em", "4em", "4em"],
+            font_size=["3em", "3em", "4em", "5em", "6em", "6em"],
             text_align="start",
             text_shadow="black 2px 2px",
         ),

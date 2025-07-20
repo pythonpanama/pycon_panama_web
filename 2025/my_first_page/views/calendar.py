@@ -23,7 +23,7 @@ def calendar() -> rx.Component:
                 style=styles.boton,
                 _hover={
                     "background": "#D49EE7",
-                    "color": "#1E4171",
+                    "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
                 },
@@ -35,7 +35,7 @@ def calendar() -> rx.Component:
                 style=styles.boton,
                 _hover={
                     "background": "#D49EE7",
-                    "color": "#1E4171",
+                    "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
                 },
@@ -47,7 +47,7 @@ def calendar() -> rx.Component:
                 style=styles.boton,
                 _hover={
                     "background": "#D49EE7",
-                    "color": "#1E4171",
+                    "color": "#FDE3C8",
                     "border": "3px solid #FDE3C8",
                     "box-shadow": "none",
                 },

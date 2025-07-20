@@ -32,7 +32,7 @@ BASE_STYLE = {
     "font-weight": "400",
     "font-style": "normal",
     # "color": TextColor.FOURTH.value,
-    "background": "linear-gradient(120deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
+    "background": "linear-gradient(30deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
     "background-size": "400% 400%",
     "animation": "fondoAnimado 20s ease infinite",
     "@keyframes fondoAnimado": {
@@ -96,6 +96,8 @@ countdown = {
     "font_size": [Size.MEDIUM.value, Size.DEFAULT.value, Size.BIG.value],
     "font-weight": "bold",
     "text_align": "center",
+    "align_items": "center",
+    "justify_content": "center",
     "background_color": Color.PRIMARY.value,
     "color": TextColor.TERTIARY.value,
     "text_shadow": "black 2px 2px",
@@ -111,8 +113,8 @@ countdown_text = {
         Size.SMALL.value,
         Size.SMALL.value,
     ],
-    "margin_top": "0",
-    "padding_top": "0",
+    "margin": "0",
+    "padding": "0",
 }
 
 # esta area es para los estilos de la vista de sponsors
@@ -203,9 +205,11 @@ STYLE_FORM = {
 card_container = (
     {
         "width": "320px",
+        "max_width": "400px",
+        "min_height": "400px",
         "background": "#FDE3C8",
         "border": "4px solid #1E4171",
-        "border-radius": "10px",
+        "border-radius": "5px",
         "box-shadow": "8px 8px 0 #AB62CD",
     },
 )
@@ -277,18 +281,30 @@ boton = (
     {
         "display": "inline-block",
         "padding": "10px 20px",
-        "background": "#AB62CD",
-        "color": "#FDE3C8",
+        "background": Color.ACCENT,
+        "color": Color.FIFTH,
         "text-decoration": "none",
         "font-weight": "bold",
         "border-radius": "15px",
         "border": "3px solid #AB62CD",
-        "box-shadow": "4px 4px 0 #D49EE7",
         "transition": "all 0.2s ease",
+        "box-shadow": "4px 4px 0 #AB62CD",
+        # por alguna razon el hover no funciona aqui
         # "_hover": {
-        #     "background": "#FDE3C8",
-        #     "color": "#1E4171",
-        #     "box-shadow": "none",
+        #     "background": Color.FOURTH,
+        #     "color": Color.TERTIARY,
         # },
     },
 )
+
+# estilos del ver mas en las cartas
+ver_mas = {
+    "background": "linear-gradient(120deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
+    "background-size": "400% 400%",
+    "animation": "fondoAnimado 10s ease infinite",
+    "@keyframes fondoAnimado": {
+        "0%": {"background-position": "0% 50%"},
+        "50%": {"background-position": "100% 50%"},
+        "100%": {"background-position": "0% 50%"},
+    },
+}
