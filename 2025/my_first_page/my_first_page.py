@@ -11,6 +11,7 @@ from my_first_page.views.footer import footer
 from my_first_page.views.form import form
 from my_first_page.views.partners import partners
 from my_first_page.views.calendar import calendar
+from my_first_page.components.location_1 import location
 
 
 def index() -> rx.Component:
@@ -20,6 +21,7 @@ def index() -> rx.Component:
         rx.vstack(
             header(),
             instructions(),
+            location(),
             partners(),
             footer(),
             align="center",

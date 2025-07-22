@@ -326,3 +326,48 @@ legend = {
     "color": "1E4171",
     "size": "2rem",
 }
+
+# estilos sedes
+
+card_container_sede = (
+    {
+        "gap": "0",
+        "width": "90%",  # responsivo
+        "max_width": "300px",  # límite en pantallas grandes
+        "height": "auto",  # más flexible
+        "min_height": "300px",  # mantener consistencia visual
+        "box-sizing": "border-box",  # evitar desbordes
+        "overflow": "hidden",
+        # "background": "#FDE3C8",
+        "border-radius": "10px",
+    },
+)
+
+upper_text_sede = {
+    "width": "100%",
+    "color": "#FDE3C8",
+    # "height": "100%",
+    "margin": "0",
+    "display": "flex",
+    "height": "50px",  # Limita la altura del párrafo
+    "overflow": "hidden",  # Muestra scroll si hay mucho texto
+    "-webkit-line-clamp": "4",  # Número máximo de líneas visibles
+    "-webkit-box-orient": "vertical",
+    "align_items": "center",
+    "justify_content": "center",
+}
+
+img_sede = {
+    "width": "100%",
+    "height": "100%",
+    "margin_x": "auto",
+    "margin_y": "0",
+}
+lower_text_sede = {
+    "width": "100%",
+    "color": "blue",
+    "height": "100%",
+    "display": "flex",
+    "align_items": "center",
+    "justify_content": "center",
+}

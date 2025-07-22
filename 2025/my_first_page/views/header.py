@@ -31,13 +31,13 @@ def header() -> rx.Component:
         # EL LOGO TODAVIA ESTA ABIERTO A CAMBIOS
         # revisar diferencia entre rx.hstack y rx.flex
         rx.hstack(
-            rx.image(
-                src="PyConPet.jpg",
-                alt="mascota python",
-                width="16em",
-                height="16em",
-                margin_x="auto",
-            ),
+            # rx.image(
+            #     src="PyConPet.jpg",
+            #     alt="mascota python",
+            #     width="16em",
+            #     height="16em",
+            #     margin_x="auto",
+            # ),
             rx.vstack(
                 rx.text(
                     "No te lo pierdas, el dia 20 de octubre, faltan:",
