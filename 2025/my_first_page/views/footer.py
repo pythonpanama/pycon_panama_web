@@ -35,6 +35,7 @@ def footer() -> rx.Component:
             link_icon("twitter", constants.TWITTER_URL),
             link_icon("instagram", constants.INSTAGRAM_URL),
         ),
+        margin_top="3rem",
         align_items="center",
         padding_y=Size.BIG.value,
         style=styles.estilo_footer,

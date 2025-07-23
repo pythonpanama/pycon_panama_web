@@ -26,7 +26,7 @@ STYLESHEETS = [
     # "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
 ]
 
-# estilo base, de uso general para toda la pagina
+# ESTILO BASE, DE USO GENERAL PARA TODA LA PAGINA
 BASE_STYLE = {
     "font_family": Font.DEFAULT.value,
     "font-weight": "400",
@@ -40,17 +40,20 @@ BASE_STYLE = {
         "50%": {"background-position": "100% 50%"},
         "100%": {"background-position": "0% 50%"},
     },
-    rx.heading: {"font_family": Font.DEFAULT.value, "color": TextColor.FIFTH.value},
-    rx.link: {
-        "text_decoration": "none",
-        "_hover": {"color": TextColor.ACCENT.value, "text_decoration": "none"},
+    "html": {
+        "scrollBehavior": "smooth",
     },
+    rx.heading: {"font_family": Font.DEFAULT.value, "color": TextColor.FIFTH.value},
+    # rx.link: {
+    #     "text_decoration": "none",
+    #     "_hover": {"color": TextColor.ACCENT.value, "text_decoration": "none"},
+    # },
     rx.el.span: {
         "font_size": Size.MEDIUM.value,
     },
 }
 
-# estilos del header
+# ESTILOS DEL HEADER
 header = {
     "max_width": "900px",
     "margin_x": "auto",
@@ -80,7 +83,7 @@ BUTTON = {
 }
 
 
-# estilos de el contador
+# ESTILOS DE EL CONTADOR
 countdown = {
     # xs, sm, md, lg, xl
     "width": [
@@ -103,7 +106,7 @@ countdown = {
     "text_shadow": "black 2px 2px",
 }
 
-# estilos de los textos dentro del contador
+# ESTILOS DE LOS TEXTOS DENTRO DEL CONTADOR
 countdown_text = {
     "font_size": [
         Size.SMALL.value,
@@ -117,7 +120,29 @@ countdown_text = {
     "padding": "0",
 }
 
-# esta area es para los estilos de la vista de sponsors
+# ESTILOS CAJA DE INSTRUCCIONES
+
+instructions_box = {
+    "background_color": TextColor.SECONDARY.value,
+    "padding": Size.BIG.value,
+    "align_items": "start",
+    "width": "100%",
+    # cambio de color texto dentro de instrucciones
+    "color": TextColor.FIFTH.value,
+    "border": "3px solid black",
+    "border_radius": "10px",
+    "box-shadow": "8px 8px 0 black",
+}
+
+instructions_title = {
+    "color": TextColor.ACCENT.value,
+    "text_shadow": "4px 4px 0 black",
+    # "margin": "0 auto",
+    "padding_top": Size.VERY_BIG.value,
+    "text_align": "center",
+}
+
+# ESTA AREA ES PARA LOS ESTILOS DE LA VISTA DE SPONSORS
 sponsors = {
     "padding_y": Size.VERY_BIG.value,
     # "bg": Color.ACCENT.value,
@@ -143,7 +168,7 @@ carousel_track = {
     },
 }
 
-# Area del footer
+# AREA DEL FOOTER
 
 estilo_footer = {
     "background": "linear-gradient(120deg, #1E4171 25%, #AB62CD 50%, #1E4171 75%, #AB62CD 100%)",
@@ -163,15 +188,32 @@ estilo_footer = {
 }
 
 
-# estilos generales, para aplicar a las pantallas grandes, abierto a cambios
+# ESTILOS GENERALES, PARA APLICAR A LAS PANTALLAS GRANDES, ABIERTO A CAMBIOS
 max_width_style = {
     "align_items": "start",
     "padding_x": Size.BIG.value,
     "width": "100%",
     "max_width": MAX_WIDTH,
 }
+# ESTILOS DEL NAVBAR
 
-# estilos de los links en el navbar
+desktop_navbar_style = {
+    "width": "100%",
+    "justify_content": "space-between",
+    "align_items": "center",
+    "bg": Color.TERTIARY.value,
+    "border_bottom": f"0.25em solid {Color.SECONDARY.value}",
+    "padding_x": Size.BIG.value,
+    "padding_y": Size.DEFAULT.value,
+}
+
+mobile_navbar_style = {
+    "bg": Color.TERTIARY.value,
+    "border_bottom": f"0.25em solid {Color.SECONDARY.value}",
+    "padding_x": Size.BIG.value,
+    "padding_y": Size.DEFAULT.value,
+}
+# ESTILOS DE LOS LINKS EN EL NAVBAR
 nav_links = {
     "color": TextColor.PRIMARY.value,
     "font_size": Size.MEDIUM.value,
@@ -302,16 +344,17 @@ boton = (
         "border": "3px solid #AB62CD",
         "transition": "all 0.2s ease",
         "box-shadow": "4px 4px 0 #AB62CD",
-        # por alguna razon el hover no funciona aqui
-        # "_hover": {
-        #     "background": Color.FOURTH,
-        #     "color": Color.TERTIARY,
-        # },
     },
 )
 
-# estilos del ver mas en las cartas
+# ESTILOS DEL VER MAS EN LAS CARTAS
 ver_mas = {
+    "padding": "2rem",
+    "border_radius": "12px",
+    "box_shadow": "0px 8px 16px rgba(0, 0, 0, 0.2)",
+    "max_width": "700px",
+    "width": "100%",
+    "justify": "center",
     "background": "linear-gradient(120deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
     "background-size": "400% 400%",
     "animation": "fondoAnimado 10s ease infinite",
@@ -322,12 +365,51 @@ ver_mas = {
     },
 }
 
-legend = {
-    "color": "1E4171",
-    "size": "2rem",
+ver_mas_img = {
+    "width": "200px",
+    "height": "200px",
+    "border_radius": "50%",
+    "object_fit": "cover",
+    "margin": "0 auto",
+    "margin_bottom": "1rem",
+    "border": "3px solid #AB62CD",
 }
 
-# estilos sedes
+ver_mas_socials = {
+    "justify": "center",
+    "color": Color.FIFTH.value,
+}
+
+legend = {
+    "font_size": "1rem",
+    "color": "#1E4171",
+    "margin_top": "1rem",
+    "line_height": "1.5",
+}
+
+ver_mas_close_boton = (
+    {
+        "text_align": "center",
+        "padding": "10px 20px",
+        "background": Color.ACCENT,
+        "color": Color.FIFTH,
+        "text-decoration": "none",
+        "border-radius": "15px",
+        "border": "3px solid #AB62CD",
+        "transition": "all 0.2s ease",
+        "box-shadow": "4px 4px 0 #AB62CD",
+    },
+)
+
+
+# ESTILOS SEDES
+
+sedes_title = {
+    "padding_top": Size.BIG.value,
+    "font_size": Size.VERY_BIG.value,
+    "color": TextColor.FIFTH.value,
+    "text_shadow": "4px 4px 0 black",
+}
 
 card_container_sede = (
     {
@@ -345,9 +427,10 @@ card_container_sede = (
 
 upper_text_sede = {
     "width": "100%",
-    "color": "#FDE3C8",
-    # "height": "100%",
-    "margin": "0",
+    "color": Color.TERTIARY.value,
+    "font_size": ["0.875rem", "1rem"],
+    "text_align_last": "center",
+    "margin": "0 auto",
     "display": "flex",
     "height": "50px",  # Limita la altura del párrafo
     "overflow": "hidden",  # Muestra scroll si hay mucho texto
@@ -370,4 +453,8 @@ lower_text_sede = {
     "display": "flex",
     "align_items": "center",
     "justify_content": "center",
+}
+
+estilo_main_page = {
+    "padding_top": "200px",
 }

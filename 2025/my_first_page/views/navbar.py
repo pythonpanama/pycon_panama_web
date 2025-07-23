@@ -1,6 +1,8 @@
+from my_first_page.views import instructions
 import reflex as rx
 from my_first_page.styles.styles import Size, Color, TextColor
 import my_first_page.styles.styles as styles
+import my_first_page.constants as constants
 
 
 def navbar() -> rx.Component:
@@ -31,6 +33,7 @@ def navbar() -> rx.Component:
                     rx.hstack(
                         rx.link(
                             "Inicio",
+                            href=constants.INICIO_URL,
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
@@ -39,6 +42,7 @@ def navbar() -> rx.Component:
                         ),
                         rx.link(
                             "Acerca de.",
+                            href=constants.ACERCA_DE_URL,
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
@@ -47,6 +51,7 @@ def navbar() -> rx.Component:
                         ),
                         rx.link(
                             "Agenda",
+                            href=constants.CALENDAR_URL,
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
@@ -55,6 +60,7 @@ def navbar() -> rx.Component:
                         ),
                         rx.link(
                             "Sedes",
+                            href=constants.SEDES_URL,
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
@@ -63,6 +69,7 @@ def navbar() -> rx.Component:
                         ),
                         rx.link(
                             "Sponsors",
+                            href=constants.SPONSORS_URL,
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
@@ -71,6 +78,7 @@ def navbar() -> rx.Component:
                         ),
                         rx.link(
                             "Código de conducta",
+                            href=constants.CODIGO_CONDUCTA_URL,
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
@@ -83,16 +91,7 @@ def navbar() -> rx.Component:
                     ),
                     # width="100%",
                     # align_items="center",
-                    width="100%",
-                    justify_content="space-between",
-                    align_items="center",
-                    bg=Color.TERTIARY.value,
-                    position="sticky",
-                    border_bottom=f"0.25em solid {Color.SECONDARY.value}",
-                    padding_x=Size.BIG.value,
-                    padding_y=Size.DEFAULT.value,
-                    z_index="999",
-                    top="0",
+                    style=styles.desktop_navbar_style,
                 ),
                 width="100%",
             ),
@@ -120,12 +119,26 @@ def navbar() -> rx.Component:
                     rx.menu.root(
                         rx.menu.trigger(rx.icon("menu", size=30)),
                         rx.menu.content(
-                            rx.menu.item("Inicio"),
-                            rx.menu.item("Acerca de."),
-                            rx.menu.item("Agenda"),
-                            rx.menu.item("Sedes"),
-                            rx.menu.item("Sponsors"),
-                            rx.menu.item("Código de conducta"),
+                            rx.menu.item(
+                                "Inicio", on_click=rx.redirect(constants.INICIO_URL)
+                            ),
+                            rx.menu.item(
+                                "Acerca de.",
+                                on_click=rx.redirect(constants.ACERCA_DE_URL),
+                            ),
+                            rx.menu.item(
+                                "Agenda", on_click=rx.redirect(constants.CALENDAR_URL)
+                            ),
+                            rx.menu.item(
+                                "Sedes", on_click=rx.redirect(constants.SEDES_URL)
+                            ),
+                            rx.menu.item(
+                                "Sponsors", on_click=rx.redirect(constants.SPONSORS_URL)
+                            ),
+                            rx.menu.item(
+                                "Código de conducta",
+                                on_click=rx.redirect(constants.CODIGO_CONDUCTA_URL),
+                            ),
                         ),
                         justify="end",
                     ),
@@ -133,15 +146,12 @@ def navbar() -> rx.Component:
                     justify="between",
                     align_items="center",
                 ),
-                bg=Color.TERTIARY.value,
-                position="sticky",
-                border_bottom=f"0.25em solid {Color.SECONDARY.value}",
-                padding_x=Size.BIG.value,
-                padding_y=Size.DEFAULT.value,
-                z_index="999",
-                top="0",
+                style=styles.mobile_navbar_style,
                 width="100%",
             ),
             width="100%",
+            z_index="999",
+            position="sticky",
+            top="0",
         ),
     )

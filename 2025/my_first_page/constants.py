@@ -2,8 +2,13 @@ YOUTUBE_URL = "https://www.youtube.com/watch?v="
 TWITTER_URL = "https://twitter.com/"
 INSTAGRAM_URL = "https://www.instagram.com/"
 PYCON_HASHTAG_URL = "https://linktr.ee/pythonpanama"
+INICIO_URL = "/"
 FORM_URL = "/form"
 CALENDAR_URL = "/calendar"
+ACERCA_DE_URL = "/#instructions"
+SEDES_URL = "/#sedes"
+CODIGO_CONDUCTA_URL = "https://pythonpanama.org/codigo-de-conducta"
+SPONSORS_URL = "/#sponsors"
 
 EVENTS_DAY_1 = [
     {

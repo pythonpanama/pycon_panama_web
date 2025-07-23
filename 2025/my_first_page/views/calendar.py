@@ -13,14 +13,13 @@ class CalendarState(rx.State):
 
 
 def calendar() -> rx.Component:
-    return rx.box(
+    return rx.vstack(
         # rx.vstack(
         navbar(),
         rx.hstack(
             rx.link(
                 "Día 1",
                 on_click=lambda: CalendarState.set_selected_day(1),
-                # class_name="btn",
                 style=styles.boton,
                 _hover={
                     "background": "#AB62CD",
@@ -32,7 +31,6 @@ def calendar() -> rx.Component:
             rx.link(
                 "Día 2",
                 on_click=lambda: CalendarState.set_selected_day(2),
-                # class_name="btn",
                 style=styles.boton,
                 _hover={
                     "background": "#AB62CD",
@@ -44,7 +42,6 @@ def calendar() -> rx.Component:
             rx.link(
                 "Día 3",
                 on_click=lambda: CalendarState.set_selected_day(3),
-                # class_name="btn",
                 style=styles.boton,
                 _hover={
                     "background": "#AB62CD",
@@ -74,10 +71,7 @@ def calendar() -> rx.Component:
         footer(),
         width="100%",
         align_items="center",
-        justify_content="center",
+        justify_content="space-between",  # para que mantenga un espacio entre el footer y el contenido
+        min_height="100vh",  # para que la pagina tenga altura minima de la pantalla
         margin_x="auto",
-        # ),
-        # width="100%",
-        # padding_y=styles.Size.BIG.value,
-        # padding_x=styles.Size.BIG.value,
     )

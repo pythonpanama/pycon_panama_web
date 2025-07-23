@@ -9,9 +9,9 @@ from my_first_page.views.header import header
 from my_first_page.views.instructions import instructions
 from my_first_page.views.footer import footer
 from my_first_page.views.form import form
-from my_first_page.views.partners import partners
+from my_first_page.views.sponsors import sponsors
 from my_first_page.views.calendar import calendar
-from my_first_page.components.location_1 import location
+from my_first_page.views.sedes import sedes
 
 
 def index() -> rx.Component:
@@ -21,8 +21,8 @@ def index() -> rx.Component:
         rx.vstack(
             header(),
             instructions(),
-            location(),
-            partners(),
+            sedes(),
+            sponsors(),
             footer(),
             align="center",
             width="100%",

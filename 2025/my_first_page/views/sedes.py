@@ -4,12 +4,11 @@ import my_first_page.styles.styles as styles
 from my_first_page.styles.styles import Size
 
 
-def location() -> rx.Component:
+def sedes() -> rx.Component:
     return rx.vstack(
         rx.text(
             "Sedes",
-            font_size=Size.BIG.value,
-            color=TextColor.FIFTH.value,
+            style=styles.sedes_title,
         ),
         rx.hstack(
             rx.vstack(
@@ -23,20 +22,21 @@ def location() -> rx.Component:
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
-                    border_bottom="4px solid #AB62CD",
+                    border_bottom="4px solid black",
                 ),
                 rx.link(
                     "Ver maps",
                     style=styles.lower_text_sede,
                 ),
                 style=styles.card_container_sede,
-                border="4px solid #AB62CD",
+                border="4px solid black",
                 box_shadow="8px 8px 0 #AB62CD",
             ),
             rx.vstack(
                 rx.text(
-                    "Día 2 Universidad Tecnologica de Panamá",
+                    "Día 2\nUniversidad Tecnologica de Panamá",
                     style=styles.upper_text_sede,
+                    white_space="pre-line",
                     background="#1E4171",
                     border="2px solid #1E4171",
                 ),
@@ -44,14 +44,14 @@ def location() -> rx.Component:
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
-                    border_bottom="4px solid #1E4171",
+                    border_bottom="4px solid black",
                 ),
                 rx.link(
                     "Ver maps",
                     style=styles.lower_text_sede,
                 ),
                 style=styles.card_container_sede,
-                border="4px solid #1E4171",
+                border="4px solid black",
                 box_shadow="8px 8px 0 #1E4171",
             ),
             rx.vstack(
@@ -65,14 +65,14 @@ def location() -> rx.Component:
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
-                    border_bottom="4px solid #6FC7E1",
+                    border_bottom="4px solid black",
                 ),
                 rx.link(
                     "Ver maps",
                     style=styles.lower_text_sede,
                 ),
                 style=styles.card_container_sede,
-                border="4px solid #6FC7E1",
+                border="4px solid black",
                 box_shadow="8px 8px 0 #6FC7E1",
             ),
             loading="lazy",
@@ -85,4 +85,6 @@ def location() -> rx.Component:
         ),
         align_items="center",
         width="100%",
+        id="sedes",
+        margin_top="4rem",
     )

@@ -5,7 +5,7 @@ import my_first_page.styles.styles as styles
 from my_first_page.styles.styles import Size
 
 
-def partners() -> rx.Component:
+def sponsors() -> rx.Component:
     logos = [
         "img/PSF-DenK-THt.png",
         "img/Pyladies-B4VQ2QPR.png",
@@ -17,8 +17,10 @@ def partners() -> rx.Component:
     return rx.vstack(
         rx.text(
             "Sponsors",
-            font_size=Size.BIG.value,
-            color=TextColor.FIFTH.value,
+            font_size=Size.VERY_BIG.value,
+            color=TextColor.FOURTH.value,
+            text_shadow="4px 4px 0 black",
+            id="sponsors",
         ),
         rx.box(
             rx.hstack(
@@ -31,4 +33,5 @@ def partners() -> rx.Component:
             style=styles.carousel_container,
         ),
         style=styles.sponsors,
+        margin_top="4rem",
     )

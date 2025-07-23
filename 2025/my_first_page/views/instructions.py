@@ -8,20 +8,19 @@ import my_first_page.styles.styles as styles
 def instructions() -> rx.Component:
     return rx.box(
         # rx.html('<link rel="stylesheet" href="/styles.css">'),
+        rx.text(
+            "Como funciona el evento",
+            size="8",
+            style=styles.instructions_title,
+            id="instructions",
+        ),
         rx.vstack(
-            rx.text(
-                "Como funciona el evento", size="8", color=TextColor.TERTIARY.value
-            ),
             rx.el.span("del dia tal hasta el dia tal se haran charlas de "),
             rx.el.span("todos pueden participar de forma gratuita"),
             rx.el.span("Solo tienes que registrarte en nuestra pagina"),
             rx.link(
                 "Registrarse",
-                # on_click=rx.redirect(
-                #     "/form",
-                # ),
                 href="/form",
-                # class_name="btn",
                 style=styles.boton,
                 _hover={
                     "background": "#AB62CD",
@@ -35,11 +34,7 @@ def instructions() -> rx.Component:
             ),
             rx.link(
                 "Ver charlas",
-                # on_click=rx.redirect(
-                #     "/calendar",
-                # ),
                 href="/calendar",
-                # class_name="btn",
                 style=styles.boton,
                 _hover={
                     "background": "#AB62CD",
@@ -49,13 +44,7 @@ def instructions() -> rx.Component:
                 },
             ),
             rx.el.span("loremp ipsum dolor sit amet, consectetur adipiscing elit. "),
-            background_color=TextColor.SECONDARY.value,
-            class_name="card",
-            padding=Size.BIG.value,
-            align_items="start",
-            width="100%",
-            # cambio de color texto dentro de instrucciones
-            color=TextColor.FIFTH.value,
+            style=styles.instructions_box,
         ),
         style=styles.max_width_style,
     )
