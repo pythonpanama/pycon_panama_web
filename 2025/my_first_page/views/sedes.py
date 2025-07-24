@@ -1,13 +1,13 @@
-from my_first_page.styles.colors import TextColor
 import reflex as rx
 import my_first_page.styles.styles as styles
-from my_first_page.styles.styles import Size
+from my_first_page.styles.colors import Color, TextColor
 
 
 def sedes() -> rx.Component:
     return rx.vstack(
         rx.text(
             "Sedes",
+            id="sedes",
             style=styles.sedes_title,
         ),
         rx.hstack(
@@ -15,21 +15,20 @@ def sedes() -> rx.Component:
                 rx.text(
                     "Día 1 My Office",
                     style=styles.upper_text_sede,
-                    background="#AB62CD",
-                    border="2px solid #AB62CD",
+                    background=Color.PRIMARY.value,
+                    border_color=Color.PRIMARY.value,
                 ),
                 rx.image(
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
-                    border_bottom="4px solid black",
                 ),
                 rx.link(
                     "Ver maps",
+                    color=TextColor.PRIMARY.value,
                     style=styles.lower_text_sede,
                 ),
                 style=styles.card_container_sede,
-                border="4px solid black",
                 box_shadow="8px 8px 0 #AB62CD",
             ),
             rx.vstack(
@@ -37,43 +36,41 @@ def sedes() -> rx.Component:
                     "Día 2\nUniversidad Tecnologica de Panamá",
                     style=styles.upper_text_sede,
                     white_space="pre-line",
-                    background="#1E4171",
-                    border="2px solid #1E4171",
+                    background=Color.FIFTH.value,
+                    border_color=Color.FIFTH.value,
                 ),
                 rx.image(
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
-                    border_bottom="4px solid black",
                 ),
                 rx.link(
                     "Ver maps",
+                    color=TextColor.FIFTH.value,
                     style=styles.lower_text_sede,
                 ),
                 style=styles.card_container_sede,
-                border="4px solid black",
-                box_shadow="8px 8px 0 #1E4171",
+                box_shadow=f"8px 8px 0 {Color.FIFTH.value}",
             ),
             rx.vstack(
                 rx.text(
                     "Día 3 Itse",
                     style=styles.upper_text_sede,
-                    background="#6FC7E1",
-                    border="2px solid #6FC7E1",
+                    background=Color.FOURTH.value,
+                    border_color=Color.FOURTH.value,
                 ),
                 rx.image(
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
-                    border_bottom="4px solid black",
                 ),
                 rx.link(
                     "Ver maps",
+                    color=TextColor.FOURTH.value,
                     style=styles.lower_text_sede,
                 ),
                 style=styles.card_container_sede,
-                border="4px solid black",
-                box_shadow="8px 8px 0 #6FC7E1",
+                box_shadow=f"8px 8px 0 {Color.FOURTH.value}",
             ),
             loading="lazy",
             flex_direction=["column", "column", "column", "row", "row", "row"],
@@ -83,8 +80,5 @@ def sedes() -> rx.Component:
             margin_y="1rem",
             gap="2rem",
         ),
-        align_items="center",
-        width="100%",
-        id="sedes",
-        margin_top="4rem",
+        style=styles.sedes_style,
     )

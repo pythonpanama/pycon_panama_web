@@ -1,7 +1,7 @@
 import reflex as rx
+import my_first_page.styles.styles as styles
 import my_first_page.constants as constants
 from my_first_page.styles.styles import Size
-import my_first_page.styles.styles as styles
 from my_first_page.components.link_icon import link_icon
 
 
@@ -31,12 +31,11 @@ def footer() -> rx.Component:
         #     height="5em",
         # ),
         rx.hstack(
-            link_icon("youtube", constants.YOUTUBE_URL),
-            link_icon("twitter", constants.TWITTER_URL),
-            link_icon("instagram", constants.INSTAGRAM_URL),
+            link_icon("facebook", constants.FACEBOOK_URL_PYTHON_PANAMA),
+            link_icon("twitter", constants.TWITTER_URL_PYTHON_PANAMA),
+            link_icon("linkedin", constants.LINKEDIN_URL_PYTHON_PANAMA),
+            link_icon("instagram", constants.INSTAGRAM_URL_PYTHON_PANAMA),
+            link_icon("whatsapp", constants.WHATSAPP_URL_PYTHON_PANAMA),
         ),
-        margin_top="3rem",
-        align_items="center",
-        padding_y=Size.BIG.value,
-        style=styles.estilo_footer,
+        style=styles.footer_style,
     )

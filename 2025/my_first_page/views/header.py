@@ -1,7 +1,7 @@
 import reflex as rx
-import my_first_page.constants as constants
-from my_first_page.styles.styles import Size, TextColor, Color
 import my_first_page.styles.styles as styles
+import my_first_page.constants as constants
+from my_first_page.styles.styles import Size, TextColor
 
 
 def header() -> rx.Component:
@@ -97,8 +97,8 @@ def header() -> rx.Component:
                 ),
                 align_items="center",
             ),
-            style=styles.header,
+            style=styles.header_countdown_section,
         ),
         rx.script(src="/js/countdown.js"),
-        padding_y=Size.VERY_BIG.value,
+        style=styles.header,
     )

@@ -1,8 +1,7 @@
-from my_first_page.views import instructions
 import reflex as rx
-from my_first_page.styles.styles import Size, Color, TextColor
 import my_first_page.styles.styles as styles
 import my_first_page.constants as constants
+from my_first_page.styles.styles import Size, Color, TextColor
 
 
 def navbar() -> rx.Component:

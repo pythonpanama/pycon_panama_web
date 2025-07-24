@@ -16,6 +16,10 @@ class Size(Enum):
     VERY_BIG = "4em"
 
 
+[id] = {
+    "scroll-margin-top": "60px",
+}
+
 # https://bootswatch.com/brite/
 STYLESHEETS = [
     "bootstrap.min.css",
@@ -31,30 +35,18 @@ BASE_STYLE = {
     "font_family": Font.DEFAULT.value,
     "font-weight": "400",
     "font-style": "normal",
-    # "color": TextColor.FOURTH.value,
-    "background": "linear-gradient(30deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
-    "background-size": "400% 400%",
-    "animation": "fondoAnimado 20s ease infinite",
-    "@keyframes fondoAnimado": {
-        "0%": {"background-position": "0% 50%"},
-        "50%": {"background-position": "100% 50%"},
-        "100%": {"background-position": "0% 50%"},
-    },
+    "background-image": "url('/Sprinkle_bg.svg')",
     "html": {
         "scrollBehavior": "smooth",
     },
     rx.heading: {"font_family": Font.DEFAULT.value, "color": TextColor.FIFTH.value},
-    # rx.link: {
-    #     "text_decoration": "none",
-    #     "_hover": {"color": TextColor.ACCENT.value, "text_decoration": "none"},
-    # },
     rx.el.span: {
         "font_size": Size.MEDIUM.value,
     },
 }
 
 # ESTILOS DEL HEADER
-header = {
+header_countdown_section = {
     "max_width": "900px",
     "margin_x": "auto",
     "display": "flex",
@@ -64,23 +56,28 @@ header = {
     "flex_direction": ["column", "column", "column", "row", "row", "row"],
 }
 
-BUTTON = {
-    "display": "inline-block",
-    "padding": "10px 20px",
-    "background": "#AB62CD",
-    "color": "#FDE3C8",
-    "text-decoration": "none",
-    "font-weight": "bold",
-    "border": "3px solid #1E4171",
-    "box-shadow": "4px 4px 0 #6FC7E1",
-    "transition": "all 0.2s ease",
-    "hover": {
-        "background": "#AB62CD",
-        "color": "#FDE3C8",
-        "border": "3px solid #1E4171",
-        "box-shadow": "none",
-    },
+header = {
+    "padding_y": Size.VERY_BIG.value,
 }
+
+# BUTTON = {
+#     "display": "inline-block",
+#     "padding": "10px 20px",
+#     "background": Color.PRIMARY.value,
+#     "color": TextColor.TERTIARY.value,
+#     "text-decoration": "none",
+#     "font-weight": "bold",
+#     "border": "3px solid",
+#     "border_color": Color.FIFTH.value,
+#     "box-shadow": "4px 4px 0 #6FC7E1",
+#     "transition": "all 0.2s ease",
+#     "hover": {
+#         "background": "#AB62CD",
+#         "color": "#FDE3C8",
+#         "border": "3px solid #1E4171",
+#         "box-shadow": "none",
+#     },
+# }
 
 
 # ESTILOS DE EL CONTADOR
@@ -137,17 +134,35 @@ instructions_box = {
 instructions_title = {
     "color": TextColor.ACCENT.value,
     "text_shadow": "4px 4px 0 black",
-    # "margin": "0 auto",
-    "padding_top": Size.VERY_BIG.value,
+    # belleza de atributo para que el anchor no quede mal posicionado con el navbar en fixed
+    "scroll-margin-top": Size.BIG.value,
     "text_align": "center",
+    "font_size": Size.VERY_BIG.value,
 }
 
 # ESTA AREA ES PARA LOS ESTILOS DE LA VISTA DE SPONSORS
 sponsors = {
+    "border": f"8px solid {Color.ACCENT.value}",
+    "border_radius": "15px",
+    "margin_top": "4rem",
     "padding_y": Size.VERY_BIG.value,
-    # "bg": Color.ACCENT.value,
     "align_items": "center",
     "width": "100%",
+    "background": f"linear-gradient(90deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
+    "background-size": "400% 400%",
+    "animation": "fondoAnimado 10s ease infinite",
+    "@keyframes fondoAnimado": {
+        "0%": {"background-position": "0% 50%"},
+        "50%": {"background-position": "100% 50%"},
+        "100%": {"background-position": "0% 50%"},
+    },
+}
+
+sponsors_title = {
+    "font_size": Size.VERY_BIG.value,
+    "color": TextColor.FOURTH.value,
+    "text_shadow": "4px 4px 0 black",
+    "scroll-margin-top": Size.BIG.value,
 }
 
 carousel_container = {
@@ -170,8 +185,8 @@ carousel_track = {
 
 # AREA DEL FOOTER
 
-estilo_footer = {
-    "background": "linear-gradient(120deg, #1E4171 25%, #AB62CD 50%, #1E4171 75%, #AB62CD 100%)",
+footer_style = {
+    "background": f"linear-gradient(120deg, {Color.FIFTH.value} 25%, {Color.PRIMARY.value} 50%, {Color.FIFTH.value} 75%, {Color.PRIMARY.value} 100%)",
     "background-size": "400% 400%",
     "animation": "fondoAnimado 20s ease infinite",
     "@keyframes fondoAnimado": {
@@ -179,12 +194,12 @@ estilo_footer = {
         "50%": {"background-position": "100% 50%"},
         "100%": {"background-position": "0% 50%"},
     },
-    "align_items": "start",
-    "padding_x": Size.BIG.value,
+    "padding": Size.BIG.value,
     "width": "100%",
     "max_width": "MAX_WIDTH",
     "color": TextColor.FOURTH.value,
     "size": Size.MEDIUM.value,  # font_size
+    "align_items": "center",
 }
 
 
@@ -201,14 +216,14 @@ desktop_navbar_style = {
     "width": "100%",
     "justify_content": "space-between",
     "align_items": "center",
-    "bg": Color.TERTIARY.value,
+    "background": Color.TERTIARY.value,
     "border_bottom": f"0.25em solid {Color.SECONDARY.value}",
     "padding_x": Size.BIG.value,
     "padding_y": Size.DEFAULT.value,
 }
 
 mobile_navbar_style = {
-    "bg": Color.TERTIARY.value,
+    "background": Color.TERTIARY.value,
     "border_bottom": f"0.25em solid {Color.SECONDARY.value}",
     "padding_x": Size.BIG.value,
     "padding_y": Size.DEFAULT.value,
@@ -251,21 +266,18 @@ card_container = (
         "height": "auto",  # más flexible
         "min_height": "500px",  # mantener consistencia visual
         "box-sizing": "border-box",  # evitar desbordes
-        # "width": "320px",
-        # "max_width": "400px",
-        # "height": "500px",
         "overflow": "hidden",
-        "background": "#FDE3C8",
-        "border": "4px solid #1E4171",
+        "background": Color.TERTIARY.value,
+        "border": f"4px solid {Color.FIFTH.value}",
         "border-radius": "10px",
-        "box-shadow": "8px 8px 0 #AB62CD",
+        "box-shadow": f"8px 8px 0 {Color.PRIMARY.value}",
     },
 )
 upper_container = (
     {
         "height": "140px",
-        "background": "#6FC7E1",
-        "border-bottom": "4px solid #1E4171",
+        "background": Color.FOURTH.value,
+        "border-bottom": f"4px solid {Color.FIFTH.value}",
         "display": "flex",
         "justify-content": "center",
         "align-items": "flex-end",
@@ -276,7 +288,7 @@ image_container = (
         "width": "100px",
         "height": "100px",
         "background": "#ffffff",
-        "border": "4px solid #1E4171",
+        "border": f"4px solid {Color.FIFTH.value}",
         "transform": "translateY(50%)",
         "display": "flex",
         "justify-content": "center",
@@ -288,7 +300,7 @@ image_container_img = (
         "width": "90px",
         "height": "90px",
         "object-fit": "cover",
-        "border": "2px solid #6FC7E1",
+        "border": f"2px solid {Color.FOURTH.value}",
     },
 )
 lower_container = (
@@ -302,24 +314,24 @@ lower_container_h3 = (
         "margin": "0",
         "font-size": "20px",
         "font-weight": "bold",
-        "color": "#1E4171",
+        "color": TextColor.FIFTH.value,
     },
 )
 lower_container_h4 = (
     {
         "margin": "5px 0 15px",
         "font-size": "14px",
-        "color": "#1E4171",
+        "color": TextColor.FIFTH.value,
         "font-weight": "normal",
     },
 )
 lower_container_p = (
     {
         "font-size": "14px",
-        "color": "#1E4171",
-        "border": "2px inset #1E4171",
+        "color": TextColor.FIFTH.value,
+        "border": f"2px inset {Color.FIFTH.value}",
         "padding": "10px",
-        "background": "#D49EE7",
+        "background": Color.ACCENT.value,
         "margin-bottom": "20px",
         "height": "50px",  # Limita la altura del párrafo
         "overflow": "hidden",  # Muestra scroll si hay mucho texto
@@ -337,13 +349,12 @@ boton = (
         "display": "inline-block",
         "padding": "10px 20px",
         "background": Color.ACCENT,
-        "color": Color.FIFTH,
+        "color": TextColor.FIFTH,
         "text-decoration": "none",
-        # "font-weight": "bold",
         "border-radius": "15px",
-        "border": "3px solid #AB62CD",
+        "border": f"3px solid {Color.PRIMARY.value}",
         "transition": "all 0.2s ease",
-        "box-shadow": "4px 4px 0 #AB62CD",
+        "box-shadow": f"4px 4px 0 {Color.PRIMARY.value}",
     },
 )
 
@@ -355,7 +366,7 @@ ver_mas = {
     "max_width": "700px",
     "width": "100%",
     "justify": "center",
-    "background": "linear-gradient(120deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%)",
+    "background": f"linear-gradient(120deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
     "background-size": "400% 400%",
     "animation": "fondoAnimado 10s ease infinite",
     "@keyframes fondoAnimado": {
@@ -372,7 +383,7 @@ ver_mas_img = {
     "object_fit": "cover",
     "margin": "0 auto",
     "margin_bottom": "1rem",
-    "border": "3px solid #AB62CD",
+    "border": f"3px solid {Color.PRIMARY.value}",
 }
 
 ver_mas_socials = {
@@ -382,7 +393,7 @@ ver_mas_socials = {
 
 legend = {
     "font_size": "1rem",
-    "color": "#1E4171",
+    "color": TextColor.FIFTH.value,
     "margin_top": "1rem",
     "line_height": "1.5",
 }
@@ -392,23 +403,29 @@ ver_mas_close_boton = (
         "text_align": "center",
         "padding": "10px 20px",
         "background": Color.ACCENT,
-        "color": Color.FIFTH,
+        "color": TextColor.FIFTH,
         "text-decoration": "none",
         "border-radius": "15px",
-        "border": "3px solid #AB62CD",
+        "border": f"3px solid {Color.PRIMARY.value}",
         "transition": "all 0.2s ease",
-        "box-shadow": "4px 4px 0 #AB62CD",
+        "box-shadow": f"4px 4px 0 {Color.PRIMARY.value}",
     },
 )
 
 
 # ESTILOS SEDES
 
+sedes_style = {
+    "align_items": "center",
+    "width": "100%",
+    "margin_top": "4rem",
+}
+
 sedes_title = {
-    "padding_top": Size.BIG.value,
     "font_size": Size.VERY_BIG.value,
     "color": TextColor.FIFTH.value,
     "text_shadow": "4px 4px 0 black",
+    "scroll-margin-top": Size.BIG.value,
 }
 
 card_container_sede = (
@@ -420,14 +437,15 @@ card_container_sede = (
         "min_height": "300px",  # mantener consistencia visual
         "box-sizing": "border-box",  # evitar desbordes
         "overflow": "hidden",
-        # "background": "#FDE3C8",
         "border-radius": "10px",
+        "border": "4px solid black",
+        "background": Color.TERTIARY.value,
     },
 )
 
 upper_text_sede = {
     "width": "100%",
-    "color": Color.TERTIARY.value,
+    "color": TextColor.TERTIARY.value,
     "font_size": ["0.875rem", "1rem"],
     "text_align_last": "center",
     "margin": "0 auto",
@@ -445,10 +463,11 @@ img_sede = {
     "height": "100%",
     "margin_x": "auto",
     "margin_y": "0",
+    "border_bottom": "4px solid black",
 }
 lower_text_sede = {
     "width": "100%",
-    "color": "blue",
+    "color": TextColor.FIFTH.value,
     "height": "100%",
     "display": "flex",
     "align_items": "center",
@@ -457,4 +476,21 @@ lower_text_sede = {
 
 estilo_main_page = {
     "padding_top": "200px",
+}
+
+# estilos del calendario de eventos
+calendar_style = {
+    "width": "100%",
+    "align_items": "center",
+    "justify_content": "space-between",  # para que mantenga un espacio entre el footer y el contenido
+    "min_height": "100vh",  # para que la pagina tenga altura minima de la pantalla
+    "margin_x": "auto",
+}
+
+calendar_buttons_area = {
+    "padding_y": Size.BIG.value,
+    "width": "100%",
+    "align_items": "center",
+    "justify_content": "center",
+    "margin_x": "auto",
 }

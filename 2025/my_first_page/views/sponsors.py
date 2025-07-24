@@ -1,8 +1,5 @@
-from my_first_page.styles.colors import TextColor
 import reflex as rx
 import my_first_page.styles.styles as styles
-
-from my_first_page.styles.styles import Size
 
 
 def sponsors() -> rx.Component:
@@ -17,10 +14,8 @@ def sponsors() -> rx.Component:
     return rx.vstack(
         rx.text(
             "Sponsors",
-            font_size=Size.VERY_BIG.value,
-            color=TextColor.FOURTH.value,
-            text_shadow="4px 4px 0 black",
             id="sponsors",
+            style=styles.sponsors_title,
         ),
         rx.box(
             rx.hstack(
@@ -33,5 +28,4 @@ def sponsors() -> rx.Component:
             style=styles.carousel_container,
         ),
         style=styles.sponsors,
-        margin_top="4rem",
     )

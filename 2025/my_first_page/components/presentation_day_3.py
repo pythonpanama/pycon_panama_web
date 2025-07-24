@@ -1,8 +1,9 @@
 # https://reflex.dev/docs/components/rendering-iterables/
 # https://codepen.io/rustcode/pen/MYYMrVQ       link referencia estilo
 import reflex as rx
-from my_first_page.constants import EVENTS_DAY_3
 import my_first_page.styles.styles as styles
+from my_first_page.constants import EVENTS_DAY_3
+from my_first_page.styles.colors import Color, TextColor
 from my_first_page.components.link_icon import link_icon
 
 
@@ -47,9 +48,9 @@ def presentation_day_3():
                                         "Ver mas",
                                         style=styles.boton,
                                         _hover={
-                                            "background": "#AB62CD",
-                                            "color": "#FDE3C8",
-                                            "border": "3px solid #FDE3C8",
+                                            "background": Color.PRIMARY.value,
+                                            "color": TextColor.TERTIARY.value,
+                                            "border": f"3px solid {Color.TERTIARY.value}",
                                             "box-shadow": "none",
                                         },
                                     ),
@@ -57,32 +58,16 @@ def presentation_day_3():
                                 # contenido del dialog
                                 rx.dialog.content(
                                     rx.flex(
-                                        # Imagen a la izquierda
-                                        rx.image(
-                                            src=event["image_url"],
-                                            alt="Foto de perfil",
-                                            width="200px",
-                                            height="300px",
-                                            # box_size="150px",
-                                            border_radius="25px",
-                                            object_fit="fill",
-                                        ),
-                                        # Información a la derecha
                                         rx.box(
-                                            rx.box(
-                                                rx.heading(
-                                                    event["name"],
-                                                    style=styles.lower_container_h3,
-                                                ),
-                                                rx.heading(
-                                                    event["title"],
-                                                    style=styles.lower_container_h4,
-                                                ),
+                                            rx.image(
+                                                src=event["image_url"],
+                                                alt="Foto de perfil",
+                                                style=styles.ver_mas_img,
                                             ),
-                                            rx.box(
-                                                rx.text(
-                                                    event["legend"],
-                                                ),
+                                            rx.heading(
+                                                event["title"],
+                                                style=styles.lower_container_h4,
+                                                align="center",
                                             ),
                                             rx.hstack(
                                                 link_icon("twitter", event["twitter"]),
@@ -92,34 +77,48 @@ def presentation_day_3():
                                                 link_icon(
                                                     "linkedin", event["linkedin"]
                                                 ),
+                                                justify="center",
+                                                style=styles.ver_mas_socials,
+                                                _hover={
+                                                    "color": Color.FOURTH.value,
+                                                },
+                                            ),
+                                            width="100%",
+                                            height="100%",
+                                        ),
+                                        rx.box(
+                                            rx.heading(
+                                                event["name"],
+                                                style=styles.lower_container_h3,
+                                                align="center",
+                                            ),
+                                            rx.text(
+                                                event["legend"], style=styles.legend
+                                            ),
+                                            rx.center(
+                                                rx.dialog.close(
+                                                    rx.link(
+                                                        "Cerrar",
+                                                        size="2",
+                                                        mt="1.5rem",
+                                                        style=styles.ver_mas_close_boton,
+                                                        _hover={
+                                                            "background": Color.PRIMARY.value,
+                                                            "color": TextColor.TERTIARY.value,
+                                                            "border": f"3px solid {Color.TERTIARY.value}",
+                                                            "box-shadow": "none",
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             max_w="400px",
-                                            wrap="wrap",
                                             color=styles.TextColor.FIFTH,
                                         ),
-                                        flex_direction="row",
+                                        flex_direction=["column", "column", "row"],
                                         align_items="center",
-                                        gap="1rem",
-                                        margin_y="2rem",
+                                        gap="2rem",
+                                        padding="1rem",
                                     ),
-                                    rx.dialog.close(
-                                        rx.link(
-                                            "Cerrar",
-                                            size="2",
-                                            mt="1.5rem",
-                                            # variant="soft",
-                                            style=styles.boton,
-                                            _hover={
-                                                "background": "#AB62CD",
-                                                "color": "#FDE3C8",
-                                                "border": "3px solid #FDE3C8",
-                                                "box-shadow": "none",
-                                            },
-                                        )
-                                    ),
-                                    # padding="2rem",
-                                    # border_radius="lg",
-                                    # box_shadow="lg",
                                     style=styles.ver_mas,
                                 ),
                             ),
@@ -139,9 +138,5 @@ def presentation_day_3():
             margin_y="2rem",
             gap="2rem",
             flex_direction=["column", "column", "column", "row", "row", "row"],
-            # "repeat(auto-fit, minmax(250px, 1fr))"
-            # template_columns=[1, 2, 3],
-            # spacing="2",
-            # gap="2rem",
         ),
     )

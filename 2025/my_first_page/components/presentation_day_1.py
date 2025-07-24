@@ -1,9 +1,9 @@
 # https://reflex.dev/docs/components/rendering-iterables/
 # https://codepen.io/rustcode/pen/MYYMrVQ       link referencia estilo
-from my_first_page.styles.colors import Color
 import reflex as rx
-from my_first_page.constants import EVENTS_DAY_1
 import my_first_page.styles.styles as styles
+from my_first_page.constants import EVENTS_DAY_1
+from my_first_page.styles.colors import Color, TextColor
 from my_first_page.components.link_icon import link_icon
 
 
@@ -48,9 +48,9 @@ def presentation_day_1():
                                         "Ver mas",
                                         style=styles.boton,
                                         _hover={
-                                            "background": "#AB62CD",
-                                            "color": "#FDE3C8",
-                                            "border": "3px solid #FDE3C8",
+                                            "background": Color.PRIMARY.value,
+                                            "color": TextColor.TERTIARY.value,
+                                            "border": f"3px solid {Color.TERTIARY.value}",
                                             "box-shadow": "none",
                                         },
                                     ),
@@ -70,6 +70,12 @@ def presentation_day_1():
                                                 align="center",
                                             ),
                                             rx.hstack(
+                                                # *[
+                                                #     link_icon(name, url)
+                                                #     for name, url in (
+                                                #         event.get("socials") or {}
+                                                #     ).items()
+                                                # ],
                                                 link_icon("twitter", event["twitter"]),
                                                 link_icon(
                                                     "instagram", event["instagram"]
@@ -103,9 +109,9 @@ def presentation_day_1():
                                                         mt="1.5rem",
                                                         style=styles.ver_mas_close_boton,
                                                         _hover={
-                                                            "background": "#AB62CD",
-                                                            "color": "#FDE3C8",
-                                                            "border": "3px solid #FDE3C8",
+                                                            "background": Color.PRIMARY.value,
+                                                            "color": TextColor.TERTIARY.value,
+                                                            "border": f"3px solid {Color.TERTIARY.value}",
                                                             "box-shadow": "none",
                                                         },
                                                     ),
@@ -138,9 +144,5 @@ def presentation_day_1():
             margin_y="2rem",
             gap="2rem",
             flex_direction=["column", "column", "column", "row", "row", "row"],
-            # "repeat(auto-fit, minmax(250px, 1fr))"
-            # template_columns=[1, 2, 3],
-            # spacing="2",
-            # gap="2rem",
         ),
     )

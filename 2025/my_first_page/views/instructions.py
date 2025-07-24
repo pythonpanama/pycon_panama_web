@@ -1,16 +1,12 @@
 import reflex as rx
-
-# import my_first_page.constants as constants
-from my_first_page.styles.styles import Size, TextColor
 import my_first_page.styles.styles as styles
+from my_first_page.styles.styles import Color, TextColor
 
 
 def instructions() -> rx.Component:
     return rx.box(
-        # rx.html('<link rel="stylesheet" href="/styles.css">'),
         rx.text(
             "Como funciona el evento",
-            size="8",
             style=styles.instructions_title,
             id="instructions",
         ),
@@ -23,9 +19,9 @@ def instructions() -> rx.Component:
                 href="/form",
                 style=styles.boton,
                 _hover={
-                    "background": "#AB62CD",
-                    "color": "#FDE3C8",
-                    "border": "3px solid #FDE3C8",
+                    "background": Color.PRIMARY.value,
+                    "color": TextColor.TERTIARY.value,
+                    "border": f"3px solid {Color.TERTIARY.value}",
                     "box-shadow": "none",
                 },
             ),
@@ -37,9 +33,9 @@ def instructions() -> rx.Component:
                 href="/calendar",
                 style=styles.boton,
                 _hover={
-                    "background": "#AB62CD",
-                    "color": "#FDE3C8",
-                    "border": "3px solid #FDE3C8",
+                    "background": Color.PRIMARY.value,
+                    "color": TextColor.TERTIARY.value,
+                    "border": f"3px solid {Color.TERTIARY.value}",
                     "box-shadow": "none",
                 },
             ),

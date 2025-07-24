@@ -1,6 +1,6 @@
 import reflex as rx
-from my_first_page.styles.styles import Size, TextColor, Color
 import my_first_page.styles.styles as styles
+from my_first_page.styles.styles import Size
 from my_first_page.views.navbar import navbar
 
 
