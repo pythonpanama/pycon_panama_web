@@ -13,7 +13,7 @@ def sedes() -> rx.Component:
         rx.hstack(
             rx.vstack(
                 rx.text(
-                    "Día 1 My Office",
+                    "Día 1",
                     style=styles.upper_text_sede,
                     background=Color.PRIMARY.value,
                     border_color=Color.PRIMARY.value,
@@ -24,7 +24,7 @@ def sedes() -> rx.Component:
                     style=styles.img_sede,
                 ),
                 rx.link(
-                    "Ver maps",
+                    "Ver mapa",
                     color=TextColor.PRIMARY.value,
                     style=styles.lower_text_sede,
                 ),
@@ -33,7 +33,7 @@ def sedes() -> rx.Component:
             ),
             rx.vstack(
                 rx.text(
-                    "Día 2\nUniversidad Tecnologica de Panamá",
+                    "Día 2",
                     style=styles.upper_text_sede,
                     white_space="pre-line",
                     background=Color.FIFTH.value,
@@ -45,7 +45,7 @@ def sedes() -> rx.Component:
                     style=styles.img_sede,
                 ),
                 rx.link(
-                    "Ver maps",
+                    "Ver mapa",
                     color=TextColor.FIFTH.value,
                     style=styles.lower_text_sede,
                 ),
@@ -54,7 +54,7 @@ def sedes() -> rx.Component:
             ),
             rx.vstack(
                 rx.text(
-                    "Día 3 Itse",
+                    "Día 3",
                     style=styles.upper_text_sede,
                     background=Color.FOURTH.value,
                     border_color=Color.FOURTH.value,
@@ -65,7 +65,7 @@ def sedes() -> rx.Component:
                     style=styles.img_sede,
                 ),
                 rx.link(
-                    "Ver maps",
+                    "Ver mapa",
                     color=TextColor.FOURTH.value,
                     style=styles.lower_text_sede,
                 ),

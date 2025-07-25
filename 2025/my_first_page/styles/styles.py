@@ -45,21 +45,6 @@ BASE_STYLE = {
     },
 }
 
-# ESTILOS DEL HEADER
-header_countdown_section = {
-    "max_width": "900px",
-    "margin_x": "auto",
-    "display": "flex",
-    "align_items": "center",
-    "justify_content": "center",
-    "padding_y": Size.BIG.value,
-    "flex_direction": ["column", "column", "column", "row", "row", "row"],
-}
-
-header = {
-    "padding_y": Size.VERY_BIG.value,
-}
-
 # BUTTON = {
 #     "display": "inline-block",
 #     "padding": "10px 20px",
@@ -80,92 +65,142 @@ header = {
 # }
 
 
+# ESTILOS DEL HEADER
+header_countdown_section = {
+    "max_width": "900px",
+    "margin_x": "0",
+    "display": "flex",
+    "align_items": "center",
+    "justify_content": "center",
+    "padding_y": Size.BIG.value,
+    "flex_direction": ["column", "column", "column", "row", "row", "row"],
+}
+
+header = {
+    "display": "flex",
+    "margin": "0 auto",
+    "align_items": "center",
+    "justify_content": "center",
+    "padding_y": Size.VERY_BIG.value,
+}
+
+header_title = {
+    "width": "100%",
+    "font_size": ["3em", "3em", "4em", "5em", "6em", "6em"],
+    "text_align": "center",
+    "text_shadow": "black 2px 2px",
+}
+
 # ESTILOS DE EL CONTADOR
 countdown = {
-    # xs, sm, md, lg, xl
-    "width": [
-        "50px",
-        "80px",
-        "100px",
-        "140px",
-        "160px",
-        "200px",
-    ],  # movil, tablet, desktop
-    "padding": "0",
-    "margin": "0 auto",
-    "font_size": [Size.MEDIUM.value, Size.DEFAULT.value, Size.BIG.value],
-    "font-weight": "bold",
+    "width": ["90px", "110px", "120px", "140px", "160px", "180px"],
+    "height": ["90px", "110px", "120px", "140px", "160px", "180px"],
+    "padding": ["0.5em", "0.5em", "0.5em", "0.5em", "1em", "1em"],
+    "margin": "0.5em auto",
+    "font_size": ["1.5em", "1.5em", "1.6em", "2em", "2em", "2.2em"],
+    "font_weight": "bold",
     "text_align": "center",
     "align_items": "center",
     "justify_content": "center",
     "background_color": Color.PRIMARY.value,
     "color": TextColor.TERTIARY.value,
+    "border": "2px solid black",
+    "border_radius": "10px",
+    "box_shadow": "4px 4px 0 black",
     "text_shadow": "black 2px 2px",
 }
 
 # ESTILOS DE LOS TEXTOS DENTRO DEL CONTADOR
 countdown_text = {
     "font_size": [
-        Size.SMALL.value,
-        Size.SMALL.value,
-        "0.4em",
-        Size.SMALL.value,
-        Size.SMALL.value,
-        Size.SMALL.value,
+        "0.5em",
+        "0.5em",
+        "0.5em",
+        "0.5em",
+        "0.5em",
+        "0.5em",
     ],
-    "margin": "0",
+    "margin_top": "0.5em",
+    "text_align": "center",
     "padding": "0",
 }
 
 # ESTILOS CAJA DE INSTRUCCIONES
 
+instructions_boton_registro = (
+    {
+        "font_size": Size.VERY_BIG.value,
+        "display": "inline-block",
+        "padding": "10px 20px",
+        # "background": Color.ACCENT,
+        "color": TextColor.TERTIARY,
+        "text-decoration": "none",
+        "border-radius": "15px",
+        "border": f"3px solid {Color.TERTIARY.value}",
+        # "transition": "all 0.2s ease",
+        "box-shadow": f"4px 4px 0 {Color.TERTIARY.value}",
+        "transition": "all 0.2s ease-in-out",
+    },
+)
+
 instructions_box = {
-    "background_color": TextColor.SECONDARY.value,
+    "background_color": TextColor.PRIMARY.value,
     "padding": Size.BIG.value,
-    "align_items": "start",
+    "align_items": "center",
     "width": "100%",
     # cambio de color texto dentro de instrucciones
     "color": TextColor.FIFTH.value,
     "border": "3px solid black",
     "border_radius": "10px",
     "box-shadow": "8px 8px 0 black",
+    "font_size": Size.DEFAULT.value,
+    "text_align": "center",
+}
+
+instructions_paragraph = {
+    "space": "2em",
+    "font_size": ["1em", "1.1em", "1.2em"],
+    "line_height": "1.6em",
+    "text_align": "center",
+    "color": TextColor.TERTIARY.value,
+    "text_shadow": "1px 1px 0 black",
 }
 
 instructions_title = {
     "color": TextColor.ACCENT.value,
-    "text_shadow": "4px 4px 0 black",
+    "text_shadow": "2px 2px 0 black",
     # belleza de atributo para que el anchor no quede mal posicionado con el navbar en fixed
     "scroll-margin-top": Size.BIG.value,
     "text_align": "center",
-    "font_size": Size.VERY_BIG.value,
+    "font_size": ["3em", "3em", "4em", "5em", "6em", "6em"],
 }
 
 # ESTA AREA ES PARA LOS ESTILOS DE LA VISTA DE SPONSORS
 sponsors = {
-    "border": f"8px solid {Color.ACCENT.value}",
-    "border_radius": "15px",
-    "margin_top": "4rem",
-    "padding_y": Size.VERY_BIG.value,
+    # "border": f"8px solid {Color.ACCENT.value}",
+    # "border_radius": "15px",
+    # "margin_top": "4rem",
+    # "padding_bottom": Size.BIG.value,
     "align_items": "center",
     "width": "100%",
-    "background": f"linear-gradient(90deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
-    "background-size": "400% 400%",
-    "animation": "fondoAnimado 10s ease infinite",
-    "@keyframes fondoAnimado": {
-        "0%": {"background-position": "0% 50%"},
-        "50%": {"background-position": "100% 50%"},
-        "100%": {"background-position": "0% 50%"},
-    },
+    # "background": f"linear-gradient(90deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
+    # "background-size": "400% 400%",
+    # "animation": "fondoAnimado 10s ease infinite",
+    # "@keyframes fondoAnimado": {
+    #     "0%": {"background-position": "0% 50%"},
+    #     "50%": {"background-position": "100% 50%"},
+    #     "100%": {"background-position": "0% 50%"},
+    # },
 }
 
 sponsors_title = {
-    "font_size": Size.VERY_BIG.value,
+    "font_size": ["3em", "3em", "3em", "3em", "3em", "3em"],
     "color": TextColor.FOURTH.value,
-    "text_shadow": "4px 4px 0 black",
+    "text_shadow": "2px 2px 0 black",
     "scroll-margin-top": Size.BIG.value,
 }
 
-carousel_container = {
+sponsors_container = {
     "position": "relative",
     "width": "100%",
     "overflow": "hidden",
@@ -173,15 +208,15 @@ carousel_container = {
     "padding": "1em 0",
 }
 
-carousel_track = {
-    "animation": "scroll-left 20s linear infinite",
-    "display": "inline-flex",
-    "min_width": "200%",
-    "@keyframes scroll-left": {
-        "0%": {"transform": "translateX(50%)"},
-        "100%": {"transform": "translateX(-100%)"},
-    },
-}
+# carousel_track = {
+#     "animation": "scroll-left 20s linear infinite",
+#     "display": "inline-flex",
+#     "min_width": "200%",
+#     "@keyframes scroll-left": {
+#         "0%": {"transform": "translateX(50%)"},
+#         "100%": {"transform": "translateX(-100%)"},
+#     },
+# }
 
 # AREA DEL FOOTER
 
@@ -194,12 +229,11 @@ footer_style = {
         "50%": {"background-position": "100% 50%"},
         "100%": {"background-position": "0% 50%"},
     },
-    "padding": Size.BIG.value,
     "width": "100%",
     "max_width": "MAX_WIDTH",
     "color": TextColor.FOURTH.value,
     "size": Size.MEDIUM.value,  # font_size
-    "align_items": "center",
+    "padding": Size.BIG.value,
 }
 
 
@@ -216,10 +250,18 @@ desktop_navbar_style = {
     "width": "100%",
     "justify_content": "space-between",
     "align_items": "center",
-    "background": Color.TERTIARY.value,
+    # "background": Color.TERTIARY.value,
     "border_bottom": f"0.25em solid {Color.SECONDARY.value}",
     "padding_x": Size.BIG.value,
     "padding_y": Size.DEFAULT.value,
+    "background": f"linear-gradient(90deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
+    "background-size": "400% 400%",
+    "animation": "fondoAnimado 10s ease infinite",
+    "@keyframes fondoAnimado": {
+        "0%": {"background-position": "0% 50%"},
+        "50%": {"background-position": "100% 50%"},
+        "100%": {"background-position": "0% 50%"},
+    },
 }
 
 mobile_navbar_style = {
@@ -422,9 +464,9 @@ sedes_style = {
 }
 
 sedes_title = {
-    "font_size": Size.VERY_BIG.value,
+    "font_size": ["3em", "3em", "4em", "5em", "6em", "6em"],
     "color": TextColor.FIFTH.value,
-    "text_shadow": "4px 4px 0 black",
+    "text_shadow": "2px 2px 0 black",
     "scroll-margin-top": Size.BIG.value,
 }
 
@@ -456,6 +498,7 @@ upper_text_sede = {
     "-webkit-box-orient": "vertical",
     "align_items": "center",
     "justify_content": "center",
+    "text_shadow": "black 2px 2px",
 }
 
 img_sede = {

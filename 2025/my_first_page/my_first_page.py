@@ -26,13 +26,12 @@ def index() -> rx.Component:
             header(),
             instructions(),
             sedes(),
-            sponsors(),
             footer(),
             align="center",
             width="100%",
             # el video decia Size.VERY_BIG.value
             # pero el spacing solo puede ser usado con numeros fijos como el siguiente, tener en cuenta eso
-            spacing="9",
+            spacing="4",
         ),
     )
 
@@ -60,4 +59,11 @@ app.add_page(
     title="Calendario del evento",
     description="Recopilacion de expositores y horarios de presentacion",
     route="/calendar",
+)
+
+app.add_page(
+    sponsors,
+    title="Patrocinadores",
+    description="Recopilación de patrocinadores de Python Panamá 2025",
+    route="/sponsors",
 )

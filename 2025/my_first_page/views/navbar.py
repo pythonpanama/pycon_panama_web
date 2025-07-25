@@ -13,14 +13,17 @@ def navbar() -> rx.Component:
                         rx.el.span(
                             "PyCon ",
                             color=TextColor.PRIMARY.value,
+                            text_shadow="black 2px 2px",
                         ),
                         rx.el.span(
                             "Panamá ",
-                            color=TextColor.SECONDARY.value,
+                            color=TextColor.FOURTH.value,
+                            text_shadow="black 2px 2px",
                         ),
                         rx.el.span(
                             "2025 ",
-                            color=TextColor.FOURTH.value,
+                            color=TextColor.FIFTH.value,
+                            text_shadow="black 1px 1px",
                         ),
                         font_size=[
                             Size.MEDIUM.value,

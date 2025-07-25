@@ -11,7 +11,7 @@ CALENDAR_URL = "/calendar"
 ACERCA_DE_URL = "/#instructions"
 SEDES_URL = "/#sedes"
 CODIGO_CONDUCTA_URL = "https://pythonpanama.org/codigo-de-conducta"
-SPONSORS_URL = "/#sponsors"
+SPONSORS_URL = "/sponsors"
 
 EVENTS_DAY_1 = [
     {
