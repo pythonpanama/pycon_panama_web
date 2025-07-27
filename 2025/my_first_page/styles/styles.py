@@ -45,25 +45,6 @@ BASE_STYLE = {
     },
 }
 
-# BUTTON = {
-#     "display": "inline-block",
-#     "padding": "10px 20px",
-#     "background": Color.PRIMARY.value,
-#     "color": TextColor.TERTIARY.value,
-#     "text-decoration": "none",
-#     "font-weight": "bold",
-#     "border": "3px solid",
-#     "border_color": Color.FIFTH.value,
-#     "box-shadow": "4px 4px 0 #6FC7E1",
-#     "transition": "all 0.2s ease",
-#     "hover": {
-#         "background": "#AB62CD",
-#         "color": "#FDE3C8",
-#         "border": "3px solid #1E4171",
-#         "box-shadow": "none",
-#     },
-# }
-
 
 # ESTILOS DEL HEADER
 header_countdown_section = {
@@ -129,7 +110,7 @@ countdown_text = {
 
 instructions_boton_registro = (
     {
-        "font_size": Size.VERY_BIG.value,
+        "font_size": [Size.DEFAULT.value, Size.BIG.value, Size.VERY_BIG.value],
         "display": "inline-block",
         "padding": "10px 20px",
         # "background": Color.ACCENT,
@@ -177,20 +158,10 @@ instructions_title = {
 
 # ESTA AREA ES PARA LOS ESTILOS DE LA VISTA DE SPONSORS
 sponsors = {
-    # "border": f"8px solid {Color.ACCENT.value}",
-    # "border_radius": "15px",
-    # "margin_top": "4rem",
-    # "padding_bottom": Size.BIG.value,
     "align_items": "center",
     "width": "100%",
-    # "background": f"linear-gradient(90deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
-    # "background-size": "400% 400%",
-    # "animation": "fondoAnimado 10s ease infinite",
-    # "@keyframes fondoAnimado": {
-    #     "0%": {"background-position": "0% 50%"},
-    #     "50%": {"background-position": "100% 50%"},
-    #     "100%": {"background-position": "0% 50%"},
-    # },
+    "justify_content": "space-between",
+    "min_height": "100vh",  # para que la pagina tenga altura minima de la pantalla
 }
 
 sponsors_title = {
@@ -198,6 +169,21 @@ sponsors_title = {
     "color": TextColor.FOURTH.value,
     "text_shadow": "2px 2px 0 black",
     "scroll-margin-top": Size.BIG.value,
+    "text_align": "center",
+}
+
+sponsors_img = {
+    "max_width": "230px",
+    "width": "100%",
+    "height": "auto",
+    "margin": "0.5rem",
+    "justify_content": "center",
+    "align_items": "center",
+}
+
+sponsors_img_container = {
+    "background": Color.TERTIARY.value,
+    "text_align": "center",
 }
 
 sponsors_container = {
@@ -207,16 +193,6 @@ sponsors_container = {
     "white_space": "nowrap",
     "padding": "1em 0",
 }
-
-# carousel_track = {
-#     "animation": "scroll-left 20s linear infinite",
-#     "display": "inline-flex",
-#     "min_width": "200%",
-#     "@keyframes scroll-left": {
-#         "0%": {"transform": "translateX(50%)"},
-#         "100%": {"transform": "translateX(-100%)"},
-#     },
-# }
 
 # AREA DEL FOOTER
 
@@ -265,7 +241,14 @@ desktop_navbar_style = {
 }
 
 mobile_navbar_style = {
-    "background": Color.TERTIARY.value,
+    "background": f"linear-gradient(90deg, {Color.SECONDARY.value} 25%, {Color.TERTIARY.value} 50%, {Color.SECONDARY.value} 75%, {Color.TERTIARY.value} 100%)",
+    "background-size": "400% 400%",
+    "animation": "fondoAnimado 10s ease infinite",
+    "@keyframes fondoAnimado": {
+        "0%": {"background-position": "0% 50%"},
+        "50%": {"background-position": "100% 50%"},
+        "100%": {"background-position": "0% 50%"},
+    },
     "border_bottom": f"0.25em solid {Color.SECONDARY.value}",
     "padding_x": Size.BIG.value,
     "padding_y": Size.DEFAULT.value,
@@ -273,8 +256,12 @@ mobile_navbar_style = {
 # ESTILOS DE LOS LINKS EN EL NAVBAR
 nav_links = {
     "color": TextColor.PRIMARY.value,
-    "font_size": Size.MEDIUM.value,
-    "margin_right": Size.BIG.value,
+    "background_color": "transparent",
+    "font_size": Size.DEFAULT.value,
+    # "margin_right": Size.BIG.value,
+    "border_radius": "5px",
+    "padding": Size.SMALL.value,
+    "text_shadow": "1px 1px 0 black",
 }
 
 # ESTILOS ESPECIFICOS PARA EL FORMULARIO

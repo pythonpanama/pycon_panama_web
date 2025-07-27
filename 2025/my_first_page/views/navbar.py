@@ -39,7 +39,8 @@ def navbar() -> rx.Component:
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
-                                "text_decoration": "underline",
+                                "background": TextColor.PRIMARY.value,
+                                "text_decoration": "none",
                             },
                         ),
                         rx.link(
@@ -48,7 +49,8 @@ def navbar() -> rx.Component:
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
-                                "text_decoration": "underline",
+                                "background": TextColor.PRIMARY.value,
+                                "text_decoration": "none",
                             },
                         ),
                         rx.link(
@@ -57,7 +59,8 @@ def navbar() -> rx.Component:
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
-                                "text_decoration": "underline",
+                                "background": TextColor.PRIMARY.value,
+                                "text_decoration": "none",
                             },
                         ),
                         rx.link(
@@ -66,7 +69,8 @@ def navbar() -> rx.Component:
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
-                                "text_decoration": "underline",
+                                "background": TextColor.PRIMARY.value,
+                                "text_decoration": "none",
                             },
                         ),
                         rx.link(
@@ -75,7 +79,8 @@ def navbar() -> rx.Component:
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
-                                "text_decoration": "underline",
+                                "background": TextColor.PRIMARY.value,
+                                "text_decoration": "none",
                             },
                         ),
                         rx.link(
@@ -84,15 +89,13 @@ def navbar() -> rx.Component:
                             style=styles.nav_links,
                             _hover={
                                 "color": TextColor.FOURTH.value,
-                                "text_decoration": "underline",
+                                "background": TextColor.PRIMARY.value,
+                                "text_decoration": "none",
                             },
                         ),
                         justify_content="flex_end",
                         align_items="center",
-                        # spacing="5",
                     ),
-                    # width="100%",
-                    # align_items="center",
                     style=styles.desktop_navbar_style,
                 ),
                 width="100%",
@@ -103,17 +106,20 @@ def navbar() -> rx.Component:
                         rx.el.span(
                             "PyCon ",
                             color=TextColor.PRIMARY.value,
+                            text_shadow="black 2px 2px",
                         ),
                         rx.el.span(
                             "Panamá ",
-                            color=TextColor.SECONDARY.value,
+                            color=TextColor.FOURTH.value,
+                            text_shadow="black 2px 2px",
                         ),
                         rx.el.span(
                             "2025 ",
-                            color=TextColor.FOURTH.value,
+                            color=TextColor.FIFTH.value,
+                            text_shadow="black 1px 1px",
                         ),
                         font_size=[
-                            Size.DEFAULT.value,
+                            Size.BIG.value,
                             Size.BIG.value,
                             Size.BIG.value,
                         ],

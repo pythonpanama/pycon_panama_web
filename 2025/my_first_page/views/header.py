@@ -38,7 +38,7 @@ def header() -> rx.Component:
             rx.vstack(
                 rx.text(
                     "No te lo pierdas, el dia 20 de octubre, faltan:",
-                    font_size=[Size.MEDIUM.value, Size.DEFAULT.value, Size.BIG.value],
+                    font_size=["1.5em", "1.5em", Size.BIG.value],
                     color=TextColor.PRIMARY.value,
                     text_align="center",
                     text_shadow="black 1px 1px",

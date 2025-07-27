@@ -18,7 +18,7 @@ def sedes() -> rx.Component:
                     background=Color.PRIMARY.value,
                     border_color=Color.PRIMARY.value,
                 ),
-                rx.image(
+                rx.el.img(
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
@@ -39,7 +39,7 @@ def sedes() -> rx.Component:
                     background=Color.FIFTH.value,
                     border_color=Color.FIFTH.value,
                 ),
-                rx.image(
+                rx.el.img(
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
@@ -59,7 +59,7 @@ def sedes() -> rx.Component:
                     background=Color.FOURTH.value,
                     border_color=Color.FOURTH.value,
                 ),
-                rx.image(
+                rx.el.img(
                     src="PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
@@ -72,7 +72,6 @@ def sedes() -> rx.Component:
                 style=styles.card_container_sede,
                 box_shadow=f"8px 8px 0 {Color.FOURTH.value}",
             ),
-            loading="lazy",
             flex_direction=["column", "column", "column", "row", "row", "row"],
             align_items="center",
             justify_content="center",
