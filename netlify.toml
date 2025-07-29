@@ -1,20 +1,23 @@
 [build]
-  publish = "."  # Publica desde la raíz del repositorio, para acceder a todas las carpetas
+  publish = "."  # Publica desde raíz para acceder a 2024 y 2025 carpetas
 
-# Mostrar directamente el index del sitio en la raíz (Rewrite, no cambia URL)
+# Redirige raíz a /2025 (cambia URL en navegador)
 [[redirects]]
   from = "/"
-  to = "/2025_site/index.html"
-  status = 200  # Rewrite para servir Reflex 2025 como principal
+  to = "/2025"
+  status = 301
 
-# Redirige /2025 a la raíz, para que no haya confusión (Permanent redirect)
+# Redirige /2025 sin slash a /2025/ con slash para rutas relativas
 [[redirects]]
   from = "/2025"
-  to = "/"
-  status = 301  # Redirección permanente
+  to = "/2025/"
+  status = 301
 
-# Mostrar la página 2024 desde la carpeta 2024 y permitir subrutas
+# 2025 sirve contenido desde carpeta /2025/ (Reflex export renombrada)
+# No necesitas redirect ni rewrite aquí si la carpeta se llama 2025
+
+# Permite que /2024/* sirva contenido estático con subrutas
 [[redirects]]
   from = "/2024/*"
   to = "/2024/:splat"
-  status = 200  # Rewrite para servir la versión estática 2024 con soporte para subrutas
+  status = 200
