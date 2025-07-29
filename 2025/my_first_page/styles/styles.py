@@ -108,21 +108,20 @@ countdown_text = {
 
 # ESTILOS CAJA DE INSTRUCCIONES
 
-instructions_boton_registro = (
-    {
-        "font_size": [Size.DEFAULT.value, Size.BIG.value, Size.VERY_BIG.value],
-        "display": "inline-block",
-        "padding": "10px 20px",
-        # "background": Color.ACCENT,
-        "color": TextColor.TERTIARY,
-        "text-decoration": "none",
-        "border-radius": "15px",
-        "border": f"3px solid {Color.TERTIARY.value}",
-        # "transition": "all 0.2s ease",
-        "box-shadow": f"4px 4px 0 {Color.TERTIARY.value}",
-        "transition": "all 0.2s ease-in-out",
-    },
-)
+instructions_boton_registro = {
+    "font_size": [Size.DEFAULT.value, Size.BIG.value, Size.VERY_BIG.value],
+    "display": "inline-block",
+    "padding": "10px 20px",
+    # "background": Color.ACCENT,
+    "color": TextColor.TERTIARY,
+    "text-decoration": "none",
+    "border-radius": "15px",
+    "border": f"3px solid {Color.TERTIARY.value}",
+    # "transition": "all 0.2s ease",
+    "box-shadow": f"4px 4px 0 {Color.TERTIARY.value}",
+    "transition": "all 0.2s ease-in-out",
+}
+
 
 instructions_box = {
     "background_color": TextColor.PRIMARY.value,
@@ -288,104 +287,94 @@ STYLE_FORM = {
 }
 
 # APARTADO PARA LAS CARTAS DE PRESENTACION
-card_container = (
-    {
-        "width": "90%",  # responsivo
-        "max_width": "300px",  # límite en pantallas grandes
-        "height": "auto",  # más flexible
-        "min_height": "500px",  # mantener consistencia visual
-        "box-sizing": "border-box",  # evitar desbordes
-        "overflow": "hidden",
-        "background": Color.TERTIARY.value,
-        "border": f"4px solid {Color.FIFTH.value}",
-        "border-radius": "10px",
-        "box-shadow": f"8px 8px 0 {Color.PRIMARY.value}",
-    },
-)
-upper_container = (
-    {
-        "height": "140px",
-        "background": Color.FOURTH.value,
-        "border-bottom": f"4px solid {Color.FIFTH.value}",
-        "display": "flex",
-        "justify-content": "center",
-        "align-items": "flex-end",
-    },
-)
-image_container = (
-    {
-        "width": "100px",
-        "height": "100px",
-        "background": "#ffffff",
-        "border": f"4px solid {Color.FIFTH.value}",
-        "transform": "translateY(50%)",
-        "display": "flex",
-        "justify-content": "center",
-        "align-items": "center",
-    },
-)
-image_container_img = (
-    {
-        "width": "90px",
-        "height": "90px",
-        "object-fit": "cover",
-        "border": f"2px solid {Color.FOURTH.value}",
-    },
-)
-lower_container = (
-    {
-        "padding": "60px 20px 30px",
-        "text-align": "center",
-    },
-)
-lower_container_h3 = (
-    {
-        "margin": "0",
-        "font-size": "20px",
-        "font-weight": "bold",
-        "color": TextColor.FIFTH.value,
-    },
-)
-lower_container_h4 = (
-    {
-        "margin": "5px 0 15px",
-        "font-size": "14px",
-        "color": TextColor.FIFTH.value,
-        "font-weight": "normal",
-    },
-)
-lower_container_p = (
-    {
-        "font-size": "14px",
-        "color": TextColor.FIFTH.value,
-        "border": f"2px inset {Color.FIFTH.value}",
-        "padding": "10px",
-        "background": Color.ACCENT.value,
-        "margin-bottom": "20px",
-        "height": "50px",  # Limita la altura del párrafo
-        "overflow": "hidden",  # Muestra scroll si hay mucho texto
-        "display": "flex",
-        "-webkit-line-clamp": "4",  # Número máximo de líneas visibles
-        "-webkit-box-orient": "vertical",
-        "align_items": "center",
-        "justify_content": "center",
-    },
-)
+card_container = {
+    "width": "90%",  # responsivo
+    "max_width": "300px",  # límite en pantallas grandes
+    "height": "auto",  # más flexible
+    "min_height": "500px",  # mantener consistencia visual
+    "box-sizing": "border-box",  # evitar desbordes
+    "overflow": "hidden",
+    "background": Color.TERTIARY.value,
+    "border": f"4px solid {Color.FIFTH.value}",
+    "border-radius": "10px",
+    "box-shadow": f"8px 8px 0 {Color.PRIMARY.value}",
+}
+
+upper_container = {
+    "height": "140px",
+    "background": Color.FOURTH.value,
+    "border-bottom": f"4px solid {Color.FIFTH.value}",
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "flex-end",
+}
+
+image_container = {
+    "width": "100px",
+    "height": "100px",
+    "background": "#ffffff",
+    "border": f"4px solid {Color.FIFTH.value}",
+    "transform": "translateY(50%)",
+    "display": "flex",
+    "justify-content": "center",
+    "align-items": "center",
+}
+
+image_container_img = {
+    "width": "90px",
+    "height": "90px",
+    "object-fit": "cover",
+    "border": f"2px solid {Color.FOURTH.value}",
+}
+
+lower_container = {
+    "padding": "60px 20px 30px",
+    "text-align": "center",
+}
+
+lower_container_h3 = {
+    "margin": "0",
+    "font-size": "20px",
+    "font-weight": "bold",
+    "color": TextColor.FIFTH.value,
+}
+
+lower_container_h4 = {
+    "margin": "5px 0 15px",
+    "font-size": "14px",
+    "color": TextColor.FIFTH.value,
+    "font-weight": "normal",
+}
+
+lower_container_p = {
+    "font-size": "14px",
+    "color": TextColor.FIFTH.value,
+    "border": f"2px inset {Color.FIFTH.value}",
+    "padding": "10px",
+    "background": Color.ACCENT.value,
+    "margin-bottom": "20px",
+    "height": "50px",  # Limita la altura del párrafo
+    "overflow": "hidden",  # Muestra scroll si hay mucho texto
+    "display": "flex",
+    "-webkit-line-clamp": "4",  # Número máximo de líneas visibles
+    "-webkit-box-orient": "vertical",
+    "align_items": "center",
+    "justify_content": "center",
+}
 
 
-boton = (
-    {
-        "display": "inline-block",
-        "padding": "10px 20px",
-        "background": Color.ACCENT,
-        "color": TextColor.FIFTH,
-        "text-decoration": "none",
-        "border-radius": "15px",
-        "border": f"3px solid {Color.PRIMARY.value}",
-        "transition": "all 0.2s ease",
-        "box-shadow": f"4px 4px 0 {Color.PRIMARY.value}",
-    },
-)
+boton = {
+    "display": "inline-block",
+    "padding": "10px 20px",
+    "background": Color.ACCENT,
+    "color": TextColor.FIFTH,
+    "text-decoration": "none",
+    "border-radius": "15px",
+    "border": f"3px solid {Color.PRIMARY.value}",
+    "transition": "all 0.2s ease",
+    "box-shadow": f"4px 4px 0 {Color.PRIMARY.value}",
+}
+
 
 # ESTILOS DEL VER MAS EN LAS CARTAS
 ver_mas = {
@@ -427,19 +416,17 @@ legend = {
     "line_height": "1.5",
 }
 
-ver_mas_close_boton = (
-    {
-        "text_align": "center",
-        "padding": "10px 20px",
-        "background": Color.ACCENT,
-        "color": TextColor.FIFTH,
-        "text-decoration": "none",
-        "border-radius": "15px",
-        "border": f"3px solid {Color.PRIMARY.value}",
-        "transition": "all 0.2s ease",
-        "box-shadow": f"4px 4px 0 {Color.PRIMARY.value}",
-    },
-)
+ver_mas_close_boton = {
+    "text_align": "center",
+    "padding": "10px 20px",
+    "background": Color.ACCENT,
+    "color": TextColor.FIFTH,
+    "text-decoration": "none",
+    "border-radius": "15px",
+    "border": f"3px solid {Color.PRIMARY.value}",
+    "transition": "all 0.2s ease",
+    "box-shadow": f"4px 4px 0 {Color.PRIMARY.value}",
+}
 
 
 # ESTILOS SEDES
@@ -457,20 +444,19 @@ sedes_title = {
     "scroll-margin-top": Size.BIG.value,
 }
 
-card_container_sede = (
-    {
-        "gap": "0",
-        "width": "90%",  # responsivo
-        "max_width": "300px",  # límite en pantallas grandes
-        "height": "auto",  # más flexible
-        "min_height": "300px",  # mantener consistencia visual
-        "box-sizing": "border-box",  # evitar desbordes
-        "overflow": "hidden",
-        "border-radius": "10px",
-        "border": "4px solid black",
-        "background": Color.TERTIARY.value,
-    },
-)
+card_container_sede = {
+    "gap": "0",
+    "width": "90%",  # responsivo
+    "max_width": "300px",  # límite en pantallas grandes
+    "height": "auto",  # más flexible
+    "min_height": "300px",  # mantener consistencia visual
+    "box-sizing": "border-box",  # evitar desbordes
+    "overflow": "hidden",
+    "border-radius": "10px",
+    "border": "4px solid black",
+    "background": Color.TERTIARY.value,
+}
+
 
 upper_text_sede = {
     "width": "100%",
