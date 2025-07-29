@@ -10,3 +10,8 @@
   from = "/2024"
   to = "/2024/"
   status = 301
+
+[[redirects]]
+  from = "/2025"
+  to = "/2025_site/"
+  status = 301
