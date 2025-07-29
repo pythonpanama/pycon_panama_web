@@ -1,49 +1,50 @@
 import reflex as rx
-
-# import my_first_page.constants as constants
-from my_first_page.styles.styles import Size, TextColor
 import my_first_page.styles.styles as styles
+from my_first_page.styles.styles import Color, Size, TextColor
 
 
 def instructions() -> rx.Component:
     return rx.box(
-        # rx.html('<link rel="stylesheet" href="/styles.css">'),
+        rx.text(
+            "Acerca del evento",
+            style=styles.instructions_title,
+            id="instructions",
+        ),
         rx.vstack(
-            rx.text(
-                "Como funciona el evento", size="8", color=TextColor.TERTIARY.value
-            ),
-            rx.el.span("del dia tal hasta el dia tal se haran charlas de "),
-            rx.el.span("todos pueden participar de forma gratuita"),
-            rx.el.span("Solo tienes que registrarte en nuestra pagina"),
-            rx.link(
-                "Registrarse",
-                # on_click=rx.redirect(
-                #     "/form",
-                # ),
-                href="/form",
-                class_name="btn",
-                style=styles.boton,
+            rx.el.span(
+                "La PyCon es una conferencia que reúne a entusiastas y profesionales del lenguaje Python en un espacio dinámico, colaborativo y enriquecedor. El evento está diseñado para fomentar la innovación, el aprendizaje continuo y el intercambio de experiencias entre la comunidad.",
+                style=styles.instructions_paragraph,
             ),
             rx.el.span(
-                "loremp ipsum dolor sit amet, consectetur adipiscing elit. ",
+                "Durante tres días, tendrás la oportunidad de conectar con personas apasionadas por la tecnología y el desarrollo en Python, participar en charlas, talleres y actividades especiales.",
+                style=styles.instructions_paragraph,
+            ),
+            rx.el.span(
+                "La entrada es gratuita durante los dos primeros días. ¡Solo necesitas registrarte para asegurar tu participación!",
+                style=styles.instructions_paragraph,
             ),
             rx.link(
-                "Ver charlas",
-                # on_click=rx.redirect(
-                #     "/calendar",
-                # ),
-                href="/calendar",
-                class_name="btn",
-                style=styles.boton,
+                "Registrate Aquí!!!",
+                href="/form",
+                style=styles.instructions_boton_registro,
+                _hover={
+                    "border": f"3px solid {Color.TERTIARY.value}",
+                    # "box-shadow": "none",
+                    "transform": "scale(1.05)",
+                    "animation": "textoAnimado 2s linear infinite",
+                    "@keyframes textoAnimado": {
+                        "0%": {"color": Color.ACCENT.value},
+                        "50%": {"color": Color.SECONDARY.value},
+                        "100%": {"color": Color.FOURTH.value},
+                    },
+                },
             ),
-            rx.el.span("loremp ipsum dolor sit amet, consectetur adipiscing elit. "),
-            background_color=TextColor.SECONDARY.value,
-            class_name="card",
-            padding=Size.BIG.value,
-            align_items="start",
-            width="100%",
-            # cambio de color texto dentro de instrucciones
-            color=TextColor.FIFTH.value,
+            rx.el.span(
+                "Consulta nuestra agenda para conocer a los expositores y descubrir los temas que estarán compartiendo con nosotros.",
+                style=styles.instructions_paragraph,
+            ),
+            style=styles.instructions_box,
+            spacing="4",
         ),
         style=styles.max_width_style,
     )

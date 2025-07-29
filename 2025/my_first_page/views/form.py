@@ -1,6 +1,6 @@
 import reflex as rx
-from my_first_page.styles.styles import Size, TextColor, Color
 import my_first_page.styles.styles as styles
+from my_first_page.styles.styles import Size
 from my_first_page.views.navbar import navbar
 
 
@@ -41,28 +41,28 @@ def form() -> rx.Component:
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="dia_1">
                     <label class="form-check-label" for="dia_1">
-                    Día 1 ITSE Panamá Oct, 16, 2025
+                    Por Definir.
                     </label>
                 </div>
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="dia_2">
                     <label class="form-check-label" for="dia_2">
-                    Día 2 UTP Panamá Oeste Oct, 17, 2025
+                    Por Definir.
                     </label>
                 </div>
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="dia_3">
                     <label class="form-check-label" for="dia_3">
-                    Día 1 My Office Oct, 18, 2025
+                    Por Definir.
                     </label>
                 </div>
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="dia_3_virtual">
                     <label class="form-check-label" for="dia_3_virtual">
-                    Día 1 Virtual, Oct, 18, 2025
+                    Por Definir.
                     </label>
                 </div>
 
@@ -80,10 +80,6 @@ def form() -> rx.Component:
 
                 <div>
                 <input type="text" class="form-control" id="institucion" placeholder="Institución o Empresa" name="institucion" required>
-                </div>
-
-                <div>
-                <input type="text" class="form-control" id="cargo" placeholder="Cargo" name="cargo" required>
                 </div>
 
                 <div>
@@ -112,9 +108,6 @@ def form() -> rx.Component:
                 </div>
                 </fieldset>
 
-                <div style="display:flex;justify-content:center;">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
 
             </div>
         </form>
@@ -131,5 +124,9 @@ def form() -> rx.Component:
             width="100%",
             margin_x="auto",
             max_width="800px",
+            #             boton deshabilitado de momento
+            #             <div style="display:flex;justify-content:center;">
+            # <button type="submit" class="btn btn-primary">Enviar</button>
+            # </div>
         ),
     )

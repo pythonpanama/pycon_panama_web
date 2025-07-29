@@ -2,6 +2,10 @@
 # https://reflex.dev/docs/styling/responsive/
 # estilo boostrap utilizado
 # https://bootswatch.com/brite/
+# pagina utilizada para generar fondos:
+# https://bgjar.com/sprinkle
+# pagina de donde saque el icon de python:
+# https://icon-icons.com/es/
 import reflex as rx
 import my_first_page.styles.styles as styles
 from my_first_page.views.navbar import navbar
@@ -9,8 +13,9 @@ from my_first_page.views.header import header
 from my_first_page.views.instructions import instructions
 from my_first_page.views.footer import footer
 from my_first_page.views.form import form
-from my_first_page.views.partners import partners
+from my_first_page.views.sponsors import sponsors
 from my_first_page.views.calendar import calendar
+from my_first_page.views.sedes import sedes
 
 
 def index() -> rx.Component:
@@ -20,14 +25,13 @@ def index() -> rx.Component:
         rx.vstack(
             header(),
             instructions(),
-            partners(),
+            sedes(),
             footer(),
             align="center",
             width="100%",
             # el video decia Size.VERY_BIG.value
             # pero el spacing solo puede ser usado con numeros fijos como el siguiente, tener en cuenta eso
-            # tengo que checar esto bien porque no me esta apareciendo como a mauro
-            spacing="9",
+            spacing="4",
         ),
     )
 
@@ -39,8 +43,8 @@ app = rx.App(
 
 app.add_page(
     index,
-    title="PyCon Panamá 2025, 3 dìas, regalos",
-    description="Aqui esta el calendario de actividades para este 2025",
+    title="PyCon Panamá 2025",
+    description="Main page de la PyCon Panamá 2025",
 )
 
 app.add_page(
@@ -53,6 +57,13 @@ app.add_page(
 app.add_page(
     calendar,
     title="Calendario del evento",
-    description="Recopilacion de expositores y fechas de presentacion",
+    description="Recopilacion de expositores y horarios de presentacion",
     route="/calendar",
+)
+
+app.add_page(
+    sponsors,
+    title="Patrocinadores",
+    description="Recopilación de patrocinadores de Python Panamá 2025",
+    route="/sponsors",
 )

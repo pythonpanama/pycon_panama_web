@@ -1,13 +1,14 @@
 # https://reflex.dev/docs/components/rendering-iterables/
+# https://codepen.io/rustcode/pen/MYYMrVQ       link referencia estilo
 import reflex as rx
-from my_first_page.constants import EVENTS_DAY_3
 import my_first_page.styles.styles as styles
+from my_first_page.constants import EVENTS_DAY_3
+from my_first_page.styles.colors import Color, TextColor
+from my_first_page.components.link_icon import link_icon
 
 
 def presentation_day_3():
     return rx.box(
-        # Vinculamos el CSS externo
-        # rx.html('<link rel="stylesheet" href="/card_style.css">'),
         # Estructura del div.card-container
         rx.flex(
             rx.foreach(
@@ -39,12 +40,87 @@ def presentation_day_3():
                                 event["description"], style=styles.lower_container_p
                             )
                         ),
+                        # dialog box
                         rx.box(
-                            rx.link(
-                                "Ver mas",
-                                href="#",
-                                # class_name="btn",
-                                style=styles.boton,
+                            rx.dialog.root(
+                                rx.dialog.trigger(
+                                    rx.link(
+                                        "Ver mas",
+                                        style=styles.boton,
+                                        _hover={
+                                            "background": Color.PRIMARY.value,
+                                            "color": TextColor.TERTIARY.value,
+                                            "border": f"3px solid {Color.TERTIARY.value}",
+                                            "box-shadow": "none",
+                                        },
+                                    ),
+                                ),
+                                # contenido del dialog
+                                rx.dialog.content(
+                                    rx.flex(
+                                        rx.box(
+                                            rx.image(
+                                                src=event["image_url"],
+                                                alt="Foto de perfil",
+                                                style=styles.ver_mas_img,
+                                            ),
+                                            rx.heading(
+                                                event["title"],
+                                                style=styles.lower_container_h4,
+                                                align="center",
+                                            ),
+                                            rx.hstack(
+                                                link_icon("twitter", event["twitter"]),
+                                                link_icon(
+                                                    "instagram", event["instagram"]
+                                                ),
+                                                link_icon(
+                                                    "linkedin", event["linkedin"]
+                                                ),
+                                                justify="center",
+                                                style=styles.ver_mas_socials,
+                                                _hover={
+                                                    "color": Color.FOURTH.value,
+                                                },
+                                            ),
+                                            width="100%",
+                                            height="100%",
+                                        ),
+                                        rx.box(
+                                            rx.heading(
+                                                event["name"],
+                                                style=styles.lower_container_h3,
+                                                align="center",
+                                            ),
+                                            rx.text(
+                                                event["legend"], style=styles.legend
+                                            ),
+                                            rx.center(
+                                                rx.dialog.close(
+                                                    rx.link(
+                                                        "Cerrar",
+                                                        size="2",
+                                                        mt="1.5rem",
+                                                        style=styles.ver_mas_close_boton,
+                                                        _hover={
+                                                            "background": Color.PRIMARY.value,
+                                                            "color": TextColor.TERTIARY.value,
+                                                            "border": f"3px solid {Color.TERTIARY.value}",
+                                                            "box-shadow": "none",
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            max_w="400px",
+                                            color=styles.TextColor.FIFTH,
+                                        ),
+                                        flex_direction=["column", "column", "row"],
+                                        align_items="center",
+                                        gap="2rem",
+                                        padding="1rem",
+                                    ),
+                                    style=styles.ver_mas,
+                                ),
                             ),
                         ),
                         # class_name="lower-container",
@@ -59,11 +135,8 @@ def presentation_day_3():
             align_items="center",
             justify_content="center",
             margin_x="auto",
+            margin_y="2rem",
             gap="2rem",
             flex_direction=["column", "column", "column", "row", "row", "row"],
-            # "repeat(auto-fit, minmax(250px, 1fr))"
-            # template_columns=[1, 2, 3],
-            # spacing="2",
-            # gap="2rem",
         ),
     )
