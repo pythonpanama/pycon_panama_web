@@ -1,5 +1,5 @@
 [build]
-  publish = "."  # Publica desde la raíz del repositorio
+  publish = "."  # Publica desde la raíz del repositorio, para acceder a todas las carpetas
 
 # Mostrar directamente el index del sitio en la raíz (Rewrite, no cambia URL)
 [[redirects]]
@@ -13,8 +13,8 @@
   to = "/"
   status = 301  # Redirección permanente
 
-# Mostrar la página 2024 desde la carpeta 2024 (Rewrite, no cambia URL)
+# Mostrar la página 2024 desde la carpeta 2024 y permitir subrutas
 [[redirects]]
-  from = "/2024"
-  to = "/2024/index.html"
-  status = 200  # Rewrite para servir la versión estática 2024
+  from = "/2024/*"
+  to = "/2024/:splat"
+  status = 200  # Rewrite para servir la versión estática 2024 con soporte para subrutas
