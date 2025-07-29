@@ -1,11 +1,25 @@
 [build]
-  publish = "."
+  publish = "."  # raíz del proyecto
 
+# Redirige la raíz al nuevo sitio de 2025
 [[redirects]]
   from = "/"
-  to = "/2024/"
+  to = "/2025/"
   status = 301
 
+# Asegura que /2025 sin slash redirija correctamente
+[[redirects]]
+  from = "/2025"
+  to = "/2025/"
+  status = 301
+
+# Muestra el sitio de Reflex que está en /2025_site cuando se accede a /2025/
+[[redirects]]
+  from = "/2025/"
+  to = "/2025_site/index.html"
+  status = 200
+
+# Mantiene el sitio del año pasado accesible
 [[redirects]]
   from = "/2024"
   to = "/2024/"

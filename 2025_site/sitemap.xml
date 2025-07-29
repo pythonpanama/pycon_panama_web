@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:3000/</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/form</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/calendar</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/sponsors</loc>
+  </url>
+</urlset>
