@@ -1,20 +1,20 @@
 [build]
-  publish = "."
+  publish = "."  # Publica desde la raíz del repositorio
 
-# Muestra directamente el index del sitio página raíz
+# Mostrar directamente el index del sitio en la raíz (Rewrite, no cambia URL)
 [[redirects]]
-from = "/"
-to = "/2025_site/index.html"
-status = 200
+  from = "/"
+  to = "/2025_site/index.html"
+  status = 200  # Rewrite para servir Reflex 2025 como principal
 
-# Redirige /2025 a raíz si alguien lo pone manualmente
+# Redirige /2025 a la raíz, para que no haya confusión (Permanent redirect)
 [[redirects]]
-from = "/2025"
-to = "/2025_site/index.html"
-status = 200
+  from = "/2025"
+  to = "/"
+  status = 301  # Redirección permanente
 
-# 2024
+# Mostrar la página 2024 desde la carpeta 2024 (Rewrite, no cambia URL)
 [[redirects]]
-from = "/2024"
-to = "/2024/index.html"
-status = 200
+  from = "/2024"
+  to = "/2024/index.html"
+  status = 200  # Rewrite para servir la versión estática 2024
