@@ -3,17 +3,10 @@
 
 [[redirects]]
   from = "/"
-  to = "/2025_site/"
+  to = "/2024/"
   status = 301
 
 [[redirects]]
-  from = "/2024/*"
-  to = "/2024/index.html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/2025_site/*"
-  to = "/2025_site/index.html"
-  status = 200
-  force = true
+  from = "/2024"
+  to = "/2024/"
+  status = 301
