@@ -1,22 +1,25 @@
 [build]
-  publish = "."  # Publica desde raíz para acceder a 2024 y 2025 carpetas
+  publish = "."  # desde la raíz, tienes carpetas 2024 y 2025_site
 
-# Redirige raíz a /2025 (cambia URL en navegador)
+# Redirige raíz a /2025 para que la URL muestre /2025 (redirección permanente)
 [[redirects]]
   from = "/"
-  to = "/2025"
+  to = "/2025/"
   status = 301
 
-# Redirige /2025 sin slash a /2025/ con slash para rutas relativas
+# Redirige /2025 sin barra a /2025/ con barra para evitar problemas de rutas relativas
 [[redirects]]
   from = "/2025"
   to = "/2025/"
   status = 301
 
-# 2025 sirve contenido desde carpeta /2025/ (Reflex export renombrada)
-# No necesitas redirect ni rewrite aquí si la carpeta se llama 2025
+# Rewrite para servir archivos de 2025_site cuando se accede a /2025/
+[[redirects]]
+  from = "/2025/*"
+  to = "/2025_site/:splat"
+  status = 200
 
-# Permite que /2024/* sirva contenido estático con subrutas
+# Permite que /2024/* sirva la carpeta 2024 y sus subrutas
 [[redirects]]
   from = "/2024/*"
   to = "/2024/:splat"
