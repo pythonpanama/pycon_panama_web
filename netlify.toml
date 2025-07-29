@@ -1,20 +1,20 @@
 [build]
-  publish = "2025_site"
+  publish = "."
 
 # Muestra directamente el index del sitio página raíz
 [[redirects]]
 from = "/"
-to = "/index.html"
+to = "/2025_site/index.html"
 status = 200
 
 # Redirige /2025 a raíz si alguien lo pone manualmente
 [[redirects]]
 from = "/2025"
-to = "/"
-status = 301
+to = "/2025_site/index.html"
+status = 200
 
 # 2024
 [[redirects]]
 from = "/2024"
-to = "/2024/"
-status = 301
+to = "/2024/index.html"
+status = 200
