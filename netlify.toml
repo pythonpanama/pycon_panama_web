@@ -1,18 +1,19 @@
 [build]
-  publish = "2025_site"  # Publica directamente el contenido de 2025_site
+  publish = "."
 
 [[redirects]]
   from = "/"
-  to = "/"
-  status = 200
-
-[[redirects]]
-  from = "/2024"
-  to = "/2024/"
+  to = "/2025_site/"
   status = 301
 
 [[redirects]]
   from = "/2024/*"
   to = "/2024/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/2025_site/*"
+  to = "/2025_site/index.html"
   status = 200
   force = true
