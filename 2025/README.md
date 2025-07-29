@@ -4,38 +4,45 @@ Este proyecto utiliza **Reflex**, un framework moderno para construir aplicacion
 
 ## 📦 Requisitos
 
-- Python 3.8 o superior
-- pip
-- Git (opcional, pero recomendado)
+- Python 3.8 o superior  
+  Puedes descargarlo aquí: [https://www.python.org/downloads/](https://www.python.org/downloads/)  
+  **Nota para Windows:** Se recomienda marcar la opción "Add Python to PATH" durante la instalación.
+
+- pip (viene incluido con Python)  
+- Git 
+---
 
 ## 🔧 Instalación
 
-1. **Clona este repositorio**
+### 1. Clonar este repositorio
+    git clone https://github.com/pythonpanama/pycon_panama_web.git
+    cd pycon_panama_web/2025
 
-git clone https://github.com/pythonpanama/pycon_panama_web.git
-cd 2025
+2. Crea y activa un entorno virtual
 
-2. Crea y activa un entorno virtual (opcional, pero recomendado)
+En Linux / macOS
+    python3 -m venv .venv
+    source .venv/bin/activate
 
-python3 -m venv .venv
-source env/bin/activate  # En Windows: .\env\Scripts\activate
+En Windows (PowerShell)
+    py -m venv .venv
+    .\.venv\Scripts\Activate.ps1
 
-3. Instala Reflex
+En Windows (CMD)
+    py -m venv .venv
+    .\.venv\Scripts\activate.bat
 
-pip install reflex
+3. Instalar dependencias
+    pip install -r requirements.txt
 
-
-4. (Opcional) Instala dependencias adicionales
-
-pip install -r requirements.txt
-
+4. Ejecuta la aplicación en modo desarrollo
+reflex run
 
 ## 🚀 Cómo usar Reflex
 1. Inicializa el proyecto (si aún no lo has hecho)
 
 reflex init nombre_proyecto
 cd nombre_proyecto
-
 
 2. Ejecuta la aplicación en modo desarrollo
 reflex run
