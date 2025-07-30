@@ -1,7 +1,7 @@
 # # components/dialog_box.py
 # import reflex as rx
-# from my_first_page.components.link_icon import link_icon
-# import my_first_page.styles.styles as styles
+# from dev_2025.components.link_icon import link_icon
+# import dev_2025.styles.styles as styles
 #
 #
 # def dialogbox(event: dict) -> rx.Component:

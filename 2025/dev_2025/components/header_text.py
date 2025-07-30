@@ -1,5 +1,5 @@
 import reflex as rx
-from my_first_page.styles.styles import Size, TextColor
+from dev_2025.styles.styles import Size, TextColor
 
 def header_text(icon: str, text: str, dark=True) -> rx.Component:
     return rx.hstack(

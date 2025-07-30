@@ -1,6 +1,6 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.styles.styles import Color, Size, TextColor
+import dev_2025.styles.styles as styles
+from dev_2025.styles.styles import Color, Size, TextColor
 
 
 def instructions() -> rx.Component:

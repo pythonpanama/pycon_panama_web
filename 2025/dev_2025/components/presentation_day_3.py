@@ -1,18 +1,18 @@
 # https://reflex.dev/docs/components/rendering-iterables/
 # https://codepen.io/rustcode/pen/MYYMrVQ       link referencia estilo
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.constants import EVENTS_DAY_1
-from my_first_page.styles.colors import Color, TextColor
-from my_first_page.components.link_icon import link_icon
+import dev_2025.styles.styles as styles
+from dev_2025.constants import EVENTS_DAY_3
+from dev_2025.styles.colors import Color, TextColor
+from dev_2025.components.link_icon import link_icon
 
 
-def presentation_day_1():
+def presentation_day_3():
     return rx.box(
         # Estructura del div.card-container
         rx.flex(
             rx.foreach(
-                EVENTS_DAY_1,
+                EVENTS_DAY_3,
                 lambda event: rx.box(
                     # upper-container
                     rx.box(
@@ -70,12 +70,6 @@ def presentation_day_1():
                                                 align="center",
                                             ),
                                             rx.hstack(
-                                                # *[
-                                                #     link_icon(name, url)
-                                                #     for name, url in (
-                                                #         event.get("socials") or {}
-                                                #     ).items()
-                                                # ],
                                                 link_icon("twitter", event["twitter"]),
                                                 link_icon(
                                                     "instagram", event["instagram"]

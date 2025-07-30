@@ -1,7 +1,7 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.styles.styles import Size
-from my_first_page.views.navbar import navbar
+import dev_2025.styles.styles as styles
+from dev_2025.styles.styles import Size
+from dev_2025.views.navbar import navbar
 
 
 def form() -> rx.Component:

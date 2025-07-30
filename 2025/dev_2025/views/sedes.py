@@ -1,6 +1,6 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.styles.colors import Color, TextColor
+import dev_2025.styles.styles as styles
+from dev_2025.styles.colors import Color, TextColor
 
 
 def sedes() -> rx.Component:

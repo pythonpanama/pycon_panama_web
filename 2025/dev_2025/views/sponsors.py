@@ -1,7 +1,7 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.views.navbar import navbar
-from my_first_page.views.footer import footer
+import dev_2025.styles.styles as styles
+from dev_2025.views.navbar import navbar
+from dev_2025.views.footer import footer
 
 
 def sponsors() -> rx.Component:

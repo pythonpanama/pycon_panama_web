@@ -1,7 +1,7 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-import my_first_page.constants as constants
-from my_first_page.styles.styles import Size, TextColor
+import dev_2025.styles.styles as styles
+import dev_2025.constants as constants
+from dev_2025.styles.styles import Size, TextColor
 
 
 def header() -> rx.Component:

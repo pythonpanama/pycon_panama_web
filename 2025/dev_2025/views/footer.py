@@ -1,8 +1,8 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-import my_first_page.constants as constants
-from my_first_page.styles.styles import Size
-from my_first_page.components.link_icon import link_icon
+import dev_2025.styles.styles as styles
+import dev_2025.constants as constants
+from dev_2025.styles.styles import Size
+from dev_2025.components.link_icon import link_icon
 
 
 def footer() -> rx.Component:

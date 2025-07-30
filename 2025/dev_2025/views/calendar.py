@@ -1,11 +1,11 @@
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.styles.colors import Color, TextColor
-from my_first_page.views.footer import footer
-from my_first_page.views.navbar import navbar
-from my_first_page.components.presentation_day_1 import presentation_day_1
-from my_first_page.components.presentation_day_2 import presentation_day_2
-from my_first_page.components.presentation_day_3 import presentation_day_3
+import dev_2025.styles.styles as styles
+from dev_2025.styles.colors import Color, TextColor
+from dev_2025.views.footer import footer
+from dev_2025.views.navbar import navbar
+from dev_2025.components.presentation_day_1 import presentation_day_1
+from dev_2025.components.presentation_day_2 import presentation_day_2
+from dev_2025.components.presentation_day_3 import presentation_day_3
 
 
 # Creamos el State

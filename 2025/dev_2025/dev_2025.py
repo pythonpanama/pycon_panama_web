@@ -7,15 +7,15 @@
 # pagina de donde saque el icon de python:
 # https://icon-icons.com/es/
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.views.navbar import navbar
-from my_first_page.views.header import header
-from my_first_page.views.instructions import instructions
-from my_first_page.views.footer import footer
-from my_first_page.views.form import form
-from my_first_page.views.sponsors import sponsors
-from my_first_page.views.calendar import calendar
-from my_first_page.views.sedes import sedes
+import dev_2025.styles.styles as styles
+from dev_2025.views.navbar import navbar
+from dev_2025.views.header import header
+from dev_2025.views.instructions import instructions
+from dev_2025.views.footer import footer
+from dev_2025.views.form import form
+from dev_2025.views.sponsors import sponsors
+from dev_2025.views.calendar import calendar
+from dev_2025.views.sedes import sedes
 
 
 def index() -> rx.Component:

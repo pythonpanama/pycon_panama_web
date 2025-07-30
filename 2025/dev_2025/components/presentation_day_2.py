@@ -1,10 +1,10 @@
 # https://reflex.dev/docs/components/rendering-iterables/
 # https://codepen.io/rustcode/pen/MYYMrVQ       link referencia estilo
 import reflex as rx
-import my_first_page.styles.styles as styles
-from my_first_page.constants import EVENTS_DAY_2
-from my_first_page.styles.colors import Color, TextColor
-from my_first_page.components.link_icon import link_icon
+import dev_2025.styles.styles as styles
+from dev_2025.constants import EVENTS_DAY_2
+from dev_2025.styles.colors import Color, TextColor
+from dev_2025.components.link_icon import link_icon
 
 
 def presentation_day_2():
