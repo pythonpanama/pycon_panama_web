@@ -18,6 +18,6 @@ status = 301
 
 #redireccion a 2025
 [[redirects]]
-  from = "/2025_dev/public/*"
-  to = "/index.html"
+  from = "/2025_dev/*"
+  to = "/2025_dev/public/index.html"
   status = 200
