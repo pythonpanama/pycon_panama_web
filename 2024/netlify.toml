@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  # Sin command porque ya tienes todo exportado
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
