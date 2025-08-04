@@ -7,7 +7,9 @@ LINKEDIN_URL_PYTHON_PANAMA = "https://www.linkedin.com/company/pythonpanama/"
 PYCON_HASHTAG_URL = "https://linktr.ee/pythonpanama"
 INICIO_URL = "/"
 FORM_URL = "/form"
-CALENDAR_URL = "/calendar"
+CALENDAR_DAY_1_URL = "/calendar_day_1"
+CALENDAR_DAY_2_URL = "/calendar_day_2"
+CALENDAR_VIRTUAL = "/calendar_virtual"
 ACERCA_DE_URL = "/#instructions"
 SEDES_URL = "/#sedes"
 CODIGO_CONDUCTA_URL = "https://pythonpanama.org/codigo-de-conducta"
@@ -26,39 +28,37 @@ EVENTS_DAY_1 = [
         "linkedin": "https://www.linkedin.com/company/pythonpanama/posts/?feedView=all",
     },
     {
-        "image_url": "",
+        "image_url": "/PyConPet.jpg",
         "name": "Mc Python",
         "title": "BackEnd Developer",
-        "time": "2:00 AM",
-        "description": "Cloud con python",
+        "time": "10:00 AM",
+        "description": "El Machine Learning afectaciones y mejoras",
+        "legend": "python es un lenguaje que lleva con nosotros ya casi 40 años, conforma una gran parte de....",
+        "twitter": "https://x.com/pythonpanama",
+        "instagram": "https://www.instagram.com/pythonpanama/",
+        "linkedin": "https://www.linkedin.com/company/pythonpanama/posts/?feedView=all",
     },
     {
-        "image_url": "",
+        "image_url": "/PyConPet.jpg",
         "name": "Mc Python",
         "title": "FrontEnd Developer",
-        "time": "5:00 AM",
+        "time": "10:00 AM",
         "description": "El Machine Learning afectaciones y mejoras",
+        "legend": "python es un lenguaje que lleva con nosotros ya casi 40 años, conforma una gran parte de....",
+        "twitter": "https://x.com/pythonpanama",
+        "instagram": "https://www.instagram.com/pythonpanama/",
+        "linkedin": "https://www.linkedin.com/company/pythonpanama/posts/?feedView=all",
     },
     {
-        "image_url": "",
+        "image_url": "/PyConPet.jpg",
         "name": "Mc Python",
         "title": "FrontEnd Developer",
-        "time": "5:00 AM",
+        "time": "10:00 AM",
         "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
+        "legend": "python es un lenguaje que lleva con nosotros ya casi 40 años, conforma una gran parte de....",
+        "twitter": "https://x.com/pythonpanama",
+        "instagram": "https://www.instagram.com/pythonpanama/",
+        "linkedin": "https://www.linkedin.com/company/pythonpanama/posts/?feedView=all",
     },
 ]
 
@@ -69,57 +69,23 @@ EVENTS_DAY_2 = [
         "title": "FrontEnd Developer",
         "time": "10:00 AM",
         "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "2:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
+        "legend": "python es un lenguaje que lleva con nosotros ya casi 40 años, conforma una gran parte de....",
+        "twitter": "https://x.com/pythonpanama",
+        "instagram": "https://www.instagram.com/pythonpanama/",
+        "linkedin": "https://www.linkedin.com/company/pythonpanama/posts/?feedView=all",
     },
 ]
 
-EVENTS_DAY_3 = [
+EVENTS_DAY_VIRTUAL = [
     {
         "image_url": "/PyConPet.jpg",
-        "name": "Mc Python 3",
+        "name": "Mc Python virtual 3",
         "title": "FrontEnd Developer",
         "time": "10:00 AM",
         "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "2:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
-    },
-    {
-        "image_url": "",
-        "name": "Mc Python",
-        "title": "FrontEnd Developer",
-        "time": "5:00 AM",
-        "description": "El Machine Learning afectaciones y mejoras",
+        "legend": "python es un lenguaje que lleva con nosotros ya casi 40 años, conforma una gran parte de....",
+        "twitter": "https://x.com/pythonpanama",
+        "instagram": "https://www.instagram.com/pythonpanama/",
+        "linkedin": "https://www.linkedin.com/company/pythonpanama/posts/?feedView=all",
     },
 ]

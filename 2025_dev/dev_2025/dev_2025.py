@@ -1,4 +1,4 @@
-# referencia para diseño responsive con flex_direction
+# refrencia para diseño responsive con flex_direction
 # https://reflex.dev/docs/styling/responsive/
 # estilo boostrap utilizado
 # https://bootswatch.com/brite/
@@ -14,7 +14,9 @@ from dev_2025.views.instructions import instructions
 from dev_2025.views.footer import footer
 from dev_2025.views.form import form
 from dev_2025.views.sponsors import sponsors
-from dev_2025.views.calendar import calendar
+from dev_2025.views.calendar_day_1 import calendar_day_1
+from dev_2025.views.calendar_day_2 import calendar_day_2
+from dev_2025.views.calendar_virtual import calendar_virtual
 from dev_2025.views.sedes import sedes
 
 
@@ -45,6 +47,7 @@ app.add_page(
     index,
     title="PyCon Panamá 2025",
     description="Main page de la PyCon Panamá 2025",
+    route="/",
 )
 
 app.add_page(
@@ -55,10 +58,24 @@ app.add_page(
 )
 
 app.add_page(
-    calendar,
+    calendar_day_1,
     title="Calendario del evento",
     description="Recopilacion de expositores y horarios de presentacion",
-    route="/calendar",
+    route="/calendar_day_1",
+)
+
+app.add_page(
+    calendar_day_2,
+    title="Calendario del evento",
+    description="Recopilacion de expositores y horarios de presentacion",
+    route="/calendar_day_2",
+)
+
+app.add_page(
+    calendar_virtual,
+    title="Calendario del evento",
+    description="Recopilacion de expositores y horarios de presentacion",
+    route="/calendar_virtual",
 )
 
 app.add_page(
