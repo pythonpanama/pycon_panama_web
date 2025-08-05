@@ -59,7 +59,7 @@ def calendar_day_1() -> rx.Component:
                         # upper-container
                         rx.box(
                             rx.box(
-                                rx.image(
+                                rx.el.img(
                                     src=event["image_url"],
                                     alt="profile image",
                                     style=styles.image_container_img,
@@ -192,4 +192,5 @@ def calendar_day_1() -> rx.Component:
         ),
         footer(),
         style=styles.calendar_style,
+        background_image="url('/2025/images/Sprinkle_bg.svg')",
     )

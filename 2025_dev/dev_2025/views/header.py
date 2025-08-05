@@ -6,7 +6,7 @@ from dev_2025.styles.styles import Size, TextColor
 
 def header() -> rx.Component:
     return rx.vstack(
-        # cabezera de bienvenida
+        # header de bienvenida
         rx.box(
             rx.el.span(
                 "BIENVENIDOS A ",
@@ -20,21 +20,10 @@ def header() -> rx.Component:
                 "2025",
                 color=TextColor.FOURTH.value,
             ),
-            # size y spacing solo aceptan literales de tipo ["1","2","3","4","5","6","7","8","9"]
-            # no aceptan cosas como lg, sm, ni 2rem, 2em, nada de esto acepta
             style=styles.header_title,
         ),
         # SECCION LOGO CON CONTADOR
-        # EL LOGO TODAVIA ESTA ABIERTO A CAMBIOS
-        # revisar diferencia entre rx.hstack y rx.flex
         rx.hstack(
-            # rx.image(
-            #     src="PyConPet.jpg",
-            #     alt="mascota python",
-            #     width="16em",
-            #     height="16em",
-            #     margin_x="auto",
-            # ),
             rx.vstack(
                 rx.text(
                     "No te lo pierdas, faltan:",
@@ -100,6 +89,6 @@ def header() -> rx.Component:
             ),
             style=styles.header_countdown_section,
         ),
-        rx.script(src="/js/countdown.js"),
+        rx.script(src="js/countdown.js"),
         style=styles.header,
     )

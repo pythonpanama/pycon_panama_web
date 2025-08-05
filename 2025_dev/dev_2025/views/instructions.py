@@ -1,6 +1,7 @@
 import reflex as rx
 import dev_2025.styles.styles as styles
 from dev_2025.styles.styles import Color, Size, TextColor
+import dev_2025.constants as constants
 
 
 def instructions() -> rx.Component:
@@ -25,7 +26,7 @@ def instructions() -> rx.Component:
             ),
             rx.link(
                 "Registrate Aquí!!!",
-                href="/form",
+                href=constants.FORM_URL,
                 style=styles.instructions_boton_registro,
                 _hover={
                     "border": f"3px solid {Color.TERTIARY.value}",

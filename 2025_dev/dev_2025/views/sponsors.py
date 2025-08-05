@@ -15,29 +15,29 @@ def sponsors() -> rx.Component:
         rx.box(
             rx.hstack(
                 rx.box(
-                    rx.image(
-                        src="/img/Pyladies-B4VQ2QPR.png",
+                    rx.el.img(
+                        src="/images/Sponsor1-Pyladies-B4VQ2QPR.png",
                         style=styles.sponsors_img,
                     ),
                     style=styles.sponsors_img_container,
                 ),
                 rx.box(
-                    rx.image(
-                        src="/img/PSF-DenK-THt.png",
+                    rx.el.img(
+                        src="/images/Sponsor2-PSF-DenK-THt.png",
                         style=styles.sponsors_img,
                     ),
                     style=styles.sponsors_img_container,
                 ),
                 rx.box(
-                    rx.image(
-                        src="/img/SoftD3v-DxBzIADV.png",
+                    rx.el.img(
+                        src="/images/Sponsor3-SoftD3v-DxBzIADV.png",
                         style=styles.sponsors_img,
                     ),
                     style=styles.sponsors_img_container,
                 ),
                 rx.box(
-                    rx.image(
-                        src="/img/jb_beam-2O1FuFIW.png",
+                    rx.el.img(
+                        src="/images/Sponsor4-jb_beam-2O1FuFIW.png",
                         style=styles.sponsors_img,
                     ),
                     style=styles.sponsors_img_container,
@@ -52,4 +52,5 @@ def sponsors() -> rx.Component:
         ),
         footer(),
         style=styles.sponsors,
+        background_image="url('/2025/images/Sprinkle_bg.svg')",
     )

@@ -1,0 +1,12 @@
+[build]
+publish = "." # raíz del repo
+
+[[redirects]]
+from = "/"
+to = "/2025/"
+status = 301
+
+[[redirects]]
+from = "/"
+to = "/2024/"
+status = 200

@@ -47,7 +47,6 @@ app.add_page(
     index,
     title="PyCon Panamá 2025",
     description="Main page de la PyCon Panamá 2025",
-    route="/",
 )
 
 app.add_page(

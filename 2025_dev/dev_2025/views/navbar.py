@@ -126,15 +126,21 @@ def navbar() -> rx.Component:
                 rx.menu.root(
                     rx.menu.trigger(rx.icon("menu", size=30)),
                     rx.menu.content(
-                        rx.menu.item("Inicio", href=constants.INICIO_URL),
-                        rx.menu.item("Acerca de.", href=constants.ACERCA_DE_URL),
-                        rx.menu.item("Agenda", href=constants.CALENDAR_DAY_1_URL),
-                        rx.menu.item("Sedes", href=constants.SEDES_URL),
-                        rx.menu.item("Sponsors", href=constants.SPONSORS_URL),
+                        rx.menu.item(rx.link("Inicio", href=constants.INICIO_URL)),
                         rx.menu.item(
-                            "Código de conducta",
-                            href=constants.CODIGO_CONDUCTA_URL,
-                            # on_click=rx.redirect(constants.CODIGO_CONDUCTA_URL),
+                            rx.link("Acerca de.", href=constants.ACERCA_DE_URL)
+                        ),
+                        rx.menu.item(
+                            rx.link("Agenda", href=constants.CALENDAR_DAY_1_URL)
+                        ),
+                        rx.menu.item(rx.link("Sedes", href=constants.SEDES_URL)),
+                        rx.menu.item(rx.link("Sponsors", href=constants.SPONSORS_URL)),
+                        rx.menu.item(
+                            rx.link(
+                                "Código de conducta",
+                                href=constants.CODIGO_CONDUCTA_URL,
+                                # on_click=rx.redirect(constants.CODIGO_CONDUCTA_URL),
+                            )
                         ),
                     ),
                     justify="end",
