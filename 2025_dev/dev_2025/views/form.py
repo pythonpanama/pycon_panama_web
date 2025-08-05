@@ -129,4 +129,5 @@ def form() -> rx.Component:
             # <button type="submit" class="btn btn-primary">Enviar</button>
             # </div>
         ),
+        background_image="url('/2025/images/Sprinkle_bg.svg')",
     )

@@ -19,7 +19,7 @@ def sedes() -> rx.Component:
                     border_color=Color.PRIMARY.value,
                 ),
                 rx.el.img(
-                    src="PyConPet.jpg",
+                    src="images/PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
                 ),
@@ -40,7 +40,7 @@ def sedes() -> rx.Component:
                     border_color=Color.FIFTH.value,
                 ),
                 rx.el.img(
-                    src="PyConPet.jpg",
+                    src="images/PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
                 ),
@@ -60,7 +60,7 @@ def sedes() -> rx.Component:
                     border_color=Color.FOURTH.value,
                 ),
                 rx.el.img(
-                    src="PyConPet.jpg",
+                    src="images/PyConPet.jpg",
                     alt="mascota python",
                     style=styles.img_sede,
                 ),
