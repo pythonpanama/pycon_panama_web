@@ -35,7 +35,8 @@ BASE_STYLE = {
     "font-family": Font.DEFAULT.value,
     "font-weight": "400",
     "font-style": "normal",
-    "background_image": "url('/images/Sprinkle_bg.svg')",
+    # "background_image": "url('/images/Sprinkle_bg.svg')",
+    "background_image": "url('/2025/images/Sprinkle_bg.svg')",
     "html": {
         "scrollBehavior": "smooth",
     },

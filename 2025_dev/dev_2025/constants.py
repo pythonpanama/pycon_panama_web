@@ -44,7 +44,7 @@ EVENTS_DAY_1 = [
 
 EVENTS_DAY_2 = [
     {
-        "image_url": "/PyConPet.jpg",
+        "image_url": "/images/PyConPet.jpg",
         "name": "Mc Python 2",
         "title": "Proximamente dia 2",
         "time": "AM/PM",
