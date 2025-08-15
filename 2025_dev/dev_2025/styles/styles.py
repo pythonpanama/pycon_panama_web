@@ -32,13 +32,33 @@ STYLESHEETS = [
 
 # ESTILO BASE, DE USO GENERAL PARA TODA LA PAGINA
 BASE_STYLE = {
-    "font_family": Font.DEFAULT.value,
+    "font-family": Font.DEFAULT.value,
     "font-weight": "400",
     "font-style": "normal",
-    "background-image": "url('images/Sprinkle_bg.svg')",
+    "background_image": "url('/images/Sprinkle_bg.svg')",
     "html": {
         "scrollBehavior": "smooth",
     },
+    # animacion añadida por cursor toda esta parte de keyframes
+    "@keyframes fadeIn": {
+        "0%": {"opacity": "0", "transform": "translateY(8px)"},
+        "100%": {"opacity": "1", "transform": "translateY(0)"},
+    },
+    "@keyframes slideUp": {
+        "0%": {"opacity": "0", "transform": "translateY(20px)"},
+        "100%": {"opacity": "1", "transform": "translateY(0)"},
+    },
+    "@keyframes floatY": {
+        "0%": {"transform": "translateY(0)"},
+        "50%": {"transform": "translateY(-6px)"},
+        "100%": {"transform": "translateY(0)"},
+    },
+    "@keyframes popIn": {
+        "0%": {"opacity": "0", "transform": "scale(0.96)"},
+        "60%": {"opacity": "1", "transform": "scale(1.02)"},
+        "100%": {"opacity": "1", "transform": "scale(1)"},
+    },
+    #  hasta esta parte
     rx.heading: {"font_family": Font.DEFAULT.value, "color": TextColor.FIFTH.value},
     rx.el.span: {
         "font_size": Size.MEDIUM.value,
@@ -59,10 +79,9 @@ header_countdown_section = {
 
 header = {
     "display": "flex",
-    "margin": "0 auto",
-    "align_items": "center",
-    "justify_content": "center",
-    "padding_y": Size.VERY_BIG.value,
+    "align-items": "center",
+    "justify-content": "center",
+    "padding-y": Size.VERY_BIG.value,
 }
 
 header_title = {
@@ -70,6 +89,7 @@ header_title = {
     "font_size": ["3em", "3em", "4em", "5em", "6em", "6em"],
     "text_align": "center",
     "text_shadow": "black 2px 2px",
+    "animation": "fadeIn 0.8s ease both",
 }
 
 # ESTILOS DE EL CONTADOR
@@ -89,6 +109,8 @@ countdown = {
     "border_radius": "10px",
     "box_shadow": "4px 4px 0 black",
     "text_shadow": "black 2px 2px",
+    # from cursor
+    "animation": "popIn 0.6s ease both",
 }
 
 # ESTILOS DE LOS TEXTOS DENTRO DEL CONTADOR
@@ -104,6 +126,15 @@ countdown_text = {
     "margin_top": "0.5em",
     "text_align": "center",
     "padding": "0",
+}
+
+# ESTILO DEL TEXTO MOSTRADO CUANDO TERMINE EL COUNTDOWN
+countdown_finish = {
+    "width": "100%",
+    "font_size": ["3em", "3em", "4em", "5em", "6em", "6em"],
+    "text_align": "center",
+    "text_shadow": "black 2px 2px",
+    "color": TextColor.PRIMARY.value,
 }
 
 # ESTILOS CAJA DE INSTRUCCIONES
@@ -135,6 +166,7 @@ instructions_box = {
     "box-shadow": "8px 8px 0 black",
     "font_size": Size.DEFAULT.value,
     "text_align": "center",
+    "animation": "slideUp 0.8s ease both",
 }
 
 instructions_paragraph = {
@@ -169,6 +201,8 @@ sponsors_title = {
     "text_shadow": "2px 2px 0 black",
     "scroll-margin-top": Size.BIG.value,
     "text_align": "center",
+    # animacion añadida por cursor
+    "animation": "fadeIn 0.8s ease both",
 }
 
 sponsors_img = {
@@ -176,13 +210,22 @@ sponsors_img = {
     "width": "100%",
     "height": "auto",
     "margin": "0.5rem",
-    "justify_content": "center",
-    "align_items": "center",
+    "justify-content": "center",
+    "align-items": "center",
 }
 
 sponsors_img_container = {
-    "background": Color.TERTIARY.value,
-    "text_align": "center",
+    "background": "white",
+    "display": "flex",
+    "align-items": "center",
+    "width": "250px",
+    "height": "250px",
+    "overflow": "hidden",
+    "border": "3px solid black",
+    "border_radius": "10px",
+    "box-shadow": "8px 8px 0 black",
+    # animacion añadida por cursor
+    "animation": "floatY 3s ease-in-out infinite",
 }
 
 sponsors_container = {
@@ -214,7 +257,7 @@ footer_style = {
 
 # ESTILOS GENERALES, PARA APLICAR A LAS PANTALLAS GRANDES, ABIERTO A CAMBIOS
 max_width_style = {
-    "align_items": "start",
+    "align_items": "center",
     "padding_x": Size.BIG.value,
     "width": "100%",
     "max_width": MAX_WIDTH,
@@ -310,10 +353,11 @@ upper_container = {
 }
 
 image_container = {
-    "width": "100px",
-    "height": "100px",
+    "width": "120px",
+    "height": "120px",
     "background": "#ffffff",
     "border": f"4px solid {Color.FIFTH.value}",
+    "border-radius": "50px",
     "transform": "translateY(50%)",
     "display": "flex",
     "justify-content": "center",
@@ -321,10 +365,11 @@ image_container = {
 }
 
 image_container_img = {
-    "width": "90px",
-    "height": "90px",
+    "width": "110px",
+    "height": "110px",
     "object-fit": "cover",
     "border": f"2px solid {Color.FOURTH.value}",
+    "border-radius": "50px",
 }
 
 lower_container = {
@@ -350,16 +395,19 @@ lower_container_p = {
     "font-size": "14px",
     "color": TextColor.FIFTH.value,
     "border": f"2px inset {Color.FIFTH.value}",
+    "border-radius": "25px",
     "padding": "10px",
     "background": Color.ACCENT.value,
     "margin-bottom": "20px",
-    "height": "50px",  # Limita la altura del párrafo
     "overflow": "hidden",  # Muestra scroll si hay mucho texto
     "display": "flex",
     "-webkit-line-clamp": "4",  # Número máximo de líneas visibles
     "-webkit-box-orient": "vertical",
     "align_items": "center",
     "justify_content": "center",
+    "height": "auto",  # más flexible
+    "min_height": "100px",  # mantener consistencia visual
+    "box_sizing": "border-box",  # evitar desbordes
 }
 
 
@@ -435,6 +483,7 @@ sedes_style = {
     "align_items": "center",
     "width": "100%",
     "margin_top": "4rem",
+    "animation": "fadeIn 0.8s ease both",
 }
 
 sedes_title = {
@@ -496,11 +545,11 @@ estilo_main_page = {
 
 # estilos del calendario de eventos
 calendar_style = {
-    "width": "100%",
+    "min_width": "100%",
     "align_items": "center",
     "justify_content": "space-between",  # para que mantenga un espacio entre el footer y el contenido
     "min_height": "100vh",  # para que la pagina tenga altura minima de la pantalla
-    "margin_x": "auto",
+    # "margin_x": "auto",
 }
 
 calendar_buttons_area = {

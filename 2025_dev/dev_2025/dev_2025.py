@@ -23,6 +23,7 @@ from dev_2025.views.sedes import sedes
 def index() -> rx.Component:
     return rx.box(
         rx.script("document.documentElement.lang='es'"),
+        # rx.script(src="js/reveal-on-scroll.js"),
         navbar(),
         rx.vstack(
             header(),
@@ -31,8 +32,6 @@ def index() -> rx.Component:
             footer(),
             align="center",
             width="100%",
-            # el video decia Size.VERY_BIG.value
-            # pero el spacing solo puede ser usado con numeros fijos como el siguiente, tener en cuenta eso
             spacing="4",
         ),
     )

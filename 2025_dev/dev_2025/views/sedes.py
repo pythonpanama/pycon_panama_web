@@ -52,26 +52,26 @@ def sedes() -> rx.Component:
                 style=styles.card_container_sede,
                 box_shadow=f"8px 8px 0 {Color.FIFTH.value}",
             ),
-            rx.vstack(
-                rx.text(
-                    "Día 3",
-                    style=styles.upper_text_sede,
-                    background=Color.FOURTH.value,
-                    border_color=Color.FOURTH.value,
-                ),
-                rx.el.img(
-                    src="images/PyConPet.jpg",
-                    alt="mascota python",
-                    style=styles.img_sede,
-                ),
-                rx.link(
-                    "Ver mapa",
-                    color=TextColor.FOURTH.value,
-                    style=styles.lower_text_sede,
-                ),
-                style=styles.card_container_sede,
-                box_shadow=f"8px 8px 0 {Color.FOURTH.value}",
-            ),
+            # rx.vstack(
+            #     rx.text(
+            #         "Día 3",
+            #         style=styles.upper_text_sede,
+            #         background=Color.FOURTH.value,
+            #         border_color=Color.FOURTH.value,
+            #     ),
+            #     rx.el.img(
+            #         src="images/PyConPet.jpg",
+            #         alt="mascota python",
+            #         style=styles.img_sede,
+            #     ),
+            #     rx.link(
+            #         "Ver mapa",
+            #         color=TextColor.FOURTH.value,
+            #         style=styles.lower_text_sede,
+            #     ),
+            #     style=styles.card_container_sede,
+            #     box_shadow=f"8px 8px 0 {Color.FOURTH.value}",
+            # ),
             flex_direction=["column", "column", "column", "row", "row", "row"],
             align_items="center",
             justify_content="center",
@@ -80,4 +80,5 @@ def sedes() -> rx.Component:
             gap="2rem",
         ),
         style=styles.sedes_style,
+        # data_animate="fadeIn",
     )
