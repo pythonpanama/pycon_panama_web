@@ -56,10 +56,16 @@ def navbar() -> rx.Component:
                         "Agenda",
                         href=constants.CALENDAR_DAY_1_URL,
                         style=styles.nav_links,
+                        color=TextColor.FOURTH.value,
+                        background=TextColor.PRIMARY.value,
+                        box_shadow=f"2px 2px 0 {Color.FIFTH.value}",
+                        border_radius="15px",
+                        border=f"3px solid {Color.FIFTH.value}",
                         _hover={
-                            "color": TextColor.FOURTH.value,
-                            "background": TextColor.PRIMARY.value,
+                            "color": TextColor.FIFTH.value,
+                            "background": TextColor.FOURTH.value,
                             "text_decoration": "none",
+                            "box-shadow": "none",
                         },
                     ),
                     rx.link(
@@ -75,16 +81,6 @@ def navbar() -> rx.Component:
                     rx.link(
                         "Sponsors",
                         href=constants.SPONSORS_URL,
-                        style=styles.nav_links,
-                        _hover={
-                            "color": TextColor.FOURTH.value,
-                            "background": TextColor.PRIMARY.value,
-                            "text_decoration": "none",
-                        },
-                    ),
-                    rx.link(
-                        "Código de conducta",
-                        href=constants.CODIGO_CONDUCTA_URL,
                         style=styles.nav_links,
                         _hover={
                             "color": TextColor.FOURTH.value,
@@ -135,13 +131,6 @@ def navbar() -> rx.Component:
                         ),
                         rx.menu.item(rx.link("Sedes", href=constants.SEDES_URL)),
                         rx.menu.item(rx.link("Sponsors", href=constants.SPONSORS_URL)),
-                        rx.menu.item(
-                            rx.link(
-                                "Código de conducta",
-                                href=constants.CODIGO_CONDUCTA_URL,
-                                # on_click=rx.redirect(constants.CODIGO_CONDUCTA_URL),
-                            )
-                        ),
                     ),
                     justify="end",
                 ),

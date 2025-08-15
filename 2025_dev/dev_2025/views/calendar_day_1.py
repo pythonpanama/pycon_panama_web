@@ -36,17 +36,6 @@ def calendar_day_1() -> rx.Component:
                     "box-shadow": "none",
                 },
             ),
-            rx.link(
-                "Día 3",
-                href=constants.CALENDAR_VIRTUAL,
-                style=styles.boton,
-                _hover={
-                    "background": Color.PRIMARY.value,
-                    "color": TextColor.TERTIARY.value,
-                    "border": f"3px solid {Color.TERTIARY.value}",
-                    "box-shadow": "none",
-                },
-            ),
             style=styles.calendar_buttons_area,
         ),
         # presentation_day_1
@@ -86,7 +75,7 @@ def calendar_day_1() -> rx.Component:
                             rx.box(
                                 rx.text(
                                     event["description"], style=styles.lower_container_p
-                                )
+                                ),
                             ),
                             # dialog box
                             rx.box(
@@ -181,14 +170,16 @@ def calendar_day_1() -> rx.Component:
                     ),
                 ),
                 wrap="wrap",
+                width="100%",
                 loading="lazy",
                 align_items="center",
                 justify_content="center",
-                margin_x="auto",
+                # margin_x="auto",
                 margin_y="2rem",
                 gap="2rem",
                 flex_direction=["column", "column", "column", "row", "row", "row"],
             ),
+            width="100%",
         ),
         footer(),
         style=styles.calendar_style,

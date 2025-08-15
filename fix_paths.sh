@@ -20,6 +20,10 @@ for FILE in $FILES; do
     -e "s|src=\"/|src=\"${BASE_PATH}/|g" \
     -e "s|url(\"/|url(\"${BASE_PATH}/|g" \
     "$FILE"
+
+  # Eliminar bloque Built with Reflex completo
+  find "$TARGET_DIR" -type f -name "*.html" -exec \
+  sed -i '/Built with Reflex/{N;d;}' {} \;
 done
 
 echo "✅ Rutas actualizadas con prefijo $BASE_PATH en todos los HTML."
