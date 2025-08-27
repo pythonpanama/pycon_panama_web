@@ -2,1697 +2,330 @@
 <html lang="en">
 
 <head>
-    <meta charSet="utf-8" data-next-head="" />
-    <meta name="viewport" content="width=device-width" data-next-head="" />
-    <title data-next-head="">PyCon Panamá 2025</title>
-    <meta content="Main page de la PyCon Panamá 2025" name="description" data-next-head="" />
-    <meta content="favicon.ico" property="og:image" data-next-head="" />
-    <link rel="preload" href="/2025/_next/static/css/ab3fa53f24ba28b8.css" as="style" />
-    <link rel="stylesheet" href="/2025/_next/static/css/ab3fa53f24ba28b8.css" data-n-g="" /><noscript
-        data-n-css=""></noscript>
-    <script defer="" noModule="" src="/2025/_next/static/chunks/polyfills-42372ed130431b0a.js"></script>
-    <script src="/2025/_next/static/chunks/webpack-2aa3ab9bb630d3af.js" defer=""></script>
-    <script src="/2025/_next/static/chunks/framework-1ee1b762209da1bd.js" defer=""></script>
-    <script src="/2025/_next/static/chunks/main-066cb5170de6fa01.js" defer=""></script>
-    <script src="/2025/_next/static/chunks/pages/_app-90f5d2bc8a53ae25.js" defer=""></script>
-    <script src="/2025/_next/static/chunks/pages/index-c380b8f8a718f410.js" defer=""></script>
-    <script src="/2025/_next/static/F-1s5AABzPDWyN9s1Q5dg/_buildManifest.js" defer=""></script>
-    <script src="/2025/_next/static/F-1s5AABzPDWyN9s1Q5dg/_ssgManifest.js" defer=""></script>
+    <meta charset="utf-8">
+    <title>PyCon Panamá 2025</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="img/pycon25.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <link rel="preload" as="image" href="images/PyConPet.jpg" />
-    <div id="__next">
-        <script>((e, i, s, u, m, a, l, h) => { let d = document.documentElement, w = ["light", "dark"]; function p(n) { (Array.isArray(e) ? e : [e]).forEach(y => { let k = y === "class", S = k && a ? m.map(f => a[f] || f) : m; k ? (d.classList.remove(...S), d.classList.add(a && a[n] ? a[n] : n)) : d.setAttribute(y, n) }), R(n) } function R(n) { h && w.includes(n) && (d.style.colorScheme = n) } function c() { return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light" } if (u) p(u); else try { let n = localStorage.getItem(i) || s, y = l && n === "system" ? c() : n; p(y) } catch (n) { } })("class", "theme", "system", null, ["light", "dark"], null, true, true)</script>
-        <style data-emotion="css 4x0ki2">
-            .css-4x0ki2 {
-                font-family: Luckiest Guy;
-                --default-font-family: Luckiest Guy;
-                font-weight: 400;
-                font-style: normal;
-                background-image: url('/2025/images/Sprinkle_bg.svg');
-            }
-
-            .css-4x0ki2 html {
-                scroll-behavior: smooth;
-            }
-
-            @-webkit-keyframes fadeIn {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: translateY(8px);
-                    -moz-transform: translateY(8px);
-                    -ms-transform: translateY(8px);
-                    transform: translateY(8px);
-                }
-
-                100% {
-                    opacity: 1;
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes fadeIn {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: translateY(8px);
-                    -moz-transform: translateY(8px);
-                    -ms-transform: translateY(8px);
-                    transform: translateY(8px);
-                }
-
-                100% {
-                    opacity: 1;
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-            }
-
-            @-webkit-keyframes slideUp {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: translateY(20px);
-                    -moz-transform: translateY(20px);
-                    -ms-transform: translateY(20px);
-                    transform: translateY(20px);
-                }
-
-                100% {
-                    opacity: 1;
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes slideUp {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: translateY(20px);
-                    -moz-transform: translateY(20px);
-                    -ms-transform: translateY(20px);
-                    transform: translateY(20px);
-                }
-
-                100% {
-                    opacity: 1;
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-            }
-
-            @-webkit-keyframes floatY {
-                0% {
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-
-                50% {
-                    -webkit-transform: translateY(-6px);
-                    -moz-transform: translateY(-6px);
-                    -ms-transform: translateY(-6px);
-                    transform: translateY(-6px);
-                }
-
-                100% {
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-            }
-
-            @keyframes floatY {
-                0% {
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-
-                50% {
-                    -webkit-transform: translateY(-6px);
-                    -moz-transform: translateY(-6px);
-                    -ms-transform: translateY(-6px);
-                    transform: translateY(-6px);
-                }
-
-                100% {
-                    -webkit-transform: translateY(0);
-                    -moz-transform: translateY(0);
-                    -ms-transform: translateY(0);
-                    transform: translateY(0);
-                }
-            }
-
-            @-webkit-keyframes popIn {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: scale(0.96);
-                    -moz-transform: scale(0.96);
-                    -ms-transform: scale(0.96);
-                    transform: scale(0.96);
-                }
-
-                60% {
-                    opacity: 1;
-                    -webkit-transform: scale(1.02);
-                    -moz-transform: scale(1.02);
-                    -ms-transform: scale(1.02);
-                    transform: scale(1.02);
-                }
-
-                100% {
-                    opacity: 1;
-                    -webkit-transform: scale(1);
-                    -moz-transform: scale(1);
-                    -ms-transform: scale(1);
-                    transform: scale(1);
-                }
-            }
-
-            @keyframes popIn {
-                0% {
-                    opacity: 0;
-                    -webkit-transform: scale(0.96);
-                    -moz-transform: scale(0.96);
-                    -ms-transform: scale(0.96);
-                    transform: scale(0.96);
-                }
-
-                60% {
-                    opacity: 1;
-                    -webkit-transform: scale(1.02);
-                    -moz-transform: scale(1.02);
-                    -ms-transform: scale(1.02);
-                    transform: scale(1.02);
-                }
-
-                100% {
-                    opacity: 1;
-                    -webkit-transform: scale(1);
-                    -moz-transform: scale(1);
-                    -ms-transform: scale(1);
-                    transform: scale(1);
-                }
-            }
-        </style>
-        <div data-is-root-theme="true" data-accent-color="blue" data-gray-color="slate" data-has-background="true"
-            data-panel-background="translucent" data-radius="medium" data-scaling="100%"
-            class="radix-themes css-4x0ki2">
-            <section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text"
-                aria-atomic="false"></section>
-            <div class="rt-Box">
-                <style data-emotion="css 1gc2ado">
-                    .css-1gc2ado {
-                        width: 100%;
-                        z-index: 999;
-                        position: -webkit-sticky;
-                        position: sticky;
-                        top: 0;
-                    }
-                </style>
-                <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack css-1gc2ado">
-                    <style data-emotion="css 1go40nc">
-                        .css-1go40nc {
-                            width: 100%;
-                        }
-
-                        @media screen and (min-width: 0) {
-                            .css-1go40nc {
-                                display: none;
-                            }
-                        }
-
-                        @media screen and (min-width: 30em) {
-                            .css-1go40nc {
-                                display: none;
-                            }
-                        }
-
-                        @media screen and (min-width: 48em) {
-                            .css-1go40nc {
-                                display: none;
-                            }
-                        }
-
-                        @media screen and (min-width: 62em) {
-                            .css-1go40nc {
-                                display: block;
-                            }
-                        }
-                    </style>
-                    <div class="rt-Box css-1go40nc">
-                        <style data-emotion="css wzfivl">
-                            .css-wzfivl {
-                                width: 100%;
-                                -webkit-box-pack: justify;
-                                -webkit-justify-content: space-between;
-                                justify-content: space-between;
-                                -webkit-align-items: center;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                                border-bottom: 0.25em solid #FFAA88;
-                                -webkit-padding-start: 2em;
-                                padding-inline-start: 2em;
-                                -webkit-padding-end: 2em;
-                                padding-inline-end: 2em;
-                                padding-top: 1em;
-                                padding-bottom: 1em;
-                                background: linear-gradient(90deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%);
-                                -webkit-background-size: 400% 400%;
-                                background-size: 400% 400%;
-                                -webkit-animation: fondoAnimado 10s ease infinite;
-                                animation: fondoAnimado 10s ease infinite;
-                            }
-
-                            @-webkit-keyframes fondoAnimado {
-                                0% {
-                                    -webkit-background-position: 0% 50%;
-                                    background-position: 0% 50%;
-                                }
-
-                                50% {
-                                    -webkit-background-position: 100% 50%;
-                                    background-position: 100% 50%;
-                                }
-
-                                100% {
-                                    -webkit-background-position: 0% 50%;
-                                    background-position: 0% 50%;
-                                }
-                            }
-
-                            @keyframes fondoAnimado {
-                                0% {
-                                    -webkit-background-position: 0% 50%;
-                                    background-position: 0% 50%;
-                                }
-
-                                50% {
-                                    -webkit-background-position: 100% 50%;
-                                    background-position: 100% 50%;
-                                }
-
-                                100% {
-                                    -webkit-background-position: 0% 50%;
-                                    background-position: 0% 50%;
-                                }
-                            }
-                        </style>
-                        <div class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-gap-3 rx-Stack css-wzfivl">
-                            <style data-emotion="css pyh2x7">
-                                @media screen and (min-width: 0) {
-                                    .css-pyh2x7 {
-                                        font-size: 0.8em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 30em) {
-                                    .css-pyh2x7 {
-                                        font-size: 1em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 48em) {
-                                    .css-pyh2x7 {
-                                        font-size: 2em;
-                                    }
-                                }
-                            </style>
-                            <div class="rt-Box css-pyh2x7">
-                                <style data-emotion="css 1wypnhc">
-                                    .css-1wypnhc {
-                                        font-size: 0.8em;
-                                        color: #AB62CD;
-                                        text-shadow: black 2px 2px;
-                                    }
-                                </style><span class="css-1wypnhc">PyCon </span>
-                                <style data-emotion="css 1vbhugt">
-                                    .css-1vbhugt {
-                                        font-size: 0.8em;
-                                        color: #6FC7E1;
-                                        text-shadow: black 2px 2px;
-                                    }
-                                </style><span class="css-1vbhugt">Panamá </span>
-                                <style data-emotion="css 199cy47">
-                                    .css-199cy47 {
-                                        font-size: 0.8em;
-                                        color: #1E4171;
-                                        text-shadow: black 1px 1px;
-                                    }
-                                </style><span class="css-199cy47">2025 </span>
-                            </div>
-                            <style data-emotion="css 17xejub">
-                                .css-17xejub {
-                                    -webkit-flex: 1;
-                                    -ms-flex: 1;
-                                    flex: 1;
-                                    justify-self: stretch;
-                                    -webkit-align-self: stretch;
-                                    -ms-flex-item-align: stretch;
-                                    align-self: stretch;
-                                }
-                            </style>
-                            <div class="rt-Flex css-17xejub"></div>
-                            <style data-emotion="css 1rqbvtx">
-                                .css-1rqbvtx {
-                                    -webkit-box-pack: flex_end;
-                                    -ms-flex-pack: flex_end;
-                                    -webkit-justify-content: flex_end;
-                                    justify-content: flex_end;
-                                    -webkit-align-items: center;
-                                    -webkit-box-align: center;
-                                    -ms-flex-align: center;
-                                    align-items: center;
-                                }
-                            </style>
-                            <div class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-gap-3 rx-Stack css-1rqbvtx">
-                                <style data-emotion="css 1yylz98">
-                                    .css-1yylz98 {
-                                        color: #AB62CD;
-                                        background-color: transparent;
-                                        font-size: 1em;
-                                        border-radius: 5px;
-                                        padding: 0.5em;
-                                        text-shadow: 1px 1px 0 black;
-                                    }
-
-                                    .css-1yylz98:hover {
-                                        color: #6FC7E1;
-                                        background: #AB62CD;
-                                        -webkit-text-decoration: none;
-                                        text-decoration: none;
-                                    }
-                                </style><a data-accent-color=""
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-1yylz98"
-                                    href="/2025/2025/">Inicio</a><a data-accent-color=""
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-1yylz98"
-                                    href="/2025/2025/#instructions">Acerca de.</a>
-                                <style data-emotion="css 153wmxm">
-                                    .css-153wmxm {
-                                        color: #6FC7E1;
-                                        background-color: transparent;
-                                        font-size: 1em;
-                                        border-radius: 15px;
-                                        padding: 0.5em;
-                                        text-shadow: 1px 1px 0 black;
-                                        background: #AB62CD;
-                                        box-shadow: 2px 2px 0 #1E4171;
-                                        border: 3px solid #1E4171;
-                                    }
-
-                                    .css-153wmxm:hover {
-                                        color: #1E4171;
-                                        background: #6FC7E1;
-                                        -webkit-text-decoration: none;
-                                        text-decoration: none;
-                                        box-shadow: none;
-                                    }
-                                </style><a data-accent-color=""
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-153wmxm"
-                                    href="/2025/2025/calendar_day_1/">Agenda</a><a data-accent-color=""
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-1yylz98"
-                                    href="/2025/2025/#sedes">Sedes</a><a data-accent-color=""
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-1yylz98"
-                                    href="/2025/2025/sponsors/">Sponsors</a>
-                            </div>
-                        </div>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0 py-3">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-primary px-3" href="https://www.facebook.com/profile.php?id=100078380970388"><i
+                                class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-primary px-3" href="https://linkedin.com/company/pythonpanama"><i
+                                class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-primary px-3" href="https://www.instagram.com/pythonpanama/"><i
+                                class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-primary px-3" href="https://www.meetup.com/python-panama/"><i
+                                class="fab fa-meetup"></i>
+                        </a>
                     </div>
-                    <style data-emotion="css btydpg">
-                        .css-btydpg {
-                            background: linear-gradient(90deg, #FFAA88 25%, #FDE3C8 50%, #FFAA88 75%, #FDE3C8 100%);
-                            -webkit-background-size: 400% 400%;
-                            background-size: 400% 400%;
-                            -webkit-animation: fondoAnimado 10s ease infinite;
-                            animation: fondoAnimado 10s ease infinite;
-                            border-bottom: 0.25em solid #FFAA88;
-                            -webkit-padding-start: 2em;
-                            padding-inline-start: 2em;
-                            -webkit-padding-end: 2em;
-                            padding-inline-end: 2em;
-                            padding-top: 1em;
-                            padding-bottom: 1em;
-                            width: 100%;
-                        }
-
-                        @-webkit-keyframes fondoAnimado {
-                            0% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-
-                            50% {
-                                -webkit-background-position: 100% 50%;
-                                background-position: 100% 50%;
-                            }
-
-                            100% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-                        }
-
-                        @keyframes fondoAnimado {
-                            0% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-
-                            50% {
-                                -webkit-background-position: 100% 50%;
-                                background-position: 100% 50%;
-                            }
-
-                            100% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-                        }
-
-                        @media screen and (min-width: 0) {
-                            .css-btydpg {
-                                display: block;
-                            }
-                        }
-
-                        @media screen and (min-width: 30em) {
-                            .css-btydpg {
-                                display: block;
-                            }
-                        }
-
-                        @media screen and (min-width: 48em) {
-                            .css-btydpg {
-                                display: block;
-                            }
-                        }
-
-                        @media screen and (min-width: 62em) {
-                            .css-btydpg {
-                                display: none;
-                            }
-                        }
-                    </style>
-                    <div class="rt-Box css-btydpg">
-                        <style data-emotion="css rjy7rp">
-                            .css-rjy7rp {
-                                color: #AB62CD;
-                                -webkit-align-items: center;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                            }
-                        </style>
-                        <div
-                            class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-jc-space-between rt-r-gap-3 rx-Stack css-rjy7rp">
-                            <style data-emotion="css hfuqgb">
-                                @media screen and (min-width: 0) {
-                                    .css-hfuqgb {
-                                        font-size: 2em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 30em) {
-                                    .css-hfuqgb {
-                                        font-size: 2em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 48em) {
-                                    .css-hfuqgb {
-                                        font-size: 2em;
-                                    }
-                                }
-                            </style>
-                            <div class="rt-Box css-hfuqgb"><span class="css-1wypnhc">PyCon </span><span
-                                    class="css-1vbhugt">Panamá </span><span class="css-199cy47">2025 </span></div>
-                            <style data-emotion="css qo3kkb">
-                                .css-qo3kkb {
-                                    justify: end;
-                                }
-                            </style>
-                            <style data-emotion="css svt5ra">
-                                .css-svt5ra {
-                                    color: var(--current-color);
-                                }
-                            </style><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-menu css-svt5ra" type="button"
-                                id="radix-:R5al5l6:" aria-haspopup="menu" aria-expanded="false" data-state="closed">
-                                <line x1="4" x2="20" y1="12" y2="12"></line>
-                                <line x1="4" x2="20" y1="6" y2="6"></line>
-                                <line x1="4" x2="20" y1="18" y2="18"></line>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <style data-emotion="css 8atqhb">
-                    .css-8atqhb {
-                        width: 100%;
-                    }
-                </style>
-                <div class="rt-Flex rt-r-fd-column rt-r-ai-center rt-r-gap-4 rx-Stack css-8atqhb">
-                    <style data-emotion="css 1j4iqr0">
-                        .css-1j4iqr0 {
-                            display: -webkit-box;
-                            display: -webkit-flex;
-                            display: -ms-flexbox;
-                            display: flex;
-                            -webkit-align-items: center;
-                            -webkit-box-align: center;
-                            -ms-flex-align: center;
-                            align-items: center;
-                            -webkit-box-pack: center;
-                            -ms-flex-pack: center;
-                            -webkit-justify-content: center;
-                            justify-content: center;
-                            padding-top: 4em;
-                            padding-bottom: 4em;
-                        }
-                    </style>
-                    <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack css-1j4iqr0">
-                        <style data-emotion="css vlrz02">
-                            .css-vlrz02 {
-                                width: 100%;
-                                text-align: center;
-                                text-shadow: black 2px 2px;
-                                -webkit-animation: fadeIn 0.8s ease both;
-                                animation: fadeIn 0.8s ease both;
-                            }
-
-                            @media screen and (min-width: 0) {
-                                .css-vlrz02 {
-                                    font-size: 3em;
-                                }
-                            }
-
-                            @media screen and (min-width: 30em) {
-                                .css-vlrz02 {
-                                    font-size: 3em;
-                                }
-                            }
-
-                            @media screen and (min-width: 48em) {
-                                .css-vlrz02 {
-                                    font-size: 4em;
-                                }
-                            }
-
-                            @media screen and (min-width: 62em) {
-                                .css-vlrz02 {
-                                    font-size: 5em;
-                                }
-                            }
-
-                            @media screen and (min-width: 80em) {
-                                .css-vlrz02 {
-                                    font-size: 6em;
-                                }
-                            }
-
-                            @media screen and (min-width: 96em) {
-                                .css-vlrz02 {
-                                    font-size: 6em;
-                                }
-                            }
-                        </style>
-                        <div class="rt-Box css-vlrz02">
-                            <style data-emotion="css 1kihah7">
-                                .css-1kihah7 {
-                                    font-size: 0.8em;
-                                    color: #D49EE7;
-                                }
-                            </style><span class="css-1kihah7">BIENVENIDOS A </span>
-                            <style data-emotion="css 10ga4tg">
-                                .css-10ga4tg {
-                                    font-size: 0.8em;
-                                    color: #FFAA88;
-                                }
-                            </style><span class="css-10ga4tg">PYCON PANAMÁ </span>
-                            <style data-emotion="css 2n3bhi">
-                                .css-2n3bhi {
-                                    font-size: 0.8em;
-                                    color: #6FC7E1;
-                                }
-                            </style><span class="css-2n3bhi">2025</span>
-                        </div>
-                        <style data-emotion="css 1hsaywc">
-                            .css-1hsaywc {
-                                max-width: 900px;
-                                -webkit-margin-start: 0;
-                                margin-inline-start: 0;
-                                -webkit-margin-end: 0;
-                                margin-inline-end: 0;
-                                display: -webkit-box;
-                                display: -webkit-flex;
-                                display: -ms-flexbox;
-                                display: flex;
-                                -webkit-align-items: center;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                                -webkit-box-pack: center;
-                                -ms-flex-pack: center;
-                                -webkit-justify-content: center;
-                                justify-content: center;
-                                padding-top: 2em;
-                                padding-bottom: 2em;
-                            }
-
-                            @media screen and (min-width: 0) {
-                                .css-1hsaywc {
-                                    -webkit-flex-direction: column;
-                                    -ms-flex-direction: column;
-                                    flex-direction: column;
-                                }
-                            }
-
-                            @media screen and (min-width: 30em) {
-                                .css-1hsaywc {
-                                    -webkit-flex-direction: column;
-                                    -ms-flex-direction: column;
-                                    flex-direction: column;
-                                }
-                            }
-
-                            @media screen and (min-width: 48em) {
-                                .css-1hsaywc {
-                                    -webkit-flex-direction: column;
-                                    -ms-flex-direction: column;
-                                    flex-direction: column;
-                                }
-                            }
-
-                            @media screen and (min-width: 62em) {
-                                .css-1hsaywc {
-                                    -webkit-flex-direction: row;
-                                    -ms-flex-direction: row;
-                                    flex-direction: row;
-                                }
-                            }
-
-                            @media screen and (min-width: 80em) {
-                                .css-1hsaywc {
-                                    -webkit-flex-direction: row;
-                                    -ms-flex-direction: row;
-                                    flex-direction: row;
-                                }
-                            }
-
-                            @media screen and (min-width: 96em) {
-                                .css-1hsaywc {
-                                    -webkit-flex-direction: row;
-                                    -ms-flex-direction: row;
-                                    flex-direction: row;
-                                }
-                            }
-                        </style>
-                        <div class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-gap-3 rx-Stack css-1hsaywc">
-                            <style data-emotion="css zcxndt">
-                                .css-zcxndt {
-                                    -webkit-align-items: center;
-                                    -webkit-box-align: center;
-                                    -ms-flex-align: center;
-                                    align-items: center;
-                                }
-                            </style>
-                            <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack css-zcxndt">
-                                <style data-emotion="css maeege">
-                                    .css-maeege {
-                                        color: #AB62CD;
-                                        text-align: center;
-                                        text-shadow: black 1px 1px;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-maeege {
-                                            font-size: 1.5em;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-maeege {
-                                            font-size: 1.5em;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 48em) {
-                                        .css-maeege {
-                                            font-size: 2em;
-                                        }
-                                    }
-                                </style>
-                                <p class="rt-Text css-maeege">No te lo pierdas los días 16 y 17 de octubre. </p>
-                                <p class="rt-Text css-maeege">Faltan:</p>
-                                <style data-emotion="css a1tswo">
-                                    .css-a1tswo {
-                                        width: 100%;
-                                        gap: 1em;
-                                    }
-                                </style>
-                                <div id="countdown"
-                                    class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-jc-center rt-r-fw-wrap rt-r-gap-3 rx-Stack css-a1tswo">
-                                    <style data-emotion="css 1ltzu7q">
-                                        .css-1ltzu7q {
-                                            margin: 0.5em auto;
-                                            font-weight: bold;
-                                            text-align: center;
-                                            -webkit-align-items: center;
-                                            -webkit-box-align: center;
-                                            -ms-flex-align: center;
-                                            align-items: center;
-                                            -webkit-box-pack: center;
-                                            -ms-flex-pack: center;
-                                            -webkit-justify-content: center;
-                                            justify-content: center;
-                                            background-color: #AB62CD;
-                                            color: #FDE3C8;
-                                            border: 2px solid black;
-                                            border-radius: 10px;
-                                            box-shadow: 4px 4px 0 black;
-                                            text-shadow: black 2px 2px;
-                                            -webkit-animation: popIn 0.6s ease both;
-                                            animation: popIn 0.6s ease both;
-                                        }
-
-                                        @media screen and (min-width: 0) {
-                                            .css-1ltzu7q {
-                                                width: 90px;
-                                                height: 90px;
-                                                padding: 0.5em;
-                                                font-size: 1.5em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 30em) {
-                                            .css-1ltzu7q {
-                                                width: 110px;
-                                                height: 110px;
-                                                padding: 0.5em;
-                                                font-size: 1.5em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 48em) {
-                                            .css-1ltzu7q {
-                                                width: 120px;
-                                                height: 120px;
-                                                padding: 0.5em;
-                                                font-size: 1.6em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 62em) {
-                                            .css-1ltzu7q {
-                                                width: 140px;
-                                                height: 140px;
-                                                padding: 0.5em;
-                                                font-size: 2em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 80em) {
-                                            .css-1ltzu7q {
-                                                width: 160px;
-                                                height: 160px;
-                                                padding: 1em;
-                                                font-size: 2em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 96em) {
-                                            .css-1ltzu7q {
-                                                width: 180px;
-                                                height: 180px;
-                                                padding: 1em;
-                                                font-size: 2.2em;
-                                            }
-                                        }
-                                    </style>
-                                    <div class="rt-Box css-1ltzu7q">
-                                        <p id="days" class="rt-Text"></p>
-                                        <style data-emotion="css 9ms3ix">
-                                            .css-9ms3ix {
-                                                margin-top: 0.5em;
-                                                text-align: center;
-                                                padding: 0;
-                                            }
-
-                                            @media screen and (min-width: 0) {
-                                                .css-9ms3ix {
-                                                    font-size: 0.5em;
-                                                }
-                                            }
-
-                                            @media screen and (min-width: 30em) {
-                                                .css-9ms3ix {
-                                                    font-size: 0.5em;
-                                                }
-                                            }
-
-                                            @media screen and (min-width: 48em) {
-                                                .css-9ms3ix {
-                                                    font-size: 0.5em;
-                                                }
-                                            }
-
-                                            @media screen and (min-width: 62em) {
-                                                .css-9ms3ix {
-                                                    font-size: 0.5em;
-                                                }
-                                            }
-
-                                            @media screen and (min-width: 80em) {
-                                                .css-9ms3ix {
-                                                    font-size: 0.5em;
-                                                }
-                                            }
-
-                                            @media screen and (min-width: 96em) {
-                                                .css-9ms3ix {
-                                                    font-size: 0.5em;
-                                                }
-                                            }
-                                        </style>
-                                        <p class="rt-Text css-9ms3ix">Días</p>
-                                    </div>
-                                    <div class="rt-Box css-1ltzu7q">
-                                        <p id="hours" class="rt-Text"></p>
-                                        <p class="rt-Text css-9ms3ix">Horas</p>
-                                    </div>
-                                    <div class="rt-Box css-1ltzu7q">
-                                        <p id="minutes" class="rt-Text"></p>
-                                        <p class="rt-Text css-9ms3ix">Minutos</p>
-                                    </div>
-                                </div>
-                                <style data-emotion="css 1hyfx7x">
-                                    .css-1hyfx7x {
-                                        display: none;
-                                    }
-                                </style>
-                                <div id="event-started" class="rt-Box css-1hyfx7x">
-                                    <style data-emotion="css 14s4i98">
-                                        .css-14s4i98 {
-                                            width: 100%;
-                                            text-align: center;
-                                            text-shadow: black 2px 2px;
-                                            color: #AB62CD;
-                                        }
-
-                                        @media screen and (min-width: 0) {
-                                            .css-14s4i98 {
-                                                font-size: 3em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 30em) {
-                                            .css-14s4i98 {
-                                                font-size: 3em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 48em) {
-                                            .css-14s4i98 {
-                                                font-size: 4em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 62em) {
-                                            .css-14s4i98 {
-                                                font-size: 5em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 80em) {
-                                            .css-14s4i98 {
-                                                font-size: 6em;
-                                            }
-                                        }
-
-                                        @media screen and (min-width: 96em) {
-                                            .css-14s4i98 {
-                                                font-size: 6em;
-                                            }
-                                        }
-                                    </style>
-                                    <p class="rt-Text css-14s4i98">¡La PyCon 2025 ha comenzado!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack">
-                        <style data-emotion="css 1g48y3y">
-                            .css-1g48y3y {
-                                -webkit-align-items: center;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                                -webkit-padding-start: 2em;
-                                padding-inline-start: 2em;
-                                -webkit-padding-end: 2em;
-                                padding-inline-end: 2em;
-                                width: 100%;
-                                max-width: 1000px;
-                            }
-                        </style>
-                        <div class="rt-Box css-1g48y3y">
-                            <style data-emotion="css 1013dsm">
-                                .css-1013dsm {
-                                    color: #D49EE7;
-                                    text-shadow: 2px 2px 0 black;
-                                    scroll-margin-top: 2em;
-                                    text-align: center;
-                                }
-
-                                @media screen and (min-width: 0) {
-                                    .css-1013dsm {
-                                        font-size: 3em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 30em) {
-                                    .css-1013dsm {
-                                        font-size: 3em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 48em) {
-                                    .css-1013dsm {
-                                        font-size: 4em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 62em) {
-                                    .css-1013dsm {
-                                        font-size: 5em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 80em) {
-                                    .css-1013dsm {
-                                        font-size: 6em;
-                                    }
-                                }
-
-                                @media screen and (min-width: 96em) {
-                                    .css-1013dsm {
-                                        font-size: 6em;
-                                    }
-                                }
-                            </style>
-                            <p id="instructions" class="rt-Text css-1013dsm">Acerca del evento</p>
-                            <style data-emotion="css qliz1w">
-                                .css-qliz1w {
-                                    background-color: #AB62CD;
-                                    padding: 2em;
-                                    -webkit-align-items: center;
-                                    -webkit-box-align: center;
-                                    -ms-flex-align: center;
-                                    align-items: center;
-                                    width: 100%;
-                                    color: #1E4171;
-                                    border: 3px solid black;
-                                    border-radius: 10px;
-                                    box-shadow: 8px 8px 0 black;
-                                    font-size: 1em;
-                                    text-align: center;
-                                    -webkit-animation: slideUp 0.8s ease both;
-                                    animation: slideUp 0.8s ease both;
-                                }
-                            </style>
-                            <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-4 rx-Stack css-qliz1w">
-                                <style data-emotion="css 1szdojz">
-                                    .css-1szdojz {
-                                        space: 2em;
-                                        line-height: 1.6em;
-                                        text-align: center;
-                                        color: #FDE3C8;
-                                        text-shadow: 1px 1px 0 black;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-1szdojz {
-                                            font-size: 1em;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-1szdojz {
-                                            font-size: 1.1em;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 48em) {
-                                        .css-1szdojz {
-                                            font-size: 1.2em;
-                                        }
-                                    }
-                                </style><span class="css-1szdojz">La PyCon es una conferencia que reúne a entusiastas y
-                                    profesionales del lenguaje Python en un espacio dinámico, colaborativo y
-                                    enriquecedor. El evento está diseñado para fomentar la innovación, el aprendizaje
-                                    continuo y el intercambio de experiencias entre la comunidad.</span><span
-                                    class="css-1szdojz">Durante dos días, tendrás la oportunidad de conectar con
-                                    personas apasionadas por la tecnología y el desarrollo en Python, participar en
-                                    charlas, talleres y actividades especiales.</span><span class="css-1szdojz">La
-                                    entrada es gratuita. ¡Pronto habilitaremos un formulario de registro para que puedas
-                                    asegurar tu puesto!</span><span class="css-1szdojz">Consulta nuestra agenda para
-                                    conocer a los expositores y descubrir los temas que estarán compartiendo con
-                                    nosotros.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <style data-emotion="css 10oz4o1">
-                        .css-10oz4o1 {
-                            -webkit-align-items: center;
-                            -webkit-box-align: center;
-                            -ms-flex-align: center;
-                            align-items: center;
-                            width: 100%;
-                            margin-top: 4rem;
-                            -webkit-animation: fadeIn 0.8s ease both;
-                            animation: fadeIn 0.8s ease both;
-                        }
-                    </style>
-                    <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack css-10oz4o1">
-                        <style data-emotion="css 11ivxou">
-                            .css-11ivxou {
-                                color: #1E4171;
-                                text-shadow: 2px 2px 0 black;
-                                scroll-margin-top: 2em;
-                            }
-
-                            @media screen and (min-width: 0) {
-                                .css-11ivxou {
-                                    font-size: 3em;
-                                }
-                            }
-
-                            @media screen and (min-width: 30em) {
-                                .css-11ivxou {
-                                    font-size: 3em;
-                                }
-                            }
-
-                            @media screen and (min-width: 48em) {
-                                .css-11ivxou {
-                                    font-size: 4em;
-                                }
-                            }
-
-                            @media screen and (min-width: 62em) {
-                                .css-11ivxou {
-                                    font-size: 5em;
-                                }
-                            }
-
-                            @media screen and (min-width: 80em) {
-                                .css-11ivxou {
-                                    font-size: 6em;
-                                }
-                            }
-
-                            @media screen and (min-width: 96em) {
-                                .css-11ivxou {
-                                    font-size: 6em;
-                                }
-                            }
-                        </style>
-                        <p id="sedes" class="rt-Text css-11ivxou">Sedes</p>
-                        <style data-emotion="css 1trtgtq">
-                            .css-1trtgtq {
-                                -webkit-align-items: center;
-                                -webkit-box-align: center;
-                                -ms-flex-align: center;
-                                align-items: center;
-                                -webkit-box-pack: center;
-                                -ms-flex-pack: center;
-                                -webkit-justify-content: center;
-                                justify-content: center;
-                                -webkit-margin-start: auto;
-                                margin-inline-start: auto;
-                                -webkit-margin-end: auto;
-                                margin-inline-end: auto;
-                                margin-top: 1rem;
-                                margin-bottom: 1rem;
-                                gap: 2rem;
-                            }
-
-                            @media screen and (min-width: 0) {
-                                .css-1trtgtq {
-                                    -webkit-flex-direction: column;
-                                    -ms-flex-direction: column;
-                                    flex-direction: column;
-                                }
-                            }
-
-                            @media screen and (min-width: 30em) {
-                                .css-1trtgtq {
-                                    -webkit-flex-direction: column;
-                                    -ms-flex-direction: column;
-                                    flex-direction: column;
-                                }
-                            }
-
-                            @media screen and (min-width: 48em) {
-                                .css-1trtgtq {
-                                    -webkit-flex-direction: column;
-                                    -ms-flex-direction: column;
-                                    flex-direction: column;
-                                }
-                            }
-
-                            @media screen and (min-width: 62em) {
-                                .css-1trtgtq {
-                                    -webkit-flex-direction: row;
-                                    -ms-flex-direction: row;
-                                    flex-direction: row;
-                                }
-                            }
-
-                            @media screen and (min-width: 80em) {
-                                .css-1trtgtq {
-                                    -webkit-flex-direction: row;
-                                    -ms-flex-direction: row;
-                                    flex-direction: row;
-                                }
-                            }
-
-                            @media screen and (min-width: 96em) {
-                                .css-1trtgtq {
-                                    -webkit-flex-direction: row;
-                                    -ms-flex-direction: row;
-                                    flex-direction: row;
-                                }
-                            }
-                        </style>
-                        <div class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-gap-3 rx-Stack css-1trtgtq">
-                            <style data-emotion="css 19r4f5n">
-                                .css-19r4f5n {
-                                    gap: 0;
-                                    width: 90%;
-                                    max-width: 300px;
-                                    height: auto;
-                                    min-height: 300px;
-                                    box-sizing: border-box;
-                                    overflow: hidden;
-                                    border-radius: 10px;
-                                    border: 4px solid black;
-                                    background: #FDE3C8;
-                                    box-shadow: 8px 8px 0 #AB62CD;
-                                }
-                            </style>
-                            <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack css-19r4f5n">
-                                <style data-emotion="css 1x37px2">
-                                    .css-1x37px2 {
-                                        width: 100%;
-                                        color: #FDE3C8;
-                                        -webkit-text-align-last: center;
-                                        text-align-last: center;
-                                        margin: 0 auto;
-                                        display: -webkit-box;
-                                        display: -webkit-flex;
-                                        display: -ms-flexbox;
-                                        display: flex;
-                                        height: 50px;
-                                        overflow: hidden;
-                                        -webkit-line-clamp: 4;
-                                        -webkit-box-orient: vertical;
-                                        -webkit-align-items: center;
-                                        -webkit-box-align: center;
-                                        -ms-flex-align: center;
-                                        align-items: center;
-                                        -webkit-box-pack: center;
-                                        -ms-flex-pack: center;
-                                        -webkit-justify-content: center;
-                                        justify-content: center;
-                                        text-shadow: black 2px 2px;
-                                        background: #AB62CD;
-                                        border-color: #AB62CD;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-1x37px2 {
-                                            font-size: 0.875rem;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-1x37px2 {
-                                            font-size: 1rem;
-                                        }
-                                    }
-                                </style>
-                                <p class="rt-Text css-1x37px2">Día 1</p>
-                                <style data-emotion="css 16ihd7q">
-                                    .css-16ihd7q {
-                                        width: 100%;
-                                        height: 100%;
-                                        -webkit-margin-start: auto;
-                                        margin-inline-start: auto;
-                                        -webkit-margin-end: auto;
-                                        margin-inline-end: auto;
-                                        margin-top: 0;
-                                        margin-bottom: 0;
-                                        border-bottom: 4px solid black;
-                                    }
-                                </style><img alt="mascota python" src="images/PyConPet.jpg" class="css-16ihd7q" />
-                                <style data-emotion="css 1wkvz5e">
-                                    .css-1wkvz5e {
-                                        width: 100%;
-                                        color: #AB62CD;
-                                        height: 100%;
-                                        display: -webkit-box;
-                                        display: -webkit-flex;
-                                        display: -ms-flexbox;
-                                        display: flex;
-                                        -webkit-align-items: center;
-                                        -webkit-box-align: center;
-                                        -ms-flex-align: center;
-                                        align-items: center;
-                                        -webkit-box-pack: center;
-                                        -ms-flex-pack: center;
-                                        -webkit-justify-content: center;
-                                        justify-content: center;
-                                    }
-
-                                    .css-1wkvz5e:hover {
-                                        color: var(--accent-8);
-                                    }
-                                </style><a data-accent-color="" href="#"
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-1wkvz5e">Ver mapa</a>
-                            </div>
-                            <style data-emotion="css 79533i">
-                                .css-79533i {
-                                    gap: 0;
-                                    width: 90%;
-                                    max-width: 300px;
-                                    height: auto;
-                                    min-height: 300px;
-                                    box-sizing: border-box;
-                                    overflow: hidden;
-                                    border-radius: 10px;
-                                    border: 4px solid black;
-                                    background: #FDE3C8;
-                                    box-shadow: 8px 8px 0 #1E4171;
-                                }
-                            </style>
-                            <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-3 rx-Stack css-79533i">
-                                <style data-emotion="css 1evsufu">
-                                    .css-1evsufu {
-                                        width: 100%;
-                                        color: #FDE3C8;
-                                        -webkit-text-align-last: center;
-                                        text-align-last: center;
-                                        margin: 0 auto;
-                                        display: -webkit-box;
-                                        display: -webkit-flex;
-                                        display: -ms-flexbox;
-                                        display: flex;
-                                        height: 50px;
-                                        overflow: hidden;
-                                        -webkit-line-clamp: 4;
-                                        -webkit-box-orient: vertical;
-                                        -webkit-align-items: center;
-                                        -webkit-box-align: center;
-                                        -ms-flex-align: center;
-                                        align-items: center;
-                                        -webkit-box-pack: center;
-                                        -ms-flex-pack: center;
-                                        -webkit-justify-content: center;
-                                        justify-content: center;
-                                        text-shadow: black 2px 2px;
-                                        white-space: pre-line;
-                                        background: #1E4171;
-                                        border-color: #1E4171;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-1evsufu {
-                                            font-size: 0.875rem;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-1evsufu {
-                                            font-size: 1rem;
-                                        }
-                                    }
-                                </style>
-                                <p class="rt-Text css-1evsufu">Día 2</p><img alt="mascota python"
-                                    src="images/PyConPet.jpg" class="css-16ihd7q" />
-                                <style data-emotion="css k1zbar">
-                                    .css-k1zbar {
-                                        width: 100%;
-                                        color: #1E4171;
-                                        height: 100%;
-                                        display: -webkit-box;
-                                        display: -webkit-flex;
-                                        display: -ms-flexbox;
-                                        display: flex;
-                                        -webkit-align-items: center;
-                                        -webkit-box-align: center;
-                                        -ms-flex-align: center;
-                                        align-items: center;
-                                        -webkit-box-pack: center;
-                                        -ms-flex-pack: center;
-                                        -webkit-justify-content: center;
-                                        justify-content: center;
-                                    }
-
-                                    .css-k1zbar:hover {
-                                        color: var(--accent-8);
-                                    }
-                                </style><a data-accent-color="" href="#"
-                                    class="rt-Text rt-reset rt-Link rt-underline-auto css-k1zbar">Ver mapa</a>
-                            </div>
-                        </div>
-                    </div>
-                    <style data-emotion="css iplg1o">
-                        .css-iplg1o {
-                            background: linear-gradient(120deg, #1E4171 25%, #AB62CD 50%, #1E4171 75%, #AB62CD 100%);
-                            -webkit-background-size: 400% 400%;
-                            background-size: 400% 400%;
-                            -webkit-animation: fondoAnimado 20s ease infinite;
-                            animation: fondoAnimado 20s ease infinite;
-                            width: 100%;
-                            max-width: MAX_WIDTH;
-                            color: #6FC7E1;
-                            size: 0.8em;
-                            padding: 2em;
-                        }
-
-                        @-webkit-keyframes fondoAnimado {
-                            0% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-
-                            50% {
-                                -webkit-background-position: 100% 50%;
-                                background-position: 100% 50%;
-                            }
-
-                            100% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-                        }
-
-                        @keyframes fondoAnimado {
-                            0% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-
-                            50% {
-                                -webkit-background-position: 100% 50%;
-                                background-position: 100% 50%;
-                            }
-
-                            100% {
-                                -webkit-background-position: 0% 50%;
-                                background-position: 0% 50%;
-                            }
-                        }
-                    </style>
-                    <footer class="css-iplg1o">
-                        <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-5 rx-Stack css-8atqhb">
-                            <style data-emotion="css jm26tl">
-                                .css-jm26tl {
-                                    width: 100%;
-                                }
-
-                                @media screen and (min-width: 0) {
-                                    .css-jm26tl {
-                                        -webkit-flex-direction: column;
-                                        -ms-flex-direction: column;
-                                        flex-direction: column;
-                                    }
-                                }
-
-                                @media screen and (min-width: 30em) {
-                                    .css-jm26tl {
-                                        -webkit-flex-direction: column;
-                                        -ms-flex-direction: column;
-                                        flex-direction: column;
-                                    }
-                                }
-
-                                @media screen and (min-width: 48em) {
-                                    .css-jm26tl {
-                                        -webkit-flex-direction: row;
-                                        -ms-flex-direction: row;
-                                        flex-direction: row;
-                                    }
-                                }
-                            </style>
-                            <div class="rt-Flex rt-r-jc-space-between rt-r-gap-6 css-jm26tl">
-                                <style data-emotion="css 1u2nq2j">
-                                    @media screen and (min-width: 0) {
-                                        .css-1u2nq2j {
-                                            -webkit-align-items: center;
-                                            -webkit-box-align: center;
-                                            -ms-flex-align: center;
-                                            align-items: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-1u2nq2j {
-                                            -webkit-align-items: center;
-                                            -webkit-box-align: center;
-                                            -ms-flex-align: center;
-                                            align-items: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 48em) {
-                                        .css-1u2nq2j {
-                                            -webkit-align-items: start;
-                                            -webkit-box-align: start;
-                                            -ms-flex-align: start;
-                                            align-items: start;
-                                        }
-                                    }
-                                </style>
-                                <div class="rt-Flex rt-r-fd-column rt-r-ai-start rt-r-gap-4 rx-Stack css-1u2nq2j">
-                                    <div class="rt-Flex rt-r-fd-row rt-r-ai-start rt-r-gap-3 rx-Stack css-zcxndt">
-                                        <style data-emotion="css 1xsfgo2">
-                                            .css-1xsfgo2 {
-                                                font-family: Luckiest Guy;
-                                                --default-font-family: Luckiest Guy;
-                                                color: #6FC7E1;
-                                                text-shadow: black 2px 2px;
-                                            }
-                                        </style>
-                                        <h1 class="rt-Heading rt-r-size-7 rt-r-weight-bold css-1xsfgo2">PyCon 2025</h1>
-                                    </div>
-                                </div>
-                                <style data-emotion="css 14eoo8q">
-                                    .css-14eoo8q {
-                                        -webkit-flex-direction: column;
-                                        -ms-flex-direction: column;
-                                        flex-direction: column;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-14eoo8q {
-                                            text-align: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-14eoo8q {
-                                            text-align: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 48em) {
-                                        .css-14eoo8q {
-                                            text-align: start;
-                                        }
-                                    }
-                                </style>
-                                <div class="rt-Flex rt-r-gap-4 css-14eoo8q">
-                                    <h3 class="rt-Heading rt-r-size-5 rt-r-weight-bold css-1xsfgo2">RECURSOS</h3>
-                                    <style data-emotion="css oe13sc">
-                                        .css-oe13sc {
-                                            text-shadow: black 2px 2px;
-                                        }
-
-                                        .css-oe13sc:hover {
-                                            color: var(--accent-8);
-                                        }
-                                    </style><a data-accent-color=""
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-oe13sc"
-                                        href="https://pycon.pa/2024/">
-                                        <p class="rt-Text rt-r-size-3">PyCon 2024</p>
-                                    </a><a data-accent-color=""
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-oe13sc"
-                                        href="https://pythonpanama.org/blog">
-                                        <p class="rt-Text rt-r-size-3">Blog</p>
-                                    </a>
-                                </div>
-                                <div class="rt-Flex rt-r-gap-4 css-14eoo8q">
-                                    <h3 class="rt-Heading rt-r-size-5 rt-r-weight-bold css-1xsfgo2">ABOUT US</h3><a
-                                        data-accent-color=""
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-oe13sc"
-                                        href="https://pythonpanama.org/codigo-de-conducta">
-                                        <p class="rt-Text rt-r-size-3">Código de conducta</p>
-                                    </a><a data-accent-color=""
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-oe13sc"
-                                        href="https://www.meetup.com/python-panama/">
-                                        <p class="rt-Text rt-r-size-3">Meetup</p>
-                                    </a>
-                                </div>
-                            </div><span data-accent-color="gray"
-                                class="rt-Separator rt-r-orientation-horizontal rt-r-size-4"></span>
-                            <div class="rt-Flex rt-r-gap-4 css-jm26tl">
-                                <style data-emotion="css jk18gj">
-                                    .css-jk18gj {
-                                        width: 100%;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-jk18gj {
-                                            -webkit-box-pack: center;
-                                            -ms-flex-pack: center;
-                                            -webkit-justify-content: center;
-                                            justify-content: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-jk18gj {
-                                            -webkit-box-pack: center;
-                                            -ms-flex-pack: center;
-                                            -webkit-justify-content: center;
-                                            justify-content: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 48em) {
-                                        .css-jk18gj {
-                                            -webkit-box-pack: start;
-                                            -ms-flex-pack: start;
-                                            -webkit-justify-content: start;
-                                            justify-content: start;
-                                        }
-                                    }
-                                </style>
-                                <div class="rt-Flex rt-r-fd-row rt-r-ai-center rt-r-gap-2 rx-Stack css-jk18gj">
-                                    <style data-emotion="css t53zvx">
-                                        .css-t53zvx {
-                                            white-space: nowrap;
-                                        }
-
-                                        .css-t53zvx:hover {
-                                            color: var(--accent-8);
-                                        }
-                                    </style><a data-accent-color=""
-                                        class="rt-Text rt-reset rt-Link rt-r-size-3 rt-r-weight-medium rt-underline-auto css-t53zvx"
-                                        href="https://linktr.ee/pythonpanama">© 2025 Copyright Python Panamá</a>
-                                </div>
-                                <style data-emotion="css dvcx65">
-                                    .css-dvcx65 {
-                                        width: 100%;
-                                    }
-
-                                    @media screen and (min-width: 0) {
-                                        .css-dvcx65 {
-                                            -webkit-box-pack: center;
-                                            -ms-flex-pack: center;
-                                            -webkit-justify-content: center;
-                                            justify-content: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 30em) {
-                                        .css-dvcx65 {
-                                            -webkit-box-pack: center;
-                                            -ms-flex-pack: center;
-                                            -webkit-justify-content: center;
-                                            justify-content: center;
-                                        }
-                                    }
-
-                                    @media screen and (min-width: 48em) {
-                                        .css-dvcx65 {
-                                            -webkit-box-pack: end;
-                                            -ms-flex-pack: end;
-                                            -webkit-justify-content: end;
-                                            justify-content: end;
-                                        }
-                                    }
-                                </style>
-                                <div class="rt-Flex rt-r-gap-3 css-dvcx65">
-                                    <style data-emotion="css 1macts">
-                                        .css-1macts:hover {
-                                            color: var(--accent-8);
-                                        }
-                                    </style><a data-accent-color="" target="_blank"
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-1macts"
-                                        href="https://www.instagram.com/pythonpanama/"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="lucide lucide-instagram css-svt5ra">
-                                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                                        </svg></a><a data-accent-color="" target="_blank"
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-1macts"
-                                        href="https://x.com/pythonpanama"><svg xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                            class="lucide lucide-twitter css-svt5ra">
-                                            <path
-                                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                            </path>
-                                        </svg></a><a data-accent-color="" target="_blank"
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-1macts"
-                                        href="https://www.facebook.com/pythonpanama"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="lucide lucide-facebook css-svt5ra">
-                                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
-                                            </path>
-                                        </svg></a><a data-accent-color="" target="_blank"
-                                        class="rt-Text rt-reset rt-Link rt-underline-auto css-1macts"
-                                        href="https://www.linkedin.com/company/pythonpanama/"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="lucide lucide-linkedin css-svt5ra">
-                                            <path
-                                                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                            </path>
-                                            <rect width="4" height="12" x="2" y="9"></rect>
-                                            <circle cx="4" cy="4" r="2"></circle>
-                                        </svg></a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
                 </div>
             </div>
         </div>
     </div>
-    <script id="__NEXT_DATA__"
-        type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"F-1s5AABzPDWyN9s1Q5dg","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="m-0 text-primary"><span class="text-dark">PyCon</span>Panamá 2025</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="package.html" class="nav-item nav-link">Tour Packages</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="img/carousel-1.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">La misión de PyCon Panamá es reunir a la
+                                comunidad de Python en un evento dinámico y enriquecedor, con el fin de promover la
+                                innovación, la colaboración y el aprendizaje continuo.</h4>
+                            <h1 class="display-3 text-white mb-md-4">PyCon Panamá 2025</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="img/carousel-2.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">La misión de PyCon Panamá es reunir a la
+                                comunidad de Python en un evento dinámico y enriquecedor, con el fin de promover la
+                                innovación, la colaboración y el aprendizaje continuo.</h4>
+                            <h1 class="display-3 text-white mb-md-4">PyCon Panamá 2025</h1>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Destination Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Destination</h6>
+                <h1>Explore Top Destination</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-1.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">United States</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-2.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">United Kingdom</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-3.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Australia</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-4.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">India</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-5.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">South Africa</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="destination-item position-relative overflow-hidden mb-2">
+                        <img class="img-fluid" src="img/destination-6.jpg" alt="">
+                        <a class="destination-overlay text-white text-decoration-none" href="">
+                            <h5 class="text-white">Indonesia</h5>
+                            <span>100 Cities</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Destination Start -->
+
+
+    <!-- Service Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Services</h6>
+                <h1>Tours & Travel Services</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-route mx-auto mb-4"></i>
+                        <h5 class="mb-2">Travel Guide</h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                            amet labore</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-ticket-alt mx-auto mb-4"></i>
+                        <h5 class="mb-2">Ticket Booking</h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                            amet labore</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-item bg-white text-center mb-2 py-5 px-4">
+                        <i class="fa fa-2x fa-hotel mx-auto mb-4"></i>
+                        <h5 class="mb-2">Hotel Booking</h5>
+                        <p class="m-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem est
+                            amet labore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Registration Start -->
+    <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <div class="mb-4">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
+                        <h1 class="text-white"><span class="text-primary">30% OFF</span> For Honeymoon</h1>
+                    </div>
+                    <p class="text-white">Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem
+                        ipsum ut sed eos,
+                        ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
+                        dolor</p>
+                    <ul class="list-inline text-white m-0">
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Labore eos amet dolor amet diam
+                        </li>
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Etsea et sit dolor amet ipsum</li>
+                        <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Diam dolor diam elitripsum vero.
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0">
+                        <div class="card-header bg-primary text-center p-4">
+                            <h1 class="text-white m-0">Sign Up Now</h1>
+                        </div>
+                        <div class="card-body rounded-bottom bg-white p-5">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control p-4" placeholder="Your name"
+                                        required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control p-4" placeholder="Your email"
+                                        required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <select class="custom-select px-4" style="height: 47px;">
+                                        <option selected>Select a destination</option>
+                                        <option value="1">destination 1</option>
+                                        <option value="2">destination 1</option>
+                                        <option value="3">destination 1</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Registration End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <a href="" class="navbar-brand">
+                    <h1 class="text-primary"><span class="text-white">PyCon</span>Panamá 2025</h1>
+                </a>
+                <p>La misión de PyCon Panamá es reunir a la comunidad de Python en un evento dinámico y enriquecedor,
+                    con el fin de promover la innovación, la colaboración y el aprendizaje continuo.</p>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.instagram.com/pythonpanama/"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2"
+                        href="https://www.facebook.com/profile.php?id=100078380970388"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-primary btn-square mr-2"
+                        href="https://linkedin.com/company/pythonpanama"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-primary btn-square" href="https://www.meetup.com/python-panama/"><i
+                            class="fab fa-meetup"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
