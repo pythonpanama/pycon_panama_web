@@ -9649,7 +9649,7 @@ h6,
 }
 
 .page-header-index {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg_header.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.75)), url(../img/Pycon25-linkedin_portada-01.jpg);
   background-repeat:  no-repeat;
   background-position: center;
   background-size: cover;
@@ -9657,7 +9657,7 @@ h6,
 }
 
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-2.jpg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/Pycon25-linkedin_portada-01.jpg), no-repeat center center;
   background-size: cover;
 }
 
