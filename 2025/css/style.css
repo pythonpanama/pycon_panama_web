@@ -9649,18 +9649,27 @@ h6,
 }
 
 .page-header-index {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.75)), url(../img/Pycon25-linkedin_portada-01.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.75)), url(../img/Pycon25-linkedin_portada-02.jpg);
   background-repeat:  no-repeat;
   background-position: center;
   background-size: cover;
   margin-top: -42px;
 }
 
-.page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/Pycon25-linkedin_portada-01.jpg), no-repeat center center;
+.page-header-sponsors {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/Pycon25-linkedin_portada-03.jpg), no-repeat center center;
   background-size: cover;
 }
 
+.page-header-about {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/Pycon25-linkedin_portada-03.jpg), no-repeat center center;
+  background-size: cover;
+}
+
+.page-header-agenda {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/Pycon25-linkedin_portada-03.jpg), no-repeat center center;
+  background-size: cover;
+}
 
 .destination-item img {
   transition: .5s;
@@ -9728,7 +9737,7 @@ h6,
 }
 
 .bg-registration {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.jpg), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg_header.jpg), no-repeat center center;
   background-size: cover;
 }
 
