@@ -29,6 +29,32 @@
 </head>
 
 <body class="bg-sprinkle">
+    <style>
+      /* Estilos ligeros para tarjetas de sponsors */
+      .s-card { text-decoration: none; }
+      .s-card-inner {
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 120px;
+        filter: grayscale(35%);
+      }
+      .s-card:hover .s-card-inner,
+      .s-card:focus .s-card-inner {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+        filter: grayscale(0%);
+      }
+      .s-logo { max-width: 100%; max-height: 72px; object-fit: contain; }
+      .s-filters .btn { border-radius: 999px; }
+      .s-grid { opacity: 0; transform: translateY(8px); transition: all .25s ease; }
+      .s-grid-ready { opacity: 1; transform: none; }
+    </style>
     <div data-include="header"></div>
 
 
@@ -50,39 +76,12 @@
     <!-- Sponsors Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
-            <div class="text-center mb-3 pb-3">
+            <div class="text-center mb-4">
                 <h1 class="sombras-textos">Agradecemos el gran apoyo de nuestros Sponsors.</h1>
+                <p class="text-muted mb-0">Explora por categorías y haz clic para visitar sus sitios.</p>
             </div>
-            <div class="sponsors_container row m-0">
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <div class="team-item mb-4">
-                        <div class="sponsors-img-container team-img bg-white position-relative overflow-hidden">
-                            <img class="sponsors_img  w-100" src="img/sponsors/jb_beam.png" alt="Sponsor: jb_beam">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <div class="team-item mb-4">
-                        <div class="sponsors-img-container team-img bg-white position-relative overflow-hidden">
-                            <img class="sponsors_img  w-100" src="img/sponsors/Pyladies.png" alt="Sponsor: PyLadies">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <div class="team-item mb-4">
-                        <div class="sponsors-img-container team-img bg-white position-relative overflow-hidden">
-                            <img class="sponsors_img  w-100" src="img/sponsors/PSF.png" alt="Sponsor: Python Software Foundation">
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <div class="team-item mb-4 ">
-                        <div class="sponsors-img-container team-img bg-white position-relative overflow-hidden">
-                            <img class="sponsors_img w-100" src="img/sponsors/SoftD3v.png" alt="Sponsor: SoftD3v">
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <div id="sponsorsApp"></div>
         </div>
     </div>
     <!-- Sponsors End -->
@@ -96,21 +95,7 @@
 
 
     <script defer src="js/components/include.js"></script>
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <div data-include="scripts"></div>
 </body>
 
 </html>
