@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>PyCon Panamá 2025</title>
+    <title>PyCon Panamá 2025 - Conferencia de Python</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="PyCon Panamá 2025 - La conferencia anual de Python en Panamá. Del 15 al 18 de octubre de 2025." name="description">
+    <meta content="PyCon, Panamá, 2025, Python, conferencia, programación, desarrollo" name="keywords">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pyconpanama.org/2025/">
+    <meta property="og:title" content="PyCon Panamá 2025 - Conferencia de Python">
+    <meta property="og:description" content="La conferencia anual de Python en Panamá. Del 15 al 18 de octubre de 2025. ¡Únete a la comunidad!">
+    <meta property="og:image" content="https://pyconpanama.org/2025/img/pycon25.png">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pyconpanama.org/2025/">
+    <meta property="twitter:title" content="PyCon Panamá 2025 - Conferencia de Python">
+    <meta property="twitter:description" content="La conferencia anual de Python en Panamá. Del 15 al 18 de octubre de 2025. ¡Únete a la comunidad!">
+    <meta property="twitter:image" content="https://pyconpanama.org/2025/img/pycon25.png">
+    <meta property="twitter:site" content="@pythonpanama">
 
     <!-- Favicon -->
     <link href="img/pycon25.png" rel="icon">
+    <link rel="canonical" href="https://pyconpanama.org/2025/">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -22,74 +42,100 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
+    <link href="css/theme-2025.css" rel="stylesheet">
+    
+    <style>
+      /* Hero con imagen de fondo, overlay blanco y respiro bajo el menú */
+      .page-header-index {
+        position: relative;
+        margin-top: 32px; /* espacio entre menú e imagen */
+        background: url('img/Pycon25-linkedin_portada-02.jpg') center/cover no-repeat;
+      }
+      .page-header-index::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,0.38); /* overlay blanco */
+      }
+      .hero-content { min-height: 380px; position: relative; z-index: 1; }
+      /* Panel translúcido (ligero) detrás del texto */
+      .hero-glass {
+        background: rgba(0,0,0,0.25);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 14px;
+      }
+      /* Tipografía del hero */
+      .hero-kicker { letter-spacing: .08em; font-weight: 600; opacity: .95; }
+      .hero-title { font-weight: 800; letter-spacing: .02em; }
+      .hero-date { letter-spacing: .06em; font-weight: 600; opacity: .95; }
+      .hero-text { color: var(--brand-ink) !important; text-shadow: none; }
+    @media (max-width: 576px) {
+        .hero-content { min-height: 300px; }
+      }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "PyCon Panamá 2025",
+      "description": "La conferencia anual de Python en Panamá. Del 15 al 18 de octubre de 2025. Únete a la comunidad de desarrolladores Python.",
+      "startDate": "2025-10-15",
+      "endDate": "2025-10-18",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Panamá",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "PA",
+          "addressLocality": "Panamá"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Python Panamá",
+        "url": "https://pythonpanama.org"
+      },
+      "image": "https://pyconpanama.org/2025/img/pycon25.png",
+      "url": "https://pyconpanama.org",
+      "inLanguage": "es"
+    }
+    </script>
 </head>
 
 <body style="background-image: url('img/Sprinkle_bg.svg');">
-    <!-- Topbar Start -->
-    <div class="container-fluid pt-3 d-none d-lg-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0 py-3">
-                    <div class="d-inline-flex align-items-center">
-                        <a class="btn btn-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100078380970388"><i
-                                class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="btn btn-primary  btn-square mr-2" href="https://linkedin.com/company/pythonpanama"><i
-                                class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="btn btn-primary  btn-square mr-2" href="https://www.instagram.com/pythonpanama/"><i
-                                class="fab fa-instagram"></i>
-                        </a>
-                        <a class="btn btn-primary  btn-square mr-2" href="https://www.meetup.com/python-panama/"><i
-                                class="fab fa-meetup"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
-
-    <!-- Navbar Start -->
-    <div class="container-fluid position-relative nav-bar p-0">
-        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
-                    <img src="img/pyconpa25-03.jpg" alt="PyCon Panamá 2025" class="img-fluid" style="max-height: 50px;">
-                </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                        <a href="about.html" class="nav-item nav-link">Acerca de</a>
-                        <a href="agenda.html" class="nav-item nav-link">Agenda</a>
-                        <a href="sponsors.html" class="nav-item nav-link">Sponsors</a>
-                        <a href="https://pythonpanama.org/codigo-de-conducta" class="nav-item nav-link">Código de conducta</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
+    <div data-include="header"></div>
 
 
     <!-- Carousel Start -->
     <div class="container-fluid page-header-index">
         <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 500px">
-                  <h3 class="text-white text-uppercase mb-md-3 sombras-textos"><span class="titulo-3">Bienvenidos a</span></h3>
-                      <h1 class="display-3 text-white mb-md-4 sombras-textos"> <span class="titulo-1">PyCon</span> <span class="titulo-2">Panamá</span> <span class="titulo-3">2025</span></h1>
-                  <h4 class="text-white text-uppercase mb-md-3 sombras-textos"><span class="titulo-4">del 15 a 18 de octubre</span></h4>
-                      <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">ENTRADAS</a> -->
-                  </div>
-              </div>
+            <div class="d-flex flex-column align-items-center justify-content-center text-center hero-content">
+                <h3 class="text-uppercase mb-2 mb-md-3 hero-kicker hero-text">
+                  <span class="titulo-3">Bienvenidos a</span>
+                </h3>
+                <h1 class="display-3 mb-2 mb-md-3 hero-title hero-text">
+                  <span class="titulo-1">PyCon</span>
+                  <span class="titulo-2">Panamá</span>
+                  <span class="titulo-3">2025</span>
+                </h1>
+                <h4 class="text-uppercase m-0 hero-date hero-text">
+                  <span class="titulo-4">del 15 a 18 de octubre</span>
+                </h4>
+                <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">ENTRADAS</a> -->
+            </div>
         </div>
+    </div>
     <!-- Carousel End -->
 
+    <!-- SEDES oculto temporalmente -->
+    <!--
     <!-- Destination Start -->
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
@@ -99,8 +145,9 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2 sombras-personalizadas">
-                        <img class="img-fluid" src="img/teatro_municipal_gladys_vidal.webp" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="https://maps.app.goo.gl/hwGnWg68NfNzppV37">
+                        <img class="img-fluid" src="img/teatro_municipal_gladys_vidal.webp" alt="Teatro Municipal Gladys Vidal, sede PyCon Panamá 2025">
+                        <a class="destination-overlay text-white text-decoration-none"
+                            href="https://maps.app.goo.gl/hwGnWg68NfNzppV37">
                             <h5 class="text-white sombras-textos text-center">Teatro Municipal Gladys Vidal</h5>
                             <span>15 de octubre</span>
                             <span>ver mapa</span>
@@ -110,8 +157,10 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2 sombras-personalizadas">
                         <img class="img-fluid" src="img/cine_universitario.webp" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="https://maps.app.goo.gl/yNxx2we7dLqc24bZ7">
-                            <h5 class="text-white sombras-textos text-center">Cine Universitario de la Universidad de Panamá</h5>
+                        <a class="destination-overlay text-white text-decoration-none"
+                            href="https://maps.app.goo.gl/yNxx2we7dLqc24bZ7">
+                            <h5 class="text-white sombras-textos text-center">Cine Universitario de la Universidad de
+                                Panamá</h5>
                             <span>16 de octubre</span>
                             <span>ver mapa</span>
                         </a>
@@ -120,7 +169,7 @@
             </div>
         </div>
     </div>
-    <!-- Destination Start -->
+    --> <!-- Fin sedes ocultas -->
 
 
     <!-- Service Start -->
@@ -153,37 +202,14 @@
     </div>
     <!-- Service End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
-        <div class="row pt-5">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">PyCon</span>Panamá 2025</h1>
-                </a>
-                <p>La misión de PyCon Panamá es reunir a la comunidad de Python en un evento dinámico y enriquecedor,
-                    con el fin de promover la innovación, la colaboración y el aprendizaje continuo.</p>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
-                <div class="d-flex justify-content-start">
-                    <a class="btn btn-outline-primary btn-square mr-2" href="https://www.instagram.com/pythonpanama/"><i
-                            class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2"
-                        href="https://www.facebook.com/profile.php?id=100078380970388"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-primary btn-square mr-2"
-                        href="https://linkedin.com/company/pythonpanama"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-primary btn-square" href="https://www.meetup.com/python-panama/"><i
-                            class="fab fa-meetup"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
+    <div data-include="footer"></div>
 
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
+    <script defer src="js/components/include.js"></script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>

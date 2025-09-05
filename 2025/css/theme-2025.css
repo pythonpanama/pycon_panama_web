@@ -1,0 +1,69 @@
+:root {
+  --brand-primary: #AB62CD;   /* Morado principal */
+  --brand-primary-600: #8F4AB4; /* Hover más oscuro */
+  --brand-primary-700: #7C3CA4; /* Active */
+  --brand-secondary: #6FC7E1; /* Celeste de apoyo */
+  --brand-accent: #FFAA88;    /* Durazno acento */
+  --brand-surface: #FDE3C8;   /* Fondo suave */
+  --brand-muted: #D49EE7;     /* Lila suave */
+  --brand-ink: #1E4171;       /* Azul profundo para texto */
+}
+
+/* Tipografía y superficies */
+body { color: var(--brand-ink); }
+
+/* Utilitarios Bootstrap: adaptar a la paleta sin recompilar */
+.text-primary { color: var(--brand-primary) !important; }
+.bg-primary { background-color: var(--brand-primary) !important; }
+.border-primary { border-color: var(--brand-primary) !important; }
+
+/* Navbar: hover y activo en color de marca */
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active { color: var(--brand-primary) !important; }
+
+/* Botones */
+.btn-primary {
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+.btn-primary:hover,
+.btn-primary:focus { background-color: var(--brand-primary-600) !important; border-color: var(--brand-primary-600) !important; }
+.btn-primary:active { background-color: var(--brand-primary-700) !important; border-color: var(--brand-primary-700) !important; }
+
+.btn-outline-primary {
+  color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  color: #fff !important;
+  background-color: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+}
+
+/* Iconos de servicios y elementos destacados */
+.service-item i {
+  border-color: var(--brand-primary) !important;
+  background: #fff !important;
+  color: var(--brand-primary) !important;
+}
+.service-item:hover i {
+  background: var(--brand-primary) !important;
+  color: #fff !important;
+}
+
+/* Hero textual en color de tinta */
+.hero-text { color: var(--brand-ink) !important; text-shadow: none !important; }
+
+/* Acentos y badges (si se usan) */
+.badge-primary { background-color: var(--brand-primary) !important; }
+.alert-primary { background-color: color-mix(in srgb, var(--brand-primary) 10%, #fff); border-color: var(--brand-primary); color: var(--brand-ink); }
+
+/* Enlaces generales */
+a { color: var(--brand-primary); }
+a:hover { color: var(--brand-primary-600); }
+
+/* Superficies suaves opcionales (secciones) */
+.section-surface { background: var(--brand-surface); }
+.section-muted { background: color-mix(in srgb, var(--brand-muted) 15%, #fff); }
+

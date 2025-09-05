@@ -277,29 +277,7 @@ h6,
     transform: scale(1.2);
 }
 
-.testimonial-carousel .owl-dots {
-    margin-top: 5px;
-    text-align: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 20px;
-    height: 20px;
-    background: #DDDDDD;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    width: 40px;
-    background: $primary;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-text {
-    box-shadow: 0 0 30px #CCCCCC;
-}
+// Bloque testimonial eliminado: no usado en PyCon Panamá 2025
 
 .blog-item {
     transition: .5s;
