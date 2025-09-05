@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "PyCon Panamá 2025",
+  "description": "La conferencia anual de Python en Panamá. Del 15 al 18 de octubre de 2025. Únete a la comunidad de desarrolladores Python.",
+  "startDate": "2025-10-15",
+  "endDate": "2025-10-18",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Panamá",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PA",
+      "addressLocality": "Panamá"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Python Panamá",
+    "url": "https://pythonpanama.org"
+  },
+  "image": "https://pyconpanama.org/2025/img/pycon25.png",
+  "url": "https://pyconpanama.org/2025/",
+  "inLanguage": "es"
+}
+

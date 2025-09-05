@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const map = {
     header: 'partials/header.html',
     footer: 'partials/footer.html',
+    backtotop: 'partials/back_to_top.html',
+    scripts: 'partials/scripts.html',
   };
 
   document.querySelectorAll('[data-include]')

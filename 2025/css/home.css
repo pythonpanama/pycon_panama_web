@@ -1,0 +1,49 @@
+/* Hero con imagen de fondo, overlay blanco y respiro bajo el menú */
+.page-header-index {
+  position: relative;
+  margin-top: 32px; /* espacio entre menú e imagen */
+  background: url('img/Pycon25-linkedin_portada-02.jpg') center/cover no-repeat;
+}
+
+.page-header-index::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.38); /* overlay blanco */
+}
+
+.hero-content {
+  min-height: 380px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tipografía del hero */
+.hero-kicker {
+  letter-spacing: .08em;
+  font-weight: 600;
+  opacity: .95;
+}
+
+.hero-title {
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.hero-date {
+  letter-spacing: .06em;
+  font-weight: 600;
+  opacity: .95;
+}
+
+.hero-text {
+  color: var(--brand-ink) !important;
+  text-shadow: none;
+}
+
+@media (max-width: 576px) {
+  .hero-content {
+    min-height: 300px;
+  }
+}
+

@@ -1,51 +1,36 @@
-<header role="banner">
-  <!-- Topbar Start -->
-  <div class="container-fluid pt-3 d-none d-lg-block">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0 py-3">
-          <div class="d-inline-flex align-items-center">
-            <a class="btn btn-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook Python Panamá">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a class="btn btn-primary btn-square mr-2" href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn Python Panamá">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a class="btn btn-primary btn-square mr-2" href="https://www.instagram.com/pythonpanama/" aria-label="Instagram Python Panamá">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a class="btn btn-primary btn-square mr-2" href="https://www.meetup.com/python-panama/" aria-label="Meetup Python Panamá">
-              <i class="fab fa-meetup"></i>
-            </a>
-          </div>
-        </div>
+<header class="site-header" role="banner">
+  <div class="header-top d-none d-lg-block">
+    <div class="container d-flex justify-content-end">
+      <div class="social" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.meetup.com/python-panama/" aria-label="Meetup"><i class="fab fa-meetup"></i></a>
       </div>
     </div>
   </div>
-  <!-- Topbar End -->
 
-  <!-- Navbar Start -->
-  <div class="container-fluid position-relative nav-bar p-0">
-    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-      <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5" aria-label="Navegación principal">
-        <a href="index.html" class="navbar-brand" aria-label="Inicio PyCon Panamá 2025">
-          <img src="img/pyconpa25-03.jpg" alt="PyCon Panamá 2025" class="img-fluid" style="max-height: 50px;">
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Abrir menú">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-          <div class="navbar-nav ml-auto py-0">
-            <a href="index.html" class="nav-item nav-link">Inicio</a>
-            <a href="about.html" class="nav-item nav-link">Acerca de</a>
-            <a href="agenda.html" class="nav-item nav-link">Agenda</a>
-            <a href="sponsors.html" class="nav-item nav-link">Sponsors</a>
-            <a href="codigo_conducta.html" class="nav-item nav-link">Código de conducta</a>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <a href="index.html" class="navbar-brand d-flex align-items-center" aria-label="Inicio PyCon Panamá 2025">
+        <img src="img/pyconpa25-03.jpg" alt="PyCon Panamá 2025" class="brand-logo mr-2">
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ml-auto site-nav align-items-lg-center">
+          <a href="index.html" class="nav-item nav-link">Inicio</a>
+          <a href="about.html" class="nav-item nav-link">Acerca de</a>
+          <a href="agenda.html" class="nav-item nav-link">Agenda</a>
+          <!-- <a href="sedes.html" class="nav-item nav-link">Sedes</a> -->
+          <a href="sponsors.html" class="nav-item nav-link">Sponsors</a>
+          <a href="codigo_conducta.html" class="nav-item nav-link">Código de conducta</a>
+          <div class="cta ml-lg-3 mt-3 mt-lg-0">
+            <a href="entradas.html" class="btn btn-primary btn-sm">Regístrate</a>
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </div>
-  <!-- Navbar End -->
 </header>
-
