@@ -145,9 +145,9 @@ a:hover { color: var(--brand-primary-600); }
 }
 .site-header .header-top .social a:hover { background: var(--brand-primary); color: #0b1220; }
 
-.site-header .navbar { background: transparent !important; box-shadow: none !important; padding: 10px 0; }
+.site-header .navbar { background: transparent !important; box-shadow: none !important; }
 .site-header .navbar-brand img.brand-logo { max-height: 48px; }
-.site-header .navbar-toggler { border-color: rgba(0,0,0,0.12); }
+.site-header .navbar-toggler { border-color: rgba(119 23 213 / 57%); }
 .site-header .navbar-toggler:focus { box-shadow: none; }
 
 .site-nav .nav-link {
