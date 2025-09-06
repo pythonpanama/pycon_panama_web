@@ -9,7 +9,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.38); /* overlay blanco */
+  background: rgba(255, 255, 255, 0.53); /* overlay blanco */
 }
 
 .hero-content {
