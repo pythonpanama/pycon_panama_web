@@ -14,6 +14,7 @@ body { color: var(--brand-ink); }
 
 /* Utilitarios Bootstrap: adaptar a la paleta sin recompilar */
 .text-primary { color: var(--brand-primary) !important; }
+.text-secondary { color: var(--brand-ink) !important}
 .bg-primary { background-color: var(--brand-primary) !important; }
 .border-primary { border-color: var(--brand-primary) !important; }
 
