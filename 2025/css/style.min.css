@@ -10818,7 +10818,7 @@ h6,
 }
 
 .bg-registration {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/carousel-1.jpg), no-repeat center center;
+    background: #ab62cda3;
     background-size: cover
 }
 
