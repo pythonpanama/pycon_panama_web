@@ -1,4 +1,60 @@
+// Inyectar Font Awesome CSS lo más pronto posible (evita repetir en cada página)
+try {
+  const faHref = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+  const hasFA = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+    .some(l => (l.getAttribute('href') || '').includes('cdnjs.cloudflare.com/ajax/libs/font-awesome'));
+  if (!hasFA) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = faHref;
+    link.media = 'screen';
+    document.head.appendChild(link);
+  }
+} catch (e) {
+  console.warn('No se pudo inyectar Font Awesome CSS:', e);
+}
+
+// Inyectar Google Fonts (Poppins) de forma centralizada
+try {
+  const gfontsHref = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap';
+  const hasGF = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+    .some(l => (l.getAttribute('href') || '').includes('fonts.googleapis.com/css2?family=Poppins'));
+  if (!hasGF) {
+    // Preconnect a fonts.gstatic.com si no existe
+    const hasPreconnect = Array.from(document.querySelectorAll('link[rel="preconnect"]'))
+      .some(l => (l.getAttribute('href') || '').includes('fonts.gstatic.com'));
+    if (!hasPreconnect) {
+      const pre = document.createElement('link');
+      pre.rel = 'preconnect';
+      pre.href = 'https://fonts.gstatic.com';
+      document.head.appendChild(pre);
+    }
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = gfontsHref;
+    document.head.appendChild(link);
+  }
+} catch (e) {
+  console.warn('No se pudo inyectar Google Fonts:', e);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Inyectar hoja de estilos de Pageclip en <head> si no existe
+  try {
+    const href = 'https://s.pageclip.co/v1/pageclip.css';
+    const already = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+      .some(l => (l.getAttribute('href') || '').includes('s.pageclip.co/v1/pageclip.css'));
+    if (!already) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.media = 'screen';
+      document.head.appendChild(link);
+    }
+  } catch (e) {
+    console.warn('No se pudo inyectar Pageclip CSS:', e);
+  }
+
   const map = {
     header: 'partials/header.html',
     footer: 'partials/footer.html',

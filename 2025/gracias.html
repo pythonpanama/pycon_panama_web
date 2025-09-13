@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Gracias | PyCon Panamá 2025</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="description" content="Gracias por registrarte en PyCon Panamá 2025.">
+
+  <link href="img/pycon25.png" rel="icon">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link href="css/theme-2025.css" rel="stylesheet">
+</head>
+<body>
+  <div data-include="header"></div>
+
+  <main class="container py-5" role="main">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <section class="section-muted p-4 p-md-5 rounded text-center">
+          <h1 class="mb-3">¡Gracias por registrarte!</h1>
+          <p class="lead mb-3">Hemos recibido tu registro para PyCon Panamá 2025.</p>
+          <p class="mb-4">Te enviaremos novedades de la agenda y la confirmación de tu inscripción pronto. Si tienes preguntas, escríbenos a <a href="mailto:pyconpanama@gmail.com">pyconpanama@gmail.com</a>.</p>
+          <a class="btn btn-primary" href="/2025/">Volver al inicio</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script defer src="js/components/include.js"></script>
+  <div data-include="scripts"></div>
+  <script>
+    // Mostrar código y datos básicos si están disponibles
+    (function(){
+      const container = document.querySelector('section.section-muted');
+      if (!container) return;
+      try {
+        const code = localStorage.getItem('pc25_last_code');
+        const name = localStorage.getItem('pc25_last_name');
+        const email = localStorage.getItem('pc25_last_email');
+        if (code) {
+          const info = document.createElement('div');
+          info.className = 'mt-3';
+          info.innerHTML = `<p class="mb-1"><strong>Código de registro:</strong> ${code}</p>` +
+                           (name ? `<p class="mb-1"><strong>Nombre:</strong> ${name}</p>` : '') +
+                           (email ? `<p class="mb-1"><strong>Email:</strong> ${email}</p>` : '');
+          container.appendChild(info);
+        }
+      } catch (e) { /* noop */ }
+    })();
+  </script>
+</body>
+</html>

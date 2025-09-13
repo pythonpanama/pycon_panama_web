@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <title>Entradas | PyCon Panamá 2025</title>
@@ -10,23 +11,190 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.min.css" rel="stylesheet">
   <link href="css/theme-2025.css" rel="stylesheet">
+  <style>
+    /* Forzar una sola columna en esta página y unificar cabecera */
+    #tickets-page .col-lg-5,
+    #tickets-page .col-lg-7 {
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+    }
+
+    #tickets-page .row h1.mb-3,
+    #tickets-page .row p.lead.mb-3 {
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
   <div data-include="header"></div>
 
   <main class="container py-5" role="main">
     <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <section class="section-muted p-4 p-md-5 rounded">
-          <h1 class="mb-3">Entradas</h1>
-          <p class="lead mb-4">Aún no hemos habilitado las entradas para PyCon Panamá 2025.</p>
-          <p class="mb-4">Estamos ultimando detalles del programa y logística. Anunciaremos la apertura de entradas en nuestras redes oficiales.</p>
-          <div class="d-flex align-items-center">
-            <span class="mr-3">Sigue nuestras redes:</span>
-            <a class="footer-link mr-3" href="https://www.instagram.com/pythonpanama/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a class="footer-link mr-3" href="https://linkedin.com/company/pythonpanama" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="footer-link" href="https://www.meetup.com/python-panama/" target="_blank" rel="noopener noreferrer">Meetup</a>
+      <div class="col-lg-10">
+        <section id="tickets-page" class="section-muted p-4 p-md-5 rounded">
+          <h1 class="mb-3 text-center">👉 Registro de Participantes</h1>
+          <p class="lead mb-4 text-center">Completa tus datos para reservar tu espacio.</p>
+          <div class="row">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+              <h1 class="mb-3">Formulario de Inscripción PyCon Panamá 2025</h1>
+              <p class="lead mb-3">👉 Registro de Participantes – PyCon Panamá 2025</p>
+              <p class="mb-2">Bienvenido al registro oficial de PyCon Panamá 2025, la conferencia anual
+                de la comunidad Python en Panamá.</p>
+              <p class="mb-1">📅 <strong>Fechas:</strong> 15 al 18 de octubre de 2025</p>
+              <p class="mb-2">📍 <strong>Sedes:</strong></p>
+              <ul class="mb-2">
+                <li><strong>Miércoles 15</strong> – Teatro Gladys Vidal (Alcaldía de Panamá, Edificio Hatillo, Av. Cuba)</li>
+                <li><strong>Jueves 16</strong> – Cine Universitario (Universidad de Panamá, Av. Octavio Méndez Pereira)</li>
+                <li><strong>Viernes 17</strong> – (Virtual)</li>
+                <li><strong>Sábado 18</strong> – PyParty - Punta Chame 🎉</li>
+              </ul>
+              <p class="mb-3">Este es un evento sin fines de lucro, organizado por voluntarios, que reúne a estudiantes,
+                profesionales y entusiastas de la tecnología para aprender, colaborar y compartir conocimiento.</p>
+              <p class="mb-4">Por favor, completa tus datos para reservar tu espacio.</p>
+
+              <!--<div class="d-flex align-items-center">
+                <span class="mr-3">Síguenos:</span>
+                <a class="footer-link mr-3" href="https://www.instagram.com/pythonpanama/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a class="footer-link mr-3" href="https://linkedin.com/company/pythonpanama" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="footer-link" href="https://www.meetup.com/python-panama/" target="_blank" rel="noopener noreferrer">Meetup</a>
+              </div>-->
+            </div>
+
+            <div class="col-lg-7">
+              <div class="p-3 p-md-4 rounded bg-white shadow-sm">
+                <h2 class="h4 mb-3">Regístrate en menos de 1 minuto</h2>
+                <!-- Formulario Pageclip según especificación -->
+                <form id="pc25-form" action="https://send.pageclip.co/uux6doIwLu3hcP9utEkr5TETD1WtW8qE"
+                  class="pageclip-form" method="post" autocomplete="on" data-pageclip-redirect="/2025/gracias.html">
+                  <input type="hidden" name="registration_code" id="pc-code" value="">
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="pc-name">Nombre completo <span class="text-danger">*</span></label>
+                      <input id="pc-name" type="text" name="name" class="form-control" placeholder="Tu nombre completo"
+                        required />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="pc-email">Correo electrónico <span class="text-danger">*</span></label>
+                      <input id="pc-email" type="email" name="email" class="form-control"
+                        placeholder="tucorreo@ejemplo.com" required autocomplete="email" maxlength="120" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="pc-phone">WhatsApp (opcional)</label>
+                      <input id="pc-phone" type="tel" name="phone" class="form-control" placeholder="+507 6000-0000"
+                        autocomplete="tel" inputmode="tel" maxlength="30" />
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="pc-org">Institución / Empresa</label>
+                      <input id="pc-org" type="text" name="organization" class="form-control"
+                        placeholder="Empresa, universidad" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="pc-role">Rol</label>
+                      <select id="pc-role" name="role" class="form-control">
+                        <option value="">Selecciona una opción</option>
+                        <option>Estudiante</option>
+                        <option>Profesional</option>
+                        <option>Docente</option>
+                        <option>Otro</option>
+                      </select>
+                    </div>
+                  </div>
+
+
+
+                  <fieldset class="mb-3">
+                    <legend class="h6 mb-2">Días en los que planeas participar (selección múltiple)</legend>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="day-15" name="days[]"
+                        value="Miércoles 15 – Teatro Gladys Vidal (Alcaldía)" />
+                      <label class="custom-control-label" for="day-15">Miércoles 15 – Teatro Gladys Vidal
+                        (Alcaldía)</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="day-16" name="days[]"
+                        value="Jueves 16 – Cine Universitario (UP)" />
+                      <label class="custom-control-label" for="day-16">Jueves 16 – Cine Universitario (UP)</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="day-17" name="days[]"
+                        value="Viernes 17 – (sede por confirmar)" />
+                      <label class="custom-control-label" for="day-17">Viernes 17 – (Virtual)</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="day-18" name="days[]"
+                        value="Sábado 18 – PyParty en Punta Chame" />
+                      <label class="custom-control-label" for="day-18">Sábado 18 – PyParty (Punta Chame)</label>
+                    </div>
+                  </fieldset>
+
+
+
+                  <fieldset class="mb-3">
+                    <legend class="h6 mb-2">¿Qué temas te interesan?</legend>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="topic-ml" name="topics[]"
+                        value="Inteligencia Artificial / Machine Learning" />
+                      <label class="custom-control-label" for="topic-ml">Inteligencia Artificial / Machine
+                        Learning</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="topic-ds" name="topics[]"
+                        value="Ciencia de Datos / Big Data" />
+                      <label class="custom-control-label" for="topic-ds">Ciencia de Datos / Big Data</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="topic-web" name="topics[]"
+                        value="Desarrollo Web / APIs" />
+                      <label class="custom-control-label" for="topic-web">Desarrollo Web / APIs</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="topic-devops" name="topics[]"
+                        value="Automatización / DevOps" />
+                      <label class="custom-control-label" for="topic-devops">Automatización / DevOps</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="topic-edu" name="topics[]"
+                        value="Educación con Python" />
+                      <label class="custom-control-label" for="topic-edu">Educación con Python</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="topic-other" name="topics[]"
+                        value="Otros" />
+                      <label class="custom-control-label" for="topic-other">Otros</label>
+                    </div>
+                  </fieldset>
+
+
+
+                  <div class="form-group">
+                    <label for="pc-msg">Comentarios adicionales</label>
+                    <textarea id="pc-msg" name="comments" rows="3" class="form-control"
+                      placeholder="Cuéntanos si tienes algun comentario"></textarea>
+                  </div>
+
+                  <!-- Honeypot anti-spam -->
+                  <div style="position:absolute; left:-5000px;" aria-hidden="true">
+                    <label for="pc-hp">No completar este campo</label>
+                    <input id="pc-hp" type="text" name="website" tabindex="-1" autocomplete="off" />
+                  </div>
+
+                  <div class="small text-muted mb-1">Al enviar, aceptas ser contactad@ solo con información de PyCon
+                    Panamá 2025.</div>
+                  <div class="small text-muted mb-3">Tu código de registro: <strong id="pc-code-display">—</strong>
+                  </div>
+                  <button type="submit" class="pageclip-form__submit btn btn-primary btn-block">
+                    <span>Enviar registro</span>
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
+          <!-- Página enfocada y simple: sin secciones adicionales para reducir fricción -->
         </section>
       </div>
     </div>
@@ -36,5 +204,39 @@
 
   <script defer src="js/components/include.js"></script>
   <div data-include="scripts"></div>
+  <script>
+    // Genera y muestra un código único de registro; lo guarda para la página de gracias
+    (function () {
+      function genCode() {
+        const d = new Date();
+        const y = String(d.getFullYear()).slice(-2);
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        const h = String(d.getHours()).padStart(2, '0');
+        const min = String(d.getMinutes()).padStart(2, '0');
+        const s = String(d.getSeconds()).padStart(2, '0');
+        const rnd = Math.random().toString(36).slice(-4).toUpperCase();
+        return `PC25-${y}${m}${day}-${h}${min}${s}-${rnd}`;
+      }
+      const form = document.getElementById('pc25-form');
+      if (!form) return;
+      const code = genCode();
+      const input = document.getElementById('pc-code');
+      const display = document.getElementById('pc-code-display');
+      if (input) input.value = code;
+      if (display) display.textContent = code;
+      // Persistir para mostrar en la página de gracias
+      try { localStorage.setItem('pc25_last_code', code); } catch (e) { }
+      form.addEventListener('submit', function () {
+        try {
+          const email = (document.getElementById('pc-email') || {}).value || '';
+          const name = (document.getElementById('pc-name') || {}).value || '';
+          localStorage.setItem('pc25_last_email', email);
+          localStorage.setItem('pc25_last_name', name);
+        } catch (e) { }
+      });
+    })();
+  </script>
 </body>
+
 </html>
