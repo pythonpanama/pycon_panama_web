@@ -7,15 +7,15 @@
   if (!mountNode) return;
 
   const SPONSORS = [
-    { name: 'JB Beam', logo: 'img/sponsors/jb_beam.png', url: 'https://jbbeam.com/', tier: 'Gold' },
+    { name: 'JB Beam', logo: 'img/sponsors/jb_beam.png', url: 'https://jbbeam.com/', tier: 'Visionary' },
     { name: 'PyLadies', logo: 'img/sponsors/Pyladies.png', url: 'https://pyladies.com/', tier: 'Community' },
-    { name: 'Python Software Foundation', logo: 'img/sponsors/PSF.png', url: 'https://www.python.org/psf-landing/', tier: 'Platinum' },
-    { name: 'SoftD3v', logo: 'img/sponsors/SoftD3v.png', url: 'https://softd3v.com/', tier: 'Silver' },
+    { name: 'Python Software Foundation', logo: 'img/sponsors/PSF.png', url: 'https://www.python.org/psf-landing/', tier: 'Strategic' },
+    { name: 'SoftD3v', logo: 'img/sponsors/SoftD3v.png', url: 'https://softd3v.com/', tier: 'Collaborator' },
   ];
 
   createApp({
     setup() {
-      const tiers = ref(['Todos', 'Platinum', 'Gold', 'Silver', 'Community']);
+      const tiers = ref(['Todos', 'Strategic', 'Visionary', 'Collaborator', 'Community']);
       const selected = ref('Todos');
       const sponsors = ref(SPONSORS);
       const filtered = computed(() => selected.value === 'Todos'
