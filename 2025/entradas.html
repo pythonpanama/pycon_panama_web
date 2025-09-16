@@ -128,7 +128,7 @@
 
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="day-15" name="days"
-                        value="D1" required />
+                        value="D1" />
                       <label class="custom-control-label" for="day-15">Miércoles 15 – Teatro Gladys Vidal
                         </label>
                     </div>
@@ -229,7 +229,7 @@
   <script defer src="js/components/include.js"></script>
   <div data-include="scripts"></div>
 
-  <!-- Genera y muestra un código único de registro; solo guarda el código en localStorage -->
+  <!-- Código de registro: genera en carga, renueva cada 3 min y al enviar -->
   <script>
     (function () {
       function secureCode() {
@@ -242,14 +242,23 @@
       const form = document.getElementById('pc25-form');
       if (!form) return;
 
-      const code = secureCode();
       const input = document.getElementById('pc-code');
       const display = document.getElementById('pc-code-display');
-      if (input) input.value = code;
-      if (display) display.textContent = code;
 
-      // Persistir SOLO el código en localStorage
-      try { localStorage.setItem('pc25_last_code', code); } catch (e) { }
+      function setCode(newCode) {
+        if (input) input.value = newCode;
+        if (display) display.textContent = newCode;
+      }
+
+      // 1) Generar en carga
+      let code = secureCode();
+      setCode(code);
+
+      // 2) Renovar cada 3 minutos (180000 ms) sin persistir todavía
+      let codeTimer = setInterval(() => {
+        code = secureCode();
+        setCode(code);
+      }, 180000);
 
       // Validación: al menos un día seleccionado
       const dayChecks = form.querySelectorAll('input[name="days"]');
@@ -273,6 +282,10 @@
           } catch (_) { /* no-op */ }
           return;
         }
+        // 3) Antes de enviar: asegurar código actualizado y persistir el último enviado
+        try { localStorage.setItem('pc25_last_code', input ? input.value : code); } catch (e) { }
+        // Limpiar el timer (opcional)
+        try { clearInterval(codeTimer); } catch (_) {}
         try {
           const email = (document.getElementById('pc-email') || {}).value || '';
           const name = (document.getElementById('pc-name') || {}).value || '';
@@ -290,8 +303,8 @@
       if (!form) return;
 
       const multiFields = [
-        { selector: 'input[name="days[]"]', hiddenName: 'days' },
-        { selector: 'input[name="topics[]"]', hiddenName: 'topics' }
+        { selector: 'input[name="days"]', hiddenName: 'days' },
+        { selector: 'input[name="topics"]', hiddenName: 'topics' }
       ];
 
       function detachNames() {
@@ -321,8 +334,8 @@
       }
 
       function updateHidden() {
-        const daysVals = collectValues('input[data-orig-name="days[]"]');
-        const topicsVals = collectValues('input[data-orig-name="topics[]"]');
+        const daysVals = collectValues('input[data-orig-name="days"]');
+        const topicsVals = collectValues('input[data-orig-name="topics"]');
         ensureHidden('days').value = daysVals.join(', ');
         ensureHidden('topics').value = topicsVals.join(', ');
       }
@@ -331,8 +344,8 @@
       detachNames();
       form.querySelectorAll('input[type="checkbox"]').forEach(el => {
         if (!el.dataset.origName) {
-          if (el.id.startsWith('day-')) el.dataset.origName = 'days[]';
-          if (el.id.startsWith('topic-')) el.dataset.origName = 'topics[]';
+          if (el.id.startsWith('day-')) el.dataset.origName = 'days';
+          if (el.id.startsWith('topic-')) el.dataset.origName = 'topics';
         }
       });
 
@@ -344,7 +357,7 @@
 
       // Validación: al menos un día
       form.addEventListener('submit', function (e) {
-        const anyDay = [...form.querySelectorAll('input[data-orig-name="days[]"]')].some(el => el.checked);
+        const anyDay = [...form.querySelectorAll('input[data-orig-name="days"]')].some(el => el.checked);
         if (!anyDay) {
           e.preventDefault();
           alert('Selecciona al menos un día de asistencia.');
