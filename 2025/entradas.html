@@ -28,48 +28,48 @@
 
 
 
-  <style>
-    /* Forzar una sola columna en esta página y unificar cabecera */
-    #tickets-page .col-lg-5,
-    #tickets-page .col-lg-7 {
-      max-width: 100% !important;
-      flex: 0 0 100% !important;
-    }
-
-    #tickets-page .row h1.mb-3,
-    #tickets-page .row p.lead.mb-3 {
-      display: none;
-    }
-  </style>
+  
 </head>
 
-<body>
+<body class="bg-sprinkle">
   <div data-include="header"></div>
+
+  <!-- Header visual consistente con el resto del sitio -->
+  <div class="container-fluid page-header">
+    <div class="container">
+      <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 300px">
+        <h3 class="display-4 text-white text-uppercase">Registro</h3>
+        <div class="d-inline-flex text-white">
+          <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Inicio</a></p>
+          <i class="fa fa-angle-double-right pt-1 px-3"></i>
+          <p class="m-0 text-uppercase">Registro</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <main class="container py-5" role="main">
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <section id="tickets-page" class="section-muted p-4 p-md-5 rounded">
-          <h1 class="mb-3 text-center">👉 Registro de Participantes</h1>
-          <p class="lead mb-4 text-center">Completa tus datos para reservar tu espacio.</p>
           <div class="row">
             <div class="col-lg-5 mb-4 mb-lg-0">
-              <h1 class="mb-3">Formulario de Inscripción PyCon Panamá 2025</h1>
-              <p class="lead mb-3">👉 Registro de Participantes – PyCon Panamá 2025</p>
+              <h1 class="mb-3">Registro de Participantes</h1>
+              <p class="lead mb-3"></p>
               <p class="mb-2">Bienvenido al registro oficial de PyCon Panamá 2025, la conferencia anual
                 de la comunidad Python en Panamá.</p>
               <p class="mb-1">📅 <strong>Fechas:</strong> 15 al 18 de octubre de 2025</p>
               <p class="mb-2">📍 <strong>Sedes:</strong></p>
               <ul class="mb-2">
-                <li><strong>Miércoles 15</strong> – Teatro Gladys Vidal (Alcaldía de Panamá, Edificio Hatillo, Av. Cuba)
+                <li><strong>Miércoles 15</strong> – Teatro Gladys Vidal
                 </li>
-                <li><strong>Jueves 16</strong> – Cine Universitario (Universidad de Panamá, Av. Octavio Méndez Pereira)
+                <li><strong>Jueves 16</strong> – Cine Universitario UP
                 </li>
-                <li><strong>Viernes 17</strong> – (Virtual)</li>
-                <li><strong>Sábado 18</strong> – PyParty - Punta Chame 🎉</li>
+                <li><strong>Viernes 17</strong> – Virtual</li>
+                <li><strong>Sábado 18</strong> – PyParty 🎉</li>
               </ul>
-              <p class="mb-3">Este es un evento sin fines de lucro, organizado por voluntarios, que reúne a estudiantes,
-                profesionales y entusiastas de la tecnología para aprender, colaborar y compartir conocimiento.</p>
+              <p class="mb-3">Este es un evento organizado por voluntarios, que reúne a estudiantes,
+                profesionales y apasionados de la tecnología para aprender, colaborar y compartir conocimientos.</p>
               <p class="mb-4">Por favor, completa tus datos para reservar tu espacio.</p>
             </div>
 
@@ -114,10 +114,10 @@
                       <label for="pc-role">Rol <span class="text-danger">*</span></label>
                       <select id="pc-role" name="role" class="form-control" required>
                         <option value="">Selecciona una opción</option>
-                        <option value="R1">Estudiante</option>
-                        <option value="R2">Profesional</option>
-                        <option value="R3">Docente</option>
-                        <option value="R4">Otro</option>
+                        <option>Estudiante</option>
+                        <option>Profesional</option>
+                        <option>Docente</option>
+                        <option>Otro</option>
                       </select>
                     </div>
                   </div>
@@ -128,27 +128,27 @@
 
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="day-15" name="days"
-                        value="D1" />
+                        value="D1" required />
                       <label class="custom-control-label" for="day-15">Miércoles 15 – Teatro Gladys Vidal
-                        (Alcaldía)</label>
+                        </label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="day-16" name="days"
                         value="D2" />
-                      <label class="custom-control-label" for="day-16">Jueves 16 – Cine Universitario (UP)</label>
+                      <label class="custom-control-label" for="day-16">Jueves 16 – Cine Universitario UP</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="day-17" name="days"
                         value="D3" />
-                      <label class="custom-control-label" for="day-17">Viernes 17 – (Virtual)</label>
+                      <label class="custom-control-label" for="day-17">Viernes 17 – Virtual</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="day-18" name="days"
                         value="D4" />
-                      <label class="custom-control-label" for="day-18">Sábado 18 – PyParty (Punta Chame)</label>
+                      <label class="custom-control-label" for="day-18">Sábado 18 – PyParty</label>
                     </div>
                   </fieldset>
 
@@ -251,8 +251,28 @@
       // Persistir SOLO el código en localStorage
       try { localStorage.setItem('pc25_last_code', code); } catch (e) { }
 
+      // Validación: al menos un día seleccionado
+      const dayChecks = form.querySelectorAll('input[name="days"]');
+      const oneDaySelected = () => Array.from(dayChecks).some(cb => cb.checked);
+      dayChecks.forEach(cb => cb.addEventListener('change', () => {
+        if (oneDaySelected()) {
+          // Limpiar mensajes de error personalizados
+          dayChecks.forEach(c => c.setCustomValidity(''));
+        }
+      }));
+
       // Pasar PII por sessionStorage y NO guardarla en localStorage
-      form.addEventListener('submit', function () {
+      form.addEventListener('submit', function (e) {
+        // Si no hay ningún día seleccionado, bloquear envío y mostrar mensaje
+        if (!oneDaySelected()) {
+          e.preventDefault();
+          try {
+            const first = dayChecks[0];
+            first.setCustomValidity('Selecciona al menos un día.');
+            first.reportValidity();
+          } catch (_) { /* no-op */ }
+          return;
+        }
         try {
           const email = (document.getElementById('pc-email') || {}).value || '';
           const name = (document.getElementById('pc-name') || {}).value || '';
