@@ -114,10 +114,10 @@
                       <label for="pc-role">Rol <span class="text-danger">*</span></label>
                       <select id="pc-role" name="role" class="form-control" required>
                         <option value="">Selecciona una opción</option>
-                        <option>Estudiante</option>
-                        <option>Profesional</option>
-                        <option>Docente</option>
-                        <option>Otro</option>
+                        <option value="R1">Estudiante</option>
+                        <option value="R2">Profesional</option>
+                        <option value="R3">Docente</option>
+                        <option value="R4">Otro</option>
                       </select>
                     </div>
                   </div>
@@ -127,27 +127,27 @@
                     <legend class="h6 mb-2">Días en los que planeas participar (selección múltiple)</legend>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="day-15" name="days[]"
-                        value="Miercoles 15 - Teatro Gladys Vidal (Alcaldia)" />
+                      <input type="checkbox" class="custom-control-input" id="day-15" name="days"
+                        value="D1" />
                       <label class="custom-control-label" for="day-15">Miércoles 15 – Teatro Gladys Vidal
                         (Alcaldía)</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="day-16" name="days[]"
-                        value="Jueves 16 - Cine Universitario (UP)" />
+                      <input type="checkbox" class="custom-control-input" id="day-16" name="days"
+                        value="D2" />
                       <label class="custom-control-label" for="day-16">Jueves 16 – Cine Universitario (UP)</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="day-17" name="days[]"
-                        value="Viernes 17 - (Virtual)" />
+                      <input type="checkbox" class="custom-control-input" id="day-17" name="days"
+                        value="D3" />
                       <label class="custom-control-label" for="day-17">Viernes 17 – (Virtual)</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="day-18" name="days[]"
-                        value="Sábado 18 - PyParty en Punta Chame" />
+                      <input type="checkbox" class="custom-control-input" id="day-18" name="days"
+                        value="D4" />
                       <label class="custom-control-label" for="day-18">Sábado 18 – PyParty (Punta Chame)</label>
                     </div>
                   </fieldset>
@@ -157,39 +157,39 @@
                     <legend class="h6 mb-2">¿Qué temas te interesan?</legend>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="topic-ml" name="topics[]"
-                        value="Inteligencia Artificial / Machine Learning" />
+                      <input type="checkbox" class="custom-control-input" id="topic-ml" name="topics"
+                        value="T1" />
                       <label class="custom-control-label" for="topic-ml">Inteligencia Artificial / Machine
                         Learning</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="topic-ds" name="topics[]"
-                        value="Ciencia de Datos / Big Data" />
+                      <input type="checkbox" class="custom-control-input" id="topic-ds" name="topics"
+                        value="T2" />
                       <label class="custom-control-label" for="topic-ds">Ciencia de Datos / Big Data</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="topic-web" name="topics[]"
-                        value="Desarrollo Web / APIs" />
+                      <input type="checkbox" class="custom-control-input" id="topic-web" name="topics"
+                        value="T3" />
                       <label class="custom-control-label" for="topic-web">Desarrollo Web / APIs</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="topic-devops" name="topics[]"
-                        value="Automatización / DevOps" />
+                      <input type="checkbox" class="custom-control-input" id="topic-devops" name="topics"
+                        value="T4" />
                       <label class="custom-control-label" for="topic-devops">Automatización / DevOps</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="topic-edu" name="topics[]"
-                        value="Educación con Python" />
+                      <input type="checkbox" class="custom-control-input" id="topic-edu" name="topics"
+                        value="T5" />
                       <label class="custom-control-label" for="topic-edu">Educación con Python</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="topic-other" name="topics[]"
-                        value="Otros" />
+                      <input type="checkbox" class="custom-control-input" id="topic-other" name="topics"
+                        value="T6" />
                       <label class="custom-control-label" for="topic-other">Otros</label>
                     </div>
                   </fieldset>
@@ -197,7 +197,7 @@
                   <div class="form-group">
                     <label for="pc-msg">Comentarios adicionales</label>
                     <textarea id="pc-msg" name="comments" rows="3" class="form-control"
-                      placeholder="Cuéntanos si tienes algun comentario" maxlength="500"></textarea>
+                      placeholder="Cuéntanos si tienes algún comentario" maxlength="500"></textarea>
                   </div>
 
                   <!-- Honeypot anti-spam -->
