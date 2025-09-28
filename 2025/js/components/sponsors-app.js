@@ -7,7 +7,7 @@
   if (!mountNode) return;
 
   const SPONSORS = [
-    { name: 'JB Beam', logo: 'img/sponsors/jb_beam.png', url: 'https://jbbeam.com/', tier: 'Visionary' },
+    { name: 'JB Beam', logo: 'img/sponsors/jb_beam.png', url: 'https://www.jetbrains.com/', tier: 'Visionary' },
     { name: 'PyLadies', logo: 'img/sponsors/Pyladies.png', url: 'https://pyladies.com/', tier: 'Community' },
     { name: 'Python Software Foundation', logo: 'img/sponsors/PSF.png', url: 'https://www.python.org/psf-landing/', tier: 'Strategic' },
     { name: 'SoftD3v', logo: 'img/sponsors/SoftD3v.png', url: 'https://softd3v.com/', tier: 'Collaborator' },
