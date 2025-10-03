@@ -3419,7 +3419,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-toggle::after {
-    display: inline-block;
+    display: inline-block !important;
     margin-left: .255em;
     vertical-align: .255em;
     content: "";
