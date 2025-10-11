@@ -1,0 +1,58 @@
+.session-divider {
+    border: 0;
+    border-top: 2px solid var(--brand-primary);
+    margin: 1.5rem 0;
+    opacity: 0.3;
+}
+.session-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.session-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(171, 98, 205, 0.15);
+}
+.session-featured {
+    background: linear-gradient(135deg, #FDE3C8 0%, #FFAA88 100%);
+    border-left: 4px solid var(--brand-accent);
+}
+
+.session-keynote {
+    background: linear-gradient(135deg, #AB62CD 0%, #8F4AB4 100%);
+    border-left: 4px solid var(--brand-primary-700);
+    color: white;
+}
+
+.session-sponsor {
+    background: linear-gradient(135deg, #6FC7E1 0%, #5AB4CF 100%);
+    border-left: 4px solid var(--brand-secondary);
+}
+
+.session-break {
+    background: linear-gradient(135deg, #D49EE7 0%, #C189DB 100%);
+    border-left: 4px solid var(--brand-muted);
+    text-align: center;
+}
+.session-keynote {
+    background: linear-gradient(135deg, #AB62CD 0%, #8F4AB4 100%);
+    border-left: 4px solid var(--brand-primary-700);
+}
+
+/* AGREGAR ESTAS REGLAS: */
+.session-keynote .session-title,
+.session-keynote .session-speaker,
+.session-keynote .session-speaker a,
+.session-keynote .session-bio,
+.session-keynote .session-badge {
+    color: white !important;
+}
+
+.session-keynote .session-speaker a:hover {
+    color: #FDE3C8 !important; /* Color crema claro al hacer hover */
+    text-decoration: underline;
+}
