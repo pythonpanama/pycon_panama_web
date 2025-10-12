@@ -2,132 +2,368 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Agenda - PyCon Panamá 2025</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Consulta la agenda completa de PyCon Panamá 2025 con horarios y ponentes." name="description">
-    <meta content="PyCon, Panamá, 2025, agenda, horarios, ponentes, charlas, talleres" name="keywords">
+    <meta name="description" content="Consulta la agenda completa de PyCon Panamá 2025 con horarios y ponentes." />
+    <meta name="keywords" content="PyCon, Panamá, 2025, agenda, horarios, ponentes, charlas, talleres, Python" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pyconpanama.org/2025/agenda.html">
-    <meta property="og:title" content="Agenda - PyCon Panamá 2025">
-    <meta property="og:description" content="Consulta la agenda completa de PyCon Panamá 2025 con horarios y ponentes.">
-    <meta property="og:image" content="https://pyconpanama.org/2025/img/pycon25.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pyconpanama.org/2025/agenda.html" />
+    <meta property="og:title" content="Agenda - PyCon Panamá 2025" />
+    <meta property="og:description"
+        content="Consulta la agenda completa de PyCon Panamá 2025 con horarios y ponentes." />
+    <meta property="og:image" content="https://pyconpanama.org/2025/img/pycon25.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agenda - PyCon Panamá 2025" />
+    <meta name="twitter:description"
+        content="Consulta la agenda completa de PyCon Panamá 2025 con horarios y ponentes." />
+    <meta name="twitter:image" content="https://pyconpanama.org/2025/img/pycon25.png" />
 
     <!-- Favicon -->
-    <link href="img/pycon25.png" rel="icon">
-    <link rel="canonical" href="https://pyconpanama.org/2025/agenda.html">
-
+    <link rel="icon" href="img/pycon25.png" />
+    <link rel="canonical" href="https://pyconpanama.org/2025/agenda.html" />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
-    <link href="css/theme-2025.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/theme-2025.css" />
+    <link rel="stylesheet" href="css/agenda.css" />
 </head>
 
 <body class="bg-sprinkle">
+    <!-- Header principal del sitio -->
     <div data-include="header"></div>
 
-
-    <!-- Header Start -->
-    <div class="container-fluid page-header">
+    <!-- Banner de encabezado de página -->
+    <header class="container-fluid page-header">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center text-center"
                 style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Agenda PyCon Panamá 2025</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="index.html">Inicio</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Agenda</p>
-                </div>
+                <h1 class="display-4 text-white text-uppercase">
+                    Agenda PyCon Panamá 2025
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb d-inline-flex text-white bg-transparent">
+                        <li class="breadcrumb-item">
+                            <a class="text-white" href="index.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">
+                            Agenda
+                        </li>
+                    </ol>
+                </nav>
             </div>
         </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
-    <!-- Agenda Día 1 (placeholder) -->
-    <div class="container-fluid py-5">
+    <!-- Sección: Día 1 - Conferencias presenciales -->
+    <section class="container-fluid py-5" id="dia-1">
         <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h2 class="text-primary text-uppercase sombras-textos" style="letter-spacing: 5px;">Día 1</h2>
-                <h1 class="sombras-textos">Conferencias presenciales</h1>
-            </div>
+            <header class="text-center mb-3 pb-3">
+                <h2 class="text-primary text-uppercase sombras-textos" style="letter-spacing: 5px">
+                    Día 1
+                </h2>
+                <p class="h1 sombras-textos">Conferencias presenciales</p>
+                <p class="lead">Jueves 16 de Octubre 2025</p>
+            </header>
+
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="bg-white p-4 sombras-personalizadas">
-                        <h3 class="text-center">Sede y horario</h3>
-                        <p class="mb-0 text-center">
-                            Conferencias presenciales, de 10:00 a.m. a 2:00 p.m. 📍 Sede: Cine Universitario –
-                            Universidad de Panamá. Publicaremos la agenda detallada muy pronto. ¡Mantente atento a
-                            nuestras redes!
-                        </p>
-                        <div class="my-4 text-center">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5387.919931201685!2d-79.53911497717438!3d8.983308667996534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8edbdce4e2b%3A0x84fefc581530f66a!2sCine%20Universitario!5e1!3m2!1ses!2spa!4v1758774032003!5m2!1ses!2spa"
-                                width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="col-lg-10">
+                    <article class="bg-white p-4 sombras-personalizadas">
+                        <!-- Información de ubicación y horario -->
+                        <div class="venue-info mb-4">
+                            <h3 class="h4 text-center mb-3">Información del evento</h3>
+                            <p class="text-center">
+                                <strong>📍 Ubicación:</strong> Cine Universitario –
+                                Universidad de Panamá<br />
+                                <strong>⏰ Horario:</strong> 8:00 AM - 2:00 PM
+                            </p>
                         </div>
-                    </div>
+
+                        <!-- Agenda detallada del día -->
+                        <div class="schedule-container">
+                            <h3 class="h4 mb-4">Programa del día</h3>
+
+                            <!-- Sesión de apertura -->
+                            <article class="session-card session-opening">
+                                <time class="session-time" datetime="08:00">8:00 - 8:25 AM</time>
+                                <h4 class="session-title">Ingreso, registro y apertura</h4>
+                                <p class="session-speaker">
+                                    <a href="https://linktr.ee/pythonpanama" target="_blank" rel="noopener">
+                                        Comité Organizador PyCon Panamá 2025
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Keynote 1: Laura López -->
+                            <article class="session-card session-keynote">
+                                <span class="session-badge">KEYNOTE</span>
+                                <time class="session-time" datetime="08:25">8:25 - 9:05 AM</time>
+                                <h4 class="session-title">Impostor Portfolio</h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.linkedin.com/in/lauralpezb" target="_blank" rel="noopener">
+                                        Laura López
+                                    </a>
+                                </p>
+                                <p class="session-bio">
+                                    Data Science Engineer en Mercado Libre | Medellín, Colombia
+                                </p>
+                            </article>
+
+                            <!-- Charla regular -->
+                            <article class="session-card">
+                                <time class="session-time" datetime="09:05">9:05 - 9:35 AM</time>
+                                <h4 class="session-title">
+                                    Evolución y Revolución de Python
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Gerardo+Núñez+Pitty+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Gerardo Núñez Pitty
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Charla regular -->
+                            <article class="session-card">
+                                <time class="session-time" datetime="09:35">9:35 - 10:05 AM</time>
+                                <h4 class="session-title">
+                                    ¿Mid-level? Yo solo venía por café y wifi gratis
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=José+Gabriel+Muñoz+Salcedo+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        José Gabriel Muñoz Salcedo
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Keynote 2: Ovidio Jurado -->
+                            <article class="session-card session-keynote">
+                                <span class="session-badge">KEYNOTE</span>
+                                <time class="session-time" datetime="10:05">10:05 - 10:45 AM</time>
+                                <h4 class="session-title">
+                                    Tecnología y visión empresarial en la gestión pública
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Ovidio+Jurado+Keynote+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Ovidio Jurado
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Charla regular -->
+                            <article class="session-card">
+                                <time class="session-time" datetime="10:45">10:45 - 11:15 AM</time>
+                                <h4 class="session-title">
+                                    Del burnout a la automatización: cómo Python e IA
+                                    transforman el trabajo repetitivo
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Stefania+Miranda+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Stefania Miranda
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Espacio de patrocinador -->
+                            <article class="session-card session-sponsor">
+                                <span class="session-badge">SPONSOR SPACE</span>
+                                <time class="session-time" datetime="11:15">11:15 - 11:45 AM</time>
+                                <h4 class="session-title">Sponsor Space</h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Moisés+Vega+ArpIA+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Moisés Vega
+                                    </a>
+                                </p>
+                                <p class="session-bio">ArpIA</p>
+                            </article>
+
+                            <!-- Charla regular -->
+                            <article class="session-card">
+                                <time class="session-time" datetime="11:45">11:45 - 12:05 PM</time>
+                                <h4 class="session-title">
+                                    Puentes de comunicación: IA para accesibilidad en comunidad
+                                    sorda
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Gerardo+A.+Vilcamiza+Espinoza+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Gerardo A. Vilcamiza Espinoza
+                                    </a>
+                                </p>
+                                <p class="session-bio">Perú</p>
+                            </article>
+
+                            <!-- Break -->
+                            <article class="session-card session-break">
+                                <time class="session-time" datetime="12:05">12:05 - 12:25 PM</time>
+                                <h4 class="session-title">
+                                    ☕ Break / Almuerzo / Networking
+                                </h4>
+                            </article>
+
+                            <!-- Charla regular -->
+                            <article class="session-card">
+                                <time class="session-time" datetime="12:25">12:25 - 12:55 PM</time>
+                                <h4 class="session-title">
+                                    Monitoreo de marca en plataformas de video usando Pydantic
+                                    AI
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=David+Sánchez+Pydantic+AI+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        David Sánchez
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Charla regular -->
+                            <article class="session-card">
+                                <time class="session-time" datetime="12:55">12:55 - 1:25 PM</time>
+                                <h4 class="session-title">
+                                    Construyendo un Agente AI que hace análisis de datos
+                                </h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Javier+López+Agente+AI+análisis+de+datos+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Javier López
+                                    </a>
+                                </p>
+                            </article>
+
+                            <!-- Keynote 3: Maris Botero -->
+                            <article class="session-card session-keynote">
+                                <span class="session-badge">KEYNOTE</span>
+                                <time class="session-time" datetime="13:25">1:25 - 2:00 PM</time>
+                                <h4 class="session-title">Charla por confirmar</h4>
+                                <p class="session-speaker">
+                                    <a href="https://www.google.com/search?q=Maris+Botero+Medellín+redes+sociales"
+                                        target="_blank" rel="noopener">
+                                        Maris Botero
+                                    </a>
+                                </p>
+                                <p class="session-bio">
+                                    Experta en datos y machine learning | Medellín, Colombia
+                                </p>
+                            </article>
+                        </div>
+
+                        <!-- Mapa de ubicación -->
+                        <div class="venue-map mt-5">
+                            <h3 class="h4 text-center mb-3">📍 Cómo llegar</h3>
+                            <div class="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5387.919931201685!2d-79.53911497717438!3d8.983308667996534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8edbdce4e2b%3A0x84fefc581530f66a!2sCine%20Universitario!5e1!3m2!1ses!2spa!4v1758774032003!5m2!1ses!2spa"
+                                    width="100%" height="350" style="border: 0" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Ubicación del Cine Universitario - Universidad de Panamá">
+                                </iframe>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Fin Agenda Día 1 -->
+    </section>
 
-    <!-- Agenda Día 2 (placeholder) -->
-    <div class="container-fluid py-5">
+    <!-- Sección: Día 2 - Jornada virtual -->
+    <section class="container-fluid py-5 bg-light" id="dia-2">
         <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h2 class="text-primary text-uppercase sombras-textos" style="letter-spacing: 5px;">Día 2</h2>
-                <h1 class="sombras-textos">Jornada virtual</h1>
-            </div>
+            <header class="text-center mb-3 pb-3">
+                <h2 class="text-primary text-uppercase sombras-textos" style="letter-spacing: 5px">
+                    Día 2
+                </h2>
+                <p class="h1 sombras-textos">Jornada virtual</p>
+                <p class="lead">Viernes 17 de Octubre 2025</p>
+            </header>
+
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="bg-white p-4 sombras-personalizadas">
-                        <h3 class="text-center">Formato y acceso</h3>
-                        <p class="mb-0 text-center">Sesiones en línea (charlas y Q&A), de 10:00 a.m. a 12:00 m.d. El
-                            enlace de acceso se compartirá con las personas registradas y en nuestras redes con
-                            antelación.</p>
-                    </div>
+                    <article class="bg-white p-4 sombras-personalizadas">
+                        <h3 class="h4 text-center mb-4">💻 Formato y acceso</h3>
+
+                        <div class="event-details mb-4">
+                            <p class="text-center">
+                                Sesiones en línea con <strong>charlas y Q&A</strong>
+                            </p>
+                            <p class="text-center">
+                                <strong>⏰ Horario:</strong> 10:00 AM - 12:00 PM
+                            </p>
+                            <p class="text-center text-muted">
+                                El enlace de acceso se compartirá con las personas registradas
+                                y en nuestras redes sociales con antelación.
+                            </p>
+                        </div>
+
+                        <aside class="alert alert-info" role="complementary">
+                            <h4 class="alert-heading h5">🎉 Actividad social</h4>
+                            <p class="mb-0">
+                                El viernes por la noche habrá una actividad presencial y
+                                social en
+                                <a href="https://www.google.com/maps/search/El+%C3%91eque+Taproom+Panama"
+                                    target="_blank" rel="noopener" class="alert-link">
+                                    El Ñeque Taproom </a>.
+                            </p>
+                        </aside>
+                    </article>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Fin Agenda Día 2 -->
+    </section>
 
-    <!-- Agenda Día 3 (placeholder) -->
-    <div class="container-fluid py-5">
+    <!-- Sección: Día 3 - Día de comunidad -->
+    <section class="container-fluid py-5" id="dia-3">
         <div class="container py-5">
-            <div class="text-center mb-3 pb-3">
-                <h2 class="text-primary text-uppercase sombras-textos" style="letter-spacing: 5px;">Día 3</h2>
-                <h1 class="sombras-textos">Día de comunidad (PyParty)</h1>
-            </div>
+            <header class="text-center mb-3 pb-3">
+                <h2 class="text-primary text-uppercase sombras-textos" style="letter-spacing: 5px">
+                    Día 3
+                </h2>
+                <p class="h1 sombras-textos">Día de comunidad (PyParty)</p>
+                <p class="lead">Sábado 18 de Octubre 2025</p>
+            </header>
+
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="bg-white p-4 sombras-personalizadas">
-                        <h3 class="text-center">Actividades y encuentro</h3>
-                        <p class="mb-0 text-center">Actividades de comunidad, networking y celebración. Compartiremos el
-                            cronograma y ubicación final en nuestros canales con tiempo.</p>
-                    </div>
+                    <article class="bg-white p-4 sombras-personalizadas">
+                        <h3 class="h4 text-center mb-4">🎊 Actividades y encuentro</h3>
+
+                        <div class="event-details">
+                            <p class="text-center">
+                                Actividades de comunidad, networking y celebración.
+                            </p>
+                            <p class="text-center text-muted">
+                                Compartiremos el cronograma y ubicación final en nuestros
+                                canales con tiempo de anticipación.
+                            </p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Fin Agenda Día 3 -->
+    </section>
 
-
+    <!-- Footer del sitio -->
     <div data-include="footer"></div>
 
+    <!-- Botón para volver arriba -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Volver arriba">
+        <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+    </a>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
+    <!-- Scripts -->
     <script defer src="js/components/include.js"></script>
     <div data-include="scripts"></div>
 </body>
