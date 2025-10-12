@@ -617,21 +617,6 @@ fieldset {
   margin-bottom: 1.5rem;
 }
 
-/* === Inputs más grandes === */
-.form-control,
-.custom-select {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-@media (min-width: 768px) {
-  .form-control,
-  .custom-select {
-    padding: 0.875rem 1.25rem;
-  }
-}
-
 /* === Checkboxes más espaciados === */
 .custom-control {
   margin-bottom: 1rem;
