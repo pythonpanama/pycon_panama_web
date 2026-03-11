@@ -1,0 +1,103 @@
+/* Tarjeta de Mantenimiento - PyCon Panamá 2026 */
+
+.maintenance-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2xl);
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+  width: 100%;
+}
+
+.maintenance-visual {
+  flex: 0 0 180px;
+  height: 180px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #f6f6f8 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.maintenance-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.maintenance-content h1 {
+  font-size: 26px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text);
+}
+
+.maintenance-content p {
+  font-size: 16px;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.redirect-select {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  flex: 1;
+  min-width: 200px;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.redirect-select:hover {
+  border-color: var(--accent);
+}
+
+.redirect-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+}
+
+.btn-go {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+
+.btn-go:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-go:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.2);
+}
+
+.btn-go:active {
+  transform: scale(0.98);
+}

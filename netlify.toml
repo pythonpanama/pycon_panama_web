@@ -3,10 +3,15 @@ publish = "." # raíz del repo
 
 [[redirects]]
 from = "/"
-to = "/2025/"
+to = "/2026/"
 status = 301
 
 [[redirects]]
 from = "/"
 to = "/2024/"
+status = 200
+
+[[redirects]]
+from = "/"
+to = "/2025/"
 status = 200

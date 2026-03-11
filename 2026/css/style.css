@@ -1,0 +1,364 @@
+/* ===================================
+   PyCon Panamá 2026 - Mantenimiento
+   Archivo principal de estilos
+   =================================== */
+
+@import url('variables.css');
+@import url('base.css');
+@import url('maintenance-card.css');
+@import url('contact.css');
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+}
+
+.maintenance-card {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 18px 60px rgba(20, 20, 30, 0.08);
+  padding: 48px;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.maintenance-visual {
+  flex: 0 0 180px;
+  height: 180px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f6f6f8 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 32px;
+  text-align: center;
+  padding: 20px;
+}
+
+.maintenance-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.maintenance-content h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.maintenance-content p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.redirect-select {
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  flex: 1;
+  min-width: 200px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.redirect-select:hover {
+  border-color: var(--accent);
+}
+
+.redirect-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+}
+
+.btn-go {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.btn-go:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-go:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.2);
+}
+
+.btn-go:active {
+  transform: scale(0.98);
+}
+
+.maintenance-footer {
+  font-size: 13px;
+  color: #666666;
+  margin-top: 16px;
+}
+
+.maintenance-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.maintenance-footer a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Tablets (768px y más) */
+@media (max-width: 768px) {
+  .maintenance-card {
+    flex-direction: column;
+    padding: 36px 24px;
+    gap: 24px;
+  }
+
+  .maintenance-visual {
+    flex: 0 0 140px;
+    height: 140px;
+    font-size: 28px;
+  }
+
+  .maintenance-content h1 {
+    font-size: 24px;
+  }
+
+  .maintenance-content p {
+    font-size: 15px;
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+
+  .redirect-select {
+    min-width: 100%;
+  }
+
+  .btn-go {
+    width: 100%;
+  }
+}
+
+/* Mobiles (480px y más pequeño) */
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  main {
+    max-width: 100%;
+  }
+
+  .maintenance-card {
+    padding: 24px 16px;
+    gap: 16px;
+  }
+
+  .maintenance-visual {
+    flex: 0 0 120px;
+    height: 120px;
+    font-size: 24px;
+  }
+
+  .maintenance-content h1 {
+    font-size: 20px;
+  }
+
+  .maintenance-content p {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .redirect-select {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .btn-go {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .maintenance-footer {
+    font-size: 12px;
+  }
+}
+
+/* Pantallas muy pequeñas (menos de 320px) */
+@media (max-width: 320px) {
+  .maintenance-card {
+    padding: 16px 12px;
+  }
+
+  .maintenance-visual {
+    flex: 0 0 100px;
+    height: 100px;
+    font-size: 20px;
+  }
+
+  .maintenance-content h1 {
+    font-size: 18px;
+  }
+
+  .maintenance-content p {
+    font-size: 13px;
+  }
+}
+
+/* Sección de Contacto y Redes Sociales */
+.contact-section {
+  margin-top: 48px;
+  padding: 0 20px 40px 20px;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-section h2 {
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.contact-section > p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.contact-methods {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background-color: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background-color: var(--accent);
+  color: white;
+  box-shadow: 0 8px 20px rgba(111, 66, 193, 0.15);
+}
+
+.contact-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(111, 66, 193, 0.2);
+}
+
+.contact-icon {
+  font-size: 18px;
+}
+
+/* Tablets (768px y más) */
+@media (max-width: 768px) {
+  .contact-section {
+    margin-top: 36px;
+    padding: 0 16px 32px 16px;
+  }
+
+  .contact-section h2 {
+    font-size: 20px;
+  }
+
+  .contact-section > p {
+    font-size: 13px;
+  }
+
+  .contact-methods {
+    gap: 12px;
+  }
+
+  .contact-link {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Mobiles (480px y más pequeño) */
+@media (max-width: 480px) {
+  .contact-section {
+    margin-top: 24px;
+    padding: 0 12px 24px 12px;
+  }
+
+  .contact-section h2 {
+    font-size: 18px;
+  }
+
+  .contact-section > p {
+    font-size: 12px;
+  }
+
+  .contact-methods {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-link {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+}
