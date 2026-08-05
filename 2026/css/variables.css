@@ -1,13 +1,15 @@
 /* Variables globales - PyCon Panamá 2026 */
 
 :root {
-  --bg: #f2f2f2;
+  --bg: #f2f7ff;
   --card: #ffffff;
-  --accent: #6f42c1;
-  --accent-hover: #5a37a8;
-  --text: #222222;
-  --text-secondary: #444444;
-  --border: #dddddd;
+  --accent: #2f8cff;
+  --accent-hover: #1c6ed6;
+  --accent-soft: rgba(47, 140, 255, 0.12);
+  --highlight: #ffca3a;
+  --text: #111827;
+  --text-secondary: #4b5563;
+  --border: rgba(47, 140, 255, 0.18);
   --spacing-xs: 8px;
   --spacing-sm: 12px;
   --spacing-md: 16px;
