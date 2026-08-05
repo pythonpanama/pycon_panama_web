@@ -1,5 +1,0 @@
-# Todos los cambios deben ser revisados por los aprobadores web
-* @pythonpanama/web-approvers
-
-# El propio archivo CODEOWNERS también queda protegido
-/.github/CODEOWNERS @pythonpanama/web-approvers
