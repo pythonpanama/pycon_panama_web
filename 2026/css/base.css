@@ -1,48 +1,129 @@
-/* Estilos Base - PyCon Panamá 2026 */
-* {
-  margin: 0;
-  padding: 0;
+/* ==========================================================================
+   Base — PyCon Panamá 2026
+   Reset, elementos HTML y accesibilidad. Sin layout de página: eso vive
+   en style.css. Sin media queries: esas viven en responsive.css.
+   ========================================================================== */
+
+/* --- 1. Reset ------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compensa el header fijo al saltar a un ancla */
+  scroll-padding-top: calc(var(--header-h) + var(--space-4));
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* El sitio es una columna: header, contenido que crece, footer al fondo */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--text);
+  background-color: var(--bg);
+  /* Ninguna página debe desbordarse en horizontal */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
-  width: 100%;
-  max-width: 900px;
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* Tipografía */
+/* --- 2. Tipografía ------------------------------------------------------- */
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  line-height: 1.2;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
 }
+
+h1 { line-height: var(--lh-tight); }
+
+p, li {
+  text-wrap: pretty;
+}
+
+/* --- 3. Elementos -------------------------------------------------------- */
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: all var(--transition);
+  transition: color var(--transition), background-color var(--transition);
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 button {
-  font-family: inherit;
+  font: inherit;
+  color: inherit;
   cursor: pointer;
+  border: 0;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- 4. Accesibilidad ---------------------------------------------------- */
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}
+
+/* El contenedor de <main> recibe foco al usar el salto; no debe dibujar anillo */
+main:focus,
+main:focus-visible {
+  outline: none;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 100;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-weight: 700;
+  transform: translateY(-200%);
+  transition: transform var(--transition);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Visible solo para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

@@ -5,7 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda - PyCon Panamá 2026</title>
-    <meta name="description" content="Consulta la agenda de PyCon Panamá 2026: conferencias, sesiones virtuales y actividades de comunidad.">
+    <meta name="description" content="Agenda de PyCon Panamá 2026: dos días de conferencias, actividades y networking.">
+    <meta name="theme-color" content="#2f8cff">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Agenda de PyCon Panamá 2026">
+    <meta property="og:description" content="Dos días de conferencias, actividades y networking.">
+    <meta property="og:url" content="https://pyconpanama.org/2026/agenda.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://pyconpanama.org/2026/agenda.html">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
@@ -14,10 +25,13 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
     <header class="site-header">
         <div class="container header-inner">
             <a class="brand" href="index.html">PyCon Panamá 2026</a>
-            <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú">
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -26,10 +40,11 @@
                 <ul class="nav-list">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
-                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="agenda.html" aria-current="page">Agenda</a></li>
                     <li class="nav-item-has-children">
-                        <a href="#!" aria-haspopup="true" aria-expanded="false">Comunidad</a>
-                        <ul class="submenu">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="community-submenu">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
                             <li><a href="codigo_conducta.html">Código de Conducta</a></li>
                             <li><a href="faq.html">Preguntas frecuentes</a></li>
                         </ul>
@@ -39,21 +54,26 @@
         </div>
     </header>
 
-    <main>
-        <section class="section cards-section">
+    <main id="contenido-principal" tabindex="-1">
+        <section class="page-header">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Agenda</span>
-                    <h2>Lo que veremos en PyCon Panamá 2026</h2>
+                    <h1>Agenda</h1>
+                    <p class="section-text">El programa detallado se publicará próximamente.</p>
                 </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 <div class="card-grid">
-                    <article class="feature-card">
-                        <h3>Día 1 - Conferencias</h3>
-                        <p>Ponencias con los mejores speakers, casos de uso y tendencias en Python.</p>
+                    <article class="card">
+                        <h3>Día 1</h3>
+                        <p>Ponencias, casos de uso y tendencias en Python.</p>
                     </article>
-                    <article class="feature-card">
-                        <h3>Día 2 - Conferencias</h3>
-                        <p>Encuentros, networking y actividades colaborativas para fortalecer la comunidad.</p>
+                    <article class="card">
+                        <h3>Día 2</h3>
+                        <p>Encuentros, networking y actividades colaborativas.</p>
                     </article>
                 </div>
             </div>
@@ -64,10 +84,11 @@
         <div class="container footer-inner">
             <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a></p>
             <nav class="footer-social" aria-label="Redes sociales">
-                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup"><i class="fab fa-meetup"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup" target="_blank" rel="noopener noreferrer"><i class="fab fa-meetup" aria-hidden="true"></i></a>
+                <a href="https://linktr.ee/pythonpanama" aria-label="Todas nuestras redes en Linktree" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i></a>
             </nav>
         </div>
     </footer>

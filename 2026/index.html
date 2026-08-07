@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyCon Panamá 2026</title>
     <meta name="description" content="PyCon Panamá 2026 - La conferencia anual de Python en Panamá. Únete a la comunidad, conoce la agenda y descubre el código de conducta y las preguntas frecuentes.">
+    <meta name="theme-color" content="#2f8cff">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="PyCon Panamá 2026">
+    <meta property="og:description" content="La conferencia anual de Python en Panamá.">
+    <meta property="og:url" content="https://pyconpanama.org/2026/">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://pyconpanama.org/2026/">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
@@ -14,22 +25,26 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
     <header class="site-header">
         <div class="container header-inner">
-            <a class="brand" href="#inicio">PyCon Panamá 2026</a>
-            <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú">
+            <a class="brand" href="index.html">PyCon Panamá 2026</a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
                 <ul class="nav-list">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="agenda.html">Agenda</a></li>
                     <li class="nav-item-has-children">
-                        <a href="#!" aria-haspopup="true" aria-expanded="false">Comunidad</a>
-                        <ul class="submenu">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="community-submenu">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
                             <li><a href="codigo_conducta.html">Código de Conducta</a></li>
                             <li><a href="faq.html">Preguntas frecuentes</a></li>
                         </ul>
@@ -39,27 +54,42 @@
         </div>
     </header>
 
-    <main>
-        <section id="inicio" class="hero-section">
+    <main id="contenido-principal" tabindex="-1">
+        <section class="hero-section">
             <div class="container hero-content">
                 <div class="hero-copy">
-                    <p class="eyebrow">Bienvenidos a</p>
                     <h1>PyCon Panamá <span>2026</span></h1>
-                    <p class="hero-text">La conferencia anual de Python en Panamá. Aprende, conecta y celebra con la comunidad local e internacional.</p>
+                    <p class="hero-text">La conferencia anual de Python en Panamá.</p>
                     <div class="hero-actions">
-                        <a class="btn btn-primary" href="agenda.html">Ver Agenda</a>
-                        <a class="btn btn-secondary" href="codigo_conducta.html">Comunidad</a>
+                        <a class="btn btn-primary" href="agenda.html">Ver agenda</a>
+                        <a class="btn btn-secondary" href="about.html">Conoce el evento</a>
                     </div>
                 </div>
-                <div class="hero-panel">
-                    <div class="hero-card">
-                        <h2>Fechas principales</h2>
-                        <p> <b>Próximamente: 22 y 23 Octubre 2026</b></p>
-                        <ul>
-                            <li>Conferencias presenciales</li>
-                            <li>Networking</li>
-                        </ul>
-                    </div>
+                <div class="hero-card">
+                    <h2>22 y 23 de octubre de 2026</h2>
+                    <ul>
+                        <li>Conferencias presenciales</li>
+                        <li>Networking</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="card-grid">
+                    <a class="card card--link" href="about.html">
+                        <h3>Acerca del evento</h3>
+                        <p>Qué es PyCon Panamá y a quién está dirigido.</p>
+                    </a>
+                    <a class="card card--link" href="agenda.html">
+                        <h3>Agenda</h3>
+                        <p>Dos días de conferencias y networking.</p>
+                    </a>
+                    <a class="card card--link" href="faq.html">
+                        <h3>Preguntas frecuentes</h3>
+                        <p>Asistencia, ponencias y patrocinio.</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -69,10 +99,11 @@
         <div class="container footer-inner">
             <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a></p>
             <nav class="footer-social" aria-label="Redes sociales">
-                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup"><i class="fab fa-meetup"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup" target="_blank" rel="noopener noreferrer"><i class="fab fa-meetup" aria-hidden="true"></i></a>
+                <a href="https://linktr.ee/pythonpanama" aria-label="Todas nuestras redes en Linktree" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i></a>
             </nav>
         </div>
     </footer>

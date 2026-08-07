@@ -5,7 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Código de Conducta - PyCon Panamá 2026</title>
-    <meta name="description" content="Normas y valores de PyCon Panamá 2026 para un evento seguro e inclusivo.">
+    <meta name="description" content="Código de Conducta de PyCon Panamá 2026: un evento seguro, respetuoso e inclusivo para todas las personas.">
+    <meta name="theme-color" content="#2f8cff">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Código de Conducta - PyCon Panamá 2026">
+    <meta property="og:description" content="Nuestro compromiso con un evento seguro, respetuoso e inclusivo.">
+    <meta property="og:url" content="https://pyconpanama.org/2026/codigo_conducta.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://pyconpanama.org/2026/codigo_conducta.html">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
@@ -14,10 +25,13 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
     <header class="site-header">
         <div class="container header-inner">
             <a class="brand" href="index.html">PyCon Panamá 2026</a>
-            <button id="nav-toggle" class="nav-toggle" aria-label="Abrir menú">
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -28,9 +42,10 @@
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="agenda.html">Agenda</a></li>
                     <li class="nav-item-has-children">
-                        <a href="#!" aria-haspopup="true" aria-expanded="false">Comunidad</a>
-                        <ul class="submenu">
-                            <li><a href="codigo_conducta.html">Código de Conducta</a></li>
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="community-submenu">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
+                            <li><a href="codigo_conducta.html" aria-current="page">Código de Conducta</a></li>
                             <li><a href="faq.html">Preguntas frecuentes</a></li>
                         </ul>
                     </li>
@@ -39,18 +54,29 @@
         </div>
     </header>
 
-    <main>
-        <section class="section panel-section">
+    <main id="contenido-principal" tabindex="-1">
+        <section class="page-header">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Código de Conducta</span>
-                    <h2>Compromiso de respeto e inclusión</h2>
+                    <h1>Código de Conducta</h1>
                 </div>
-                <div class="feature-card">
-                    <p>PyCon Panamá 2026 es un evento inclusivo y seguro para todas las personas, independientemente de su género, identidad u orientación sexual, discapacidad, apariencia física, tamaño corporal, raza, religión o ideología. No se tolera ningún tipo de acoso.</p>
-                    <p>Se espera que todas las personas asistentes, organizadoras, ponentes y voluntarias respeten este Código de Conducta durante el evento y en todas las actividades relacionadas.</p>
-                    <p>Si presencias o sufres una situación de acoso o conducta inapropiada, por favor comunícate con el equipo organizador lo antes posible.</p>
-                    <p class="mb-0">Consulta la versión completa aquí: <a class="internal-link" href="https://github.com/pythonpanama/docs/blob/dev/Codigo-de-Conducta.md" target="_blank" rel="noopener noreferrer">Código de Conducta de Python Panamá</a>.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="prose">
+                    <p>PyCon Panamá 2026 es un evento inclusivo y seguro para todas las personas,
+                        independientemente de su género, identidad u orientación sexual, discapacidad,
+                        apariencia física, tamaño corporal, raza, religión o ideología. No se tolera
+                        ningún tipo de acoso.</p>
+                    <p>Asistentes, organizadoras, ponentes y voluntarias deben respetarlo durante el
+                        evento y en todas las actividades relacionadas.</p>
+                    <p>Si presencias o sufres acoso o una conducta inapropiada, comunícate con el equipo
+                        organizador lo antes posible.</p>
+                    <p>Versión completa:
+                        <a href="https://github.com/pythonpanama/docs/blob/dev/Codigo-de-Conducta.md"
+                            target="_blank" rel="noopener noreferrer">Código de Conducta de Python Panamá</a>.</p>
                 </div>
             </div>
         </section>
@@ -60,10 +86,11 @@
         <div class="container footer-inner">
             <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a></p>
             <nav class="footer-social" aria-label="Redes sociales">
-                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup"><i class="fab fa-meetup"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup" target="_blank" rel="noopener noreferrer"><i class="fab fa-meetup" aria-hidden="true"></i></a>
+                <a href="https://linktr.ee/pythonpanama" aria-label="Todas nuestras redes en Linktree" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i></a>
             </nav>
         </div>
     </footer>

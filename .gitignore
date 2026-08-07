@@ -1,0 +1,49 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python / Reflex (2026_dev)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.web/
+.states/
+*.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Build / despliegue
+.netlify/
+dist/
+build/
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak

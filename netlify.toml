@@ -6,12 +6,23 @@ from = "/"
 to = "/2026/"
 status = 301
 
-[[redirects]]
-from = "/"
-to = "/2024/"
-status = 200
+[[headers]]
+for = "/*"
+  [headers.values]
+  X-Content-Type-Options = "nosniff"
+  X-Frame-Options = "SAMEORIGIN"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Permissions-Policy = "camera=(), geolocation=(), microphone=()"
 
-[[redirects]]
-from = "/"
-to = "/2025/"
-status = 200
+# Assets estáticos: cache largo (se versionan al cambiar de edición)
+[[headers]]
+for = "/*.css"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
+[[headers]]
+for = "/*.js"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
+# La página 404.html en la raíz la sirve Netlify automáticamente.
