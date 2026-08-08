@@ -4,6 +4,8 @@ Repositorio de la web oficial de PyCon Panamá. Es un sitio estático: cada edic
 
 **Sitio en producción:** [pyconpanama.org](https://pyconpanama.org) (redirige a `/2026/`)
 
+Documentación relacionada: [prototipo Reflex 2026](2026_dev/README.md).
+
 ## Estructura
 
 | Carpeta | Descripción |

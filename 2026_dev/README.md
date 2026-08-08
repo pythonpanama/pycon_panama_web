@@ -1,5 +1,7 @@
 # Reflex App 🚀
 
+[← README principal](../README.md)
+
 Este proyecto utiliza **Reflex**, un framework moderno para construir aplicaciones web full-stack en Python de manera sencilla.
 
 ## 📦 Requisitos
