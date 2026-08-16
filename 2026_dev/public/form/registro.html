@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Registro - PyCon Panamá 2026</title>
+    <meta name="description" content="Formulario de registro para asistentes a PyCon Panamá 2026">
+    <link rel="stylesheet" href="/2026/css/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Registro de asistentes</h1>
+        <p>Regístrate para asistir al evento.</p>
+        <form id="registro-form" data-table="registrations">
+            <label>Nombre completo <input name="name" required></label>
+            <label>Email <input type="email" name="email" required></label>
+            <label>Organización <input name="organization"></label>
+            <label>Rol / Perfil
+                <select name="role">
+                    <option value="estudiante">Estudiante</option>
+                    <option value="profesional">Profesional</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </label>
+            <label>Preferencias alimentarias <input name="diet"></label>
+            <label>Necesidades de accesibilidad <input name="accessibility"></label>
+            <label>Teléfono (opcional) <input name="phone"></label>
+            <label>
+                <input type="checkbox" name="consent_photos" value="1">
+                Autorizo uso de imágenes y videos donde aparezca
+            </label>
+            <div>
+                <button type="submit">Registrarme</button>
+            </div>
+            <div id="form-message" role="status" aria-live="polite"></div>
+        </form>
+    </main>
+
+    <script src="/form/config.js"></script>
+    <script src="/form/js/form-submit.js"></script>
+</body>
+</html>
