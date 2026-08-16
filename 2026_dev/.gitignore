@@ -5,3 +5,7 @@ __pycache__/
 .states
 *.py[cod]
 .venv
+# local form config
+pycon_panama_web/**/form/config.js
+pycon_panama_web/**/public/src/.env
+local_server/.env

@@ -46,7 +46,6 @@
         <p>Regístrate para asistir al evento.</p>
         <div class="form-card">
         <form id="registro-form" data-table="registrations">
-            <input type="hidden" name="page" value="Registro - PyCon Panamá 2026">
             <label class="form-label">Nombre completo <input class="form-control" name="name" required></label>
             <label class="form-label">Email <input class="form-control" type="email" name="email" required></label>
             <label class="form-label">Organización <input class="form-control" name="organization"></label>
@@ -60,7 +59,7 @@
             <label class="form-label">Necesidades de accesibilidad <input class="form-control" name="accessibility"></label>
             <label class="form-label">Teléfono (opcional) <input class="form-control" name="phone"></label>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="consent_photos" name="consent_photos" value="1">
+                <input class="form-check-input" type="checkbox" id="consent_photos" name="consent_photos" value="1" required>
                 <label class="form-check-label" for="consent_photos">Autorizo uso de imágenes y videos donde aparezca</label>
             </div>
             <div class="form-actions">
@@ -85,7 +84,7 @@
     </footer>
 
     <script src="/2026/js/main.js"></script>
-    <script src="/2026/form/config.example.js"></script>
+    <script src="/2026/form/config.js"></script>
     <script src="/2026/form/js/form-submit.js"></script>
 </body>
 </html>
