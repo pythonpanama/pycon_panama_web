@@ -405,6 +405,83 @@
   border-color: var(--border);
 }
 
+/* --------------------------------------------------------------------------
+   Agenda / cronograma
+   -------------------------------------------------------------------------- */
+
+.schedule-container {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.session-card {
+  display: grid;
+  grid-template-columns: minmax(120px, 150px) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.session-card > div {
+  min-width: 0;
+}
+
+.session-time {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: var(--fs-sm);
+}
+
+.session-title {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-md);
+  color: var(--text);
+}
+
+.session-speaker,
+.session-bio {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.session-bio {
+  margin-top: var(--space-2);
+}
+
+.session-badge {
+  display: inline-block;
+  margin-bottom: var(--space-2);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.session-opening {
+  border-left-color: var(--highlight);
+}
+
+.session-keynote {
+  border-left-color: var(--accent);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-muted) 100%);
+}
+
+.session-break {
+  border-left-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.04);
+}
+
 
 /* ==========================================================================
    6. Acordeón (preguntas frecuentes)
