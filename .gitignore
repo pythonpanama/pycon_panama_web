@@ -48,5 +48,6 @@ build/
 *.tmp
 *.bak
 
-# Documentación interna del equipo organizador — no debe publicarse
+# Documentación de trabajo del equipo organizador — no debe publicarse
 docs-internas/
+docs/

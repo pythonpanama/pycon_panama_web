@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pyconpanama.org/sitemap.xml
+Sitemap: https://pycon.pa/sitemap.xml
