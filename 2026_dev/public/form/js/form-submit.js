@@ -25,6 +25,18 @@
         // Fallback to direct client-side POST using anonKey (requires RLS allowing inserts)
         if(cfg && cfg.url && cfg.anonKey){
             const url = cfg.url.replace(/\/$/,'') + '/rest/v1/' + table;
+            // Build body as array for Supabase
+            const bodyToSend = Array.isArray(payload) ? payload : [payload];
+            // Normalize speaker consent field to match DB column
+            if(table === 'speakers'){
+                bodyToSend.forEach(item => {
+                    if(item.consent !== undefined && item.consent_publication === undefined){
+                        item.consent_publication = item.consent;
+                        delete item.consent;
+                    }
+                });
+            }
+            console.log('Direct Supabase POST table:', table, 'payload (array):', bodyToSend);
             const res = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -33,13 +45,14 @@
                     'Authorization': 'Bearer ' + cfg.anonKey,
                     'Prefer': 'return=representation'
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(bodyToSend)
             });
+            const respText = await res.text();
+            console.log('Supabase response status', res.status, 'body:', respText);
             if(!res.ok){
-                const text = await res.text();
-                throw new Error('Error al enviar: ' + res.status + ' ' + text);
+                throw new Error('Error al enviar: ' + res.status + ' ' + respText);
             }
-            return res.json();
+            try{ return JSON.parse(respText); }catch(e){ return respText; }
         }
 
         throw new Error('No hay un endpoint seguro ni credenciales de cliente configuradas');

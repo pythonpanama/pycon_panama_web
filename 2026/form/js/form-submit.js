@@ -24,13 +24,23 @@
 
         // Fallback to direct client-side POST using anonKey (requires RLS allowing inserts)
         if(cfg && cfg.url && cfg.anonKey){
-            let url = cfg.url.replace(/\/$/,'') + '/rest/v1/' + table;
+                let url = cfg.url.replace(/\/$/,'') + '/rest/v1/' + table;
             // Append apikey as query param as a fallback if headers are stripped by CORS/proxy
             if (cfg.anonKey && url.indexOf('apikey=') === -1){
                 url += (url.indexOf('?') === -1 ? '?' : '&') + 'apikey=' + encodeURIComponent(cfg.anonKey);
             }
-            const bodyToSend = Array.isArray(payload) ? payload : [payload];
-            console.log('Direct Supabase POST payload (array):', bodyToSend);
+                // Build body as array for Supabase
+                const bodyToSend = Array.isArray(payload) ? payload : [payload];
+                // Normalize speaker consent field to match DB column
+                if(table === 'speakers'){
+                    bodyToSend.forEach(item => {
+                        if(item.consent !== undefined && item.consent_publication === undefined){
+                            item.consent_publication = item.consent;
+                            delete item.consent;
+                        }
+                    });
+                }
+                console.log('Direct Supabase POST table:', table, 'payload (array):', bodyToSend);
             const res = await fetch(url, {
                 method: 'POST',
                 headers: {
