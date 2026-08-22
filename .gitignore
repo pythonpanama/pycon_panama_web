@@ -51,3 +51,6 @@ build/
 # Documentación de trabajo del equipo organizador — no debe publicarse
 docs-internas/
 docs/
+
+# Configuración local de Claude Code — no debe publicarse
+.claude/
