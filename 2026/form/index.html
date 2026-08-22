@@ -305,7 +305,7 @@
                     form.reset();
                 } else {
                     statusMessage.className = 'status-message error';
-                    statusMessage.textContent = 'Ocurrió un error al guardar tu registro. ' + (res.error?.message || 'Por favor verifica la configuración de Supabase.');
+                    statusMessage.textContent = res.friendlyMessage || ('Ocurrió un error al guardar tu registro. ' + (res.error?.message || 'Por favor verifica la configuración de Supabase.'));
                 }
             } catch (err) {
                 statusMessage.className = 'status-message error';
