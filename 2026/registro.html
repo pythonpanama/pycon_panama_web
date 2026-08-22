@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - PyCon Panamá 2026</title>
+    <meta name="description" content="Regístrate para PyCon Panamá 2026. La conferencia anual de Python en Panamá.">
+    <meta name="theme-color" content="#2f8cff">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Registro PyCon Panamá 2026">
+    <meta property="og:description" content="Formulario de registro para PyCon Panamá 2026.">
+    <meta property="og:url" content="https://pyconpanama.org/2026/registro.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://pyconpanama.org/2026/registro.html">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        .registro-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: clamp(1.5rem, 2vw, 2.5rem);
+            align-items: start;
+        }
+
+        .registro-aside,
+        .registro-panel {
+            background: var(--surface);
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: clamp(1.5rem, 2vw, 2rem);
+        }
+
+        .registro-aside {
+            background: linear-gradient(180deg, rgba(47, 140, 255, 0.08), rgba(255, 255, 255, 0.95));
+        }
+
+        .registro-aside ul {
+            margin: 1rem 0 0;
+            padding-left: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .registro-aside li + li {
+            margin-top: 0.6rem;
+        }
+
+        .registro-form {
+            display: grid;
+            gap: 1.1rem;
+        }
+
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .field {
+            display: grid;
+            gap: 0.45rem;
+        }
+
+        .field label {
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 0.8rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: #fff;
+            font: inherit;
+            color: var(--text);
+        }
+
+        .field textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: 3px solid rgba(47, 140, 255, 0.18);
+            border-color: var(--accent);
+        }
+
+        .checkboxes {
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+        }
+
+        .checkbox-item input {
+            margin-top: 0.2rem;
+        }
+
+        .status-message {
+            min-height: 1.5rem;
+            margin-top: 0.25rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .status-message.error {
+            color: #d9534f;
+        }
+
+        .status-message.success {
+            color: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .registro-layout,
+            .field-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">PyCon Panamá 2026</a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Acerca de</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
+                        <ul id="registro-submenu" class="submenu">
+                            <li><a href="registro.html" aria-current="page">Registro Asistente</a></li>
+                            <li><a href="speaker.html">Registro Speaker</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="community-submenu">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
+                            <li><a href="codigo_conducta.html">Código de Conducta</a></li>
+                            <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="page-header">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Registro</h1>
+                    <p class="section-text">Completa este formulario para dejar tu interés en asistir a PyCon Panamá 2026.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container registro-layout">
+                <aside class="registro-aside">
+                    <h2>PyCon Panamá 2026</h2>
+                    <p>La conferencia anual de Python en Panamá vuelve con una edición híbrida, con contenido virtual y presencial.</p>
+                    <ul>
+                        <li><strong>Jueves 22:</strong> sesión virtual por Google Meet.</li>
+                        <li><strong>Viernes 23:</strong> encuentro presencial en UDI, sede Metromall.</li>
+                        <li><strong>Ingreso:</strong> gratuito, con registro previo.</li>
+                    </ul>
+                </aside>
+
+                <div class="registro-panel">
+                    <form id="registroForm" class="registro-form" novalidate>
+                        <div class="field-grid">
+                            <div class="field">
+                                <label for="nombre">Nombre completo *</label>
+                                <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre" autocomplete="name">
+                            </div>
+                            <div class="field">
+                                <label for="email">Correo electrónico *</label>
+                                <input id="email" name="email" type="email" required placeholder="tu@email.com" autocomplete="email">
+                            </div>
+                        </div>
+
+                        <div class="field-grid">
+                            <div class="field">
+                                <label for="telefono">WhatsApp</label>
+                                <input id="telefono" name="telefono" type="tel" placeholder="+507 6000-0000" autocomplete="tel">
+                            </div>
+                            <div class="field">
+                                <label for="rol">Rol *</label>
+                                <select id="rol" name="rol" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option>Estudiante</option>
+                                    <option>Profesional</option>
+                                    <option>Docente</option>
+                                    <option>Emprendedor</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>¿Qué días te gustaría asistir? *</label>
+                            <div class="checkboxes">
+                                <label class="checkbox-item"><input type="checkbox" name="dias" value="Jueves virtual"> Jueves 22 · Sesión virtual</label>
+                                <label class="checkbox-item"><input type="checkbox" name="dias" value="Viernes presencial"> Viernes 23 · Encuentro presencial</label>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="expectativas">¿Qué te gustaría aprender o compartir?</label>
+                            <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento..."></textarea>
+                        </div>
+
+                        <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
+                        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a></p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup" target="_blank" rel="noopener noreferrer"><i class="fab fa-meetup" aria-hidden="true"></i></a>
+                <a href="https://linktr.ee/pythonpanama" aria-label="Todas nuestras redes en Linktree" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Supabase CDN Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const form = document.getElementById('registroForm');
+        const statusMessage = document.getElementById('statusMessage');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Enviando registro...';
+            statusMessage.className = 'status-message';
+            statusMessage.textContent = 'Guardando registro en Supabase...';
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const rol = document.getElementById('rol').value;
+            const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(option => option.value);
+            const expectativas = document.getElementById('expectativas').value.trim();
+
+            const datos = { nombre, email, telefono, rol, dias, expectativas };
+
+            try {
+                const res = await PyConSupabase.registrarAsistente(datos);
+
+                if (res.success) {
+                    statusMessage.className = 'status-message success';
+                    statusMessage.textContent = dias.length
+                        ? `¡Gracias, ${nombre}! Tu registro para ${dias.join(' y ')} ha sido guardado exitosamente.`
+                        : `¡Gracias, ${nombre}! Tu interés en asistir a PyCon Panamá 2026 ha sido guardado.`;
+                    form.reset();
+                } else {
+                    statusMessage.className = 'status-message error';
+                    statusMessage.textContent = 'Ocurrió un error al guardar tu registro. ' + (res.error?.message || 'Por favor verifica la configuración de Supabase.');
+                }
+            } catch (err) {
+                statusMessage.className = 'status-message error';
+                statusMessage.textContent = 'Error de conexión: ' + err.message;
+            } finally {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = 'Enviar registro';
+            }
+        });
+    </script>
+</body>
+
+</html>
