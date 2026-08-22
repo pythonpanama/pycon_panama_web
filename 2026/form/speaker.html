@@ -270,8 +270,9 @@
         </div>
     </footer>
 
-    <!-- Supabase CDN Client Library -->
+    <!-- Supabase CDN Client Library & Config -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/env.js"></script>
     <script src="../js/supabase-config.js"></script>
     <script src="../js/main.js"></script>
     <script>
@@ -290,7 +291,7 @@
             btnSubmit.disabled = true;
             btnSubmit.textContent = 'Enviando propuesta...';
             statusMessage.className = 'status-message';
-            statusMessage.textContent = 'Guardando información en Supabase...';
+            statusMessage.textContent = 'Procesando tu propuesta...';
 
             const datos = {
                 nombre: document.getElementById('nombre').value.trim(),
@@ -314,11 +315,11 @@
                     form.reset();
                 } else {
                     statusMessage.className = 'status-message error';
-                    statusMessage.textContent = res.friendlyMessage || ('Ocurrió un error al enviar tu propuesta. ' + (res.error?.message || 'Por favor verifica la configuración de Supabase.'));
+                    statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al enviar tu propuesta. Por favor intenta de nuevo.';
                 }
             } catch (err) {
                 statusMessage.className = 'status-message error';
-                statusMessage.textContent = 'Error de conexión: ' + err.message;
+                statusMessage.textContent = 'Error de conexión. Por favor intenta de nuevo.';
             } finally {
                 btnSubmit.disabled = false;
                 btnSubmit.textContent = 'Enviar propuesta de Speaker';

@@ -268,8 +268,9 @@
         </div>
     </footer>
 
-    <!-- Supabase CDN Client Library -->
+    <!-- Supabase CDN Client Library & Config -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/env.js"></script>
     <script src="js/supabase-config.js"></script>
     <script src="js/main.js"></script>
     <script>
@@ -288,7 +289,7 @@
             btnSubmit.disabled = true;
             btnSubmit.textContent = 'Enviando registro...';
             statusMessage.className = 'status-message';
-            statusMessage.textContent = 'Guardando registro en Supabase...';
+            statusMessage.textContent = 'Procesando tu registro...';
 
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -311,11 +312,11 @@
                     form.reset();
                 } else {
                     statusMessage.className = 'status-message error';
-                    statusMessage.textContent = res.friendlyMessage || ('Ocurrió un error al guardar tu registro. ' + (res.error?.message || 'Por favor verifica la configuración de Supabase.'));
+                    statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al procesar tu registro. Por favor intenta de nuevo.';
                 }
             } catch (err) {
                 statusMessage.className = 'status-message error';
-                statusMessage.textContent = 'Error de conexión: ' + err.message;
+                statusMessage.textContent = 'Error de conexión. Por favor intenta de nuevo.';
             } finally {
                 btnSubmit.disabled = false;
                 btnSubmit.textContent = 'Enviar registro';

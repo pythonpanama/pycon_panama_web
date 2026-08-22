@@ -1,47 +1,43 @@
 /**
- * PyCon Panamá 2026 - Integración con Supabase
- * Este módulo gestiona la conexión a la base de datos de Supabase
- * para el registro de asistentes y postulaciones de speakers.
+ * PyCon Panamá 2026 - Integración con Base de Datos
+ * Este módulo gestiona la conexión para el registro de asistentes y speakers.
+ * Las credenciales se leen desde window.SUPABASE_CONFIG (definidas en env.js)
  */
-
-// Credenciales oficiales de Supabase (PyCon Panamá 2026)
-var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
-var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';
 
 function getSupabaseUrl() {
   if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) {
     return window.SUPABASE_CONFIG.url;
   }
-  return window.SUPABASE_URL || DEFAULT_SUPABASE_URL;
+  return window.SUPABASE_URL || '';
 }
 
 function getSupabaseAnonKey() {
   if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.anonKey) {
     return window.SUPABASE_CONFIG.anonKey;
   }
-  return window.SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
+  return window.SUPABASE_ANON_KEY || '';
 }
 
-/**
- * Inicializa o recupera el cliente de Supabase
- */
 var _supabaseClientInstance = null;
 
 function getSupabaseClient() {
   if (typeof window.supabase === 'undefined') {
-    console.error('❌ Supabase SDK no ha sido cargado. Verifica la etiqueta <script src=".../supabase-js@2"></script>');
+    console.error('❌ SDK no disponible.');
     return null;
   }
 
   const url = getSupabaseUrl();
   const key = getSupabaseAnonKey();
 
+  if (!url || !key || url.includes('tu-proyecto')) {
+    console.warn('⚠️ Credenciales no configuradas. Crea 2026/js/env.js basándote en env.example.js');
+  }
+
   if (!_supabaseClientInstance) {
     try {
       _supabaseClientInstance = window.supabase.createClient(url, key);
-      console.log('✅ Conectado a Supabase:', url);
     } catch (err) {
-      console.error('❌ Error al inicializar createClient de Supabase:', err);
+      console.error('❌ Error al crear cliente:', err);
       return null;
     }
   }
@@ -50,39 +46,17 @@ function getSupabaseClient() {
 }
 
 /**
- * Normaliza y diagnostica los errores devueltos por Supabase
- */
-function parseSupabaseError(error) {
-  if (!error) return 'Error desconocido en Supabase.';
-  
-  const msg = error.message || String(error);
-  const code = error.code || '';
-  
-  if (code === '42501' || msg.includes('row-level security')) {
-    return 'Error de permisos RLS: Asegúrate de permitir inserciones públicas (INSERT) en Supabase.';
-  }
-
-  if (code === 'PGRST301' || msg.includes('does not exist') || msg.includes('relation')) {
-    return 'La tabla no existe en Supabase. Revisa las tablas public.registrations y public.speakers.';
-  }
-
-  if (msg.includes('Failed to fetch') || msg.includes('NetworkError')) {
-    return 'Error de red o conexión al servidor de Supabase (' + getSupabaseUrl() + ').';
-  }
-
-  return 'Error Supabase [' + (code || 'ERR') + ']: ' + msg;
-}
-
-/**
  * Registra a un asistente a la PyCon Panamá 2026
- * Tabla objetivo: public.registrations
- * @param {Object} datos - Objeto con { nombre, email, telefono, rol, organizacion, expectativas, consent_photos }
+ * @param {Object} datos - Objeto con los datos del registro
  */
 async function registrarAsistente(datos) {
   const client = getSupabaseClient();
   if (!client) {
-    const errorMsg = 'No se pudo inicializar el cliente de Supabase (SDK JS no disponible).';
-    return { success: false, error: new Error(errorMsg), friendlyMessage: errorMsg };
+    console.error('❌ Cliente no disponible.');
+    return { 
+      success: false, 
+      friendlyMessage: 'No se pudo procesar tu solicitud en este momento. Por favor intenta más tarde.' 
+    };
   }
 
   try {
@@ -105,21 +79,27 @@ async function registrarAsistente(datos) {
     if (error) throw error;
     return { success: true, data };
   } catch (err) {
-    console.error('Error al registrar asistente en Supabase (registrations):', err);
-    return { success: false, error: err, friendlyMessage: parseSupabaseError(err) };
+    console.error('❌ Error en registro de asistente:', err);
+    return { 
+      success: false, 
+      error: err, 
+      friendlyMessage: 'Ocurrió un inconveniente al procesar tu registro. Por favor intenta de nuevo en unos minutos.' 
+    };
   }
 }
 
 /**
  * Registra una propuesta de charla de Speaker para la PyCon Panamá 2026
- * Tabla objetivo: public.speakers
- * @param {Object} datos - Objeto con { nombre, email, organizacion, bio, titulo_propuesta, descripcion_propuesta, duracion, idioma, redes_sociales, consent_publication }
+ * @param {Object} datos - Objeto con los datos del speaker
  */
 async function registrarSpeaker(datos) {
   const client = getSupabaseClient();
   if (!client) {
-    const errorMsg = 'No se pudo inicializar el cliente de Supabase (SDK JS no disponible).';
-    return { success: false, error: new Error(errorMsg), friendlyMessage: errorMsg };
+    console.error('❌ Cliente no disponible.');
+    return { 
+      success: false, 
+      friendlyMessage: 'No se pudo procesar tu solicitud en este momento. Por favor intenta más tarde.' 
+    };
   }
 
   try {
@@ -145,23 +125,18 @@ async function registrarSpeaker(datos) {
     if (error) throw error;
     return { success: true, data };
   } catch (err) {
-    console.error('Error al registrar speaker en Supabase (speakers):', err);
-    return { success: false, error: err, friendlyMessage: parseSupabaseError(err) };
+    console.error('❌ Error en registro de speaker:', err);
+    return { 
+      success: false, 
+      error: err, 
+      friendlyMessage: 'Ocurrió un inconveniente al enviar tu propuesta. Por favor intenta de nuevo en unos minutos.' 
+    };
   }
 }
-
-// Configuración global del usuario si está definida
-window.SUPABASE_CONFIG = {
-  url: getSupabaseUrl(),
-  anonKey: getSupabaseAnonKey()
-};
 
 // Exportar funciones globalmente
 window.PyConSupabase = {
   getSupabaseClient,
   registrarAsistente,
-  registrarSpeaker,
-  parseSupabaseError,
-  getSupabaseUrl,
-  getSupabaseAnonKey
+  registrarSpeaker
 };
