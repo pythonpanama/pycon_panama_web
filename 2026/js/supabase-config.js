@@ -30,7 +30,7 @@ function getSupabaseClient() {
   const key = getSupabaseAnonKey();
 
   if (!url || !key || url.includes('tu-proyecto')) {
-    console.warn('⚠️ Credenciales no configuradas. Crea 2026/js/env.js basándote en env.example.js');
+    console.warn('⚠️ Credenciales no configuradas. Revisa 2026/js/env.js');
   }
 
   if (!_supabaseClientInstance) {
@@ -47,7 +47,8 @@ function getSupabaseClient() {
 
 /**
  * Registra a un asistente a la PyCon Panamá 2026
- * @param {Object} datos - Objeto con los datos del registro
+ * Tabla: public.registrations
+ * Campos: name, email, organization, role, accessibility, phone, consent_photos
  */
 async function registrarAsistente(datos) {
   const client = getSupabaseClient();
@@ -60,13 +61,22 @@ async function registrarAsistente(datos) {
   }
 
   try {
+    // Formatear accesibilidad compilando días y expectativas
+    const extraAccessibility = [];
+    if (datos.dias && datos.dias.length) {
+      extraAccessibility.push('Días de asistencia: ' + (Array.isArray(datos.dias) ? datos.dias.join(', ') : datos.dias));
+    }
+    if (datos.expectativas) {
+      extraAccessibility.push('Expectativas: ' + datos.expectativas);
+    }
+
     const payload = {
       name: datos.nombre,
       email: datos.email,
       phone: datos.telefono || null,
       role: datos.rol || null,
       organization: datos.organizacion || null,
-      accessibility: datos.expectativas || datos.asistencia || null,
+      accessibility: extraAccessibility.length ? extraAccessibility.join(' | ') : null,
       consent_photos: datos.consent_photos !== undefined ? Boolean(datos.consent_photos) : true,
       created_at: new Date().toISOString()
     };
@@ -79,7 +89,7 @@ async function registrarAsistente(datos) {
     if (error) throw error;
     return { success: true, data };
   } catch (err) {
-    console.error('❌ Error en registro de asistente:', err);
+    console.error('❌ Error en registro de asistente (registrations):', err);
     return { 
       success: false, 
       error: err, 
@@ -90,7 +100,8 @@ async function registrarAsistente(datos) {
 
 /**
  * Registra una propuesta de charla de Speaker para la PyCon Panamá 2026
- * @param {Object} datos - Objeto con los datos del speaker
+ * Tabla: public.speakers
+ * Campos: name, email, affiliation, bio, title, abstract, duration, language, links, consent_publication
  */
 async function registrarSpeaker(datos) {
   const client = getSupabaseClient();
@@ -103,13 +114,27 @@ async function registrarSpeaker(datos) {
   }
 
   try {
+    // Formatear abstract incluyendo nivel y modalidad elegida
+    const metadata = [];
+    if (datos.nivel) metadata.push('Nivel: ' + datos.nivel);
+    if (datos.modalidad) metadata.push('Modalidad: ' + datos.modalidad);
+
+    const formattedAbstract = metadata.length 
+      ? '[' + metadata.join(' | ') + ']\n\n' + datos.descripcion_propuesta
+      : datos.descripcion_propuesta;
+
+    // Formatear bio incluyendo teléfono si fue provisto
+    const formattedBio = datos.telefono 
+      ? (datos.bio ? datos.bio + ' (Tel: ' + datos.telefono + ')' : 'Tel: ' + datos.telefono)
+      : (datos.bio || null);
+
     const payload = {
       name: datos.nombre,
       email: datos.email,
       affiliation: datos.organizacion || datos.affiliation || null,
-      bio: datos.bio || null,
+      bio: formattedBio,
       title: datos.titulo_propuesta,
-      abstract: datos.descripcion_propuesta,
+      abstract: formattedAbstract,
       duration: datos.duracion ? parseInt(datos.duracion) : 30,
       language: datos.idioma || 'Español',
       links: datos.redes_sociales || datos.links || null,
@@ -125,7 +150,7 @@ async function registrarSpeaker(datos) {
     if (error) throw error;
     return { success: true, data };
   } catch (err) {
-    console.error('❌ Error en registro de speaker:', err);
+    console.error('❌ Error en registro de speaker (speakers):', err);
     return { 
       success: false, 
       error: err, 
