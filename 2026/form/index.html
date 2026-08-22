@@ -213,20 +213,25 @@
 
                         <div class="field-grid">
                             <div class="field">
-                                <label for="telefono">WhatsApp</label>
+                                <label for="telefono">WhatsApp / Teléfono</label>
                                 <input id="telefono" name="telefono" type="tel" placeholder="+507 6000-0000" autocomplete="tel">
                             </div>
                             <div class="field">
-                                <label for="rol">Rol *</label>
-                                <select id="rol" name="rol" required>
-                                    <option value="">Selecciona una opción</option>
-                                    <option>Estudiante</option>
-                                    <option>Profesional</option>
-                                    <option>Docente</option>
-                                    <option>Emprendedor</option>
-                                    <option>Otro</option>
-                                </select>
+                                <label for="organizacion">Organización / Empresa</label>
+                                <input id="organizacion" name="organizacion" type="text" placeholder="Ej. Universidad, Empresa X">
                             </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="rol">Rol *</label>
+                            <select id="rol" name="rol" required>
+                                <option value="">Selecciona una opción</option>
+                                <option>Estudiante</option>
+                                <option>Profesional</option>
+                                <option>Docente</option>
+                                <option>Emprendedor</option>
+                                <option>Otro</option>
+                            </select>
                         </div>
 
                         <div class="field">
@@ -288,11 +293,12 @@
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
             const telefono = document.getElementById('telefono').value.trim();
+            const organizacion = document.getElementById('organizacion') ? document.getElementById('organizacion').value.trim() : '';
             const rol = document.getElementById('rol').value;
             const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(option => option.value);
             const expectativas = document.getElementById('expectativas').value.trim();
 
-            const datos = { nombre, email, telefono, rol, dias, expectativas };
+            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas };
 
             try {
                 const res = await PyConSupabase.registrarAsistente(datos);

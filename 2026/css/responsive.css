@@ -128,6 +128,19 @@
   .footer-social {
     margin-left: calc(var(--space-3) * -1);
   }
+
+  /* --- Formularios en Móvil ----------------------------------------------- */
+
+  .registro-layout,
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px; /* Evita que los navegadores móviles hagan zoom y desplacen la pantalla */
+  }
 }
 
 
