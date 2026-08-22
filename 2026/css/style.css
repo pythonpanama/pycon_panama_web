@@ -323,6 +323,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  border: none;
   min-height: 48px;            /* área táctil cómoda en móvil */
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-pill);
@@ -623,3 +626,130 @@
   color: var(--accent);
   background: var(--accent-softer);
 }
+
+
+/* ==========================================================================
+   9. Formularios (Registro & Speaker)
+   ========================================================================== */
+
+.registro-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  align-items: start;
+  width: 100%;
+}
+
+.registro-aside,
+.registro-panel {
+  min-width: 0;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  box-sizing: border-box;
+}
+
+.registro-aside {
+  background: linear-gradient(180deg, rgba(47, 140, 255, 0.08), rgba(255, 255, 255, 0.95));
+}
+
+.registro-aside ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.registro-aside li + li {
+  margin-top: 0.6rem;
+}
+
+.registro-form {
+  display: grid;
+  gap: 1.1rem;
+  width: 100%;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.field label {
+  font-weight: 700;
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 3px solid rgba(47, 140, 255, 0.18);
+  border-color: var(--accent);
+}
+
+.checkboxes {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.checkbox-item input {
+  width: auto;
+  margin-top: 0.2rem;
+}
+
+.status-message {
+  min-height: 1.5rem;
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.status-message.error {
+  color: #d9534f;
+}
+
+.status-message.success {
+  color: #28a745;
+}
+
