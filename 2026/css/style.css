@@ -10,6 +10,8 @@
    6. Acordeón        — preguntas frecuentes
    7. Contenido       — texto largo, enlaces
    8. Pie de página
+   9. Formularios   — registro y speaker
+   10. Sedes
 
    Todas las media queries están en responsive.css.
    ========================================================================== */
@@ -753,3 +755,66 @@
   color: #28a745;
 }
 
+
+/* ==========================================================================
+   10. Sedes
+   ========================================================================== */
+
+/* Dos sedes: una fila en escritorio, apiladas en móvil. Mismo ancho mínimo
+   que .card-grid para que el sitio mantenga un solo ritmo de tarjetas. */
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-5);
+}
+
+.venue-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.venue-card h2 {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-heading);
+}
+
+.venue-mode {
+  color: var(--text-secondary);
+}
+
+.venue-details {
+  display: grid;
+  gap: var(--space-4);
+  width: 100%;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-soft);
+}
+
+.venue-detail dt {
+  margin-bottom: var(--space-1);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venue-detail dd {
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+}
+
+/* El enlace al mapa queda al pie de la tarjeta aunque las direcciones
+   ocupen distinto alto. */
+.venue-map-link {
+  margin-top: auto;
+}

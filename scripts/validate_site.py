@@ -22,6 +22,7 @@ SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/codigo_conducta.html",
     f"{CANONICAL_BASE}/2026/faq.html",
     f"{CANONICAL_BASE}/2026/registro.html",
+    f"{CANONICAL_BASE}/2026/sedes.html",
     f"{CANONICAL_BASE}/2026/speaker.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "javascript", "mailto", "tel"}
