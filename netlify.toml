@@ -1,5 +1,9 @@
 [build]
 publish = "." # raíz del repo
+# Genera 2026/js/env.js con las credenciales del proyecto (ver el script).
+# Declarado aquí y no solo en la UI de Netlify: netlify.toml tiene precedencia
+# y así el comando queda versionado junto al script que invoca.
+command = "node scripts/generate-env.cjs"
 
 [[redirects]]
 from = "/"
