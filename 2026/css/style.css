@@ -581,6 +581,85 @@
   color: var(--accent-hover);
 }
 
+/* --- Documento largo (código de conducta, políticas) -------------------- */
+
+.prose h2 {
+  margin-top: var(--space-7);
+  color: var(--text);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-heading);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose ol {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  list-style: decimal;
+}
+
+.prose strong {
+  color: var(--text);
+}
+
+/* Bloque destacado dentro del texto: la regla que no se puede pasar por alto. */
+.prose .callout {
+  padding: var(--space-4) var(--space-5);
+  background: var(--accent-softer);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.prose .callout > * + * {
+  margin-top: var(--space-3);
+}
+
+/* Variante para lo urgente: qué hacer si hay alguien en peligro. */
+.prose .callout--urgent {
+  background: rgba(255, 202, 58, 0.14);
+  border-left-color: var(--highlight);
+}
+
+/* Índice del documento: navegación, no lectura. */
+.doc-toc {
+  max-width: var(--measure);
+  margin-bottom: var(--space-7);
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-toc h2 {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-base);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.doc-toc ol {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  list-style: decimal;
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.doc-meta {
+  max-width: var(--measure);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
 
 /* ==========================================================================
    8. Pie de página
