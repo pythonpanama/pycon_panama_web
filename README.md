@@ -40,11 +40,14 @@ Sirve desde la **raíz** del repositorio, no desde `2026/`: así las rutas absol
 | [`2027/`](2027/) | Export generado de una edición futura. | No, salvo regeneración deliberada |
 | [`2025/`](2025/) y [`2024/`](2024/) | Ediciones archivadas. | No, excepto correcciones puntuales |
 | [`2026_dev/`](2026_dev/README.md) | Prototipo independiente en Reflex; no se despliega desde aquí. | Solo si se trabaja en el prototipo |
+| [`local_server/`](local_server/README.md) | Proxy opcional, limitado a `127.0.0.1`, para pruebas locales con Supabase. Usa una clave privilegiada. | Solo para desarrollo local; jamás se publica |
 | [`netlify.toml`](netlify.toml) | Publicación, redirección de `/` a `/2026/` y cabeceras HTTP. | Con revisión cuidadosa |
 
 Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robots.txt`, `sitemap.xml`, `favicon.ico` y `fix_paths.sh`.
 
 `docs/` y `docs-internas/` son documentación local no publicada. Están ignoradas intencionalmente, no deben añadirse al control de versiones ni enlazarse desde el sitio. La información pública se mantiene en las páginas de la edición correspondiente.
+
+El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se evita editar una copia anidada y desactualizada del sitio.
 
 ## Cambiar el sitio
 
