@@ -2,6 +2,7 @@
 
 [![Sitio en producción](https://img.shields.io/badge/sitio-pycon.pa-3776AB?logo=googlechrome&logoColor=white)](https://pycon.pa/)
 [![Edición activa](https://img.shields.io/badge/edici%C3%B3n-2026-FFD343?logo=python&logoColor=1f2937)](2026/)
+[![Validación del sitio](https://github.com/pythonpanama/pycon_panama_web/actions/workflows/site-validation.yml/badge.svg)](https://github.com/pythonpanama/pycon_panama_web/actions/workflows/site-validation.yml)
 
 Este repositorio contiene el sitio público de [PyCon Panamá](https://pycon.pa/), la conferencia de la comunidad [Python Panamá](https://pythonpanama.org). Es un sitio estático: cada edición se conserva en su propia carpeta y Netlify publica la raíz del repositorio.
 
@@ -49,7 +50,7 @@ Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robot
 
 1. Crea una rama desde `main` y delimita el cambio a una edición o propósito claro.
 2. Para contenido de 2026, modifica los archivos de [`2026/`](2026/). Conserva la estructura semántica y los estilos compartidos en `2026/css/`.
-3. Si cambias navegación, aplícala en **todas** las páginas de `2026/`: `index.html`, `about.html`, `agenda.html`, `codigo_conducta.html` y `faq.html`.
+3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `codigo_conducta.html`, `faq.html`, `registro.html` y `speaker.html`.
 4. Si agregas una página pública, parte de una existente para mantener `lang`, `viewport`, favicon, hojas de estilo, `canonical`, metadatos Open Graph y el enlace al Código de Conducta. Añade además la URL a `sitemap.xml` y la navegación donde corresponda.
 5. Mantén las fechas, sede, precios, CFP y beneficios como “por anunciar” hasta contar con confirmación pública. No publiques notas operativas, datos personales ni decisiones pendientes.
 
@@ -69,14 +70,16 @@ Consulta [su README](2026_dev/README.md) antes de modificarlo. Un cambio en el p
 
 ## Validar antes de proponer cambios
 
-No hay una suite de build o pruebas configurada para la edición estática. Antes de abrir un Pull Request, realiza estas comprobaciones proporcionales al cambio:
+La edición estática no requiere compilación. El validador incluido comprueba enlaces locales, fragmentos, metadatos sociales, URLs canónicas, el sitemap y marcadores de conflicto. Antes de abrir un Pull Request, ejecuta:
 
 ```bash
-# 1. Evita errores de espacios, marcadores de conflicto y líneas finales.
-git diff --check
-rg -n '^(<<<<<<<|=======|>>>>>>>)' .
+# 1. Comprueba la integridad del sitio público.
+python3 scripts/validate_site.py
 
-# 2. Confirma que el servidor responde para la edición publicada.
+# 2. Evita errores de espacios y líneas finales.
+git diff --check
+
+# 3. Confirma que el servidor responde para la edición publicada.
 python3 -m http.server 8000
 # En otra terminal:
 curl -I http://localhost:8000/2026/
