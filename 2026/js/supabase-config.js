@@ -135,11 +135,11 @@ async function registrarSpeaker(datos) {
   if (datos.nivel) metadata.push('Nivel: ' + datos.nivel);
   if (datos.modalidad) metadata.push('Modalidad: ' + datos.modalidad);
 
-  const formattedAbstract = metadata.length 
+  const formattedAbstract = metadata.length
     ? '[' + metadata.join(' | ') + ']\n\n' + datos.descripcion_propuesta
     : datos.descripcion_propuesta;
 
-  const formattedBio = datos.telefono 
+  const formattedBio = datos.telefono
     ? (datos.bio ? datos.bio + ' (Tel: ' + datos.telefono + ')' : 'Tel: ' + datos.telefono)
     : (datos.bio || null);
 
