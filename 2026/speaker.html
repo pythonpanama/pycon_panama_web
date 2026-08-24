@@ -251,6 +251,11 @@
                             <input id="redes_sociales" name="redes_sociales" type="text" placeholder="https://linkedin.com/in/tu-perfil">
                         </div>
 
+                        <label class="checkbox-item" for="consent_publication">
+                            <input id="consent_publication" name="consent_publication" type="checkbox" required>
+                            Acepto el tratamiento de mis datos personales de conformidad con la Ley 81 de 2019.
+                        </label>
+
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar propuesta de Speaker</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
@@ -305,7 +310,8 @@
                 descripcion_propuesta: document.getElementById('descripcion_propuesta').value.trim(),
                 nivel: document.getElementById('nivel').value,
                 modalidad: document.getElementById('modalidad').value,
-                redes_sociales: document.getElementById('redes_sociales').value.trim()
+                redes_sociales: document.getElementById('redes_sociales').value.trim(),
+                consent_publication: document.getElementById('consent_publication').checked
             };
 
             try {

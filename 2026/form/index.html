@@ -247,6 +247,11 @@
                             <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento..."></textarea>
                         </div>
 
+                        <label class="checkbox-item" for="consent_photos">
+                            <input id="consent_photos" name="consent_photos" type="checkbox" required>
+                            Acepto el tratamiento de mis datos personales de conformidad con la Ley 81 de 2019.
+                        </label>
+
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
@@ -298,8 +303,9 @@
             const rol = document.getElementById('rol').value;
             const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(option => option.value);
             const expectativas = document.getElementById('expectativas').value.trim();
+            const consent_photos = document.getElementById('consent_photos').checked;
 
-            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas };
+            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas, consent_photos };
 
             try {
                 const res = await PyConSupabase.registrarAsistente(datos);

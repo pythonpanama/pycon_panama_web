@@ -38,7 +38,7 @@ local_server/.env
 .env
 .env.*
 !.env.example
-2026/js/env.js
+/2026/js/env.js
 
 # Build / despliegue
 .netlify/
