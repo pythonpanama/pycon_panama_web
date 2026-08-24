@@ -12,9 +12,9 @@
     <meta property="og:site_name" content="PyCon Panamá">
     <meta property="og:title" content="Registro PyCon Panamá 2026">
     <meta property="og:description" content="Formulario de registro para PyCon Panamá 2026.">
-    <meta property="og:url" content="https://pyconpanama.org/2026/form/">
+    <meta property="og:url" content="https://pycon.pa/2026/form/">
     <meta name="twitter:card" content="summary">
-    <link rel="canonical" href="https://pyconpanama.org/2026/form/">
+    <link rel="canonical" href="https://pycon.pa/2026/form/">
     <link rel="icon" href="../favicon.ico" sizes="any">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -247,6 +247,11 @@
                             <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento..."></textarea>
                         </div>
 
+                        <label class="checkbox-item" for="consent_photos">
+                            <input id="consent_photos" name="consent_photos" type="checkbox" required>
+                            Acepto el tratamiento de mis datos personales de conformidad con la Ley 81 de 2019.
+                        </label>
+
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
@@ -298,8 +303,9 @@
             const rol = document.getElementById('rol').value;
             const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(option => option.value);
             const expectativas = document.getElementById('expectativas').value.trim();
+            const consent_photos = document.getElementById('consent_photos').checked;
 
-            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas };
+            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas, consent_photos };
 
             try {
                 const res = await PyConSupabase.registrarAsistente(datos);

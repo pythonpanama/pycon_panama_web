@@ -32,6 +32,7 @@ env/
 node_modules/
 npm-debug.log*
 yarn-error.log*
+local_server/.env
 
 # Variables de entorno
 .env

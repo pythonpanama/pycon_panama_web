@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Código de Conducta - PyCon Panamá 2026</title>
-    <meta name="description" content="Código de Conducta de PyCon Panamá 2026: un evento seguro, respetuoso e inclusivo para todas las personas.">
+    <meta name="description" content="Código de Conducta de PyCon Panamá 2026: qué esperamos de cada participante, qué no se acepta, cómo reportar un incidente y qué hacemos cuando recibimos un reporte.">
     <meta name="theme-color" content="#2f8cff">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="PyCon Panamá">
     <meta property="og:title" content="Código de Conducta - PyCon Panamá 2026">
-    <meta property="og:description" content="Nuestro compromiso con un evento seguro, respetuoso e inclusivo.">
+    <meta property="og:description" content="Un evento libre de acoso: qué esperamos de ti, qué no se acepta y a quién acudir si algo pasa.">
     <meta property="og:url" content="https://pycon.pa/2026/codigo_conducta.html">
     <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://pycon.pa/2026/codigo_conducta.html">
@@ -41,6 +41,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="sedes.html">Sedes</a></li>
                     <li class="nav-item-has-children">
                         <button class="submenu-toggle" type="button" aria-haspopup="true"
                             aria-expanded="false" aria-controls="registro-submenu">Registro</button>
@@ -67,6 +68,8 @@
             <div class="container">
                 <div class="section-header">
                     <h1>Código de Conducta</h1>
+                    <p class="section-text">PyCon Panamá es una fiesta de la comunidad Python panameña, y como
+                        toda fiesta que vale la pena, funciona porque la gente se cuida entre sí.</p>
                 </div>
             </div>
         </section>
@@ -74,20 +77,302 @@
         <section class="section">
             <div class="container">
                 <div class="prose">
-                    <p>PyCon Panamá 2026 es un evento inclusivo y seguro para todas las personas,
-                        independientemente de su género, identidad u orientación sexual, discapacidad,
-                        apariencia física, tamaño corporal, raza, religión o ideología. No se tolera
-                        ningún tipo de acoso.</p>
-                    <p>Asistentes, organizadoras, ponentes y voluntarias deben respetarlo durante el
-                        evento y en todas las actividades relacionadas.</p>
-                    <p><strong>Reporte de incidentes:</strong> Si presencias o observas una conducta inapropiada,
-                        puedes comunicarte con el equipo organizador escribiendo a
-                        <a href="mailto:pythonpanama4@gmail.com">pythonpanama4@gmail.com</a>.
-                        Queremos atender cualquier reporte con confidencialidad y rapidez.</p>
-                    <p>Versión completa:
-                        <a href="https://github.com/pythonpanama/docs/blob/dev/Codigo-de-Conducta.md"
-                            target="_blank" rel="noopener noreferrer">Código de Conducta de Python Panamá</a>.</p>
+                    <p>Este Código de Conducta no está aquí para llenar un requisito. Está aquí para que
+                        sepas dos cosas antes de llegar: <strong>qué esperamos de ti</strong> y, sobre todo,
+                        <strong>qué puedes esperar de nosotros si algo te pasa</strong>.</p>
+
+                    <div class="callout callout--urgent">
+                        <p><strong>¿Estás leyendo esto porque algo ya pasó?</strong></p>
+                        <p>Si hay peligro inmediato para alguien, llama al <strong>911</strong>. Después
+                            búscanos.</p>
+                        <p>Para todo lo demás, escríbenos a
+                            <a href="mailto:pythonpanama4@gmail.com">pythonpanama4@gmail.com</a> o busca a
+                            cualquier persona del equipo organizador durante el evento. Te creemos y te damos
+                            seguimiento.</p>
+                    </div>
                 </div>
+
+                <nav class="doc-toc" aria-labelledby="indice-titulo">
+                    <h2 id="indice-titulo">Contenido</h2>
+                    <ol>
+                        <li><a href="#compromiso">Nuestro compromiso</a></li>
+                        <li><a href="#alcance">Dónde y a quién aplica</a></li>
+                        <li><a href="#esperamos">Lo que esperamos de ti</a></li>
+                        <li><a href="#inaceptable">Lo que no se acepta</a></li>
+                        <li><a href="#imagen">Fotos, grabaciones y tu imagen</a></li>
+                        <li><a href="#armas">Armas</a></li>
+                        <li><a href="#salud">Salud</a></li>
+                        <li><a href="#patrocinadores">Patrocinadores, stands y reclutamiento</a></li>
+                        <li><a href="#consecuencias">Qué pasa si alguien incumple</a></li>
+                        <li><a href="#reportar">Cómo reportar</a></li>
+                        <li><a href="#compromiso-contigo">Nuestro compromiso contigo</a></li>
+                        <li><a href="#marco-legal">Marco legal en Panamá</a></li>
+                        <li><a href="#transparencia">Transparencia</a></li>
+                        <li><a href="#creditos">Versión, licencia y créditos</a></li>
+                    </ol>
+                </nav>
+
+                <div class="prose">
+                    <h2 id="compromiso">1. Nuestro compromiso</h2>
+                    <p>PyCon Panamá 2026 es un evento <strong>libre de acoso para todas las personas</strong>,
+                        sin importar edad, dimensión corporal, discapacidad visible o invisible, etnia,
+                        características sexuales, identidad y expresión de género, nivel de experiencia,
+                        educación, nivel socioeconómico, nacionalidad, apariencia personal, raza, religión,
+                        orientación sexual o situación migratoria.</p>
+                    <p>Aquí nadie tiene que «aguantar» nada para poder aprender Python.</p>
+                    <p>Nos importa especialmente quien viene por primera vez: la persona que llegó sola, que no
+                        conoce a nadie, que está aprendiendo, o que vino de otra provincia o de otro país. Si
+                        esa persona se va sintiéndose bienvenida, hicimos bien el trabajo.</p>
+
+                    <h2 id="alcance">2. Dónde y a quién aplica</h2>
+                    <p>Aplica a <strong>todas las personas</strong> que participan del evento: asistentes,
+                        ponentes, patrocinadores, expositores, voluntarias, personal de la sede y el equipo
+                        organizador. Sin excepciones y sin jerarquías: el mismo estándar rige para una persona
+                        que llegó hoy y para quien dirige el evento.</p>
+                    <p><strong>Jueves 22 de octubre — jornada híbrida</strong></p>
+                    <ul>
+                        <li>Auditorio, pasillos, área de registro y áreas comunes de la
+                            <strong>Universidad del Istmo, Sede Panamá</strong></li>
+                        <li>La plataforma de la transmisión, su chat y el espacio de preguntas</li>
+                        <li>Cualquier sala virtual paralela del evento</li>
+                    </ul>
+                    <p><strong>Viernes 23 de octubre — jornada presencial</strong></p>
+                    <ul>
+                        <li>Auditorio, aulas, pasillos, área de registro, zona de patrocinadores y áreas comunes
+                            de la <strong>Universidad del Istmo, Sede Metromall</strong></li>
+                        <li>Montaje y desmontaje del evento, en ambas sedes</li>
+                        <li>Actividades sociales antes, durante o después del evento, sean o no en la sede</li>
+                    </ul>
+                    <p><strong>Siempre</strong></p>
+                    <ul>
+                        <li>Redes sociales oficiales de PyCon Panamá y Python Panamá</li>
+                        <li>Grupos de mensajería del evento</li>
+                        <li>Correo oficial del evento</li>
+                        <li>Cualquier espacio donde estés representando a PyCon Panamá</li>
+                    </ul>
+                    <p>Si se suman espacios, sedes o actividades a la programación, este Código rige igual en
+                        ellos. Y en las actividades sociales rige exactamente como en la sede:
+                        <strong>estar bajo efectos del alcohol no atenúa ninguna falta</strong> — en la
+                        práctica la agrava, porque el equipo pierde la posibilidad de resolverlo conversando.
+                    </p>
+
+                    <h2 id="esperamos">3. Lo que esperamos de ti</h2>
+                    <ul>
+                        <li><strong>Trata a la gente como te gustaría que trataran a tu gente.</strong> Es la
+                            regla corta y resume todas las demás.</li>
+                        <li>Escucha opiniones, puntos de vista y experiencias distintas a la tuya.</li>
+                        <li>Da y recibe crítica constructiva. «Tu código está mal» no es crítica constructiva;
+                            «esto se rompe con entradas vacías, mira» sí lo es.</li>
+                        <li>Cuando te equivoques, asume y discúlpate con quien afectaste. Todos metemos la pata;
+                            lo que cuenta es qué haces después.</li>
+                        <li>Usa lenguaje que le dé espacio a una audiencia diversa. Esto incluye tus
+                            diapositivas, tus ejemplos de código y tus chistes.</li>
+                        <li><strong>Ponle atención a quien acaba de llegar.</strong> Si ves a alguien solo en el
+                            break, acércate. Eso es PyCon Panamá funcionando.</li>
+                        <li>Reconoce el trabajo voluntario. Casi todo lo que ves en este evento lo hizo alguien
+                            gratis, en su tiempo libre.</li>
+                        <li>Respeta el espacio físico y los límites de las demás personas. Pregunta antes de
+                            abrazar, tocar o tomar fotos.</li>
+                    </ul>
+
+                    <h2 id="inaceptable">4. Lo que no se acepta</h2>
+                    <ul>
+                        <li><strong>Acoso en cualquiera de sus formas</strong>, público o privado.</li>
+                        <li>Comentarios ofensivos sobre género, identidad o expresión de género, orientación
+                            sexual, discapacidad, apariencia física, tamaño corporal, edad, etnia, nacionalidad,
+                            religión o situación migratoria.</li>
+                        <li>Lenguaje o imágenes sexualizadas, y atenciones o insinuaciones sexuales no deseadas.
+                            <strong>Ni en el pasillo ni en tus diapositivas.</strong></li>
+                        <li>Bromas racistas, sexistas, xenófobas o excluyentes. Nunca son apropiadas. Ni «de
+                            relajo».</li>
+                        <li>Contacto físico inapropiado o sin consentimiento.</li>
+                        <li>Intimidación deliberada, acecho o persecución.</li>
+                        <li>Fotografiar o grabar a alguien que pidió que no lo hicieras.</li>
+                        <li>Interrumpir de forma sostenida charlas, talleres u otras actividades.</li>
+                        <li>Insultar, humillar o menospreciar a otra persona, incluyendo por su nivel técnico.
+                            <strong>Aquí no se hace sentir bruto a nadie por preguntar.</strong></li>
+                        <li>Publicar información privada de otras personas —dirección, teléfono, correo, datos
+                            migratorios— sin su permiso explícito.</li>
+                        <li>Lenguaje amenazante o violento, e incitación a la violencia o a la autolesión.</li>
+                        <li>Cualquier otra conducta que razonablemente se considere inapropiada en un entorno
+                            profesional.</li>
+                    </ul>
+                    <div class="callout">
+                        <p><strong>Definición de acoso, para que no quede duda:</strong> comentarios ofensivos
+                            relacionados con las características mencionadas arriba; imágenes sexuales en
+                            espacios públicos; intimidación deliberada; acecho; persecución; acoso fotográfico o
+                            por grabación; interrupción sostenida de charlas u otros eventos; contacto físico
+                            inapropiado; y atención sexual no deseada.</p>
+                        <p><strong>Si te piden que pares, paras.</strong> Quien reciba del equipo organizador la
+                            indicación de detener una conducta debe hacerlo de inmediato, sin discutir en el
+                            momento y sin exigir explicaciones ahí mismo. Si consideras que hubo un error, se
+                            aclara después con el equipo de atención. Discutir la instrucción en el momento es,
+                            en sí mismo, una falta al Código de Conducta.</p>
+                    </div>
+
+                    <h2 id="imagen">5. Fotos, grabaciones y tu imagen</h2>
+                    <p>El evento se graba y se fotografía: las charlas se publican después y hay cobertura para
+                        redes.</p>
+                    <ul>
+                        <li><strong>Las charlas se graban.</strong> Al presentar una ponencia aceptas que se
+                            grabe y se publique. Si tienes una razón para no aparecer, avísanos antes y lo
+                            resolvemos.</li>
+                        <li><strong>Las fotos generales del evento</strong> —auditorio, pasillos, actividades—
+                            se toman y se publican como registro del evento.</li>
+                        <li><strong>Si no quieres salir en fotos, dínoslo.</strong> En el evento puedes decírselo
+                            a cualquier persona del equipo o directamente a quien está tomando la foto. Se
+                            respeta, sin que tengas que dar explicaciones.</li>
+                        <li><strong>No grabes ni fotografíes a otras personas sin su permiso.</strong> Esto
+                            incluye conversaciones de pasillo, pantallas ajenas y fotos «de fondo» donde alguien
+                            queda identificable.</li>
+                        <li><strong>No se graba ni se transmite</strong> ninguna actividad marcada como espacio
+                            seguro o de conversación privada.</li>
+                        <li>Si aparece una foto tuya publicada y quieres que la bajemos, escríbenos y la bajamos.
+                            No hace falta que argumentes.</li>
+                    </ul>
+
+                    <h2 id="armas">6. Armas</h2>
+                    <p><strong>No se permiten armas de ningún tipo</strong> en los espacios del evento: armas de
+                        fuego, explosivos, cuchillos grandes u objetos diseñados para causar daño. Aplica también
+                        a réplicas y objetos de utilería que puedan confundirse con un arma.</p>
+                    <p>Rige además el reglamento de la sede, que tiene sus propias normas de seguridad y
+                        prevalece sobre esta sección donde sea más estricto.</p>
+
+                    <h2 id="salud">7. Salud</h2>
+                    <p>La jornada del viernes reúne a gente de todo el país en un mismo auditorio.</p>
+                    <ul>
+                        <li><strong>Si amaneciste con síntomas de una enfermedad contagiosa —fiebre, gripe
+                                fuerte, tos persistente— no vengas.</strong> El registro es gratuito y las
+                            charlas quedan grabadas; no pierdes nada. Escríbenos y te ayudamos.</li>
+                        <li>Usar mascarilla es bienvenido y nadie va a comentarte nada por hacerlo.</li>
+                        <li><strong>Respeta el espacio de los demás.</strong> Si alguien te indica que prefiere
+                            distancia o que no da la mano, respétalo. Insistir o burlarse de eso <strong>es una
+                                falta al Código de Conducta</strong>, no una broma.</li>
+                    </ul>
+
+                    <h2 id="patrocinadores">8. Patrocinadores, stands y reclutamiento</h2>
+                    <p>Nuestros patrocinadores hacen posible que este evento sea gratuito, y son bienvenidos a
+                        hablar de lo que hacen y a buscar talento. Con tres límites:</p>
+                    <ul>
+                        <li><strong>Nada de spam.</strong> No inscribas gente a listas de correo, grupos o
+                            procesos de selección sin que lo haya pedido.</li>
+                        <li><strong>El «no» se acepta a la primera.</strong> Insistirle a alguien que ya declinó
+                            una conversación comercial o una oferta de trabajo es acoso.</li>
+                        <li><strong>Nada de material sexualizado</strong> en stands, diapositivas, vestimenta de
+                            personal o artículos promocionales.</li>
+                    </ul>
+                    <p>Aplica igual a quien busca contratar y a quien busca ser contratado.</p>
+
+                    <h2 id="consecuencias">9. Qué pasa si alguien incumple</h2>
+                    <p>El equipo organizador decide la respuesta según lo que ocurrió y su gravedad. Puede ser
+                        una sola medida o varias, y no hay que agotar la lista en orden: si un caso lo amerita,
+                        se va directo a la última.</p>
+                    <ul>
+                        <li>Ninguna acción, si se determina que no hubo falta al Código de Conducta</li>
+                        <li>Advertencia verbal o por escrito</li>
+                        <li>Exigir que la persona no se acerque ni interactúe con alguien durante el resto del
+                            evento</li>
+                        <li>Terminar antes de tiempo una charla que esté incumpliendo el Código de Conducta</li>
+                        <li><strong>No publicar el video ni las diapositivas</strong> de esa ponencia</li>
+                        <li>No aceptar ponencias de esa persona en ediciones futuras</li>
+                        <li>Expulsión de la plataforma virtual, con bloqueo de reingreso</li>
+                        <li>Retiro inmediato del rol de voluntario y de sus accesos</li>
+                        <li>Retiro de la credencial y salida de la sede</li>
+                        <li>Prohibición de participar en eventos futuros de PyCon Panamá y de la comunidad Python
+                            Panamá, por un tiempo definido o de forma indefinida</li>
+                        <li>Escalamiento a la Python Software Foundation</li>
+                        <li>En casos graves, apoyo a la persona afectada para acudir a las autoridades</li>
+                    </ul>
+                    <div class="callout">
+                        <p><strong>Este evento es gratuito, así que «expulsión sin reembolso» no significa nada
+                                aquí.</strong> Que no pagaras entrada no hace la sanción menos real: la
+                            credencial se retira, la charla no se publica y el veto a ediciones futuras se
+                            cumple.</p>
+                    </div>
+
+                    <h2 id="reportar">10. Cómo reportar</h2>
+                    <p><strong>Si hay peligro inmediato para alguien, llama al 911.</strong> Después búscanos.</p>
+                    <p>Para todo lo demás, tienes dos vías y las dos funcionan:</p>
+                    <ul>
+                        <li><strong>En el evento, en persona:</strong> acércate a cualquier persona del equipo
+                            organizador o a cualquier voluntaria o voluntario. Están instruidos para escucharte y
+                            llevarte de inmediato con el equipo de atención.</li>
+                        <li><strong>Por correo, antes, durante o después del evento:</strong>
+                            <a href="mailto:pythonpanama4@gmail.com">pythonpanama4@gmail.com</a>.</li>
+                    </ul>
+                    <p>Antes del evento publicamos el <strong>protocolo de reporte completo</strong>: el número
+                        de guardia, cómo reconocer al equipo de atención, qué pasa después de tu reporte, en
+                        cuánto tiempo te respondemos y qué hacer si el problema es con alguien del equipo
+                        organizador.</p>
+                    <p><strong>Puedes reportar aunque no estés seguro de que sea una falta.</strong> Preferimos
+                        recibir un reporte y concluir que no hubo nada, a que te quedes callado con la duda.</p>
+
+                    <h2 id="compromiso-contigo">11. Nuestro compromiso contigo</h2>
+                    <ul>
+                        <li><strong>Te creemos.</strong> No vamos a empezar preguntándote qué hiciste tú para
+                            provocarlo.</li>
+                        <li><strong>Es confidencial.</strong> Tu identidad no se comparte con la persona
+                            reportada ni con nadie más, salvo que tú lo autorices.</li>
+                        <li><strong>No hay represalias.</strong> Tomar represalias contra alguien por haber
+                            reportado es, en sí mismo, una falta grave al Código de Conducta.</li>
+                        <li><strong>Te damos seguimiento.</strong> Sabrás qué se decidió y qué se hizo.</li>
+                        <li><strong>No estás solo.</strong> Si lo necesitas, te acompañamos a un espacio
+                            tranquilo, llamamos a alguien de tu confianza y te acompañamos hasta tu transporte.
+                        </li>
+                    </ul>
+
+                    <h2 id="marco-legal">12. Marco legal en Panamá</h2>
+                    <p>Este Código de Conducta es una norma del evento y se aplica por decisión del equipo
+                        organizador. <strong>No sustituye ni limita tus derechos legales.</strong></p>
+                    <p>En Panamá, la <strong>Ley 7 del 14 de febrero de 2018</strong> adopta medidas para
+                        prevenir, prohibir y sancionar el acoso sexual, el acoso moral, el sexismo, el racismo y
+                        otros actos discriminatorios, incluidos los ámbitos laboral y docente. La jornada
+                        presencial ocurre en una institución educativa, que además tiene sus propios
+                        reglamentos.</p>
+                    <p>Puedes acudir a las autoridades en cualquier momento, con o sin nuestra intervención, y
+                        podemos acompañarte si lo pides. Que hayas reportado con nosotros no te obliga a nada, y
+                        no reportar con nosotros no te quita ningún derecho.</p>
+
+                    <h2 id="transparencia">13. Transparencia</h2>
+                    <p>Después del evento publicaremos un <strong>reporte de transparencia</strong>: cuántos
+                        reportes recibimos, de qué tipo y cómo se resolvieron, <strong>sin ningún dato que
+                            permita identificar a las personas involucradas</strong>.</p>
+                    <p>Lo hacemos porque un Código de Conducta del que nunca se sabe nada termina pareciendo
+                        decorativo. Si hubo cero reportes, también lo decimos.</p>
+
+                    <h2 id="creditos">14. Versión, licencia y créditos</h2>
+                    <p>Versión 1.0 — PyCon Panamá 2026, aprobada por la Dirección del evento. Este es un
+                        <strong>documento vivo</strong>: se actualiza cuando haga falta, y la versión publicada
+                        en este sitio es siempre la vigente.</p>
+                    <p><strong>Licencia:</strong> Creative Commons Attribution-ShareAlike 3.0 (CC BY-SA 3.0).
+                        Puedes tomarlo, adaptarlo y usarlo en tu evento — de hecho, nos encantaría.</p>
+                    <p>Se construyó sobre el trabajo de:</p>
+                    <ul>
+                        <li><a href="https://github.com/pythonpanama/docs/blob/dev/Codigo-de-Conducta.md"
+                                target="_blank" rel="noopener noreferrer">Código de Conducta de Python
+                                Panamá</a>, que sigue vigente como marco de la comunidad</li>
+                        <li><a href="https://policies.python.org/python.org/code-of-conduct/" target="_blank"
+                                rel="noopener noreferrer">Código de Conducta de la Python Software
+                                Foundation</a> y su
+                            <a href="https://policies.python.org/python.org/code-of-conduct/Best-Practices/"
+                                target="_blank" rel="noopener noreferrer">guía de mejores prácticas para
+                                eventos</a></li>
+                        <li><a href="https://policies.python.org/us.pycon.org/code-of-conduct/" target="_blank"
+                                rel="noopener noreferrer">Código de Conducta de PyCon US</a> y sus
+                            procedimientos de respuesta a incidentes</li>
+                        <li><a href="https://www.europython-society.org/coc/" target="_blank"
+                                rel="noopener noreferrer">Código de Conducta de la EuroPython Society</a></li>
+                        <li><a href="https://2021.pycon.co/codigo-de-conducta/" target="_blank"
+                                rel="noopener noreferrer">Código de Conducta de PyCon Colombia</a> y de
+                            <a href="https://www.pylatam.org/conducta/" target="_blank"
+                                rel="noopener noreferrer">PyLatam</a></li>
+                        <li><a href="https://www.contributor-covenant.org/es/version/2/0/code_of_conduct/"
+                                target="_blank" rel="noopener noreferrer">Contributor Covenant 2.0</a> y la guía
+                            de respuesta a reportes de la Ada Initiative</li>
+                    </ul>
+                </div>
+
+                <p class="doc-meta">Última actualización: 22 de agosto de 2026.</p>
             </div>
         </section>
     </main>

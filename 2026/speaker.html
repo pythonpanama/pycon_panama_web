@@ -11,10 +11,10 @@
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="PyCon Panamá">
     <meta property="og:title" content="Registro de Speaker - PyCon Panamá 2026">
-    <meta property="og:description" content="Postula tu propuesta de propuesta o taller para la conferencia anual de Python en Panamá.">
-    <meta property="og:url" content="https://pyconpanama.org/2026/speaker.html">
+    <meta property="og:description" content="Postula tu propuesta de charla o taller para la conferencia anual de Python en Panamá.">
+    <meta property="og:url" content="https://pycon.pa/2026/speaker.html">
     <meta name="twitter:card" content="summary">
-    <link rel="canonical" href="https://pyconpanama.org/2026/speaker.html">
+    <link rel="canonical" href="https://pycon.pa/2026/speaker.html">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -139,6 +139,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="sedes.html">Sedes</a></li>
                     <li class="nav-item-has-children">
                         <button class="submenu-toggle" type="button" aria-haspopup="true"
                             aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
@@ -177,8 +178,9 @@
                     <p>La PyCon Panamá reúne a la comunidad técnica, profesional y académica del país. Es la oportunidad perfecta para inspirar y compartir con otros desarrolladores.</p>
                     <ul>
                         <li><strong>Formato:</strong> Charlas (30-45 min) y Talleres.</li>
-                        <li><strong>Día Virtual:</strong> Jueves 22 de octubre (Google Meet).</li>
-                        <li><strong>Día Presencial:</strong> Viernes 23 de octubre (Universidad del Istmo Metromall).</li>
+                        <li><strong>Jueves 22 de octubre:</strong> jornada híbrida — Universidad del Istmo, Sede Panamá, con transmisión por Google Meet.</li>
+                        <li><strong>Viernes 23 de octubre:</strong> jornada presencial — Universidad del Istmo, Sede Metromall.</li>
+                        <li><strong>Sedes:</strong> <a class="internal-link" href="sedes.html">direcciones y mapas</a>.</li>
                         <li><strong>Auditorio:</strong> Estudiantes, profesionales y entusiastas del software.</li>
                     </ul>
                 </aside>
@@ -249,6 +251,11 @@
                             <input id="redes_sociales" name="redes_sociales" type="text" placeholder="https://linkedin.com/in/tu-perfil">
                         </div>
 
+                        <label class="checkbox-item" for="consent_publication">
+                            <input id="consent_publication" name="consent_publication" type="checkbox" required>
+                            Acepto el tratamiento de mis datos personales de conformidad con la Ley 81 de 2019.
+                        </label>
+
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar propuesta de Speaker</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
@@ -303,7 +310,8 @@
                 descripcion_propuesta: document.getElementById('descripcion_propuesta').value.trim(),
                 nivel: document.getElementById('nivel').value,
                 modalidad: document.getElementById('modalidad').value,
-                redes_sociales: document.getElementById('redes_sociales').value.trim()
+                redes_sociales: document.getElementById('redes_sociales').value.trim(),
+                consent_publication: document.getElementById('consent_publication').checked
             };
 
             try {

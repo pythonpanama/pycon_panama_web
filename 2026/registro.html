@@ -12,9 +12,9 @@
     <meta property="og:site_name" content="PyCon Panamá">
     <meta property="og:title" content="Registro PyCon Panamá 2026">
     <meta property="og:description" content="Formulario de registro para PyCon Panamá 2026.">
-    <meta property="og:url" content="https://pyconpanama.org/2026/registro.html">
+    <meta property="og:url" content="https://pycon.pa/2026/registro.html">
     <meta name="twitter:card" content="summary">
-    <link rel="canonical" href="https://pyconpanama.org/2026/registro.html">
+    <link rel="canonical" href="https://pycon.pa/2026/registro.html">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -155,6 +155,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="sedes.html">Sedes</a></li>
                     <li class="nav-item-has-children">
                         <button class="submenu-toggle" type="button" aria-haspopup="true"
                             aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
@@ -192,8 +193,9 @@
                     <h2>PyCon Panamá 2026</h2>
                     <p>La conferencia anual de Python en Panamá vuelve con una edición híbrida, con contenido virtual y presencial.</p>
                     <ul>
-                        <li><strong>Jueves 22:</strong> sesión virtual por Google Meet.</li>
-                        <li><strong>Viernes 23:</strong> encuentro presencial en Universidad del Istmo, sede Metromall.</li>
+                        <li><strong>Jueves 22:</strong> jornada híbrida en Universidad del Istmo, Sede Panamá, con transmisión por Google Meet.</li>
+                        <li><strong>Viernes 23:</strong> encuentro presencial en Universidad del Istmo, Sede Metromall.</li>
+                        <li><strong>Sedes:</strong> <a class="internal-link" href="sedes.html">direcciones y mapas</a>.</li>
                         <li><strong>Ingreso:</strong> gratuito, con registro previo.</li>
                     </ul>
                 </aside>
@@ -237,7 +239,7 @@
                         <div class="field">
                             <label>¿Qué días te gustaría asistir? *</label>
                             <div class="checkboxes">
-                                <label class="checkbox-item"><input type="checkbox" name="dias" value="Jueves virtual"> Jueves 22 · Sesión virtual</label>
+                                <label class="checkbox-item"><input type="checkbox" name="dias" value="Jueves virtual"> Jueves 22 · Jornada híbrida (Sede Panamá o Google Meet)</label>
                                 <label class="checkbox-item"><input type="checkbox" name="dias" value="Viernes presencial"> Viernes 23 · Encuentro presencial</label>
                             </div>
                         </div>
@@ -246,6 +248,11 @@
                             <label for="expectativas">¿Qué te gustaría aprender o compartir?</label>
                             <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento..."></textarea>
                         </div>
+
+                        <label class="checkbox-item" for="consent_photos">
+                            <input id="consent_photos" name="consent_photos" type="checkbox" required>
+                            Acepto el tratamiento de mis datos personales de conformidad con la Ley 81 de 2019.
+                        </label>
 
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
@@ -298,8 +305,9 @@
             const rol = document.getElementById('rol').value;
             const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(option => option.value);
             const expectativas = document.getElementById('expectativas').value.trim();
+            const consent_photos = document.getElementById('consent_photos').checked;
 
-            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas };
+            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas, consent_photos };
 
             try {
                 const res = await PyConSupabase.registrarAsistente(datos);
