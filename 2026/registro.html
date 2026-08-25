@@ -8,12 +8,14 @@
     <meta name="description" content="Regístrate para PyCon Panamá 2026. La conferencia anual de Python en Panamá.">
     <meta name="theme-color" content="#2f8cff">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pycon.pa/2026_dev/public/images/PyConPet.jpg">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="PyCon Panamá">
     <meta property="og:title" content="Registro PyCon Panamá 2026">
     <meta property="og:description" content="Formulario de registro para PyCon Panamá 2026.">
     <meta property="og:url" content="https://pycon.pa/2026/registro.html">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pycon.pa/2026_dev/public/images/PyConPet.jpg">
     <link rel="canonical" href="https://pycon.pa/2026/registro.html">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -104,13 +106,17 @@
         }
 
         .checkbox-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1.1rem minmax(0, 1fr);
             align-items: flex-start;
             gap: 0.6rem;
             color: var(--text-secondary);
         }
 
         .checkbox-item input {
+            width: 1.1rem;
+            height: 1.1rem;
+            padding: 0;
             margin-top: 0.2rem;
         }
 

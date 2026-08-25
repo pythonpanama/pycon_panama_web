@@ -10,6 +10,16 @@ from = "/"
 to = "/2026/"
 status = 301
 
+[[redirects]]
+from = "/2026/form/index.html"
+to = "/2026/registro.html"
+status = 301
+
+[[redirects]]
+from = "/2026/form/speaker.html"
+to = "/2026/speaker.html"
+status = 301
+
 [[headers]]
 for = "/*"
   [headers.values]
