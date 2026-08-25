@@ -14,7 +14,15 @@ ROOT = Path(__file__).resolve().parents[1]
 EDITION = ROOT / "2026"
 CANONICAL_BASE = "https://pycon.pa"
 OPTIONAL_LOCAL_ASSETS = {EDITION / "js" / "env.js"}
-REQUIRED_META = {"description", "og:title", "og:description", "og:url", "twitter:card"}
+REQUIRED_META = {
+    "description",
+    "og:title",
+    "og:description",
+    "og:url",
+    "og:image",
+    "twitter:card",
+    "twitter:image",
+}
 SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/",
     f"{CANONICAL_BASE}/2026/about.html",
@@ -110,6 +118,13 @@ def parse_pages() -> tuple[dict[Path, PageParser], list[str]]:
             errors.append(f"{label}: canonical debe ser {expected}.")
         if parser.meta.get("og:url") != expected:
             errors.append(f"{label}: og:url debe ser {expected}.")
+        for image_key in ("og:image", "twitter:image"):
+            image = parser.meta.get(image_key, "")
+            parsed_image = urlsplit(image)
+            if parsed_image.scheme != "https" or parsed_image.netloc != "pycon.pa":
+                errors.append(f"{label}: {image_key} debe ser una URL HTTPS absoluta de pycon.pa.")
+        if len(parser.canonicals) != 1:
+            errors.append(f"{label}: debe tener exactamente un canonical.")
         if parser.duplicate_ids:
             errors.append(f"{label}: IDs duplicados: {', '.join(sorted(parser.duplicate_ids))}.")
     return pages, errors
@@ -143,8 +158,14 @@ def validate_sitemap() -> list[str]:
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     locations = {node.text for node in tree.findall("sm:url/sm:loc", namespace) if node.text}
     missing = SITEMAP_REQUIRED - locations
-    if missing:
-        return [f"sitemap.xml no incluye: {', '.join(sorted(missing))}."]
+    extra = locations - SITEMAP_REQUIRED
+    if missing or extra:
+        errors = []
+        if missing:
+            errors.append(f"sitemap.xml no incluye: {', '.join(sorted(missing))}.")
+        if extra:
+            errors.append(f"sitemap.xml contiene URLs no canónicas: {', '.join(sorted(extra))}.")
+        return errors
     return []
 
 
