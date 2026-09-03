@@ -92,7 +92,7 @@ Si el validador reporta un enlace externo caído:
 
 1. Ábrelo en el navegador. Si no carga, corrige o retira el `href`/`src`.
 2. Las URLs de `pycon.pa` se resuelven contra archivos del repositorio, no contra producción, para no romper PRs de páginas nuevas.
-3. Instagram, Facebook, LinkedIn y Meetup están excluidos a propósito: bloquean rastreadores de CI y un 403 no significa que el perfil no exista. Si otro host se comporta igual, añádelo a `SKIP_EXTERNAL_HOSTS` en `scripts/validate_site.py` con un comentario que justifique la exclusión.
+3. Instagram, Facebook, LinkedIn, Meetup y pylatam.org están excluidos a propósito: bloquean rastreadores de CI o no responden a tiempo desde GitHub Actions. Si otro host se comporta igual, añádelo a `SKIP_EXTERNAL_HOSTS` en `scripts/validate_site.py` con un comentario que justifique la exclusión.
 4. Sin red: `python3 scripts/validate_site.py --skip-external`.
 
 Después, revisa en el navegador la página afectada en escritorio y móvil: navegación, enlaces, imágenes, contraste, foco de teclado y diseño con zoom. Si cambias contenido o rutas, verifica también `sitemap.xml`, el `canonical` y las tarjetas sociales (`og:*`).

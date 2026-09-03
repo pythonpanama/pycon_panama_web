@@ -41,14 +41,15 @@ EXTERNAL_SCHEMES = {"data", "http", "https", "javascript", "mailto", "tel"}
 USER_AGENT = "PyConPanamaSiteValidator/1.0 (+https://github.com/pythonpanama/pycon_panama_web)"
 EXTERNAL_TIMEOUT = 12
 EXTERNAL_WORKERS = 8
-# Redes que bloquean o limitan rastreadores de CI. Un 403/999 desde GitHub
-# Actions no prueba que el perfil público haya desaparecido.
+# Hosts that GitHub Actions cannot check reliably. A CI 403/timeout is not
+# evidence the public URL is gone; confirm those in a browser instead.
 SKIP_EXTERNAL_HOSTS = frozenset(
     {
         "facebook.com",
         "instagram.com",
         "linkedin.com",
         "meetup.com",
+        "pylatam.org",  # GitHub Actions times out; HEAD returns 200 elsewhere
     }
 )
 
@@ -234,6 +235,8 @@ def probe_once(url: str, method: str) -> int | str:
             return error.code
         except urllib.error.URLError as error:
             last_error = str(error.reason) if error.reason else "URLError"
+            if "timed out" in last_error.lower():
+                last_error = "tiempo agotado"
         except TimeoutError:
             last_error = "tiempo agotado"
     return last_error
