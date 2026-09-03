@@ -73,10 +73,10 @@ Consulta [su README](2026_dev/README.md) antes de modificarlo. Un cambio en el p
 
 ## Validar antes de proponer cambios
 
-La edición estática no requiere compilación. El validador incluido comprueba enlaces locales, fragmentos, metadatos sociales, URLs canónicas, el sitemap y marcadores de conflicto. Antes de abrir un Pull Request, ejecuta:
+La edición estática no requiere compilación. El validador incluido comprueba enlaces locales, fragmentos, metadatos sociales, URLs canónicas, el sitemap, marcadores de conflicto y las URLs HTTP(S) únicas de terceros. Antes de abrir un Pull Request, ejecuta:
 
 ```bash
-# 1. Comprueba la integridad del sitio público.
+# 1. Comprueba la integridad del sitio público, incluidos enlaces externos.
 python3 scripts/validate_site.py
 
 # 2. Evita errores de espacios y líneas finales.
@@ -87,6 +87,13 @@ python3 -m http.server 8000
 # En otra terminal:
 curl -I http://localhost:8000/2026/
 ```
+
+Si el validador reporta un enlace externo caído:
+
+1. Ábrelo en el navegador. Si no carga, corrige o retira el `href`/`src`.
+2. Las URLs de `pycon.pa` se resuelven contra archivos del repositorio, no contra producción, para no romper PRs de páginas nuevas.
+3. Instagram, Facebook, LinkedIn y Meetup están excluidos a propósito: bloquean rastreadores de CI y un 403 no significa que el perfil no exista. Si otro host se comporta igual, añádelo a `SKIP_EXTERNAL_HOSTS` en `scripts/validate_site.py` con un comentario que justifique la exclusión.
+4. Sin red: `python3 scripts/validate_site.py --skip-external`.
 
 Después, revisa en el navegador la página afectada en escritorio y móvil: navegación, enlaces, imágenes, contraste, foco de teclado y diseño con zoom. Si cambias contenido o rutas, verifica también `sitemap.xml`, el `canonical` y las tarjetas sociales (`og:*`).
 

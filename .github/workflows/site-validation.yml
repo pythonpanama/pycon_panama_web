@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate structure, links and metadata
+      - name: Validate structure, local links, external links and metadata
         run: python3 scripts/validate_site.py
       - name: Validate JavaScript syntax
         run: |

@@ -3,10 +3,14 @@
 
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
+import argparse
 import sys
+import urllib.error
+import urllib.request
 import xml.etree.ElementTree as ET
 
 
@@ -34,6 +38,19 @@ SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/speaker.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "javascript", "mailto", "tel"}
+USER_AGENT = "PyConPanamaSiteValidator/1.0 (+https://github.com/pythonpanama/pycon_panama_web)"
+EXTERNAL_TIMEOUT = 12
+EXTERNAL_WORKERS = 8
+# Redes que bloquean o limitan rastreadores de CI. Un 403/999 desde GitHub
+# Actions no prueba que el perfil público haya desaparecido.
+SKIP_EXTERNAL_HOSTS = frozenset(
+    {
+        "facebook.com",
+        "instagram.com",
+        "linkedin.com",
+        "meetup.com",
+    }
+)
 
 
 class PageParser(HTMLParser):
@@ -61,8 +78,11 @@ class PageParser(HTMLParser):
             self._in_title = True
         if tag == "meta":
             key = values.get("name") or values.get("property")
-            if key and values.get("content"):
-                self.meta[key] = values["content"]
+            content = values.get("content")
+            if key and content:
+                self.meta[key] = content
+                if key in {"og:image", "twitter:image"}:
+                    self.references.append(content)
         if tag == "link" and "canonical" in (values.get("rel") or "").split():
             if values.get("href"):
                 self.canonicals.append(values["href"])
@@ -98,6 +118,41 @@ def target_for(page: Path, reference: str) -> tuple[Path | None, str]:
     if target.is_dir() or path.endswith("/"):
         target /= "index.html"
     return target.resolve(), parsed.fragment
+
+
+def absolute_http_url(reference: str) -> str | None:
+    candidate = f"https:{reference}" if reference.startswith("//") else reference
+    parsed = urlsplit(candidate)
+    if parsed.scheme.lower() not in {"http", "https"} or not parsed.netloc:
+        return None
+    return parsed._replace(fragment="").geturl()
+
+
+def host_is_skipped(host: str) -> bool:
+    host = host.lower()
+    return any(host == skipped or host.endswith("." + skipped) for skipped in SKIP_EXTERNAL_HOSTS)
+
+
+def local_production_target(url: str) -> Path | None:
+    parsed = urlsplit(url)
+    if parsed.netloc.lower() != "pycon.pa":
+        return None
+    path = unquote(parsed.path)
+    target = ROOT / path.lstrip("/")
+    if target.is_dir() or path.endswith("/"):
+        target = target / "index.html"
+    return target
+
+
+def collect_http_urls(pages: dict[Path, PageParser]) -> dict[str, str]:
+    found: dict[str, str] = {}
+    for page, parser in pages.items():
+        label = page.relative_to(ROOT).as_posix()
+        for reference in parser.references:
+            url = absolute_http_url(reference)
+            if url and url not in found:
+                found[url] = label
+    return found
 
 
 def parse_pages() -> tuple[dict[Path, PageParser], list[str]]:
@@ -150,6 +205,75 @@ def validate_references(pages: dict[Path, PageParser]) -> list[str]:
     return errors
 
 
+def validate_production_assets(pages: dict[Path, PageParser]) -> list[str]:
+    errors: list[str] = []
+    for url, label in sorted(collect_http_urls(pages).items()):
+        target = local_production_target(url)
+        if target is None:
+            continue
+        if target in OPTIONAL_LOCAL_ASSETS:
+            continue
+        if not target.exists():
+            errors.append(f"{label}: recurso de pycon.pa inexistente en el repositorio: {url}.")
+    return errors
+
+
+def probe_once(url: str, method: str) -> int | str:
+    last_error = "sin respuesta"
+    request = urllib.request.Request(
+        url,
+        method=method,
+        headers={"User-Agent": USER_AGENT, "Accept": "*/*"},
+    )
+    for _attempt in range(2):
+        try:
+            with urllib.request.urlopen(request, timeout=EXTERNAL_TIMEOUT) as response:
+                response.read(64)
+                return response.status
+        except urllib.error.HTTPError as error:
+            return error.code
+        except urllib.error.URLError as error:
+            last_error = str(error.reason) if error.reason else "URLError"
+        except TimeoutError:
+            last_error = "tiempo agotado"
+    return last_error
+
+
+def probe_url(url: str) -> tuple[bool, str]:
+    head = probe_once(url, "HEAD")
+    if isinstance(head, int) and head < 400:
+        return True, f"HTTP {head}"
+    if isinstance(head, int) and head in {404, 410}:
+        return False, f"HTTP {head}"
+    get = probe_once(url, "GET")
+    if isinstance(get, int) and get < 400:
+        return True, f"HTTP {get}"
+    if isinstance(get, int):
+        return False, f"HTTP {get}"
+    if isinstance(head, int):
+        return False, f"HTTP {head}"
+    return False, str(get)
+
+
+def validate_external_links(pages: dict[Path, PageParser]) -> list[str]:
+    to_check: list[tuple[str, str]] = []
+    for url, label in sorted(collect_http_urls(pages).items()):
+        parsed = urlsplit(url)
+        if parsed.netloc.lower() == "pycon.pa":
+            continue
+        if host_is_skipped(parsed.netloc):
+            continue
+        to_check.append((url, label))
+
+    errors: list[str] = []
+    with ThreadPoolExecutor(max_workers=EXTERNAL_WORKERS) as pool:
+        results = list(pool.map(lambda item: (item, probe_url(item[0])), to_check))
+    for (url, label), (ok, detail) in results:
+        if not ok:
+            errors.append(f"{label}: enlace externo no disponible ({detail}): {url}.")
+    return errors
+
+
 def validate_sitemap() -> list[str]:
     try:
         tree = ET.parse(ROOT / "sitemap.xml")
@@ -181,15 +305,26 @@ def validate_conflict_markers() -> list[str]:
     return errors
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--skip-external",
+        action="store_true",
+        help="No comprueba URLs HTTP(S) de terceros (útil sin red).",
+    )
+    args = parser.parse_args(argv)
     pages, errors = parse_pages()
     errors.extend(validate_references(pages))
+    errors.extend(validate_production_assets(pages))
+    if not args.skip_external:
+        errors.extend(validate_external_links(pages))
     errors.extend(validate_sitemap())
     errors.extend(validate_conflict_markers())
     if errors:
         print("Validación del sitio falló:", *[f"- {error}" for error in errors], sep="\n")
         return 1
-    print(f"Validación correcta: {len(pages)} páginas HTML de 2026, enlaces y metadatos consistentes.")
+    checked = "enlaces locales, enlaces externos y metadatos" if not args.skip_external else "enlaces locales y metadatos"
+    print(f"Validación correcta: {len(pages)} páginas HTML de 2026, {checked} consistentes.")
     return 0
 
 
