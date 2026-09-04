@@ -4,6 +4,14 @@
  * Incluye envío nativo REST fetch y SDK para máxima compatibilidad en navegadores.
  */
 
+/**
+ * Versión del Código de Conducta vigente en el sitio. Se guarda junto con cada
+ * aceptación para saber qué texto aceptó cada persona, no solo que aceptó algo.
+ * Al publicar una versión nueva del Código de Conducta, actualiza esta constante
+ * y el bloque «Versión, licencia y créditos» de 2026/codigo_conducta.html.
+ */
+var COC_VERSION = '1.1';
+
 var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
 var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';
 
@@ -81,6 +89,9 @@ async function registrarAsistente(datos) {
     expectativas: datos.expectativas || null,
     accessibility: extraAccessibility.length ? extraAccessibility.join(' | ') : null,
     consent_photos: datos.consent_photos !== undefined ? Boolean(datos.consent_photos) : true,
+    consent_coc: Boolean(datos.consent_coc),
+    consent_coc_version: datos.consent_coc ? COC_VERSION : null,
+    consent_coc_at: datos.consent_coc ? new Date().toISOString() : null,
     created_at: new Date().toISOString()
   };
 
@@ -157,6 +168,9 @@ async function registrarSpeaker(datos) {
     language: datos.idioma || 'Español',
     links: datos.redes_sociales || datos.links || null,
     consent_publication: datos.consent_publication !== undefined ? Boolean(datos.consent_publication) : true,
+    consent_coc: Boolean(datos.consent_coc),
+    consent_coc_version: datos.consent_coc ? COC_VERSION : null,
+    consent_coc_at: datos.consent_coc ? new Date().toISOString() : null,
     created_at: new Date().toISOString()
   };
 
@@ -194,6 +208,7 @@ async function registrarSpeaker(datos) {
 
 // Exportar funciones globalmente
 window.PyConSupabase = {
+  COC_VERSION,
   registrarAsistente,
   registrarSpeaker,
   postToSupabaseRest
