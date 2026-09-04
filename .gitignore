@@ -50,9 +50,10 @@ build/
 *.tmp
 *.bak
 
-# Documentación de trabajo del equipo organizador — no debe publicarse
+# Documentación de trabajo del equipo organizador y configuración de Claude Code.
+# Desde el 4 de septiembre de 2026 viven en un repositorio privado aparte; estas
+# reglas se conservan como red de seguridad: netlify.toml despliega con
+# publish = ".", así que cualquier archivo versionado aquí queda público.
 docs-internas/
 docs/
-
-# Configuración local de Claude Code — no debe publicarse
 .claude/

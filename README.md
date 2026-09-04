@@ -45,7 +45,7 @@ Sirve desde la **raíz** del repositorio, no desde `2026/`: así las rutas absol
 
 Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robots.txt`, `sitemap.xml`, `favicon.ico` y `fix_paths.sh`.
 
-`docs/` y `docs-internas/` son documentación local no publicada. Están ignoradas intencionalmente, no deben añadirse al control de versiones ni enlazarse desde el sitio. La información pública se mantiene en las páginas de la edición correspondiente.
+La documentación de la organización (`docs/`, `docs-internas/`) y la configuración de Claude Code (`.claude/`) **ya no viven aquí**: desde el 4 de septiembre de 2026 están en un repositorio privado aparte. Este repositorio contiene solo el sitio. Las tres rutas siguen en el [`.gitignore`](.gitignore) como red de seguridad: no deben añadirse al control de versiones ni enlazarse desde el sitio, porque `netlify.toml` despliega la raíz completa. La información pública se mantiene en las páginas de la edición correspondiente.
 
 El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se evita editar una copia anidada y desactualizada del sitio.
 
@@ -132,6 +132,7 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 
 - [Edición 2026](2026/): sitio actualmente publicado.
 - [Prototipo Reflex 2026](2026_dev/README.md): aplicación experimental, fuera del despliegue estático.
+- Documentación de la organización: repositorio privado aparte (dirección, equipo, programa y sede). Solicitar acceso al equipo organizador.
 - [Python Panamá](https://pythonpanama.org) · [Instagram](https://www.instagram.com/pythonpanama/) · [Facebook](https://www.facebook.com/profile.php?id=100078380970388) · [LinkedIn](https://linkedin.com/company/pythonpanama) · [Meetup](https://www.meetup.com/python-panama/)
 
 Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com).
