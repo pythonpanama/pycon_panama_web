@@ -34,7 +34,9 @@ async function postToSupabaseRest(table, payload) {
       'apikey': key,
       'Authorization': 'Bearer ' + key,
       'Content-Type': 'application/json',
-      'Prefer': 'return=representation'
+      // El navegador no debe recibir una copia del registro que acaba de crear.
+      // Además de minimizar datos expuestos, esto permite que RLS bloquee SELECT.
+      'Prefer': 'return=minimal'
     },
     body: JSON.stringify(payload)
   });
@@ -44,8 +46,7 @@ async function postToSupabaseRest(table, payload) {
     throw new Error(`HTTP ${response.status}: ${errorText}`);
   }
 
-  const data = await response.json();
-  return data;
+  return null;
 }
 
 /**
@@ -84,16 +85,16 @@ async function registrarAsistente(datos) {
     created_at: new Date().toISOString()
   };
 
-  console.log('📤 Intentando registrar asistente en public.registrations...', payload);
+  console.log('📤 Enviando registro de asistente a public.registrations');
 
   // Intentar primero vía SDK Supabase si está disponible
   if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
     try {
       const client = window.supabase.createClient(url, key);
-      const { data, error } = await client.from('registrations').insert([payload]).select();
-      if (!error && data) {
-        console.log('✅ Insertado con SDK Supabase:', data);
-        return { success: true, data };
+      const { error } = await client.from('registrations').insert([payload]);
+      if (!error) {
+        console.log('✅ Registro de asistente guardado');
+        return { success: true };
       }
       if (error) console.warn('⚠️ SDK falló, intentando envío directo REST API...', error);
     } catch (e) {
@@ -103,9 +104,9 @@ async function registrarAsistente(datos) {
 
   // Fallback seguro: Envío HTTP REST directo
   try {
-    const data = await postToSupabaseRest('registrations', payload);
-    console.log('✅ Insertado con REST API directo:', data);
-    return { success: true, data };
+    await postToSupabaseRest('registrations', payload);
+    console.log('✅ Registro de asistente guardado');
+    return { success: true };
   } catch (err) {
     console.error('❌ Error al registrar asistente:', err);
     return {
@@ -139,16 +140,13 @@ async function registrarSpeaker(datos) {
     ? '[' + metadata.join(' | ') + ']\n\n' + datos.descripcion_propuesta
     : datos.descripcion_propuesta;
 
-  const formattedBio = datos.telefono
-    ? (datos.bio ? datos.bio + ' (Tel: ' + datos.telefono + ')' : 'Tel: ' + datos.telefono)
-    : (datos.bio || null);
-
   const payload = {
     name: datos.nombre,
     email: datos.email,
     phone: datos.telefono || null,
     affiliation: datos.organizacion || datos.affiliation || null,
-    bio: formattedBio,
+    // El teléfono se conserva únicamente en su columna propia; no se duplica en la biografía.
+    bio: datos.bio || null,
     title: datos.titulo_propuesta,
     abstract: formattedAbstract,
     nivel: datos.nivel || null,
@@ -160,16 +158,16 @@ async function registrarSpeaker(datos) {
     created_at: new Date().toISOString()
   };
 
-  console.log('📤 Intentando registrar speaker en public.speakers...', payload);
+  console.log('📤 Enviando propuesta a public.speakers');
 
   // Intentar primero vía SDK Supabase si está disponible
   if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
     try {
       const client = window.supabase.createClient(url, key);
-      const { data, error } = await client.from('speakers').insert([payload]).select();
-      if (!error && data) {
-        console.log('✅ Insertado con SDK Supabase:', data);
-        return { success: true, data };
+      const { error } = await client.from('speakers').insert([payload]);
+      if (!error) {
+        console.log('✅ Propuesta de speaker guardada');
+        return { success: true };
       }
       if (error) console.warn('⚠️ SDK falló, intentando envío directo REST API...', error);
     } catch (e) {
@@ -179,9 +177,9 @@ async function registrarSpeaker(datos) {
 
   // Fallback seguro: Envío HTTP REST directo
   try {
-    const data = await postToSupabaseRest('speakers', payload);
-    console.log('✅ Insertado con REST API directo:', data);
-    return { success: true, data };
+    await postToSupabaseRest('speakers', payload);
+    console.log('✅ Propuesta de speaker guardada');
+    return { success: true };
   } catch (err) {
     console.error('❌ Error al registrar speaker:', err);
     return {
