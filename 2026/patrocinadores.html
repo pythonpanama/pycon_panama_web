@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrocinadores - PyCon Panamá 2026</title>
+    <meta name="description" content="Las organizaciones que hacen posible que PyCon Panamá 2026 sea un evento gratuito, y cómo sumarse como patrocinador de la conferencia de Python en Panamá.">
+    <meta name="theme-color" content="#2f8cff">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pycon.pa/2026_dev/public/images/PyConPet.jpg">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Patrocinadores - PyCon Panamá 2026">
+    <meta property="og:description" content="Quiénes hacen posible que PyCon Panamá 2026 sea gratuito, y cómo sumarse.">
+    <meta property="og:url" content="https://pycon.pa/2026/patrocinadores.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pycon.pa/2026_dev/public/images/PyConPet.jpg">
+    <link rel="canonical" href="https://pycon.pa/2026/patrocinadores.html">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">PyCon Panamá 2026</a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Acerca de</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="sedes.html">Sedes</a></li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="registro-submenu">Registro</button>
+                        <ul id="registro-submenu" class="submenu">
+                            <li><a href="registro.html">Registro Asistente</a></li>
+                            <li><a href="speaker.html">Registro Speaker</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="community-submenu" aria-current="page">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
+                            <li><a href="codigo_conducta.html">Código de Conducta</a></li>
+                            <li><a href="patrocinadores.html" aria-current="page">Patrocinadores</a></li>
+                            <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="page-header">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Patrocinadores</h1>
+                    <p class="section-text">PyCon Panamá 2026 es un evento de entrada gratuita. Eso es posible
+                        porque hay organizaciones que ponen el dinero, el espacio y las manos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quiénes nos acompañan</h2>
+                </div>
+
+                <!-- ==================================================================
+                     CÓMO MANTENER ESTA LISTA
+
+                     Regla primera: aquí solo entra lo que el Comité Organizador haya
+                     confirmado por escrito. Una conversación avanzada no es una
+                     confirmación, y publicar una marca sin autorización es un problema
+                     legal, no un detalle de diseño.
+
+                     AGREGAR UN PATROCINADOR
+                     1. Guarda el logo en 2026/img/patrocinadores/ con el nombre de la
+                        marca en minúsculas y sin tildes (ejemplo: acme-cloud.svg).
+                        Prefiere SVG; si no hay, PNG con fondo transparente y como
+                        máximo 400 px de alto. Optimiza el archivo antes de subirlo.
+                     2. Copia el bloque .sponsor-tier de la plantilla de abajo dentro
+                        de esta sección, o agrega un <li> al nivel que corresponda.
+                     3. El orden de los niveles y el de las marcas dentro de cada nivel
+                        es el que apruebe el Comité Organizador. Se respeta tal cual.
+                     4. El alt de la imagen es el nombre de la organización, nada más:
+                        alt="Acme Cloud". No escribas «logo de» ni «imagen de»: el
+                        lector de pantalla ya anuncia que es una imagen.
+                     5. El href va al sitio que la marca autorizó, con target="_blank"
+                        y rel="noopener noreferrer" como el resto de enlaces externos.
+
+                     PATROCINADOR ACORDADO PERO SIN ANUNCIO PÚBLICO
+                     Usa la variante .sponsor-card__pending: reserva el espacio, no
+                     muestra logo ni nombre y dice que está por anunciarse. Nunca lo
+                     dejes en la lista normal «mientras tanto».
+
+                     RETIRAR UN PATROCINADOR
+                     Borra su <li> y borra también el archivo del logo. Si el nivel
+                     queda sin marcas, borra el bloque .sponsor-tier completo: un nivel
+                     con título y sin nadie debajo se lee como un error.
+
+                     ANTES DE ABRIR EL PR
+                     python3 scripts/validate_site.py   (comprueba enlaces y logos)
+
+                     PLANTILLA — copiar, no descomentar en su lugar
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                     <div class="sponsor-tier">
+                         <h3 class="sponsor-tier-name">Nombre del nivel</h3>
+                         <p class="sponsor-tier-note">Una línea sobre qué aporta este
+                             nivel, si la organización quiere explicarlo.</p>
+                         <ul class="sponsor-grid sponsor-grid__lead">
+                             <li>
+                                 <a class="sponsor-card" href="https://ejemplo.com"
+                                     target="_blank" rel="noopener noreferrer">
+                                     <img src="img/patrocinadores/ejemplo.svg" alt="Ejemplo"
+                                         width="240" height="80" loading="lazy">
+                                 </a>
+                             </li>
+                             <li>
+                                 <div class="sponsor-card sponsor-card__pending">
+                                     <p class="sponsor-card-name">Por anunciar</p>
+                                 </div>
+                             </li>
+                         </ul>
+                     </div>
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                     Ojo: dentro de un comentario HTML no pueden ir dos guiones medios
+                     seguidos, así que aquí los modificadores llevan guion bajo doble.
+                     Al copiar la plantilla, cambia sponsor-grid__lead por
+                     sponsor-grid seguido de dos guiones medios y lead, y haz lo mismo
+                     con sponsor-card__pending.
+                     ================================================================== -->
+
+                <div class="sponsor-empty">
+                    <p><strong>Todavía no hay patrocinadores confirmados que anunciar.</strong></p>
+                    <p>En cuanto el Comité Organizador cierre los acuerdos, las organizaciones aparecen aquí
+                        con su logo y su enlace. Preferimos esta página vacía a una página con marcas que
+                        todavía no dijeron que sí.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>¿Quieres patrocinar?</h2>
+                </div>
+                <div class="prose">
+                    <p>PyCon Panamá reúne a la comunidad Python del país: estudiantes, profesionales, docentes y
+                        gente que está empezando. Patrocinar el evento es la forma más directa de llegar a ese
+                        público y de sostener el ecosistema técnico panameño.</p>
+                    <p>Los niveles de patrocinio y lo que incluye cada uno están en preparación. Escríbenos y te
+                        mandamos el dossier en cuanto esté listo, o conversamos sobre lo que tengas en mente.</p>
+                    <p><a class="btn btn-primary" href="mailto:pyconpanama@gmail.com?subject=Patrocinio%20PyCon%20Panam%C3%A1%202026">Escríbenos
+                            sobre patrocinio</a></p>
+                    <p>Los patrocinadores del evento se comprometen con el
+                        <a href="codigo_conducta.html">Código de Conducta</a>, en particular con su sección
+                        sobre <a href="codigo_conducta.html#patrocinadores">stands y reclutamiento</a>. Y no,
+                        <strong>los patrocinadores no reciben la lista de asistentes</strong>. Si una marca
+                        quiere tus datos, te los pide a ti y tú decides.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a></p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="mailto:pyconpanama@gmail.com" aria-label="Correo de contacto: pyconpanama@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup" target="_blank" rel="noopener noreferrer"><i class="fab fa-meetup" aria-hidden="true"></i></a>
+                <a href="https://linktr.ee/pythonpanama" aria-label="Todas nuestras redes en Linktree" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

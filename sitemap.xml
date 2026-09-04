@@ -37,6 +37,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://pycon.pa/2026/patrocinadores.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://pycon.pa/2026/registro.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>

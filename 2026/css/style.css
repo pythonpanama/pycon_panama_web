@@ -12,6 +12,7 @@
    8. Pie de página
    9. Formularios   — registro y speaker
    10. Sedes
+   11. Patrocinadores — niveles, rejilla de logos, estado pendiente
 
    Todas las media queries están en responsive.css.
    ========================================================================== */
@@ -736,6 +737,22 @@ button[type="submit"], .btn {
   color: var(--text);
 }
 
+/* Un botón dentro de un bloque de texto largo conserva su propio color. Sin
+   esto, `.prose a` —una clase más un tipo— le gana en especificidad a
+   `.btn-primary` y el texto del botón queda del mismo color que su fondo, es
+   decir, invisible. */
+.prose .btn {
+  text-decoration: none;
+}
+
+.prose .btn-primary {
+  color: var(--btn-primary-color);
+}
+
+.prose .btn-secondary {
+  color: var(--btn-secondary-color);
+}
+
 /* Bloque destacado dentro del texto: la regla que no se puede pasar por alto. */
 .prose .callout {
   padding: var(--space-4) var(--space-5);
@@ -1027,4 +1044,116 @@ button[type="submit"], .btn {
    ocupen distinto alto. */
 .venue-map-link {
   margin-top: auto;
+}
+
+
+/* ==========================================================================
+   11. Patrocinadores
+   ========================================================================== */
+
+/* Un nivel de patrocinio: su título y la rejilla de marcas que lo componen.
+   El orden de los niveles y el de las marcas dentro de cada uno lo define el
+   HTML, no el CSS: es una decisión de la organización, no de diseño. */
+.sponsor-tier + .sponsor-tier {
+  margin-top: var(--space-7);
+}
+
+.sponsor-tier-name {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-heading);
+}
+
+.sponsor-tier-note {
+  margin-bottom: var(--space-5);
+  color: var(--text-secondary);
+}
+
+/* Los logos vienen en proporciones dispares. La rejilla les da a todos la
+   misma caja y el logo se ajusta dentro, para que ninguna marca se vea más
+   grande solo porque su archivo lo es. */
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-5);
+  padding: 0;
+  list-style: none;
+}
+
+/* Nivel principal: menos marcas por fila, cajas más altas. */
+.sponsor-grid--lead {
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+.sponsor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 100%;
+  min-height: 150px;
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.sponsor-grid--lead .sponsor-card {
+  min-height: 200px;
+}
+
+/* La tarjeta entera es el enlace al sitio del patrocinador: área de clic
+   grande y un solo destino por marca, sin un «ver más» que repita el logo. */
+a.sponsor-card:hover,
+a.sponsor-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border);
+}
+
+.sponsor-card img {
+  max-width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.sponsor-grid--lead .sponsor-card img {
+  max-height: 104px;
+}
+
+.sponsor-card-name {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
+/* Marca acordada pero todavía sin anuncio público: se reserva el espacio sin
+   mostrar el logo ni el nombre. Nunca se presenta como confirmada. */
+.sponsor-card--pending {
+  background: var(--surface-muted);
+  border-style: dashed;
+  border-color: var(--border);
+  box-shadow: none;
+  color: var(--text-secondary);
+}
+
+.sponsor-card--pending .sponsor-card-name {
+  font-style: italic;
+}
+
+/* Ningún patrocinador confirmado todavía: se dice, no se deja el hueco. */
+.sponsor-empty {
+  max-width: var(--measure);
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+}
+
+.sponsor-empty > * + * {
+  margin-top: var(--space-3);
 }
