@@ -6,7 +6,7 @@
 
 Este repositorio contiene el sitio público de [PyCon Panamá](https://pycon.pa/), la conferencia de la comunidad [Python Panamá](https://pythonpanama.org). Es un sitio estático: cada edición se conserva en su propia carpeta y Netlify publica la raíz del repositorio.
 
-**Producción:** [pycon.pa](https://pycon.pa/) · **Edición activa:** [2026](2026/) · **Contacto:** [pythonpanama4@gmail.com](mailto:pythonpanama4@gmail.com)
+**Producción:** [pycon.pa](https://pycon.pa/) · **Edición activa:** [2026](2026/) · **Contacto:** [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com)
 
 ## Índice
 
@@ -117,6 +117,7 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 
 - Usa una rama con un nombre descriptivo y commits pequeños que expliquen el cambio.
 - No mezcles una mejora de la edición activa con cambios generados, archivos locales o correcciones de una edición archivada.
+- Escribe la documentación en Markdown con formato completo: encabezados jerárquicos, tablas para lo que tenga fecha o responsable, avisos `> [!NOTE]` y `> [!WARNING]`, bloques de código con el lenguaje declarado y enlaces relativos con texto descriptivo. Sella la fecha de última actualización en cada documento que edites.
 - Respeta el [Código de Conducta](2026/codigo_conducta.html) en toda interacción del proyecto.
 - No hay una licencia general declarada en la raíz del repositorio. Consulta al equipo antes de reutilizar contenido o recursos fuera de este proyecto.
 
@@ -126,4 +127,4 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 - [Prototipo Reflex 2026](2026_dev/README.md): aplicación experimental, fuera del despliegue estático.
 - [Python Panamá](https://pythonpanama.org) · [Instagram](https://www.instagram.com/pythonpanama/) · [Facebook](https://www.facebook.com/profile.php?id=100078380970388) · [LinkedIn](https://linkedin.com/company/pythonpanama) · [Meetup](https://www.meetup.com/python-panama/)
 
-Para consultas sobre PyCon Panamá, escribe a [pythonpanama4@gmail.com](mailto:pythonpanama4@gmail.com).
+Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com).
