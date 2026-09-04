@@ -53,9 +53,18 @@ El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se e
 
 1. Crea una rama desde `main` y delimita el cambio a una edición o propósito claro.
 2. Para contenido de 2026, modifica los archivos de [`2026/`](2026/). Conserva la estructura semántica y los estilos compartidos en `2026/css/`.
-3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `codigo_conducta.html`, `faq.html`, `registro.html` y `speaker.html`.
+3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `sedes.html`, `codigo_conducta.html`, `patrocinadores.html`, `faq.html`, `registro.html` y `speaker.html`.
 4. Si agregas una página pública, parte de una existente para mantener `lang`, `viewport`, favicon, hojas de estilo, `canonical`, metadatos Open Graph y el enlace al Código de Conducta. Añade además la URL a `sitemap.xml` y la navegación donde corresponda.
 5. Mantén las fechas, sede, precios, CFP y beneficios como “por anunciar” hasta contar con confirmación pública. No publiques notas operativas, datos personales ni decisiones pendientes.
+
+### Patrocinadores
+
+La lista vive en [`2026/patrocinadores.html`](2026/patrocinadores.html) como HTML plano, sin fuente de datos aparte: el orden de los niveles y de las marcas dentro de cada nivel es el que aprueba el Comité Organizador, y se lee tal cual en el archivo. El procedimiento completo —dónde va el logo, qué formato, cómo se escribe el `alt`, cómo se marca una marca acordada pero aún sin anuncio y cómo se retira una— está en un comentario al inicio de la sección, junto a la plantilla que se copia.
+
+> [!WARNING]
+> Aquí solo entra lo que el Comité Organizador confirmó por escrito. Una negociación avanzada no es una confirmación, y publicar una marca sin autorización es un problema legal, no un detalle de diseño. Para lo acordado sin anuncio público está la variante `.sponsor-card--pending`, que reserva el espacio sin mostrar logo ni nombre.
+
+Los logos van en `2026/img/patrocinadores/`, en SVG cuando exista y en PNG con fondo transparente cuando no. Al retirar un patrocinador, borra también su archivo.
 
 ### Prototipo Reflex
 
