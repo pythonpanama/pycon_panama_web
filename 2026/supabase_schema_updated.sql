@@ -22,6 +22,13 @@ FOR INSERT
 TO anon, authenticated
 WITH CHECK (true);
 
+-- Seguridad: estos registros contienen datos personales. El navegador solo
+-- puede insertar; nunca debe poder leer, actualizar o borrar filas existentes.
+-- REVOKE FROM PUBLIC cubre privilegios heredados por anon/authenticated.
+REVOKE ALL PRIVILEGES ON TABLE public.registrations FROM PUBLIC;
+REVOKE ALL PRIVILEGES ON TABLE public.registrations FROM anon, authenticated;
+GRANT INSERT ON TABLE public.registrations TO anon, authenticated;
+
 
 -- 2. Asegurar columnas dedicadas en la tabla 'public.speakers'
 ALTER TABLE public.speakers ADD COLUMN IF NOT EXISTS phone TEXT;
@@ -43,3 +50,8 @@ ON public.speakers
 FOR INSERT
 TO anon, authenticated
 WITH CHECK (true);
+
+-- Misma protección para postulaciones: solo inserción pública, sin lectura.
+REVOKE ALL PRIVILEGES ON TABLE public.speakers FROM PUBLIC;
+REVOKE ALL PRIVILEGES ON TABLE public.speakers FROM anon, authenticated;
+GRANT INSERT ON TABLE public.speakers TO anon, authenticated;
