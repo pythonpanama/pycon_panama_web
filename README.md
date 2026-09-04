@@ -45,7 +45,7 @@ Sirve desde la **raíz** del repositorio, no desde `2026/`: así las rutas absol
 
 Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robots.txt`, `sitemap.xml`, `favicon.ico` y `fix_paths.sh`.
 
-`docs/` y `docs-internas/` son documentación local no publicada. Están ignoradas intencionalmente, no deben añadirse al control de versiones ni enlazarse desde el sitio. La información pública se mantiene en las páginas de la edición correspondiente.
+Este repositorio contiene solo el sitio. Todo lo que se versiona aquí se publica: `netlify.toml` despliega la raíz completa, así que no añadas al control de versiones archivos que no deban ser públicos ni los enlaces desde las páginas. La información pública se mantiene en las páginas de la edición correspondiente.
 
 El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se evita editar una copia anidada y desactualizada del sitio.
 
@@ -116,7 +116,7 @@ El flujo esperado es:
 3. Integrar en `main` tras la revisión correspondiente; Netlify realiza la publicación configurada.
 4. Confirmar en producción la ruta modificada y, si aplica, la redirección raíz.
 
-No modifiques `netlify.toml` para publicar documentación interna ni para cambiar la edición activa sin una decisión explícita del equipo organizador.
+No modifiques `netlify.toml` para cambiar la edición activa ni para publicar rutas adicionales sin una decisión explícita del equipo organizador.
 
 ## Contribuir
 

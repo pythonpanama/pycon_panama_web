@@ -50,9 +50,8 @@ build/
 *.tmp
 *.bak
 
-# Documentación de trabajo del equipo organizador — no debe publicarse
+# Rutas de trabajo local que nunca deben publicarse: netlify.toml despliega con
+# publish = ".", así que cualquier archivo versionado aquí queda público.
 docs-internas/
 docs/
-
-# Configuración local de Claude Code — no debe publicarse
 .claude/
