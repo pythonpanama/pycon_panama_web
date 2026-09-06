@@ -44,6 +44,6 @@ históricos ni cambiar permisos o políticas RLS.
 Verificar tipos de columnas y conteos antes y después, y probar ambos formularios
 con una base aislada antes del despliegue. La migración preparada no implica que
 ya esté aplicada en producción. Mantener `COC_VERSION` sincronizada con el Código
-publicado: actualmente `1.0`; cambiarla al publicar una nueva versión del texto.
+publicado: actualmente `1.1`; cambiarla al publicar una nueva versión del texto.
 
 Pruebas de consentimiento desde la raíz: `node --test tests/consent-coc.cjs`.
