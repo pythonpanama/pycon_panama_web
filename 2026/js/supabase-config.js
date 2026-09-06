@@ -4,6 +4,9 @@
  * Incluye envío nativo REST fetch y SDK para máxima compatibilidad en navegadores.
  */
 
+// Debe coincidir con la versión publicada en codigo_conducta.html.
+var COC_VERSION = '1.1';
+
 var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
 var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';
 
@@ -90,6 +93,10 @@ async function registrarAsistente(datos) {
 
   // El formulario exige marcar la casilla; aquí se comprueba de nuevo para que
   // ningún otro consumidor del módulo pueda guardar un consentimiento supuesto.
+  if (!consentimientoOtorgado(datos.consent_coc)) {
+    return { success: false, friendlyMessage: 'Debes aceptar el Código de Conducta antes de enviar el formulario.' };
+  }
+
   if (!consentimientoOtorgado(datos.consent_photos)) {
     return {
       success: false,
@@ -115,6 +122,9 @@ async function registrarAsistente(datos) {
     expectativas: datos.expectativas || null,
     accessibility: extraAccessibility.length ? extraAccessibility.join(' | ') : null,
     consent_photos: true,
+    consent_coc: true,
+    consent_coc_version: COC_VERSION,
+    consent_coc_at: new Date().toISOString(),
     created_at: new Date().toISOString()
   };
 
@@ -171,6 +181,10 @@ async function registrarSpeaker(datos) {
     };
   }
 
+  if (!consentimientoOtorgado(datos.consent_coc)) {
+    return { success: false, friendlyMessage: 'Debes aceptar el Código de Conducta antes de enviar el formulario.' };
+  }
+
   if (!consentimientoOtorgado(datos.consent_publication)) {
     return {
       success: false,
@@ -201,6 +215,9 @@ async function registrarSpeaker(datos) {
     language: datos.idioma || 'Español',
     links: datos.redes_sociales || datos.links || null,
     consent_publication: true,
+    consent_coc: true,
+    consent_coc_version: COC_VERSION,
+    consent_coc_at: new Date().toISOString(),
     created_at: new Date().toISOString()
   };
 
@@ -243,6 +260,7 @@ async function registrarSpeaker(datos) {
 
 // Exportar funciones globalmente
 window.PyConSupabase = {
+  COC_VERSION,
   registrarAsistente,
   registrarSpeaker,
   postToSupabaseRest

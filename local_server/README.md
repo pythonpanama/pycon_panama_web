@@ -30,3 +30,20 @@ curl http://127.0.0.1:9000/_/health
    propiedad se rechaza con `400`. Si añades una columna al esquema, actualiza `TABLE_SCHEMAS` en `index.js`.
 
 El sitio público actual se conecta con la clave anónima de Supabase mediante `2026/js/env.js`; este proxy no forma parte de su despliegue. Antes de cualquier cambio, valida que las políticas RLS y los nombres de tabla del proyecto de Supabase son los correctos.
+
+### Aceptación del Código de Conducta (#107)
+
+Los envíos a `registrations` y `speakers` requieren `consent_coc: true`,
+`consent_coc_version` (texto no vacío) y `consent_coc_at` (fecha válida).
+Antes de desplegar los formularios, aplicar como administrador la migración local
+`docs-internas/referencia/supabase/107_aceptacion_codigo_conducta.sql`.
+Ese archivo está excluido de Git y del sitio publicado; debe transferirse por la
+vía administrativa privada. Añade columnas sin atribuir aceptación a registros
+históricos ni cambiar permisos o políticas RLS.
+
+Verificar tipos de columnas y conteos antes y después, y probar ambos formularios
+con una base aislada antes del despliegue. La migración preparada no implica que
+ya esté aplicada en producción. Mantener `COC_VERSION` sincronizada con el Código
+publicado: actualmente `1.1`; cambiarla al publicar una nueva versión del texto.
+
+Pruebas de consentimiento desde la raíz: `node --test tests/consent-coc.cjs`.

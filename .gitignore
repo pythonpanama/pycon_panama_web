@@ -13,6 +13,7 @@ Desktop.ini
 # Editores / IDEs
 .vscode/
 .idea/
+*.iml
 *.swp
 *.swo
 *~
@@ -24,29 +25,69 @@ __pycache__/
 .venv/
 venv/
 env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+htmlcov/
 *.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite*-journal
+*.sqlite*-shm
+*.sqlite*-wal
 
 # Node
 node_modules/
 npm-debug.log*
 yarn-error.log*
-local_server/.env
+yarn-debug.log*
+pnpm-debug.log*
+.npm/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
 
 # Variables de entorno
 .env
 .env.*
 !.env.example
+!.env.*.example
+!.env.sample
+!.env.template
 /2026/js/env.js
 
 # Build / despliegue
 .netlify/
 dist/
 build/
+.cache/
+.sass-cache/
+
+# Resultados de pruebas y cobertura (conservar los tests fuente)
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
 
 # Logs y temporales
 *.log
 *.tmp
 *.bak
+*.temp
+*.orig
+*.rej
+*.pid
+*.pid.lock
+/tmp/
+/temp/
 
 # Rutas de trabajo local que nunca deben publicarse: netlify.toml despliega con
 # publish = ".", así que cualquier archivo versionado aquí queda público.
