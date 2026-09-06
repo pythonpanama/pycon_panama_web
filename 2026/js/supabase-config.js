@@ -5,7 +5,7 @@
  */
 
 // Debe coincidir con la versión publicada en codigo_conducta.html.
-var COC_VERSION = '1.0';
+var COC_VERSION = '1.1';
 
 var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
 var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';

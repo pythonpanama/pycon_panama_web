@@ -966,6 +966,14 @@ button[type="submit"], .btn {
   margin-top: 0.2rem;
 }
 
+/* Aclaración común a las casillas: se alinea con su texto, no con la casilla. */
+.checkbox-note {
+  margin: 0;
+  padding-left: 1.7rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+}
+
 .status-message {
   min-height: 1.5rem;
   margin-top: 0.25rem;

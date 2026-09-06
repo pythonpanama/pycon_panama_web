@@ -120,6 +120,13 @@
             margin-top: 0.2rem;
         }
 
+        .checkbox-note {
+            margin: 0;
+            padding-left: 1.7rem;
+            color: var(--text-secondary);
+            font-size: var(--fs-xs);
+        }
+
         .status-message {
             min-height: 1.5rem;
             margin-top: 0.25rem;
@@ -261,14 +268,16 @@
                                 <input id="consent_coc" name="consent_coc" type="checkbox" required>
                                 <span>He leído y acepto el
                                     <a class="internal-link" href="codigo_conducta.html" target="_blank"
-                                        rel="noopener">Código de Conducta</a> de PyCon Panamá 2026. Se abre en
-                                    una pestaña nueva para que no pierdas lo que ya escribiste.</span>
+                                        rel="noopener">Código de Conducta</a> de PyCon Panamá 2026.</span>
                             </label>
                             <label class="checkbox-item" for="consent_photos">
                                 <input id="consent_photos" name="consent_photos" type="checkbox" required>
                                 <span>Acepto el tratamiento de mis datos personales de conformidad con la Ley 81
-                                    de 2019.</span>
+                                    de 2019, según el <a class="internal-link" href="privacidad.html"
+                                        target="_blank" rel="noopener">Aviso de Privacidad</a>.</span>
                             </label>
+                            <p class="checkbox-note">Ambos enlaces se abren en una pestaña nueva para que no
+                                pierdas lo que ya escribiste.</p>
                         </div>
 
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
@@ -281,7 +290,7 @@
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a></p>
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a> · <a class="internal-link" href="privacidad.html">Aviso de Privacidad</a></p>
             <nav class="footer-social" aria-label="Redes sociales">
                 <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
