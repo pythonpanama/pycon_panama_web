@@ -43,7 +43,7 @@ Sirve desde la **raíz** del repositorio, no desde `2026/`: así las rutas absol
 | [`local_server/`](local_server/README.md) | Proxy opcional, limitado a `127.0.0.1`, para pruebas locales con Supabase. Usa una clave privilegiada. | Solo para desarrollo local; jamás se publica |
 | [`netlify.toml`](netlify.toml) | Publicación, redirección de `/` a `/2026/` y cabeceras HTTP. | Con revisión cuidadosa |
 
-Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robots.txt`, `sitemap.xml`, `favicon.ico` y `fix_paths.sh`.
+Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robots.txt`, `sitemap.xml` y `favicon.ico`.
 
 Este repositorio contiene solo el sitio. Todo lo que se versiona aquí se publica: `netlify.toml` despliega la raíz completa, así que no añadas al control de versiones archivos que no deban ser públicos ni los enlaces desde las páginas. La información pública se mantiene en las páginas de la edición correspondiente.
 
