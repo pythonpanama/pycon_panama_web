@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "2026/**"
+      - "tests/**"
       - "scripts/validate_site.py"
       - "sitemap.xml"
       - "robots.txt"
@@ -33,5 +34,7 @@ jobs:
         run: |
           node --check 2026/js/main.js
           node --check 2026/js/supabase-config.js
+      - name: Check consent persistence and Code of Conduct version
+        run: node tests/consent-coc.cjs
       - name: Check whitespace errors
         run: git diff --check HEAD^ HEAD
