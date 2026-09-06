@@ -60,8 +60,8 @@ El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se e
 
 1. Crea una rama desde `main` y delimita el cambio a una edición o propósito claro.
 2. Para contenido de 2026, modifica los archivos de [`2026/`](2026/). Conserva la estructura semántica y los estilos compartidos en `2026/css/`.
-3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `sedes.html`, `codigo_conducta.html`, `patrocinadores.html`, `faq.html`, `registro.html` y `speaker.html`.
-4. Si agregas una página pública, parte de una existente para mantener `lang`, `viewport`, favicon, hojas de estilo, `canonical`, metadatos Open Graph y el enlace al Código de Conducta. Añade además la URL a `sitemap.xml` y la navegación donde corresponda.
+3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `sedes.html`, `codigo_conducta.html`, `privacidad.html`, `patrocinadores.html`, `faq.html`, `registro.html` y `speaker.html`.
+4. Si agregas una página pública, parte de una existente para mantener `lang`, `viewport`, favicon, hojas de estilo, `canonical`, metadatos Open Graph y el enlace al Código de Conducta. Añade además la URL a `sitemap.xml` **y a `SITEMAP_REQUIRED` en [`scripts/validate_site.py`](scripts/validate_site.py)**: el validador compara ambas listas y falla si difieren. Enlázala desde la navegación o el pie según corresponda.
 5. Mantén las fechas, sede, precios, CFP y beneficios como “por anunciar” hasta contar con confirmación pública. No publiques notas operativas, datos personales ni decisiones pendientes.
 
 ### Patrocinadores

@@ -34,6 +34,7 @@ SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/codigo_conducta.html",
     f"{CANONICAL_BASE}/2026/faq.html",
     f"{CANONICAL_BASE}/2026/patrocinadores.html",
+    f"{CANONICAL_BASE}/2026/privacidad.html",
     f"{CANONICAL_BASE}/2026/registro.html",
     f"{CANONICAL_BASE}/2026/sedes.html",
     f"{CANONICAL_BASE}/2026/speaker.html",
