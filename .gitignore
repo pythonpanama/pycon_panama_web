@@ -17,15 +17,13 @@ Desktop.ini
 *.swo
 *~
 
-# Python / Reflex (2026_dev)
+# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
 venv/
 env/
-.web/
-.states/
 *.db
 
 # Node

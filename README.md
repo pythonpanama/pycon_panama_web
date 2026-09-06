@@ -37,9 +37,7 @@ Sirve desde la **raíz** del repositorio, no desde `2026/`: así las rutas absol
 | Ruta | Uso | ¿Se edita normalmente? |
 | --- | --- | --- |
 | [`2026/`](2026/) | Edición pública activa: HTML, CSS y JavaScript sin framework. | Sí |
-| [`2027/`](2027/) | Export generado de una edición futura. | No, salvo regeneración deliberada |
 | [`2025/`](2025/) y [`2024/`](2024/) | Ediciones archivadas. | No, excepto correcciones puntuales |
-| [`2026_dev/`](2026_dev/README.md) | Prototipo independiente en Reflex; no se despliega desde aquí. | Solo si se trabaja en el prototipo |
 | [`local_server/`](local_server/README.md) | Proxy opcional, limitado a `127.0.0.1`, para pruebas locales con Supabase. Usa una clave privilegiada. | Solo para desarrollo local; jamás se publica |
 | [`netlify.toml`](netlify.toml) | Publicación, redirección de `/` a `/2026/` y cabeceras HTTP. | Con revisión cuidadosa |
 
@@ -65,20 +63,6 @@ La lista vive en [`2026/patrocinadores.html`](2026/patrocinadores.html) como HTM
 > Aquí solo entra lo que el Comité Organizador confirmó por escrito. Una negociación avanzada no es una confirmación, y publicar una marca sin autorización es un problema legal, no un detalle de diseño. Para lo acordado sin anuncio público está la variante `.sponsor-card--pending`, que reserva el espacio sin mostrar logo ni nombre.
 
 Los logos van en `2026/img/patrocinadores/`, en SVG cuando exista y en PNG con fondo transparente cuando no. Al retirar un patrocinador, borra también su archivo.
-
-### Prototipo Reflex
-
-El prototipo de `2026_dev/` tiene su propio ciclo de desarrollo y dependencias:
-
-```bash
-cd 2026_dev
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-reflex run
-```
-
-Consulta [su README](2026_dev/README.md) antes de modificarlo. Un cambio en el prototipo no cambia por sí mismo el sitio estático publicado.
 
 ## Validar antes de proponer cambios
 
@@ -140,7 +124,6 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 ## Documentación y contacto
 
 - [Edición 2026](2026/): sitio actualmente publicado.
-- [Prototipo Reflex 2026](2026_dev/README.md): aplicación experimental, fuera del despliegue estático.
 - [Python Panamá](https://pythonpanama.org) · [Instagram](https://www.instagram.com/pythonpanama/) · [Facebook](https://www.facebook.com/profile.php?id=100078380970388) · [LinkedIn](https://linkedin.com/company/pythonpanama) · [Meetup](https://www.meetup.com/python-panama/)
 
 Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com).
