@@ -37,7 +37,7 @@ SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/privacidad.html",
     f"{CANONICAL_BASE}/2026/registro.html",
     f"{CANONICAL_BASE}/2026/sedes.html",
-    f"{CANONICAL_BASE}/2026/speaker.html",
+    f"{CANONICAL_BASE}/2026/ponentes.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "javascript", "mailto", "tel"}
 USER_AGENT = "PyConPanamaSiteValidator/1.0 (+https://github.com/pythonpanama/pycon_panama_web)"

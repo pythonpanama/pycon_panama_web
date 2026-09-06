@@ -17,7 +17,13 @@ status = 301
 
 [[redirects]]
 from = "/2026/form/speaker.html"
-to = "/2026/speaker.html"
+to = "/2026/ponentes.html"
+status = 301
+
+# La página de ponentes se llamó speaker.html hasta septiembre de 2026.
+[[redirects]]
+from = "/2026/speaker.html"
+to = "/2026/ponentes.html"
 status = 301
 
 [[headers]]

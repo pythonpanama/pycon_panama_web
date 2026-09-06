@@ -1,6 +1,6 @@
 /**
  * PyCon Panamá 2026 - Integración con Base de Datos (Supabase REST API)
- * Este módulo gestiona la conexión para el registro de asistentes y speakers.
+ * Este módulo gestiona la conexión para el registro de asistentes y ponentes.
  * Incluye envío nativo REST fetch y SDK para máxima compatibilidad en navegadores.
  */
 
@@ -229,7 +229,7 @@ async function registrarSpeaker(datos) {
       const client = window.supabase.createClient(url, key);
       const { error } = await client.from('speakers').insert([payload]);
       if (!error) {
-        console.log('✅ Propuesta de speaker guardada');
+        console.log('✅ Propuesta de ponente guardada');
         return { success: true };
       }
       if (!servidorRechazoDefinitivamente(error)) {
@@ -246,10 +246,10 @@ async function registrarSpeaker(datos) {
   // Fallback seguro: Envío HTTP REST directo, sin reintentos posteriores
   try {
     await postToSupabaseRest('speakers', payload);
-    console.log('✅ Propuesta de speaker guardada');
+    console.log('✅ Propuesta de ponente guardada');
     return { success: true };
   } catch (err) {
-    console.error('❌ Error al registrar speaker:', err);
+    console.error('❌ Error al registrar ponente:', err);
     return {
       success: false,
       error: err,
