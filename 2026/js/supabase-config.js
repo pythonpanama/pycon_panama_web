@@ -7,6 +7,10 @@
 var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
 var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';
 
+// Cuando no se sabe si la escritura se confirmó, no se reintenta sola: pedimos
+// verificación humana para no crear un registro duplicado.
+var MENSAJE_RESULTADO_DESCONOCIDO = 'No pudimos confirmar si tu envío quedó guardado. Escríbenos a pyconpanama@gmail.com antes de intentarlo otra vez para no duplicar tu registro.';
+
 function getSupabaseUrl() {
   if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url) {
     return window.SUPABASE_CONFIG.url;
@@ -19,6 +23,26 @@ function getSupabaseAnonKey() {
     return window.SUPABASE_CONFIG.anonKey;
   }
   return window.SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
+}
+
+/**
+ * El consentimiento solo cuenta como otorgado cuando llega el booleano true.
+ * Boolean() convertiría en afirmativos valores como "false", "0" o "no", y un
+ * campo ausente nunca debe registrarse como autorización concedida.
+ */
+function consentimientoOtorgado(valor) {
+  return valor === true;
+}
+
+/**
+ * Distingue un rechazo definitivo del servidor de un resultado desconocido.
+ * PostgREST acompaña sus rechazos con un código de error, así que la fila no
+ * llegó a escribirse y reintentar es seguro. Sin código (fallo de red o de
+ * transporte) el INSERT pudo haberse confirmado igualmente: repetirlo
+ * duplicaría el registro, por lo que se detiene el envío.
+ */
+function servidorRechazoDefinitivamente(error) {
+  return Boolean(error) && typeof error.code === 'string' && error.code.trim() !== '';
 }
 
 /**
@@ -64,6 +88,15 @@ async function registrarAsistente(datos) {
     };
   }
 
+  // El formulario exige marcar la casilla; aquí se comprueba de nuevo para que
+  // ningún otro consumidor del módulo pueda guardar un consentimiento supuesto.
+  if (!consentimientoOtorgado(datos.consent_photos)) {
+    return {
+      success: false,
+      friendlyMessage: 'Necesitamos tu autorización explícita para el uso de fotografías y video antes de guardar el registro.'
+    };
+  }
+
   const extraAccessibility = [];
   if (datos.dias && datos.dias.length) {
     extraAccessibility.push('Días de asistencia: ' + (Array.isArray(datos.dias) ? datos.dias.join(', ') : datos.dias));
@@ -81,7 +114,7 @@ async function registrarAsistente(datos) {
     dias: Array.isArray(datos.dias) ? datos.dias.join(', ') : (datos.dias || null),
     expectativas: datos.expectativas || null,
     accessibility: extraAccessibility.length ? extraAccessibility.join(' | ') : null,
-    consent_photos: datos.consent_photos !== undefined ? Boolean(datos.consent_photos) : true,
+    consent_photos: true,
     created_at: new Date().toISOString()
   };
 
@@ -96,13 +129,19 @@ async function registrarAsistente(datos) {
         console.log('✅ Registro de asistente guardado');
         return { success: true };
       }
-      if (error) console.warn('⚠️ SDK falló, intentando envío directo REST API...', error);
+      if (!servidorRechazoDefinitivamente(error)) {
+        console.error('❌ Resultado desconocido al registrar asistente; no se reintenta:', error);
+        return { success: false, error, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
+      }
+      console.warn('⚠️ El servidor rechazó el INSERT del SDK, intentando envío directo REST API...', error);
     } catch (e) {
-      console.warn('⚠️ Excepción en SDK, intentando envío directo REST API...', e);
+      // Una excepción deja el resultado en el aire: el INSERT pudo confirmarse.
+      console.error('❌ Excepción en el SDK al registrar asistente; no se reintenta:', e);
+      return { success: false, error: e, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
     }
   }
 
-  // Fallback seguro: Envío HTTP REST directo
+  // Fallback seguro: Envío HTTP REST directo, sin reintentos posteriores
   try {
     await postToSupabaseRest('registrations', payload);
     console.log('✅ Registro de asistente guardado');
@@ -112,7 +151,7 @@ async function registrarAsistente(datos) {
     return {
       success: false,
       error: err,
-      friendlyMessage: 'Ocurrió un error al guardar tu registro: ' + (err.message || String(err))
+      friendlyMessage: 'Ocurrió un error al guardar tu registro. Vuelve a intentarlo en unos minutos o escríbenos a pyconpanama@gmail.com.'
     };
   }
 }
@@ -129,6 +168,13 @@ async function registrarSpeaker(datos) {
     return {
       success: false,
       friendlyMessage: 'Error de configuración: Faltan las credenciales de conexión.'
+    };
+  }
+
+  if (!consentimientoOtorgado(datos.consent_publication)) {
+    return {
+      success: false,
+      friendlyMessage: 'Necesitamos tu autorización explícita para publicar la propuesta antes de enviarla.'
     };
   }
 
@@ -154,7 +200,7 @@ async function registrarSpeaker(datos) {
     duration: datos.duracion ? parseInt(datos.duracion) : 30,
     language: datos.idioma || 'Español',
     links: datos.redes_sociales || datos.links || null,
-    consent_publication: datos.consent_publication !== undefined ? Boolean(datos.consent_publication) : true,
+    consent_publication: true,
     created_at: new Date().toISOString()
   };
 
@@ -169,13 +215,18 @@ async function registrarSpeaker(datos) {
         console.log('✅ Propuesta de speaker guardada');
         return { success: true };
       }
-      if (error) console.warn('⚠️ SDK falló, intentando envío directo REST API...', error);
+      if (!servidorRechazoDefinitivamente(error)) {
+        console.error('❌ Resultado desconocido al registrar la propuesta; no se reintenta:', error);
+        return { success: false, error, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
+      }
+      console.warn('⚠️ El servidor rechazó el INSERT del SDK, intentando envío directo REST API...', error);
     } catch (e) {
-      console.warn('⚠️ Excepción en SDK, intentando envío directo REST API...', e);
+      console.error('❌ Excepción en el SDK al registrar la propuesta; no se reintenta:', e);
+      return { success: false, error: e, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
     }
   }
 
-  // Fallback seguro: Envío HTTP REST directo
+  // Fallback seguro: Envío HTTP REST directo, sin reintentos posteriores
   try {
     await postToSupabaseRest('speakers', payload);
     console.log('✅ Propuesta de speaker guardada');
@@ -185,7 +236,7 @@ async function registrarSpeaker(datos) {
     return {
       success: false,
       error: err,
-      friendlyMessage: 'Ocurrió un error al enviar tu propuesta: ' + (err.message || String(err))
+      friendlyMessage: 'Ocurrió un error al enviar tu propuesta. Vuelve a intentarlo en unos minutos o escríbenos a pyconpanama@gmail.com.'
     };
   }
 }
