@@ -25,5 +25,8 @@ curl http://127.0.0.1:9000/_/health
 ```
 
 5. Úsalo únicamente desde un formulario local que envíe JSON con `table` y `payload` a `http://127.0.0.1:9000/submit`.
+   `payload` debe ser un objeto plano. Para `registrations` y `speakers` el proxy comprueba, antes de llamar a Supabase,
+   que solo lleguen las columnas conocidas, con el tipo esperado y con los campos obligatorios presentes; cualquier otra
+   propiedad se rechaza con `400`. Si añades una columna al esquema, actualiza `TABLE_SCHEMAS` en `index.js`.
 
 El sitio público actual se conecta con la clave anónima de Supabase mediante `2026/js/env.js`; este proxy no forma parte de su despliegue. Antes de cualquier cambio, valida que las políticas RLS y los nombres de tabla del proyecto de Supabase son los correctos.

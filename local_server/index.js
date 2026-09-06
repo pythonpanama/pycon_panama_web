@@ -30,6 +30,127 @@ try {
   throw new Error('SUPABASE_URL must be a valid URL.');
 }
 
+// Esquema por tabla. El proxy habla con Supabase usando la clave de servicio,
+// que ignora RLS, así que no delega la validación aguas abajo: solo deja pasar
+// las propiedades conocidas y con el tipo esperado. Las tablas que no estén
+// aquí quedan sujetas a las reglas genéricas de plainObject/valores escalares.
+const TABLE_SCHEMAS = {
+  registrations: {
+    required: ['name', 'email'],
+    fields: {
+      name: 'string',
+      email: 'string',
+      phone: 'string',
+      role: 'string',
+      organization: 'string',
+      dias: 'string',
+      expectativas: 'string',
+      accessibility: 'string',
+      consent_photos: 'boolean',
+      created_at: 'string'
+    }
+  },
+  speakers: {
+    required: ['name', 'email', 'title', 'abstract'],
+    fields: {
+      name: 'string',
+      email: 'string',
+      phone: 'string',
+      affiliation: 'string',
+      bio: 'string',
+      title: 'string',
+      abstract: 'string',
+      nivel: 'string',
+      modalidad: 'string',
+      duration: 'number',
+      language: 'string',
+      links: 'string',
+      consent_publication: 'boolean',
+      created_at: 'string'
+    }
+  }
+};
+
+const MAX_KEYS = 40;
+const MAX_STRING_LENGTH = 5000;
+const KEY_PATTERN = /^[a-zA-Z][a-zA-Z0-9_]{0,62}$/;
+
+// Un JSON como "invalid-string", 42 o [] no es un registro: se rechaza antes de
+// llegar al servicio privilegiado. Solo se aceptan objetos planos, sin
+// prototipo ajeno, para que no viajen __proto__ ni claves heredadas.
+function isPlainObject(value) {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    return false;
+  }
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+}
+
+function hasValidType(value, expected) {
+  if (value === null) {
+    return true;
+  }
+  if (expected === 'string') {
+    return typeof value === 'string' && value.length <= MAX_STRING_LENGTH;
+  }
+  if (expected === 'number') {
+    return typeof value === 'number' && Number.isFinite(value);
+  }
+  if (expected === 'boolean') {
+    return typeof value === 'boolean';
+  }
+  return false;
+}
+
+function isAllowedScalar(value) {
+  return (
+    value === null ||
+    typeof value === 'boolean' ||
+    (typeof value === 'number' && Number.isFinite(value)) ||
+    (typeof value === 'string' && value.length <= MAX_STRING_LENGTH)
+  );
+}
+
+function validatePayload(table, payload) {
+  if (!isPlainObject(payload)) {
+    return 'Payload must be a plain object.';
+  }
+
+  const keys = Object.keys(payload);
+  if (!keys.length) {
+    return 'Payload must not be empty.';
+  }
+  if (keys.length > MAX_KEYS) {
+    return 'Payload has too many properties.';
+  }
+  if (!keys.every((key) => KEY_PATTERN.test(key))) {
+    return 'Payload contains an invalid property name.';
+  }
+
+  const schema = TABLE_SCHEMAS[table];
+  if (!schema) {
+    return keys.every((key) => isAllowedScalar(payload[key]))
+      ? null
+      : 'Payload values must be strings, numbers, booleans or null.';
+  }
+
+  const missing = schema.required.find(
+    (field) => payload[field] === undefined || payload[field] === null || payload[field] === ''
+  );
+  if (missing) {
+    return `Missing required property: ${missing}.`;
+  }
+
+  const invalid = keys.find(
+    (key) => !schema.fields[key] || !hasValidType(payload[key], schema.fields[key])
+  );
+  if (invalid) {
+    return `Invalid property: ${invalid}.`;
+  }
+
+  return null;
+}
+
 app.disable('x-powered-by');
 app.use(cors({
   origin(origin, callback) {
@@ -55,7 +176,13 @@ app.get('/_/health', (req, res) => res.json({ ok: true }));
 
 app.post('/submit', async (req, res) => {
   const { table, payload } = req.body || {};
-  if (typeof table !== 'string' || !allowedTables.has(table) || !payload || Array.isArray(payload)) {
+  if (typeof table !== 'string' || !allowedTables.has(table)) {
+    return res.status(400).json({ error: 'Invalid submission.' });
+  }
+
+  const validationError = validatePayload(table, payload);
+  if (validationError) {
+    console.warn('Rejected submission:', validationError);
     return res.status(400).json({ error: 'Invalid submission.' });
   }
 
