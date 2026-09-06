@@ -43,6 +43,15 @@ Sirve desde la **raíz** del repositorio, no desde `2026/`: así las rutas absol
 
 Otros archivos de la raíz cumplen funciones de publicación: `404.html`, `robots.txt`, `sitemap.xml` y `favicon.ico`.
 
+> [!IMPORTANT]
+> **El esquema de la base de datos no se versiona aquí.** Los formularios de
+> `2026/` escriben en Supabase, pero los scripts que crean las tablas y fijan sus
+> privilegios viven en el repositorio privado `pycon_panama_docs`, en
+> `docs-internas/referencia/supabase/`. Estuvieron en `2026/` hasta el 6 de
+> septiembre de 2026 y, al publicarse la raíz, eran descargables desde
+> `pycon.pa`: un `.sql` público entrega el mapa de tablas y columnas y, sobre
+> todo, el inventario de las defensas aplicadas. No los traigas de vuelta.
+
 Este repositorio contiene solo el sitio. Todo lo que se versiona aquí se publica: `netlify.toml` despliega la raíz completa, así que no añadas al control de versiones archivos que no deban ser públicos ni los enlaces desde las páginas. La información pública se mantiene en las páginas de la edición correspondiente.
 
 El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se evita editar una copia anidada y desactualizada del sitio.

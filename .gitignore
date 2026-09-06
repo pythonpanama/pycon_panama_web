@@ -53,3 +53,7 @@ build/
 docs-internas/
 docs/
 .claude/
+
+# El esquema de Supabase vive en el repositorio privado pycon_panama_docs: un
+# .sql aquí queda descargable desde pycon.pa.
+*.sql
