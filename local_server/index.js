@@ -36,7 +36,7 @@ try {
 // aquí quedan sujetas a las reglas genéricas de plainObject/valores escalares.
 const TABLE_SCHEMAS = {
   registrations: {
-    required: ['name', 'email'],
+    required: ['name', 'email', 'consent_coc', 'consent_coc_version', 'consent_coc_at'],
     fields: {
       name: 'string',
       email: 'string',
@@ -47,11 +47,14 @@ const TABLE_SCHEMAS = {
       expectativas: 'string',
       accessibility: 'string',
       consent_photos: 'boolean',
+      consent_coc: 'boolean',
+      consent_coc_version: 'string',
+      consent_coc_at: 'string',
       created_at: 'string'
     }
   },
   speakers: {
-    required: ['name', 'email', 'title', 'abstract'],
+    required: ['name', 'email', 'title', 'abstract', 'consent_coc', 'consent_coc_version', 'consent_coc_at'],
     fields: {
       name: 'string',
       email: 'string',
@@ -66,6 +69,9 @@ const TABLE_SCHEMAS = {
       language: 'string',
       links: 'string',
       consent_publication: 'boolean',
+      consent_coc: 'boolean',
+      consent_coc_version: 'string',
+      consent_coc_at: 'string',
       created_at: 'string'
     }
   }
@@ -146,6 +152,11 @@ function validatePayload(table, payload) {
   );
   if (invalid) {
     return `Invalid property: ${invalid}.`;
+  }
+
+  if (payload.consent_coc !== true || !payload.consent_coc_version.trim() ||
+      !Number.isFinite(Date.parse(payload.consent_coc_at))) {
+    return 'Explicit Code of Conduct consent, version and valid timestamp are required.';
   }
 
   return null;

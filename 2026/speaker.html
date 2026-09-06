@@ -107,6 +107,11 @@
             border-color: var(--accent);
         }
 
+        .checkboxes {
+            display: grid;
+            gap: 0.6rem;
+        }
+
         .checkbox-item {
             display: grid;
             grid-template-columns: 1.1rem minmax(0, 1fr);
@@ -268,10 +273,20 @@
                             <input id="redes_sociales" name="redes_sociales" type="text" placeholder="https://linkedin.com/in/tu-perfil">
                         </div>
 
-                        <label class="checkbox-item" for="consent_publication">
-                            <input id="consent_publication" name="consent_publication" type="checkbox" required>
-                            Acepto el tratamiento de mis datos personales de conformidad con la Ley 81 de 2019.
-                        </label>
+                        <div class="checkboxes">
+                            <label class="checkbox-item" for="consent_coc">
+                                <input id="consent_coc" name="consent_coc" type="checkbox" required>
+                                <span>He leído y acepto el
+                                    <a class="internal-link" href="codigo_conducta.html" target="_blank"
+                                        rel="noopener">Código de Conducta</a> de PyCon Panamá 2026. Se abre en
+                                    una pestaña nueva para que no pierdas lo que ya escribiste.</span>
+                            </label>
+                            <label class="checkbox-item" for="consent_publication">
+                                <input id="consent_publication" name="consent_publication" type="checkbox" required>
+                                <span>Acepto el tratamiento de mis datos personales de conformidad con la Ley 81
+                                    de 2019.</span>
+                            </label>
+                        </div>
 
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar propuesta de Speaker</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
@@ -308,6 +323,13 @@
             event.preventDefault();
 
             if (!form.checkValidity()) {
+                statusMessage.className = 'status-message error';
+                // Si lo único que falta es la casilla del Código de Conducta, se dice;
+                // si falta algo más, el mensaje genérico y reportValidity() lleva el
+                // foco al primer campo con problema.
+                statusMessage.textContent = form.querySelector(':invalid:not(#consent_coc)')
+                    ? 'Revisa los campos obligatorios del formulario.'
+                    : 'Para enviar tu propuesta tienes que aceptar el Código de Conducta.';
                 form.reportValidity();
                 return;
             }
@@ -328,7 +350,8 @@
                 nivel: document.getElementById('nivel').value,
                 modalidad: document.getElementById('modalidad').value,
                 redes_sociales: document.getElementById('redes_sociales').value.trim(),
-                consent_publication: document.getElementById('consent_publication').checked
+                consent_publication: document.getElementById('consent_publication').checked,
+                consent_coc: document.getElementById('consent_coc').checked
             };
 
             try {
