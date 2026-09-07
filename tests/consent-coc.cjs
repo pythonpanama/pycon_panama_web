@@ -40,10 +40,12 @@ for (const method of ['registrarAsistente', 'registrarSpeaker']) {
 test('registrarVoluntariado: exige consentimiento, roles y disponibilidad sin escribir', async () => {
   const valid = {
     nombre: 'Prueba', email: 'test@example.invalid', roles: ['registro'],
-    availability: ['jueves'], consent_coc: true, consent_privacy: true
+    availability: ['jueves'], experiencia: 'Experiencia comunitaria', motivacion: 'Quiero apoyar',
+    accesibilidad: 'No necesito ajustes', consent_coc: true, consent_privacy: true
   };
   for (const change of [
-    { consent_coc: false }, { consent_privacy: false }, { roles: [] }, { availability: [] }
+    { consent_coc: false }, { consent_privacy: false }, { roles: [] }, { availability: [] },
+    { experiencia: '' }, { motivacion: '' }, { accesibilidad: '' }
   ]) {
     const { api, writes } = setup();
     const result = await api.registrarVoluntariado({ ...valid, ...change });
@@ -57,7 +59,7 @@ test('registrarVoluntariado: envía una postulación centralizada y consentimien
   const result = await api.registrarVoluntariado({
     nombre: 'Prueba', email: 'test@example.invalid', telefono: '', ciudad: 'Panamá',
     provincia: 'Panamá', roles: ['registro', 'logistica'], availability: ['jueves', 'viernes'],
-    experiencia: 'Eventos comunitarios', motivacion: 'Quiero apoyar', accesibilidad: '',
+    experiencia: 'Eventos comunitarios', motivacion: 'Quiero apoyar', accesibilidad: 'No necesito ajustes',
     consent_coc: true, consent_privacy: true
   });
   assert.equal(result.success, true);

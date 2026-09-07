@@ -172,16 +172,17 @@
                         </fieldset>
 
                         <div class="field">
-                            <label for="experiencia">Experiencia o habilidades relevantes</label>
-                            <textarea id="experiencia" name="experiencia" maxlength="1000" placeholder="Puede ser experiencia comunitaria, técnica, logística o de atención al público."></textarea>
+                            <label for="experiencia">Experiencia o habilidades relevantes *</label>
+                            <textarea id="experiencia" name="experiencia" required minlength="5" maxlength="1000" placeholder="Puede ser experiencia comunitaria, técnica, logística o de atención al público."></textarea>
                         </div>
                         <div class="field">
-                            <label for="motivacion">¿Por qué te gustaría apoyar PyCon Panamá?</label>
-                            <textarea id="motivacion" name="motivacion" maxlength="1000"></textarea>
+                            <label for="motivacion">¿Por qué te gustaría apoyar PyCon Panamá? *</label>
+                            <textarea id="motivacion" name="motivacion" required minlength="5" maxlength="1000"></textarea>
                         </div>
                         <div class="field">
-                            <label for="accesibilidad">¿Necesitas algún ajuste para poder colaborar?</label>
-                            <textarea id="accesibilidad" name="accesibilidad" maxlength="500" placeholder="Opcional. Usaremos esta información únicamente para coordinar tu participación."></textarea>
+                            <label for="accesibilidad">¿Necesitas algún ajuste para poder colaborar? *</label>
+                            <textarea id="accesibilidad" name="accesibilidad" required minlength="2" maxlength="500" aria-describedby="accesibilidad-note" placeholder="Si no necesitas ajustes, escribe: No necesito ajustes."></textarea>
+                            <p id="accesibilidad-note" class="checkbox-note">Usaremos esta información únicamente para coordinar tu participación. No incluyas diagnósticos ni información médica.</p>
                         </div>
 
                         <div class="checkboxes">

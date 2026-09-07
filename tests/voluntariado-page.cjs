@@ -20,6 +20,10 @@ test('el formulario recoge funciones, disponibilidad y consentimientos explícit
   assert.ok((page.match(/name="availability"/g) || []).length >= 4);
   assert.match(page, /id="consent_coc"[^>]+required/);
   assert.match(page, /id="consent_privacy"[^>]+required/);
+  for (const field of ['experiencia', 'motivacion', 'accesibilidad']) {
+    assert.match(page, new RegExp(`id="${field}"[^>]+required`));
+  }
+  assert.match(page, /No necesito ajustes/);
   assert.match(page, /src="\.\.\/js\/voluntariado\.js"/);
 });
 

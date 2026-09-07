@@ -286,6 +286,15 @@ async function registrarVoluntariado(datos) {
   if (!Array.isArray(datos.availability) || datos.availability.length === 0) {
     return { success: false, friendlyMessage: 'Selecciona al menos un momento en el que puedas colaborar.' };
   }
+  if (!datos.experiencia || datos.experiencia.trim().length < 5) {
+    return { success: false, friendlyMessage: 'Describe brevemente tu experiencia o habilidades relevantes.' };
+  }
+  if (!datos.motivacion || datos.motivacion.trim().length < 5) {
+    return { success: false, friendlyMessage: 'Cuéntanos brevemente por qué deseas apoyar PyCon Panamá.' };
+  }
+  if (!datos.accesibilidad || datos.accesibilidad.trim().length < 2) {
+    return { success: false, friendlyMessage: 'Indica si necesitas algún ajuste para colaborar.' };
+  }
 
   const payload = {
     p_submission: {
