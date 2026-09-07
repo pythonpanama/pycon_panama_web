@@ -26,6 +26,11 @@ from = "/2026/speaker.html"
 to = "/2026/ponentes.html"
 status = 301
 
+[[redirects]]
+from = "/2026/voluntariado"
+to = "/2026/voluntariado/"
+status = 301
+
 [[headers]]
 for = "/*"
   [headers.values]
