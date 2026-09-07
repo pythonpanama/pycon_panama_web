@@ -14,6 +14,9 @@ test('la página usa la URL pública acordada y metadatos propios', () => {
 test('el formulario recoge funciones, disponibilidad y consentimientos explícitos', () => {
   assert.match(page, /id="volunteerForm"/);
   assert.ok((page.match(/name="roles"/g) || []).length >= 8);
+  for (const group of ['Operaciones y logística', 'Programa y experiencia', 'Comunicación y alianzas']) {
+    assert.match(page, new RegExp(group));
+  }
   assert.ok((page.match(/name="availability"/g) || []).length >= 4);
   assert.match(page, /id="consent_coc"[^>]+required/);
   assert.match(page, /id="consent_privacy"[^>]+required/);
