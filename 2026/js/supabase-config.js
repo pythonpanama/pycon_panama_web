@@ -1,11 +1,12 @@
 /**
  * PyCon Panamá 2026 - Integración con Base de Datos (Supabase REST API)
- * Este módulo gestiona la conexión para el registro de asistentes y ponentes.
+ * Este módulo gestiona la conexión para asistentes, ponentes y voluntariado.
  * Incluye envío nativo REST fetch y SDK para máxima compatibilidad en navegadores.
  */
 
 // Debe coincidir con la versión publicada en codigo_conducta.html.
 var COC_VERSION = '1.1';
+var PRIVACY_VERSION = '1.0';
 
 var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
 var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';
@@ -258,10 +259,77 @@ async function registrarSpeaker(datos) {
   }
 }
 
+/**
+ * Registra una postulación de voluntariado mediante una función transaccional.
+ * Las tablas centrales no se exponen directamente a los roles del navegador.
+ */
+async function registrarVoluntariado(datos) {
+  const url = getSupabaseUrl();
+  const key = getSupabaseAnonKey();
+
+  if (!url || !key) {
+    return {
+      success: false,
+      friendlyMessage: 'Error de configuración: faltan las credenciales de conexión.'
+    };
+  }
+
+  if (!consentimientoOtorgado(datos.consent_coc)) {
+    return { success: false, friendlyMessage: 'Debes aceptar el Código de Conducta antes de enviar el formulario.' };
+  }
+  if (!consentimientoOtorgado(datos.consent_privacy)) {
+    return { success: false, friendlyMessage: 'Debes aceptar el Aviso de Privacidad antes de enviar el formulario.' };
+  }
+  if (!Array.isArray(datos.roles) || datos.roles.length === 0) {
+    return { success: false, friendlyMessage: 'Selecciona al menos un área en la que deseas colaborar.' };
+  }
+  if (!Array.isArray(datos.availability) || datos.availability.length === 0) {
+    return { success: false, friendlyMessage: 'Selecciona al menos un momento en el que puedas colaborar.' };
+  }
+
+  const payload = {
+    p_submission: {
+      name: datos.nombre,
+      email: datos.email,
+      phone: datos.telefono || null,
+      city: datos.ciudad || null,
+      province: datos.provincia || null,
+      initiative: 'pycon_panama',
+      edition: '2026',
+      source_site: 'pycon.pa',
+      roles: datos.roles,
+      availability: datos.availability,
+      experience: datos.experiencia || null,
+      motivation: datos.motivacion || null,
+      accessibility: datos.accesibilidad || null,
+      consent_privacy: true,
+      consent_privacy_version: PRIVACY_VERSION,
+      consent_privacy_at: new Date().toISOString(),
+      consent_coc: true,
+      consent_coc_version: COC_VERSION,
+      consent_coc_at: new Date().toISOString()
+    }
+  };
+
+  try {
+    await postToSupabaseRest('rpc/submit_pycon_2026_volunteer_application', payload);
+    return { success: true };
+  } catch (err) {
+    console.error('Error al registrar voluntariado:', err);
+    return {
+      success: false,
+      error: err,
+      friendlyMessage: 'No pudimos guardar tu postulación. Inténtalo nuevamente en unos minutos o escríbenos a pyconpanama@gmail.com.'
+    };
+  }
+}
+
 // Exportar funciones globalmente
 window.PyConSupabase = {
   COC_VERSION,
+  PRIVACY_VERSION,
   registrarAsistente,
   registrarSpeaker,
+  registrarVoluntariado,
   postToSupabaseRest
 };

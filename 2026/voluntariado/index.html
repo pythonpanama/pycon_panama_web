@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voluntariado - PyCon Panamá 2026</title>
+    <meta name="description" content="Súmate al equipo de voluntariado de PyCon Panamá 2026 y apoya registro, logística, ponentes, audiovisuales, comunicaciones y accesibilidad.">
+    <meta name="theme-color" content="#2f8cff">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Voluntariado - PyCon Panamá 2026">
+    <meta property="og:description" content="Forma parte del equipo que hará posible PyCon Panamá 2026.">
+    <meta property="og:url" content="https://pycon.pa/2026/voluntariado/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <link rel="canonical" href="https://pycon.pa/2026/voluntariado/">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="../css/variables.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        .volunteer-layout { display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(1.5rem, 2vw, 2.5rem); align-items: start; }
+        .volunteer-aside, .volunteer-panel { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: clamp(1.5rem, 2vw, 2rem); }
+        .volunteer-aside { background: linear-gradient(180deg, rgba(47, 140, 255, 0.08), rgba(255, 255, 255, 0.95)); }
+        .volunteer-aside ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--text-secondary); }
+        .volunteer-aside li + li { margin-top: 0.6rem; }
+        .volunteer-form, .field, .checkboxes { display: grid; }
+        .volunteer-form { gap: 1.15rem; }
+        .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        .field, .checkboxes { gap: 0.5rem; }
+        .field > label, .group-label { font-weight: 700; color: var(--text); }
+        .field input, .field select, .field textarea { width: 100%; padding: 0.8rem 0.9rem; border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; font: inherit; color: var(--text); }
+        .field textarea { min-height: 105px; resize: vertical; }
+        .field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid rgba(47, 140, 255, 0.18); border-color: var(--accent); }
+        fieldset { margin: 0; padding: 0; border: 0; }
+        fieldset legend { margin-bottom: 0.55rem; }
+        .checkbox-item { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); align-items: flex-start; gap: 0.65rem; color: var(--text-secondary); }
+        .checkbox-item input { width: 1.1rem; height: 1.1rem; margin-top: 0.2rem; }
+        .checkbox-note { margin: 0; padding-left: 1.75rem; color: var(--text-secondary); font-size: var(--fs-xs); }
+        .status-message { min-height: 1.5rem; margin: 0.25rem 0 0; font-weight: 600; color: var(--accent); }
+        .status-message.error { color: #b42318; }
+        .status-message.success { color: #18763b; }
+        @media (max-width: 768px) { .volunteer-layout, .field-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html">PyCon Panamá 2026</a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../about.html">Acerca de</a></li>
+                    <li><a href="../agenda.html">Agenda</a></li>
+                    <li><a href="../sedes.html">Sedes</a></li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
+                        <ul id="registro-submenu" class="submenu">
+                            <li><a href="../registro.html">Registro de asistentes</a></li>
+                            <li><a href="../ponentes.html">Registro de ponentes</a></li>
+                            <li><a href="./" aria-current="page">Voluntariado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="community-submenu">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
+                            <li><a href="../codigo_conducta.html">Código de Conducta</a></li>
+                            <li><a href="../patrocinadores.html">Patrocinadores</a></li>
+                            <li><a href="../faq.html">Preguntas frecuentes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="page-header">
+            <div class="container">
+                <div class="section-header">
+                    <h1>Voluntariado PyCon Panamá 2026</h1>
+                    <p class="section-text">Forma parte del equipo que hará posible la conferencia anual de Python en Panamá.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container volunteer-layout">
+                <aside class="volunteer-aside">
+                    <h2>Construyamos PyCon juntos</h2>
+                    <p>No necesitas saber programar ni haber colaborado antes. Buscamos personas responsables, respetuosas y con ganas de aportar.</p>
+                    <ul>
+                        <li><strong>Jueves 22 de octubre:</strong> jornada híbrida en Universidad del Istmo, Sede Panamá.</li>
+                        <li><strong>Viernes 23 de octubre:</strong> encuentro presencial en Universidad del Istmo, Sede Metromall.</li>
+                        <li><strong>Antes del evento:</strong> también necesitamos apoyo en comunicación, ponentes, patrocinios y preparación.</li>
+                        <li><strong>Compromiso:</strong> todo el equipo cumple el <a class="internal-link" href="../codigo_conducta.html">Código de Conducta</a>.</li>
+                    </ul>
+                    <p>Completar el formulario expresa tu interés. El equipo confirmará funciones, horarios y accesos antes del evento.</p>
+                </aside>
+
+                <div class="volunteer-panel">
+                    <form id="volunteerForm" class="volunteer-form" novalidate>
+                        <div class="field-grid">
+                            <div class="field">
+                                <label for="nombre">Nombre completo *</label>
+                                <input id="nombre" name="nombre" type="text" required minlength="2" maxlength="120" autocomplete="name">
+                            </div>
+                            <div class="field">
+                                <label for="email">Correo electrónico *</label>
+                                <input id="email" name="email" type="email" required maxlength="254" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="field-grid">
+                            <div class="field">
+                                <label for="telefono">WhatsApp / Teléfono</label>
+                                <input id="telefono" name="telefono" type="tel" maxlength="40" autocomplete="tel">
+                            </div>
+                            <div class="field">
+                                <label for="ciudad">Ciudad</label>
+                                <input id="ciudad" name="ciudad" type="text" maxlength="100" autocomplete="address-level2">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="provincia">Provincia</label>
+                            <select id="provincia" name="provincia" autocomplete="address-level1">
+                                <option value="">Selecciona una opción</option>
+                                <option>Bocas del Toro</option><option>Coclé</option><option>Colón</option><option>Chiriquí</option>
+                                <option>Darién</option><option>Herrera</option><option>Los Santos</option><option>Panamá</option>
+                                <option>Panamá Oeste</option><option>Veraguas</option><option>Comarca o territorio indígena</option>
+                                <option>Fuera de Panamá</option>
+                            </select>
+                        </div>
+
+                        <fieldset id="roles-group">
+                            <legend class="group-label">¿En cuáles áreas te gustaría colaborar? *</legend>
+                            <div class="checkboxes">
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="registro"> Registro y orientación de asistentes</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="logistica"> Logística y coordinación de espacios</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="speakers"> Atención a ponentes</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="audiovisuales"> Audiovisuales y transmisión</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="fotografia"> Fotografía y documentación</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="comunicaciones"> Comunicaciones y redes sociales</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="patrocinios"> Atención a patrocinadores</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="montaje"> Montaje y desmontaje</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="accesibilidad"> Accesibilidad y experiencia de participantes</label>
+                                <label class="checkbox-item"><input type="checkbox" name="roles" value="otro"> Otra área</label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset id="availability-group">
+                            <legend class="group-label">¿Cuándo puedes colaborar? *</legend>
+                            <div class="checkboxes">
+                                <label class="checkbox-item"><input type="checkbox" name="availability" value="antes_evento"> Antes del evento</label>
+                                <label class="checkbox-item"><input type="checkbox" name="availability" value="jueves_22"> Jueves 22 de octubre</label>
+                                <label class="checkbox-item"><input type="checkbox" name="availability" value="viernes_23"> Viernes 23 de octubre</label>
+                                <label class="checkbox-item"><input type="checkbox" name="availability" value="despues_evento"> Después del evento</label>
+                            </div>
+                        </fieldset>
+
+                        <div class="field">
+                            <label for="experiencia">Experiencia o habilidades relevantes</label>
+                            <textarea id="experiencia" name="experiencia" maxlength="1000" placeholder="Puede ser experiencia comunitaria, técnica, logística o de atención al público."></textarea>
+                        </div>
+                        <div class="field">
+                            <label for="motivacion">¿Por qué te gustaría apoyar PyCon Panamá?</label>
+                            <textarea id="motivacion" name="motivacion" maxlength="1000"></textarea>
+                        </div>
+                        <div class="field">
+                            <label for="accesibilidad">¿Necesitas algún ajuste para poder colaborar?</label>
+                            <textarea id="accesibilidad" name="accesibilidad" maxlength="500" placeholder="Opcional. Usaremos esta información únicamente para coordinar tu participación."></textarea>
+                        </div>
+
+                        <div class="checkboxes">
+                            <label class="checkbox-item" for="consent_coc">
+                                <input id="consent_coc" name="consent_coc" type="checkbox" required>
+                                <span>He leído y acepto el <a class="internal-link" href="../codigo_conducta.html" target="_blank" rel="noopener">Código de Conducta</a> de PyCon Panamá 2026.</span>
+                            </label>
+                            <label class="checkbox-item" for="consent_privacy">
+                                <input id="consent_privacy" name="consent_privacy" type="checkbox" required>
+                                <span>Acepto el tratamiento de mis datos según el <a class="internal-link" href="../privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>.</span>
+                            </label>
+                            <p class="checkbox-note">Los enlaces se abren en otra pestaña para conservar lo que ya escribiste.</p>
+                        </div>
+
+                        <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar postulación</button>
+                        <p id="statusMessage" class="status-message" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="../codigo_conducta.html">Código de Conducta</a> · <a class="internal-link" href="../privacidad.html">Aviso de Privacidad</a></p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="mailto:pyconpanama@gmail.com" aria-label="Correo de contacto"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/env.js"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/voluntariado.js"></script>
+</body>
+
+</html>

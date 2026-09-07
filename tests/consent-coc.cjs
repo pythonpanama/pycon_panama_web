@@ -36,3 +36,42 @@ for (const method of ['registrarAsistente', 'registrarSpeaker']) {
     assert.match(fs.readFileSync('2026/codigo_conducta.html', 'utf8'), new RegExp(`Versión ${api.COC_VERSION.replace('.', '\\.')}`));
   });
 }
+
+test('registrarVoluntariado: exige consentimiento, roles y disponibilidad sin escribir', async () => {
+  const valid = {
+    nombre: 'Prueba', email: 'test@example.invalid', roles: ['registro'],
+    availability: ['jueves'], consent_coc: true, consent_privacy: true
+  };
+  for (const change of [
+    { consent_coc: false }, { consent_privacy: false }, { roles: [] }, { availability: [] }
+  ]) {
+    const { api, writes } = setup();
+    const result = await api.registrarVoluntariado({ ...valid, ...change });
+    assert.equal(result.success, false);
+    assert.equal(writes.length, 0);
+  }
+});
+
+test('registrarVoluntariado: envía una postulación centralizada y consentimientos', async () => {
+  const { api, writes } = setup();
+  const result = await api.registrarVoluntariado({
+    nombre: 'Prueba', email: 'test@example.invalid', telefono: '', ciudad: 'Panamá',
+    provincia: 'Panamá', roles: ['registro', 'logistica'], availability: ['jueves', 'viernes'],
+    experiencia: 'Eventos comunitarios', motivacion: 'Quiero apoyar', accesibilidad: '',
+    consent_coc: true, consent_privacy: true
+  });
+  assert.equal(result.success, true);
+  assert.equal(writes.length, 1);
+  const submission = writes[0].p_submission;
+  assert.equal(submission.initiative, 'pycon_panama');
+  assert.equal(submission.edition, '2026');
+  assert.equal(submission.source_site, 'pycon.pa');
+  assert.deepEqual(submission.roles, ['registro', 'logistica']);
+  assert.equal(submission.consent_privacy, true);
+  assert.equal(submission.consent_privacy_version, api.PRIVACY_VERSION);
+  assert.equal(submission.consent_coc, true);
+  assert.equal(submission.consent_coc_version, api.COC_VERSION);
+  assert.ok(Number.isFinite(Date.parse(submission.consent_privacy_at)));
+  assert.ok(Number.isFinite(Date.parse(submission.consent_coc_at)));
+  assert.match(fs.readFileSync('2026/privacidad.html', 'utf8'), new RegExp(`Versión ${api.PRIVACY_VERSION.replace('.', '\\.')}`));
+});
