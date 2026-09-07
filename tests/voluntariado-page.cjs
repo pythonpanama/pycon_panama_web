@@ -13,7 +13,7 @@ test('la página usa la URL pública acordada y metadatos propios', () => {
 
 test('el formulario recoge funciones, disponibilidad y consentimientos explícitos', () => {
   assert.match(page, /id="volunteerForm"/);
-  assert.ok((page.match(/name="roles"/g) || []).length >= 8);
+  assert.equal((page.match(/name="roles"/g) || []).length, 3);
   for (const group of ['Operaciones y logística', 'Programa y experiencia', 'Comunicación y alianzas']) {
     assert.match(page, new RegExp(group));
   }

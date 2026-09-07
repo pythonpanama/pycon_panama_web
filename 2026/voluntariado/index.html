@@ -45,7 +45,7 @@
         .checkbox-note { margin: 0; padding-left: 1.75rem; color: var(--text-secondary); font-size: var(--fs-xs); }
         .role-categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
         .role-category { padding: 1rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: rgba(47, 140, 255, 0.04); }
-        .role-category h3 { margin: 0 0 0.75rem; font-size: var(--fs-sm); color: var(--text); }
+        .role-category .checkbox-item { color: var(--text); font-weight: 700; }
         .status-message { min-height: 1.5rem; margin: 0.25rem 0 0; font-weight: 600; color: var(--accent); }
         .status-message.error { color: #b42318; }
         .status-message.success { color: #18763b; }
@@ -149,32 +149,16 @@
                         <div id="roles-group" class="field" role="group" aria-labelledby="roles-label">
                             <p id="roles-label" class="group-label">¿En cuáles áreas te gustaría colaborar? * <span class="checkbox-note">Puedes seleccionar varias.</span></p>
                             <div class="role-categories">
-                                <section class="role-category" aria-labelledby="operaciones-label">
-                                    <h3 id="operaciones-label">1. Operaciones y logística</h3>
-                                    <div class="checkboxes">
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="registro"> Registro y orientación de asistentes</label>
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="logistica"> Logística y coordinación de espacios</label>
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="montaje"> Montaje y desmontaje</label>
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="audiovisuales"> Audiovisuales y transmisión</label>
-                                    </div>
-                                </section>
-                                <section class="role-category" aria-labelledby="programa-label">
-                                    <h3 id="programa-label">2. Programa y experiencia</h3>
-                                    <div class="checkboxes">
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="speakers"> Atención a ponentes</label>
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="accesibilidad"> Accesibilidad y acompañamiento de participantes</label>
-                                    </div>
-                                </section>
-                                <section class="role-category" aria-labelledby="comunicacion-label">
-                                    <h3 id="comunicacion-label">3. Comunicación y alianzas</h3>
-                                    <div class="checkboxes">
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="comunicaciones"> Comunicaciones y redes sociales</label>
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="fotografia"> Fotografía y documentación</label>
-                                        <label class="checkbox-item"><input type="checkbox" name="roles" value="patrocinios"> Atención a patrocinadores</label>
-                                    </div>
-                                </section>
+                                <div class="role-category">
+                                    <label class="checkbox-item"><input type="checkbox" name="roles" value="logistica"> Operaciones y logística</label>
+                                </div>
+                                <div class="role-category">
+                                    <label class="checkbox-item"><input type="checkbox" name="roles" value="accesibilidad"> Programa y experiencia</label>
+                                </div>
+                                <div class="role-category">
+                                    <label class="checkbox-item"><input type="checkbox" name="roles" value="comunicaciones"> Comunicación y alianzas</label>
+                                </div>
                             </div>
-                            <label class="checkbox-item"><input type="checkbox" name="roles" value="otro"> Otra área</label>
                         </div>
 
                         <fieldset id="availability-group">
