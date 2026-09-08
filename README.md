@@ -136,3 +136,41 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 - [Python Panamá](https://pythonpanama.org) · [Instagram](https://www.instagram.com/pythonpanama/) · [Facebook](https://www.facebook.com/profile.php?id=100078380970388) · [LinkedIn](https://linkedin.com/company/pythonpanama) · [Meetup](https://www.meetup.com/python-panama/)
 
 Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com).
+
+## Publicación de la agenda 2026 — issue #118
+
+Última actualización: 8 de septiembre de 2026.
+
+La agenda permanece en espera hasta el lunes 28 de septiembre de 2026. No hay
+hora definida ni publicación automática: organización debe confirmar el contenido
+aprobado y el momento de publicación.
+
+La versión preliminar se conserva exclusivamente en el historial de Git, en el
+commit `bbaf5d9abb6594f3aec972b083f36445123fca68`. No guardar copias, parches ni
+exportaciones de esa versión dentro del directorio publicado (`publish = "."`).
+El historial permite recuperar también la ubicación de los enlaces retirados.
+
+Para preparar la restitución:
+
+1. Crear una rama desde `main` actualizado y consultar la versión histórica con
+   `git show bbaf5d9abb6594f3aec972b083f36445123fca68:2026/agenda.html`.
+   Usarla solamente como referencia estructural; sustituir las sesiones,
+   horarios y ponentes por la programación aprobada por organización.
+2. Editar la página actual conservando su navegación y metadatos vigentes.
+   Actualizar la descripción y el contenido principal con la agenda aprobada.
+3. Restituir el enlace Agenda en los menús de todas las páginas de `2026/`,
+   incluido `voluntariado/index.html` (ruta `../agenda.html`); la tarjeta de
+   inicio; y los botones de `about.html` y `sedes.html`. Consultar el diff del
+   cambio #118 para las ubicaciones, sin revertir páginas completas que puedan
+   haber recibido otras mejoras.
+4. Restituir la URL de agenda en `sitemap.xml` y `SITEMAP_REQUIRED` de
+   `scripts/validate_site.py`. Revisar la descripción de inicio.
+5. Ejecutar `python3 scripts/validate_site.py`, `node --test tests/*.cjs` y
+   `git diff --check`. Revisar el preview en móvil y escritorio, el menú,
+   los enlaces restituidos y el acceso directo a `/2026/agenda.html`.
+6. Integrar el PR revisado cuando organización autorice la publicación el
+   28 de septiembre. Verificar el despliegue de Netlify y repetir la navegación
+   y el acceso directo en producción antes de dar la restitución por terminada.
+
+El aviso se mantiene si falta la aprobación; no se elimina automáticamente por
+el cambio de fecha. La cuenta regresiva corresponde al issue #119.
