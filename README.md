@@ -174,3 +174,26 @@ Para preparar la restitución:
 
 El aviso se mantiene si falta la aprobación; no se elimina automáticamente por
 el cambio de fecha. La cuenta regresiva corresponde al issue #119.
+
+## Publicación de las sedes 2026
+
+Última actualización: 8 de septiembre de 2026.
+
+Por indicación de organización, las sedes siguen el mismo procedimiento de
+publicación manual del 28 de septiembre de 2026 que la agenda, sin hora ni
+activación automática. La versión anterior se conserva en Git en el commit
+`76e034601ee9ddb44fa103872aaba274e4efb4bf`, sin añadir copias al sitio publicado.
+
+Para restituirlas, crear una rama desde `main` actualizado y consultar
+`git show 76e034601ee9ddb44fa103872aaba274e4efb4bf:2026/sedes.html` como referencia.
+Actualizar la página actual con ubicaciones, direcciones, contactos y mapas
+aprobados; revisar sus metadatos. Restituir los enlaces de los once menús,
+la tarjeta y enlace de inicio, las referencias de Acerca de, FAQ y formularios,
+y la entrada del sitemap y de `SITEMAP_REQUIRED`. Revisar también las referencias
+de ubicaciones en voluntariado y Código de Conducta, manteniendo las reglas de
+conducta y los valores persistidos de los formularios.
+
+Consultar el diff de la retirada para localizar cada cambio, sin revertir
+páginas completas. Ejecutar las mismas validaciones indicadas para la agenda,
+revisar móvil/escritorio y publicar con autorización de organización. Verificar
+el acceso directo a `/2026/sedes.html`, los enlaces y los mapas en producción.
