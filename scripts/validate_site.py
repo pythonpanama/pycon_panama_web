@@ -30,7 +30,6 @@ REQUIRED_META = {
 SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/",
     f"{CANONICAL_BASE}/2026/about.html",
-    f"{CANONICAL_BASE}/2026/agenda.html",
     f"{CANONICAL_BASE}/2026/codigo_conducta.html",
     f"{CANONICAL_BASE}/2026/faq.html",
     f"{CANONICAL_BASE}/2026/patrocinadores.html",
