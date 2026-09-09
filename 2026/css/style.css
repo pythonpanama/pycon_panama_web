@@ -400,9 +400,17 @@ button[type="submit"], .btn {
 
 .hero-text {
   max-width: var(--measure);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   font-size: var(--fs-lg);
   color: var(--text-secondary);
+}
+
+.hero-tagline {
+  max-width: var(--measure);
+  margin-bottom: var(--space-6);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--accent);
 }
 
 .hero-actions {
