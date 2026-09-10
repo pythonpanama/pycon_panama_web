@@ -84,18 +84,6 @@ async function postToSupabaseRest(table, payload) {
   return null;
 }
 
-function faltanColumnasRegistro(error) {
-  const message = String(error && error.message ? error.message : error || '');
-  return Boolean(error) && (
-    error.code === 'PGRST204' ||
-    error.code === '42703' ||
-    (
-      /(thursday_mode|consent_privacy)/.test(message) &&
-      /(does not exist|schema cache|could not find)/i.test(message)
-    )
-  );
-}
-
 /**
  * Registra a un asistente a la PyCon Panamá 2026
  * Tabla: public.registrations
@@ -137,7 +125,6 @@ async function registrarAsistente(datos) {
   }
 
   const consentTimestamp = new Date().toISOString();
-  const createdAt = new Date().toISOString();
   const payload = {
     name: datos.nombre,
     email: datos.email,
@@ -154,28 +141,7 @@ async function registrarAsistente(datos) {
     consent_coc: true,
     consent_coc_version: COC_VERSION,
     consent_coc_at: consentTimestamp,
-    created_at: createdAt
-  };
-
-  // Compatibilidad temporal hasta que Supabase tenga las columnas del esquema
-  // nuevo. Solo se usa cuando PostgREST confirma que faltan esas columnas, un
-  // rechazo definitivo que garantiza que `payload` no llegó a insertarse.
-  const legacyPayload = {
-    name: datos.nombre,
-    email: datos.email,
-    phone: datos.telefono || null,
-    role: datos.rol || null,
-    organization: datos.organizacion || null,
-    dias: datos.dias.map(day => day === 'Jueves 22'
-      ? 'Jueves 22 (' + datos.modalidad_jueves + ')'
-      : day).join(', '),
-    expectativas: datos.expectativas || null,
-    accessibility: datos.accesibilidad || null,
-    consent_photos: true,
-    consent_coc: true,
-    consent_coc_version: COC_VERSION,
-    consent_coc_at: consentTimestamp,
-    created_at: createdAt
+    created_at: consentTimestamp
   };
 
   console.log('📤 Enviando registro de asistente a public.registrations');
@@ -188,11 +154,6 @@ async function registrarAsistente(datos) {
       if (!error) {
         console.log('✅ Registro de asistente guardado');
         return { success: true };
-      }
-      if (faltanColumnasRegistro(error)) {
-        await postToSupabaseRest('registrations', legacyPayload);
-        console.warn('Registro guardado con el esquema anterior; falta aplicar la migración de asistentes.');
-        return { success: true, legacySchema: true };
       }
       if (!servidorRechazoDefinitivamente(error)) {
         console.error('❌ Resultado desconocido al registrar asistente; no se reintenta:', error);
@@ -212,15 +173,6 @@ async function registrarAsistente(datos) {
     console.log('✅ Registro de asistente guardado');
     return { success: true };
   } catch (err) {
-    if (faltanColumnasRegistro(err)) {
-      try {
-        await postToSupabaseRest('registrations', legacyPayload);
-        console.warn('Registro guardado con el esquema anterior; falta aplicar la migración de asistentes.');
-        return { success: true, legacySchema: true };
-      } catch (legacyError) {
-        err = legacyError;
-      }
-    }
     console.error('❌ Error al registrar asistente:', err);
     return {
       success: false,
@@ -249,10 +201,10 @@ async function registrarSpeaker(datos) {
     return { success: false, friendlyMessage: 'Debes aceptar el Código de Conducta antes de enviar el formulario.' };
   }
 
-  if (!consentimientoOtorgado(datos.consent_publication)) {
+  if (!consentimientoOtorgado(datos.consent_privacy)) {
     return {
       success: false,
-      friendlyMessage: 'Necesitamos tu autorización explícita para publicar la propuesta antes de enviarla.'
+      friendlyMessage: 'Debes aceptar el Aviso de Privacidad antes de enviar el formulario.'
     };
   }
 
@@ -264,6 +216,7 @@ async function registrarSpeaker(datos) {
     ? '[' + metadata.join(' | ') + ']\n\n' + datos.descripcion_propuesta
     : datos.descripcion_propuesta;
 
+  const consentTimestamp = new Date().toISOString();
   const payload = {
     name: datos.nombre,
     email: datos.email,
@@ -278,11 +231,13 @@ async function registrarSpeaker(datos) {
     duration: datos.duracion ? parseInt(datos.duracion) : 30,
     language: datos.idioma || 'Español',
     links: datos.redes_sociales || datos.links || null,
-    consent_publication: true,
+    consent_privacy: true,
+    consent_privacy_version: PRIVACY_VERSION,
+    consent_privacy_at: consentTimestamp,
     consent_coc: true,
     consent_coc_version: COC_VERSION,
-    consent_coc_at: new Date().toISOString(),
-    created_at: new Date().toISOString()
+    consent_coc_at: consentTimestamp,
+    created_at: consentTimestamp
   };
 
   console.log('📤 Enviando propuesta a public.speakers');

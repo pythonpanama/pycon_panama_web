@@ -61,7 +61,11 @@ const TABLE_SCHEMAS = {
     }
   },
   speakers: {
-    required: ['name', 'email', 'title', 'abstract', 'consent_coc', 'consent_coc_version', 'consent_coc_at'],
+    required: [
+      'name', 'email', 'title', 'abstract',
+      'consent_privacy', 'consent_privacy_version', 'consent_privacy_at',
+      'consent_coc', 'consent_coc_version', 'consent_coc_at'
+    ],
     fields: {
       name: 'string',
       email: 'string',
@@ -75,7 +79,9 @@ const TABLE_SCHEMAS = {
       duration: 'number',
       language: 'string',
       links: 'string',
-      consent_publication: 'boolean',
+      consent_privacy: 'boolean',
+      consent_privacy_version: 'string',
+      consent_privacy_at: 'string',
       consent_coc: 'boolean',
       consent_coc_version: 'string',
       consent_coc_at: 'string',
@@ -166,6 +172,13 @@ function validatePayload(table, payload) {
     return 'Explicit Code of Conduct consent, version and valid timestamp are required.';
   }
 
+  // registrations y speakers guardan el consentimiento de privacidad (Ley 81)
+  // con su versión y fecha; ninguno debe llegar al servicio privilegiado sin él.
+  if (payload.consent_privacy !== true || !payload.consent_privacy_version.trim() ||
+      !Number.isFinite(Date.parse(payload.consent_privacy_at))) {
+    return 'Explicit privacy consent, version and valid timestamp are required.';
+  }
+
   if (table === 'registrations') {
     const allowedDays = ['Jueves 22', 'Viernes 23', 'Jueves 22, Viernes 23'];
     const allowedThursdayModes = ['Presencial', 'Google Meet'];
@@ -175,11 +188,6 @@ function validatePayload(table, payload) {
         (attendsThursday && !allowedThursdayModes.includes(payload.thursday_mode)) ||
         (!attendsThursday && payload.thursday_mode !== null)) {
       return 'Valid attendance days and Thursday mode are required.';
-    }
-
-    if (payload.consent_privacy !== true || !payload.consent_privacy_version.trim() ||
-        !Number.isFinite(Date.parse(payload.consent_privacy_at))) {
-      return 'Explicit privacy consent, version and valid timestamp are required.';
     }
   }
 

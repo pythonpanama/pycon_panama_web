@@ -20,12 +20,19 @@ function setup(sdk = false) {
 for (const method of ['registrarAsistente', 'registrarSpeaker']) {
   const base = {
     nombre: 'Prueba', email: 'test@example.invalid', dias: ['Viernes 23'],
-    consent_privacy: true, consent_publication: true
+    consent_privacy: true
   };
   test(`${method}: rechaza consentimiento ambiguo sin escribir`, async () => {
     for (const value of [undefined, null, false, 'false', 'true', '0', 1, {}, []]) {
       const { api, writes } = setup();
       const result = await api[method]({ ...base, consent_coc: value });
+      assert.equal(result.success, false); assert.equal(writes.length, 0);
+    }
+  });
+  test(`${method}: rechaza privacidad ambigua sin escribir`, async () => {
+    for (const value of [undefined, null, false, 'true', '1', 1, {}]) {
+      const { api, writes } = setup();
+      const result = await api[method]({ ...base, consent_coc: true, consent_privacy: value });
       assert.equal(result.success, false); assert.equal(writes.length, 0);
     }
   });
@@ -36,7 +43,12 @@ for (const method of ['registrarAsistente', 'registrarSpeaker']) {
     assert.equal(writes[0].consent_coc, true);
     assert.equal(writes[0].consent_coc_version, api.COC_VERSION);
     assert.ok(Number.isFinite(Date.parse(writes[0].consent_coc_at)));
+    assert.equal(writes[0].consent_privacy, true);
+    assert.equal(writes[0].consent_privacy_version, api.PRIVACY_VERSION);
+    assert.ok(Number.isFinite(Date.parse(writes[0].consent_privacy_at)));
+    assert.equal(Object.hasOwn(writes[0], 'consent_publication'), false);
     assert.match(fs.readFileSync('2026/codigo_conducta.html', 'utf8'), new RegExp(`Versión ${api.COC_VERSION.replace('.', '\\.')}`));
+    assert.match(fs.readFileSync('2026/privacidad.html', 'utf8'), new RegExp(`Versión ${api.PRIVACY_VERSION.replace('.', '\\.')}`));
   });
 }
 
@@ -92,91 +104,7 @@ test('registrarAsistente: no guarda modalidad cuando solo asiste el viernes', as
   assert.equal(writes[0].thursday_mode, null);
 });
 
-test('registrarAsistente: usa el esquema anterior solo ante columnas ausentes', async () => {
-  const writes = [];
-  const context = {
-    window: {},
-    console: { log() {}, error() {}, warn() {} },
-    fetch: async (_, options) => {
-      const payload = JSON.parse(options.body);
-      writes.push(payload);
-      if (writes.length === 1) {
-        return {
-          ok: false,
-          status: 400,
-          text: async () => JSON.stringify({
-            code: 'PGRST204',
-            message: "Could not find the 'thursday_mode' column in the schema cache"
-          })
-        };
-      }
-      return { ok: true };
-    }
-  };
-  vm.createContext(context);
-  vm.runInContext(source, context);
-
-  const result = await context.window.PyConSupabase.registrarAsistente({
-    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Jueves 22'],
-    modalidad_jueves: 'Google Meet', accesibilidad: 'No necesito ajustes',
-    consent_coc: true, consent_privacy: true
-  });
-
-  assert.equal(result.success, true);
-  assert.equal(result.legacySchema, true);
-  assert.equal(writes.length, 2);
-  assert.equal(writes[0].thursday_mode, 'Google Meet');
-  assert.equal(writes[0].consent_privacy, true);
-  assert.equal(writes[1].dias, 'Jueves 22 (Google Meet)');
-  assert.equal(writes[1].consent_photos, true);
-  assert.equal(writes[1].accessibility, 'No necesito ajustes');
-  assert.equal(Object.hasOwn(writes[1], 'thursday_mode'), false);
-  assert.equal(Object.hasOwn(writes[1], 'consent_privacy'), false);
-});
-
-test('registrarAsistente: el SDK también cae al esquema anterior sin duplicar', async () => {
-  const writes = [];
-  const context = {
-    window: {
-      supabase: {
-        createClient: () => ({
-          from: () => ({
-            insert: async payload => {
-              writes.push(Array.isArray(payload) ? payload[0] : payload);
-              return {
-                error: {
-                  code: 'PGRST204',
-                  message: "Could not find the 'consent_privacy' column in the schema cache"
-                }
-              };
-            }
-          })
-        })
-      }
-    },
-    console: { log() {}, error() {}, warn() {} },
-    fetch: async (_, options) => {
-      writes.push(JSON.parse(options.body));
-      return { ok: true };
-    }
-  };
-  vm.createContext(context);
-  vm.runInContext(source, context);
-
-  const result = await context.window.PyConSupabase.registrarAsistente({
-    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Jueves 22'],
-    modalidad_jueves: 'Presencial', consent_coc: true, consent_privacy: true
-  });
-
-  assert.equal(result.success, true);
-  assert.equal(result.legacySchema, true);
-  assert.equal(writes.length, 2);
-  assert.equal(writes[0].consent_privacy, true);
-  assert.equal(writes[1].dias, 'Jueves 22 (Presencial)');
-  assert.equal(Object.hasOwn(writes[1], 'consent_privacy'), false);
-});
-
-test('registrarAsistente: no usa fallback ante un rechazo distinto', async () => {
+test('registrarAsistente: no reintenta ante un rechazo distinto', async () => {
   let requests = 0;
   const context = {
     window: {},
