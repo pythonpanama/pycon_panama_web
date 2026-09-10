@@ -134,6 +134,48 @@ test('registrarAsistente: usa el esquema anterior solo ante columnas ausentes', 
   assert.equal(Object.hasOwn(writes[1], 'consent_privacy'), false);
 });
 
+test('registrarAsistente: el SDK también cae al esquema anterior sin duplicar', async () => {
+  const writes = [];
+  const context = {
+    window: {
+      supabase: {
+        createClient: () => ({
+          from: () => ({
+            insert: async payload => {
+              writes.push(Array.isArray(payload) ? payload[0] : payload);
+              return {
+                error: {
+                  code: 'PGRST204',
+                  message: "Could not find the 'consent_privacy' column in the schema cache"
+                }
+              };
+            }
+          })
+        })
+      }
+    },
+    console: { log() {}, error() {}, warn() {} },
+    fetch: async (_, options) => {
+      writes.push(JSON.parse(options.body));
+      return { ok: true };
+    }
+  };
+  vm.createContext(context);
+  vm.runInContext(source, context);
+
+  const result = await context.window.PyConSupabase.registrarAsistente({
+    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Jueves 22'],
+    modalidad_jueves: 'Presencial', consent_coc: true, consent_privacy: true
+  });
+
+  assert.equal(result.success, true);
+  assert.equal(result.legacySchema, true);
+  assert.equal(writes.length, 2);
+  assert.equal(writes[0].consent_privacy, true);
+  assert.equal(writes[1].dias, 'Jueves 22 (Presencial)');
+  assert.equal(Object.hasOwn(writes[1], 'consent_privacy'), false);
+});
+
 test('registrarAsistente: no usa fallback ante un rechazo distinto', async () => {
   let requests = 0;
   const context = {
