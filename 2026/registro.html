@@ -71,9 +71,23 @@
             gap: 0.45rem;
         }
 
-        .field label {
+        fieldset.field {
+            min-width: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .field label,
+        .field legend {
             font-weight: 700;
             color: var(--text);
+        }
+
+        .field-hint {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: var(--fs-xs);
         }
 
         .field input,
@@ -249,17 +263,34 @@
                             </select>
                         </div>
 
-                        <div class="field">
-                            <label>¿Qué días te gustaría asistir? *</label>
+                        <fieldset class="field" aria-describedby="dias-hint">
+                            <legend>¿Qué días te gustaría asistir? *</legend>
+                            <p id="dias-hint" class="field-hint">Selecciona al menos un día.</p>
                             <div class="checkboxes">
-                                <label class="checkbox-item"><input type="checkbox" name="dias" value="Jueves virtual"> Jueves 22 · Jornada híbrida (presencial o Google Meet)</label>
-                                <label class="checkbox-item"><input type="checkbox" name="dias" value="Viernes presencial"> Viernes 23 · Encuentro presencial</label>
+                                <label class="checkbox-item"><input id="dia_jueves" type="checkbox" name="dias" value="Jueves 22"> Jueves 22 · Jornada híbrida</label>
+                                <label class="checkbox-item"><input id="dia_viernes" type="checkbox" name="dias" value="Viernes 23"> Viernes 23 · Encuentro presencial</label>
                             </div>
-                        </div>
+                        </fieldset>
+
+                        <fieldset id="modalidadJuevesField" class="field" hidden>
+                            <legend>¿Cómo participarás el jueves 22? *</legend>
+                            <div class="checkboxes">
+                                <label class="checkbox-item"><input type="radio" name="modalidad_jueves" value="Presencial"> Presencial</label>
+                                <label class="checkbox-item"><input type="radio" name="modalidad_jueves" value="Google Meet"> Por Google Meet</label>
+                            </div>
+                        </fieldset>
 
                         <div class="field">
                             <label for="expectativas">¿Qué te gustaría aprender o compartir?</label>
                             <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento…"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="accesibilidad">¿Necesitas algún ajuste para participar?</label>
+                            <textarea id="accesibilidad" name="accesibilidad" maxlength="500"
+                                aria-describedby="accesibilidad-hint"
+                                placeholder="Puedes indicar que no necesitas ajustes."></textarea>
+                            <p id="accesibilidad-hint" class="field-hint">No incluyas diagnósticos ni información médica.</p>
                         </div>
 
                         <div class="checkboxes">
@@ -269,8 +300,8 @@
                                     <a class="internal-link" href="codigo_conducta.html" target="_blank"
                                         rel="noopener">Código de Conducta</a> de PyCon Panamá 2026.</span>
                             </label>
-                            <label class="checkbox-item" for="consent_photos">
-                                <input id="consent_photos" name="consent_photos" type="checkbox" required>
+                            <label class="checkbox-item" for="consent_privacy">
+                                <input id="consent_privacy" name="consent_privacy" type="checkbox" required>
                                 <span>Acepto el tratamiento de mis datos personales de conformidad con la Ley 81
                                     de 2019, según el <a class="internal-link" href="privacidad.html"
                                         target="_blank" rel="noopener">Aviso de Privacidad</a>.</span>
@@ -309,18 +340,42 @@
         const form = document.getElementById('registroForm');
         const statusMessage = document.getElementById('statusMessage');
         const btnSubmit = document.getElementById('btnSubmit');
+        const dayInputs = Array.from(document.querySelectorAll('input[name="dias"]'));
+        const diaJueves = document.getElementById('dia_jueves');
+        const modalidadJuevesField = document.getElementById('modalidadJuevesField');
+        const modalidadJuevesInputs = Array.from(document.querySelectorAll('input[name="modalidad_jueves"]'));
+
+        function syncAttendanceFields() {
+            const hasSelectedDay = dayInputs.some(option => option.checked);
+            dayInputs[0].setCustomValidity(hasSelectedDay ? '' : 'Selecciona al menos un día.');
+
+            modalidadJuevesField.hidden = !diaJueves.checked;
+            modalidadJuevesInputs.forEach(option => {
+                option.required = diaJueves.checked;
+                if (!diaJueves.checked) option.checked = false;
+            });
+        }
+
+        dayInputs.forEach(option => option.addEventListener('change', syncAttendanceFields));
+        syncAttendanceFields();
 
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
+            syncAttendanceFields();
 
             if (!form.checkValidity()) {
                 statusMessage.className = 'status-message error';
-                // Si lo único que falta es la casilla del Código de Conducta, se dice;
-                // si falta algo más, el mensaje genérico y reportValidity() lleva el
-                // foco al primer campo con problema.
-                statusMessage.textContent = form.querySelector(':invalid:not(#consent_coc)')
-                    ? 'Revisa los campos obligatorios del formulario.'
-                    : 'Para registrarte tienes que aceptar el Código de Conducta.';
+                if (!dayInputs.some(option => option.checked)) {
+                    statusMessage.textContent = 'Selecciona al menos un día para asistir.';
+                } else if (diaJueves.checked && !modalidadJuevesInputs.some(option => option.checked)) {
+                    statusMessage.textContent = 'Indica cómo participarás el jueves 22.';
+                } else if (!document.getElementById('consent_coc').checked) {
+                    statusMessage.textContent = 'Para registrarte tienes que aceptar el Código de Conducta.';
+                } else if (!document.getElementById('consent_privacy').checked) {
+                    statusMessage.textContent = 'Para registrarte tienes que aceptar el Aviso de Privacidad.';
+                } else {
+                    statusMessage.textContent = 'Revisa los campos obligatorios del formulario.';
+                }
                 form.reportValidity();
                 return;
             }
@@ -335,22 +390,23 @@
             const telefono = document.getElementById('telefono').value.trim();
             const organizacion = document.getElementById('organizacion') ? document.getElementById('organizacion').value.trim() : '';
             const rol = document.getElementById('rol').value;
-            const dias = Array.from(document.querySelectorAll('input[name="dias"]:checked')).map(option => option.value);
+            const dias = dayInputs.filter(option => option.checked).map(option => option.value);
+            const modalidad_jueves = modalidadJuevesInputs.find(option => option.checked)?.value || '';
             const expectativas = document.getElementById('expectativas').value.trim();
-            const consent_photos = document.getElementById('consent_photos').checked;
+            const accesibilidad = document.getElementById('accesibilidad').value.trim();
+            const consent_privacy = document.getElementById('consent_privacy').checked;
             const consent_coc = document.getElementById('consent_coc').checked;
 
-            const datos = { nombre, email, telefono, organizacion, rol, dias, expectativas, consent_photos, consent_coc };
+            const datos = { nombre, email, telefono, organizacion, rol, dias, modalidad_jueves, expectativas, accesibilidad, consent_privacy, consent_coc };
 
             try {
                 const res = await PyConSupabase.registrarAsistente(datos);
 
                 if (res.success) {
                     statusMessage.className = 'status-message success';
-                    statusMessage.textContent = dias.length
-                        ? `¡Gracias, ${nombre}! Tu registro para ${dias.join(' y ')} ha sido guardado exitosamente.`
-                        : `¡Gracias, ${nombre}! Tu interés en asistir a PyCon Panamá 2026 ha sido guardado.`;
+                    statusMessage.textContent = `¡Gracias, ${nombre}! Recibimos tu registro para ${dias.join(' y ')}. Te enviaremos una confirmación por correo.`;
                     form.reset();
+                    syncAttendanceFields();
                 } else {
                     statusMessage.className = 'status-message error';
                     statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al procesar tu registro. Por favor intenta de nuevo.';

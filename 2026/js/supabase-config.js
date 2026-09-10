@@ -6,7 +6,7 @@
 
 // Debe coincidir con la versión publicada en codigo_conducta.html.
 var COC_VERSION = '1.1';
-var PRIVACY_VERSION = '1.0';
+var PRIVACY_VERSION = '1.1';
 
 var DEFAULT_SUPABASE_URL = 'https://wfiyucykjoohdiazlqbz.supabase.co';
 var DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_wlIN6gMmG_pVr-h-MAaLOw_jUyW4pmB';
@@ -98,34 +98,42 @@ async function registrarAsistente(datos) {
     return { success: false, friendlyMessage: 'Debes aceptar el Código de Conducta antes de enviar el formulario.' };
   }
 
-  if (!consentimientoOtorgado(datos.consent_photos)) {
+  if (!consentimientoOtorgado(datos.consent_privacy)) {
     return {
       success: false,
-      friendlyMessage: 'Necesitamos tu autorización explícita para el uso de fotografías y video antes de guardar el registro.'
+      friendlyMessage: 'Debes aceptar el Aviso de Privacidad antes de enviar el formulario.'
     };
   }
 
-  const extraAccessibility = [];
-  if (datos.dias && datos.dias.length) {
-    extraAccessibility.push('Días de asistencia: ' + (Array.isArray(datos.dias) ? datos.dias.join(', ') : datos.dias));
-  }
-  if (datos.expectativas) {
-    extraAccessibility.push('Expectativas: ' + datos.expectativas);
+  const allowedDays = ['Jueves 22', 'Viernes 23'];
+  if (!Array.isArray(datos.dias) || datos.dias.length === 0 ||
+      datos.dias.some(day => !allowedDays.includes(day))) {
+    return { success: false, friendlyMessage: 'Selecciona al menos un día válido para asistir.' };
   }
 
+  const attendsThursday = datos.dias.includes('Jueves 22');
+  const allowedThursdayModes = ['Presencial', 'Google Meet'];
+  if (attendsThursday && !allowedThursdayModes.includes(datos.modalidad_jueves)) {
+    return { success: false, friendlyMessage: 'Indica cómo participarás el jueves 22.' };
+  }
+
+  const consentTimestamp = new Date().toISOString();
   const payload = {
     name: datos.nombre,
     email: datos.email,
     phone: datos.telefono || null,
     role: datos.rol || null,
     organization: datos.organizacion || null,
-    dias: Array.isArray(datos.dias) ? datos.dias.join(', ') : (datos.dias || null),
+    dias: datos.dias.join(', '),
+    thursday_mode: attendsThursday ? datos.modalidad_jueves : null,
     expectativas: datos.expectativas || null,
-    accessibility: extraAccessibility.length ? extraAccessibility.join(' | ') : null,
-    consent_photos: true,
+    accessibility: datos.accesibilidad || null,
+    consent_privacy: true,
+    consent_privacy_version: PRIVACY_VERSION,
+    consent_privacy_at: consentTimestamp,
     consent_coc: true,
     consent_coc_version: COC_VERSION,
-    consent_coc_at: new Date().toISOString(),
+    consent_coc_at: consentTimestamp,
     created_at: new Date().toISOString()
   };
 

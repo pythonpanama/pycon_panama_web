@@ -35,6 +35,9 @@ El sitio público actual se conecta con la clave anónima de Supabase mediante `
 
 Los envíos a `registrations` y `speakers` requieren `consent_coc: true`,
 `consent_coc_version` (texto no vacío) y `consent_coc_at` (fecha válida).
+Los registros de asistentes también requieren al menos un día válido,
+`thursday_mode` cuando incluyen el jueves, y la aceptación explícita del Aviso
+de Privacidad con su versión y fecha.
 Antes de desplegar los formularios, aplicar como administrador la migración local
 `docs-internas/referencia/supabase/107_aceptacion_codigo_conducta.sql`.
 Ese archivo está excluido de Git y del sitio publicado; debe transferirse por la

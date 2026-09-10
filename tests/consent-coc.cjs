@@ -18,7 +18,10 @@ function setup(sdk = false) {
   return { api: context.window.PyConSupabase, writes };
 }
 for (const method of ['registrarAsistente', 'registrarSpeaker']) {
-  const base = { nombre: 'Prueba', email: 'test@example.invalid', consent_photos: true, consent_publication: true };
+  const base = {
+    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Viernes 23'],
+    consent_privacy: true, consent_publication: true
+  };
   test(`${method}: rechaza consentimiento ambiguo sin escribir`, async () => {
     for (const value of [undefined, null, false, 'false', 'true', '0', 1, {}, []]) {
       const { api, writes } = setup();
@@ -36,6 +39,58 @@ for (const method of ['registrarAsistente', 'registrarSpeaker']) {
     assert.match(fs.readFileSync('2026/codigo_conducta.html', 'utf8'), new RegExp(`Versión ${api.COC_VERSION.replace('.', '\\.')}`));
   });
 }
+
+test('registrarAsistente: exige día, modalidad del jueves y privacidad sin escribir', async () => {
+  const valid = {
+    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Jueves 22'],
+    modalidad_jueves: 'Presencial', consent_coc: true, consent_privacy: true
+  };
+  for (const change of [
+    { dias: [] },
+    { dias: ['Día inventado'] },
+    { modalidad_jueves: '' },
+    { modalidad_jueves: 'Otra' },
+    { consent_privacy: false }
+  ]) {
+    const { api, writes } = setup();
+    const result = await api.registrarAsistente({ ...valid, ...change });
+    assert.equal(result.success, false);
+    assert.equal(writes.length, 0);
+  }
+});
+
+test('registrarAsistente: guarda modalidad, accesibilidad y consentimiento de privacidad', async () => {
+  const { api, writes } = setup();
+  const result = await api.registrarAsistente({
+    nombre: 'Prueba', email: 'test@example.invalid', rol: 'Profesional',
+    dias: ['Jueves 22', 'Viernes 23'], modalidad_jueves: 'Google Meet',
+    expectativas: 'Aprender sobre Python', accesibilidad: 'Intérprete de señas',
+    consent_coc: true, consent_privacy: true
+  });
+  assert.equal(result.success, true);
+  assert.equal(writes.length, 1);
+  assert.equal(writes[0].dias, 'Jueves 22, Viernes 23');
+  assert.equal(writes[0].thursday_mode, 'Google Meet');
+  assert.equal(writes[0].accessibility, 'Intérprete de señas');
+  assert.equal(writes[0].consent_privacy, true);
+  assert.equal(writes[0].consent_privacy_version, api.PRIVACY_VERSION);
+  assert.ok(Number.isFinite(Date.parse(writes[0].consent_privacy_at)));
+  assert.equal(Object.hasOwn(writes[0], 'consent_photos'), false);
+  assert.match(
+    fs.readFileSync('2026/privacidad.html', 'utf8'),
+    new RegExp(`Versión ${api.PRIVACY_VERSION.replace('.', '\\.')}`)
+  );
+});
+
+test('registrarAsistente: no guarda modalidad cuando solo asiste el viernes', async () => {
+  const { api, writes } = setup();
+  const result = await api.registrarAsistente({
+    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Viernes 23'],
+    modalidad_jueves: 'Presencial', consent_coc: true, consent_privacy: true
+  });
+  assert.equal(result.success, true);
+  assert.equal(writes[0].thursday_mode, null);
+});
 
 test('registrarVoluntariado: exige consentimiento, roles y disponibilidad sin escribir', async () => {
   const valid = {

@@ -36,7 +36,11 @@ try {
 // aquí quedan sujetas a las reglas genéricas de plainObject/valores escalares.
 const TABLE_SCHEMAS = {
   registrations: {
-    required: ['name', 'email', 'consent_coc', 'consent_coc_version', 'consent_coc_at'],
+    required: [
+      'name', 'email', 'dias',
+      'consent_privacy', 'consent_privacy_version', 'consent_privacy_at',
+      'consent_coc', 'consent_coc_version', 'consent_coc_at'
+    ],
     fields: {
       name: 'string',
       email: 'string',
@@ -44,9 +48,12 @@ const TABLE_SCHEMAS = {
       role: 'string',
       organization: 'string',
       dias: 'string',
+      thursday_mode: 'string',
       expectativas: 'string',
       accessibility: 'string',
-      consent_photos: 'boolean',
+      consent_privacy: 'boolean',
+      consent_privacy_version: 'string',
+      consent_privacy_at: 'string',
       consent_coc: 'boolean',
       consent_coc_version: 'string',
       consent_coc_at: 'string',
@@ -157,6 +164,23 @@ function validatePayload(table, payload) {
   if (payload.consent_coc !== true || !payload.consent_coc_version.trim() ||
       !Number.isFinite(Date.parse(payload.consent_coc_at))) {
     return 'Explicit Code of Conduct consent, version and valid timestamp are required.';
+  }
+
+  if (table === 'registrations') {
+    const allowedDays = ['Jueves 22', 'Viernes 23', 'Jueves 22, Viernes 23'];
+    const allowedThursdayModes = ['Presencial', 'Google Meet'];
+    const attendsThursday = payload.dias.includes('Jueves 22');
+
+    if (!allowedDays.includes(payload.dias) ||
+        (attendsThursday && !allowedThursdayModes.includes(payload.thursday_mode)) ||
+        (!attendsThursday && payload.thursday_mode !== null)) {
+      return 'Valid attendance days and Thursday mode are required.';
+    }
+
+    if (payload.consent_privacy !== true || !payload.consent_privacy_version.trim() ||
+        !Number.isFinite(Date.parse(payload.consent_privacy_at))) {
+      return 'Explicit privacy consent, version and valid timestamp are required.';
+    }
   }
 
   return null;
