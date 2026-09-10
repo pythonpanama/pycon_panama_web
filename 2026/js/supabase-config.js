@@ -71,10 +71,29 @@ async function postToSupabaseRest(table, payload) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`HTTP ${response.status}: ${errorText}`);
+    const responseError = new Error(`HTTP ${response.status}: ${errorText}`);
+    try {
+      const parsedError = JSON.parse(errorText);
+      responseError.code = parsedError.code;
+    } catch (_) {
+      // Una respuesta que no sea JSON conserva el mensaje HTTP completo.
+    }
+    throw responseError;
   }
 
   return null;
+}
+
+function faltanColumnasRegistro(error) {
+  const message = String(error && error.message ? error.message : error || '');
+  return Boolean(error) && (
+    error.code === 'PGRST204' ||
+    error.code === '42703' ||
+    (
+      /(thursday_mode|consent_privacy)/.test(message) &&
+      /(does not exist|schema cache|could not find)/i.test(message)
+    )
+  );
 }
 
 /**
@@ -118,6 +137,7 @@ async function registrarAsistente(datos) {
   }
 
   const consentTimestamp = new Date().toISOString();
+  const createdAt = new Date().toISOString();
   const payload = {
     name: datos.nombre,
     email: datos.email,
@@ -134,7 +154,28 @@ async function registrarAsistente(datos) {
     consent_coc: true,
     consent_coc_version: COC_VERSION,
     consent_coc_at: consentTimestamp,
-    created_at: new Date().toISOString()
+    created_at: createdAt
+  };
+
+  // Compatibilidad temporal hasta que Supabase tenga las columnas del esquema
+  // nuevo. Solo se usa cuando PostgREST confirma que faltan esas columnas, un
+  // rechazo definitivo que garantiza que `payload` no llegó a insertarse.
+  const legacyPayload = {
+    name: datos.nombre,
+    email: datos.email,
+    phone: datos.telefono || null,
+    role: datos.rol || null,
+    organization: datos.organizacion || null,
+    dias: datos.dias.map(day => day === 'Jueves 22'
+      ? 'Jueves 22 (' + datos.modalidad_jueves + ')'
+      : day).join(', '),
+    expectativas: datos.expectativas || null,
+    accessibility: datos.accesibilidad || null,
+    consent_photos: true,
+    consent_coc: true,
+    consent_coc_version: COC_VERSION,
+    consent_coc_at: consentTimestamp,
+    created_at: createdAt
   };
 
   console.log('📤 Enviando registro de asistente a public.registrations');
@@ -147,6 +188,11 @@ async function registrarAsistente(datos) {
       if (!error) {
         console.log('✅ Registro de asistente guardado');
         return { success: true };
+      }
+      if (faltanColumnasRegistro(error)) {
+        await postToSupabaseRest('registrations', legacyPayload);
+        console.warn('Registro guardado con el esquema anterior; falta aplicar la migración de asistentes.');
+        return { success: true, legacySchema: true };
       }
       if (!servidorRechazoDefinitivamente(error)) {
         console.error('❌ Resultado desconocido al registrar asistente; no se reintenta:', error);
@@ -166,6 +212,15 @@ async function registrarAsistente(datos) {
     console.log('✅ Registro de asistente guardado');
     return { success: true };
   } catch (err) {
+    if (faltanColumnasRegistro(err)) {
+      try {
+        await postToSupabaseRest('registrations', legacyPayload);
+        console.warn('Registro guardado con el esquema anterior; falta aplicar la migración de asistentes.');
+        return { success: true, legacySchema: true };
+      } catch (legacyError) {
+        err = legacyError;
+      }
+    }
     console.error('❌ Error al registrar asistente:', err);
     return {
       success: false,

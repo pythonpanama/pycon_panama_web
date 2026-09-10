@@ -92,6 +92,74 @@ test('registrarAsistente: no guarda modalidad cuando solo asiste el viernes', as
   assert.equal(writes[0].thursday_mode, null);
 });
 
+test('registrarAsistente: usa el esquema anterior solo ante columnas ausentes', async () => {
+  const writes = [];
+  const context = {
+    window: {},
+    console: { log() {}, error() {}, warn() {} },
+    fetch: async (_, options) => {
+      const payload = JSON.parse(options.body);
+      writes.push(payload);
+      if (writes.length === 1) {
+        return {
+          ok: false,
+          status: 400,
+          text: async () => JSON.stringify({
+            code: 'PGRST204',
+            message: "Could not find the 'thursday_mode' column in the schema cache"
+          })
+        };
+      }
+      return { ok: true };
+    }
+  };
+  vm.createContext(context);
+  vm.runInContext(source, context);
+
+  const result = await context.window.PyConSupabase.registrarAsistente({
+    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Jueves 22'],
+    modalidad_jueves: 'Google Meet', accesibilidad: 'No necesito ajustes',
+    consent_coc: true, consent_privacy: true
+  });
+
+  assert.equal(result.success, true);
+  assert.equal(result.legacySchema, true);
+  assert.equal(writes.length, 2);
+  assert.equal(writes[0].thursday_mode, 'Google Meet');
+  assert.equal(writes[0].consent_privacy, true);
+  assert.equal(writes[1].dias, 'Jueves 22 (Google Meet)');
+  assert.equal(writes[1].consent_photos, true);
+  assert.equal(writes[1].accessibility, 'No necesito ajustes');
+  assert.equal(Object.hasOwn(writes[1], 'thursday_mode'), false);
+  assert.equal(Object.hasOwn(writes[1], 'consent_privacy'), false);
+});
+
+test('registrarAsistente: no usa fallback ante un rechazo distinto', async () => {
+  let requests = 0;
+  const context = {
+    window: {},
+    console: { log() {}, error() {}, warn() {} },
+    fetch: async () => {
+      requests += 1;
+      return {
+        ok: false,
+        status: 400,
+        text: async () => JSON.stringify({ code: '23514', message: 'check violation' })
+      };
+    }
+  };
+  vm.createContext(context);
+  vm.runInContext(source, context);
+
+  const result = await context.window.PyConSupabase.registrarAsistente({
+    nombre: 'Prueba', email: 'test@example.invalid', dias: ['Viernes 23'],
+    consent_coc: true, consent_privacy: true
+  });
+
+  assert.equal(result.success, false);
+  assert.equal(requests, 1);
+});
+
 test('registrarVoluntariado: exige consentimiento, roles y disponibilidad sin escribir', async () => {
   const valid = {
     nombre: 'Prueba', email: 'test@example.invalid', roles: ['registro'],
