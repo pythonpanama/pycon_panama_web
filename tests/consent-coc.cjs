@@ -170,3 +170,15 @@ test('registrarVoluntariado: envía una postulación centralizada y consentimien
   assert.ok(Number.isFinite(Date.parse(submission.consent_coc_at)));
   assert.match(fs.readFileSync('2026/privacidad.html', 'utf8'), new RegExp(`Versión ${api.PRIVACY_VERSION.replace('.', '\\.')}`));
 });
+
+// Una página nueva no debe ejecutar validaciones de consentimientos antiguas
+// guardadas por el navegador con la anterior caché de siete días.
+test('los tres formularios cargan la versión vigente del módulo de envío', () => {
+  const { createHash } = require('node:crypto');
+  const version = createHash('sha256').update(source).digest('hex').slice(0, 12);
+  for (const file of ['2026/ponentes.html', '2026/registro.html', '2026/voluntariado/index.html']) {
+    const page = fs.readFileSync(file, 'utf8');
+    assert.ok(page.includes(`js/supabase-config.js?v=${version}"`), `${file}: actualiza la versión del script al modificarlo`);
+    assert.ok(!page.includes('js/supabase-config.js"'), `${file}: no debe cargar la URL antigua`);
+  }
+});

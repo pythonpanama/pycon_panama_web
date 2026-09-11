@@ -39,15 +39,17 @@ for = "/*"
   Referrer-Policy = "strict-origin-when-cross-origin"
   Permissions-Policy = "camera=(), geolocation=(), microphone=()"
 
-# Assets estáticos: cache largo (se versionan al cambiar de edición)
+# CSS: caché de una semana.
 [[headers]]
 for = "/*.css"
   [headers.values]
   Cache-Control = "public, max-age=604800"
 
+# Los scripts cambian durante la edición: revalidar antes de reutilizarlos.
+# La URL versionada en los formularios invalida las copias antiguas ya cacheadas.
 [[headers]]
 for = "/*.js"
   [headers.values]
-  Cache-Control = "public, max-age=604800"
+  Cache-Control = "public, max-age=0, must-revalidate"
 
 # La página 404.html en la raíz la sirve Netlify automáticamente.
