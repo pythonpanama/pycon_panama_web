@@ -10,12 +10,25 @@
   --surface: #ffffff;
   --surface-muted: #eef4ff;
 
-  /* --- Color: marca ------------------------------------------------------ */
-  --accent: #2f8cff;
-  --accent-hover: #1c6ed6;
-  --accent-soft: rgba(47, 140, 255, 0.10);
-  --accent-softer: rgba(47, 140, 255, 0.05);
-  --highlight: #ffca3a;
+  /* --- Color: marca -------------------------------------------------------
+     Paleta 2026: azules vivos + amarillo/naranja + verdes, sobre navy oscuro.
+     ------------------------------------------------------------------------ */
+  --accent: #2483f2;
+  --accent-hover: #1e49e2;
+  --accent-soft: rgba(36, 131, 242, 0.10);
+  --accent-softer: rgba(36, 131, 242, 0.05);
+  --highlight: #ffd400;
+
+  /* --- Color: paleta secundaria (categorías, insignias, ilustraciones) ---- */
+  --color-navy: #0a3d68;
+  --color-sky: #12a8f0;
+  --color-teal: #0e93c4;
+  --color-cyan-light: #96e6f6;
+  --color-lime: #82d93f;
+  --color-green: #17a673;
+  --color-amber: #ffa800;
+  --color-orange: #ff9500;
+  --color-cream: #fcf3d9;
 
   /* --- Color: texto ------------------------------------------------------ */
   --text: #111827;
@@ -26,9 +39,11 @@
   --border: rgba(47, 140, 255, 0.18);
   --border-soft: rgba(47, 140, 255, 0.10);
 
-  /* --- Tipografía -------------------------------------------------------- */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  /* --- Tipografía ----------------------------------------------------------
+     Montserrat (Google Fonts) — cargada en el <head> de cada página.
+     ------------------------------------------------------------------------ */
+  --font-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Escala fluida: se adapta sola entre móvil y escritorio */
   --fs-xs: 0.8125rem;                         /* 13px  — etiquetas */

@@ -536,16 +536,30 @@ button[type="submit"], .btn {
 }
 
 /* Tarjeta que es un enlace: el título hace de rótulo, sin un "ver más" que
-   repita lo que el título ya dice. */
+   repita lo que el título ya dice. Cada tarjeta toma un color de la paleta
+   secundaria en su borde superior, en el orden en que aparece en el HTML;
+   es decoración de posición, no una categoría con significado propio. */
 .card--link h3 {
   color: var(--accent);
 }
+
+.card--link {
+  --card-accent: var(--accent);
+  border-top: 4px solid var(--card-accent);
+}
+
+.card-grid .card--link:nth-of-type(6n + 2) { --card-accent: var(--color-teal); }
+.card-grid .card--link:nth-of-type(6n + 3) { --card-accent: var(--color-amber); }
+.card-grid .card--link:nth-of-type(6n + 4) { --card-accent: var(--color-green); }
+.card-grid .card--link:nth-of-type(6n + 5) { --card-accent: var(--color-sky); }
+.card-grid .card--link:nth-of-type(6n + 6) { --card-accent: var(--color-orange); }
 
 .card--link:hover,
 .card--link:focus-visible {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-color: var(--border);
+  border-top-color: var(--card-accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -621,8 +635,8 @@ button[type="submit"], .btn {
 }
 
 .session-break {
-  border-left-color: #8b5cf6;
-  background: rgba(139, 92, 246, 0.04);
+  border-left-color: var(--color-teal);
+  background: rgba(14, 147, 196, 0.04);
 }
 
 
