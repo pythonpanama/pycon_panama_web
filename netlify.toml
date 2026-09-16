@@ -1,9 +1,34 @@
 [build]
 publish = "." # raíz del repo
+# Genera 2026/js/env.js con las credenciales del proyecto (ver el script).
+# Declarado aquí y no solo en la UI de Netlify: netlify.toml tiene precedencia
+# y así el comando queda versionado junto al script que invoca.
+command = "node scripts/generate-env.cjs"
 
 [[redirects]]
 from = "/"
 to = "/2026/"
+status = 301
+
+[[redirects]]
+from = "/2026/form/index.html"
+to = "/2026/registro.html"
+status = 301
+
+[[redirects]]
+from = "/2026/form/speaker.html"
+to = "/2026/ponentes.html"
+status = 301
+
+# La página de ponentes se llamó speaker.html hasta septiembre de 2026.
+[[redirects]]
+from = "/2026/speaker.html"
+to = "/2026/ponentes.html"
+status = 301
+
+[[redirects]]
+from = "/2026/voluntariado"
+to = "/2026/voluntariado/"
 status = 301
 
 [[headers]]
@@ -14,15 +39,17 @@ for = "/*"
   Referrer-Policy = "strict-origin-when-cross-origin"
   Permissions-Policy = "camera=(), geolocation=(), microphone=()"
 
-# Assets estáticos: cache largo (se versionan al cambiar de edición)
+# CSS: caché de una semana.
 [[headers]]
 for = "/*.css"
   [headers.values]
   Cache-Control = "public, max-age=604800"
 
+# Los scripts cambian durante la edición: revalidar antes de reutilizarlos.
+# La URL versionada en los formularios invalida las copias antiguas ya cacheadas.
 [[headers]]
 for = "/*.js"
   [headers.values]
-  Cache-Control = "public, max-age=604800"
+  Cache-Control = "public, max-age=0, must-revalidate"
 
 # La página 404.html en la raíz la sirve Netlify automáticamente.

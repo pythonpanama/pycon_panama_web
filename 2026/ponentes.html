@@ -4,19 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - PyCon Panamá 2026</title>
-    <meta name="description" content="Regístrate en PyCon Panamá 2026, organizada por Python Panamá bajo el lema Python en la era de la Inteligencia Artificial.">
+    <title>Registro de ponentes - PyCon Panamá 2026</title>
+    <meta name="description" content="Postula tu charla o taller para PyCon Panamá 2026. Comparte tu conocimiento con la comunidad de Python en Panamá.">
     <meta name="theme-color" content="#2f8cff">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="PyCon Panamá">
-    <meta property="og:title" content="Registro PyCon Panamá 2026">
-    <meta property="og:description" content="Formulario de registro para PyCon Panamá 2026, organizada por Python Panamá.">
-    <meta property="og:url" content="https://pycon.pa/2026/registro.html">
+    <meta property="og:title" content="Registro de ponentes - PyCon Panamá 2026">
+    <meta property="og:description" content="Postula tu propuesta de charla o taller para la conferencia anual de Python en Panamá.">
+    <meta property="og:url" content="https://pycon.pa/2026/ponentes.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
-    <link rel="canonical" href="https://pycon.pa/2026/registro.html">
+    <link rel="canonical" href="https://pycon.pa/2026/ponentes.html">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -71,23 +71,9 @@
             gap: 0.45rem;
         }
 
-        fieldset.field {
-            min-width: 0;
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-
-        .field label,
-        .field legend {
+        .field label {
             font-weight: 700;
             color: var(--text);
-        }
-
-        .field-hint {
-            margin: 0;
-            color: var(--text-secondary);
-            font-size: var(--fs-xs);
         }
 
         .field input,
@@ -105,6 +91,20 @@
         .field textarea {
             min-height: 110px;
             resize: vertical;
+        }
+
+        .checkbox-item input {
+            width: 1.1rem;
+            height: 1.1rem;
+            padding: 0;
+            margin-top: 0.2rem;
+        }
+
+        .checkbox-note {
+            margin: 0;
+            padding-left: 1.7rem;
+            color: var(--text-secondary);
+            font-size: var(--fs-xs);
         }
 
         .field input:focus,
@@ -126,21 +126,6 @@
             gap: 0.6rem;
             color: var(--text-secondary);
         }
-
-        .checkbox-item input {
-            width: 1.1rem;
-            height: 1.1rem;
-            padding: 0;
-            margin-top: 0.2rem;
-        }
-
-        .checkbox-note {
-            margin: 0;
-            padding-left: 1.7rem;
-            color: var(--text-secondary);
-            font-size: var(--fs-xs);
-        }
-
         .status-message {
             min-height: 1.5rem;
             margin-top: 0.25rem;
@@ -185,8 +170,8 @@
                         <button class="submenu-toggle" type="button" aria-haspopup="true"
                             aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
                         <ul id="registro-submenu" class="submenu">
-                            <li><a href="registro.html" aria-current="page">Registro de asistentes</a></li>
-                            <li><a href="ponentes.html">Registro de ponentes</a></li>
+                            <li><a href="registro.html">Registro de asistentes</a></li>
+                            <li><a href="ponentes.html" aria-current="page">Registro de ponentes</a></li>
                             <li><a href="voluntariado/">Voluntariado</a></li>
                         </ul>
                     </li>
@@ -208,8 +193,9 @@
         <section class="page-header">
             <div class="container">
                 <div class="section-header">
-                    <h1>Registro</h1>
-                    <p class="section-text">Completa este formulario para registrar tu interés en asistir a PyCon Panamá 2026.</p>
+                    <h1>Convocatoria de ponencias</h1>
+                    <p class="section-text">¿Tienes un tema emocionante sobre Python o tecnología? Postula tu propuesta para PyCon Panamá 2026.</p>
+                    <p class="section-text"><strong>La convocatoria cierra el viernes 18 de septiembre de 2026 a las 23:59 (hora de Panamá).</strong></p>
                 </div>
             </div>
         </section>
@@ -217,18 +203,19 @@
         <section class="section">
             <div class="container registro-layout">
                 <aside class="registro-aside">
-                    <h2>PyCon Panamá 2026</h2>
-                    <p>La conferencia anual de Python en Panamá, organizada por Python Panamá, vuelve con una edición híbrida, con contenido virtual y presencial.</p>
-                    <p><strong><em>Python en la era de la Inteligencia Artificial.</em></strong><br>Construir. Comprender. Transformar.</p>
+                    <h2>¿Por qué presentar en PyCon?</h2>
+                    <p>PyCon Panamá reúne a la comunidad técnica, profesional y académica del país. Es la oportunidad perfecta para inspirar y compartir con otros desarrolladores.</p>
                     <ul>
-                        <li><strong>Jueves 22:</strong> jornada híbrida, con transmisión por Google Meet.</li>
-                        <li><strong>Viernes 23:</strong> encuentro presencial en la ciudad de Panamá.</li>
-                        <li><strong>Ingreso:</strong> gratuito, con registro previo.</li>
+                        <li><strong>Formato:</strong> charlas (30 a 45 min) y talleres.</li>
+                        <li><strong>Cierre de la convocatoria:</strong> viernes 18 de septiembre de 2026, 23:59 (hora de Panamá).</li>
+                        <li><strong>Jueves 22 de octubre:</strong> jornada híbrida, con transmisión por Google Meet.</li>
+                        <li><strong>Viernes 23 de octubre:</strong> jornada presencial.</li>
+                        <li><strong>Público:</strong> estudiantes, profesionales y entusiastas del software.</li>
                     </ul>
                 </aside>
 
                 <div class="registro-panel">
-                    <form id="registroForm" class="registro-form" novalidate>
+                    <form id="speakerForm" class="registro-form" novalidate>
                         <div class="field-grid">
                             <div class="field">
                                 <label for="nombre">Nombre completo *</label>
@@ -246,51 +233,51 @@
                                 <input id="telefono" name="telefono" type="tel" placeholder="+507 6000-0000" autocomplete="tel">
                             </div>
                             <div class="field">
-                                <label for="organizacion">Organización / Empresa</label>
-                                <input id="organizacion" name="organizacion" type="text" placeholder="Ej. Universidad, Empresa X">
+                                <label for="organizacion">Organización / Empresa / Comunidad</label>
+                                <input id="organizacion" name="organizacion" type="text" placeholder="Ej. Universidad, Empresa X, Python PA">
                             </div>
                         </div>
 
                         <div class="field">
-                            <label for="rol">Rol *</label>
-                            <select id="rol" name="rol" required>
-                                <option value="">Selecciona una opción</option>
-                                <option>Estudiante</option>
-                                <option>Profesional</option>
-                                <option>Docente</option>
-                                <option>Emprendedor</option>
-                                <option>Otro</option>
-                            </select>
-                        </div>
-
-                        <fieldset class="field" aria-describedby="dias-hint">
-                            <legend>¿Qué días te gustaría asistir? *</legend>
-                            <p id="dias-hint" class="field-hint">Selecciona al menos un día.</p>
-                            <div class="checkboxes">
-                                <label class="checkbox-item"><input id="dia_jueves" type="checkbox" name="dias" value="Jueves 22"> Jueves 22 · Jornada híbrida</label>
-                                <label class="checkbox-item"><input id="dia_viernes" type="checkbox" name="dias" value="Viernes 23"> Viernes 23 · Encuentro presencial</label>
-                            </div>
-                        </fieldset>
-
-                        <fieldset id="modalidadJuevesField" class="field" hidden>
-                            <legend>¿Cómo participarás el jueves 22? *</legend>
-                            <div class="checkboxes">
-                                <label class="checkbox-item"><input type="radio" name="modalidad_jueves" value="Presencial"> Presencial</label>
-                                <label class="checkbox-item"><input type="radio" name="modalidad_jueves" value="Google Meet"> Por Google Meet</label>
-                            </div>
-                        </fieldset>
-
-                        <div class="field">
-                            <label for="expectativas">¿Qué te gustaría aprender o compartir?</label>
-                            <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento…"></textarea>
+                            <label for="bio">Resumen biográfico / Perfil *</label>
+                            <textarea id="bio" name="bio" required placeholder="Cuéntanos brevemente sobre ti y tu experiencia…"></textarea>
                         </div>
 
                         <div class="field">
-                            <label for="accesibilidad">¿Necesitas algún ajuste para participar?</label>
-                            <textarea id="accesibilidad" name="accesibilidad" maxlength="500"
-                                aria-describedby="accesibilidad-hint"
-                                placeholder="Puedes indicar que no necesitas ajustes."></textarea>
-                            <p id="accesibilidad-hint" class="field-hint">No incluyas diagnósticos ni información médica.</p>
+                            <label for="titulo_propuesta">Título de la propuesta *</label>
+                            <input id="titulo_propuesta" name="titulo_propuesta" type="text" required placeholder="Ej. Introducción a FastAPI y Asyncio">
+                        </div>
+
+                        <div class="field">
+                            <label for="descripcion_propuesta">Descripción / Resumen de la charla *</label>
+                            <textarea id="descripcion_propuesta" name="descripcion_propuesta" required placeholder="Describe los puntos clave que abordarás en la ponencia…"></textarea>
+                        </div>
+
+                        <div class="field-grid">
+                            <div class="field">
+                                <label for="nivel">Nivel del contenido *</label>
+                                <select id="nivel" name="nivel" required>
+                                    <option value="">Selecciona el nivel</option>
+                                    <option value="Principiante">Principiante</option>
+                                    <option value="Intermedio">Intermedio</option>
+                                    <option value="Avanzado">Avanzado</option>
+                                    <option value="Todos">Para todos los niveles</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="modalidad">Modalidad preferida *</label>
+                                <select id="modalidad" name="modalidad" required>
+                                    <option value="">Selecciona la modalidad</option>
+                                    <option value="Presencial">Presencial</option>
+                                    <option value="Virtual">En línea (remota)</option>
+                                    <option value="Indiferente">Cualquiera de las dos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="redes_sociales">Redes / Perfil profesional (LinkedIn, GitHub, sitio web)</label>
+                            <input id="redes_sociales" name="redes_sociales" type="text" placeholder="https://linkedin.com/in/tu-perfil">
                         </div>
 
                         <div class="checkboxes">
@@ -310,7 +297,7 @@
                                 pierdas lo que ya escribiste.</p>
                         </div>
 
-                        <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
+                        <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar propuesta de ponencia</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
                 </div>
@@ -337,42 +324,22 @@
     <script src="js/supabase-config.js?v=5427c37ebf46"></script>
     <script src="js/main.js"></script>
     <script>
-        const form = document.getElementById('registroForm');
+        const form = document.getElementById('speakerForm');
         const statusMessage = document.getElementById('statusMessage');
         const btnSubmit = document.getElementById('btnSubmit');
-        const dayInputs = Array.from(document.querySelectorAll('input[name="dias"]'));
-        const diaJueves = document.getElementById('dia_jueves');
-        const modalidadJuevesField = document.getElementById('modalidadJuevesField');
-        const modalidadJuevesInputs = Array.from(document.querySelectorAll('input[name="modalidad_jueves"]'));
-
-        function syncAttendanceFields() {
-            const hasSelectedDay = dayInputs.some(option => option.checked);
-            dayInputs[0].setCustomValidity(hasSelectedDay ? '' : 'Selecciona al menos un día.');
-
-            modalidadJuevesField.hidden = !diaJueves.checked;
-            modalidadJuevesInputs.forEach(option => {
-                option.required = diaJueves.checked;
-                if (!diaJueves.checked) option.checked = false;
-            });
-        }
-
-        dayInputs.forEach(option => option.addEventListener('change', syncAttendanceFields));
-        syncAttendanceFields();
 
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
-            syncAttendanceFields();
 
             if (!form.checkValidity()) {
                 statusMessage.className = 'status-message error';
-                if (!dayInputs.some(option => option.checked)) {
-                    statusMessage.textContent = 'Selecciona al menos un día para asistir.';
-                } else if (diaJueves.checked && !modalidadJuevesInputs.some(option => option.checked)) {
-                    statusMessage.textContent = 'Indica cómo participarás el jueves 22.';
-                } else if (!document.getElementById('consent_coc').checked) {
-                    statusMessage.textContent = 'Para registrarte tienes que aceptar el Código de Conducta.';
+                // Si lo único que falta es la casilla del Código de Conducta, se dice;
+                // si falta algo más, el mensaje genérico y reportValidity() lleva el
+                // foco al primer campo con problema.
+                if (!document.getElementById('consent_coc').checked) {
+                    statusMessage.textContent = 'Para enviar tu propuesta tienes que aceptar el Código de Conducta.';
                 } else if (!document.getElementById('consent_privacy').checked) {
-                    statusMessage.textContent = 'Para registrarte tienes que aceptar el Aviso de Privacidad.';
+                    statusMessage.textContent = 'Para enviar tu propuesta tienes que aceptar el Aviso de Privacidad.';
                 } else {
                     statusMessage.textContent = 'Revisa los campos obligatorios del formulario.';
                 }
@@ -381,42 +348,42 @@
             }
 
             btnSubmit.disabled = true;
-            btnSubmit.textContent = 'Enviando registro...';
+            btnSubmit.textContent = 'Enviando propuesta...';
             statusMessage.className = 'status-message';
-            statusMessage.textContent = 'Procesando tu registro...';
+            statusMessage.textContent = 'Procesando tu propuesta...';
 
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const organizacion = document.getElementById('organizacion') ? document.getElementById('organizacion').value.trim() : '';
-            const rol = document.getElementById('rol').value;
-            const dias = dayInputs.filter(option => option.checked).map(option => option.value);
-            const modalidad_jueves = modalidadJuevesInputs.find(option => option.checked)?.value || '';
-            const expectativas = document.getElementById('expectativas').value.trim();
-            const accesibilidad = document.getElementById('accesibilidad').value.trim();
-            const consent_privacy = document.getElementById('consent_privacy').checked;
-            const consent_coc = document.getElementById('consent_coc').checked;
-
-            const datos = { nombre, email, telefono, organizacion, rol, dias, modalidad_jueves, expectativas, accesibilidad, consent_privacy, consent_coc };
+            const datos = {
+                nombre: document.getElementById('nombre').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                telefono: document.getElementById('telefono').value.trim(),
+                organizacion: document.getElementById('organizacion').value.trim(),
+                bio: document.getElementById('bio').value.trim(),
+                titulo_propuesta: document.getElementById('titulo_propuesta').value.trim(),
+                descripcion_propuesta: document.getElementById('descripcion_propuesta').value.trim(),
+                nivel: document.getElementById('nivel').value,
+                modalidad: document.getElementById('modalidad').value,
+                redes_sociales: document.getElementById('redes_sociales').value.trim(),
+                consent_privacy: document.getElementById('consent_privacy').checked,
+                consent_coc: document.getElementById('consent_coc').checked
+            };
 
             try {
-                const res = await PyConSupabase.registrarAsistente(datos);
+                const res = await PyConSupabase.registrarSpeaker(datos);
 
                 if (res.success) {
                     statusMessage.className = 'status-message success';
-                    statusMessage.textContent = `¡Gracias, ${nombre}! Recibimos tu registro para ${dias.join(' y ')}. Te enviaremos una confirmación por correo.`;
+                    statusMessage.textContent = `¡Gracias, ${datos.nombre}! Tu propuesta "${datos.titulo_propuesta}" ha sido registrada exitosamente para PyCon Panamá 2026.`;
                     form.reset();
-                    syncAttendanceFields();
                 } else {
                     statusMessage.className = 'status-message error';
-                    statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al procesar tu registro. Por favor intenta de nuevo.';
+                    statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al enviar tu propuesta. Por favor intenta de nuevo.';
                 }
             } catch (err) {
                 statusMessage.className = 'status-message error';
                 statusMessage.textContent = 'Error de conexión. Por favor intenta de nuevo.';
             } finally {
                 btnSubmit.disabled = false;
-                btnSubmit.textContent = 'Enviar registro';
+                btnSubmit.textContent = 'Enviar propuesta de ponencia';
             }
         });
     </script>
