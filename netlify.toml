@@ -5,6 +5,26 @@ publish = "." # raíz del repo
 # y así el comando queda versionado junto al script que invoca.
 command = "node scripts/generate-env.cjs"
 
+# publish = "." expone todo el repo; estas carpetas son herramientas de
+# desarrollo (proxy local, tests, scripts de build) y nunca deben servirse.
+[[redirects]]
+from = "/local_server/*"
+to = "/404.html"
+status = 404
+force = true
+
+[[redirects]]
+from = "/tests/*"
+to = "/404.html"
+status = 404
+force = true
+
+[[redirects]]
+from = "/scripts/*"
+to = "/404.html"
+status = 404
+force = true
+
 [[redirects]]
 from = "/"
 to = "/2026/"
