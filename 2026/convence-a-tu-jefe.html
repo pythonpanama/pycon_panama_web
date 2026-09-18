@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convence a tu jefe - PyCon Panamá 2026</title>
+    <meta name="description" content="Todo lo que necesitas para pedir permiso y asistir a PyCon Panamá 2026: el argumento de negocio, la agenda resumida y una plantilla de correo lista para enviar a tu jefe.">
+    <meta name="theme-color" content="#2483f2">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Convence a tu jefe - PyCon Panamá 2026">
+    <meta property="og:description" content="El argumento de negocio, la agenda resumida y una plantilla de correo para pedir permiso y asistir a PyCon Panamá 2026.">
+    <meta property="og:url" content="https://pycon.pa/2026/convence-a-tu-jefe.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <link rel="canonical" href="https://pycon.pa/2026/convence-a-tu-jefe.html">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        .plantilla-box {
+            display: grid;
+            gap: 1rem;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .plantilla-box textarea {
+            min-height: 320px;
+            font-family: inherit;
+            line-height: var(--lh-body);
+            white-space: pre-wrap;
+        }
+
+        .plantilla-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .venue-detail dd a {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .plantilla-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html">PyCon Panamá 2026</a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú"
+                aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Acerca de</a></li>
+                    <li><a href="sedes.html">Sedes</a></li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="registro-submenu">Registro</button>
+                        <ul id="registro-submenu" class="submenu">
+                            <li><a href="registro.html">Registro de asistentes</a></li>
+                            <li><a href="ponentes.html">Registro de ponentes</a></li>
+                            <li><a href="voluntariado/">Voluntariado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-has-children">
+                        <button class="submenu-toggle" type="button" aria-haspopup="true"
+                            aria-expanded="false" aria-controls="community-submenu">Comunidad</button>
+                        <ul id="community-submenu" class="submenu">
+                            <li><a href="codigo_conducta.html">Código de Conducta</a></li>
+                            <li><a href="patrocinadores.html">Patrocinadores</a></li>
+                            <li><a href="faq.html">Preguntas frecuentes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-copy">
+                    <span class="eyebrow">Esto es para mostrarle a tu jefe</span>
+                    <h1>Pide permiso para ir a <span>PyCon Panamá 2026</span></h1>
+                    <p class="hero-text">Compártele esta página a tu jefe tal cual está: tiene la fecha, el argumento de negocio, la agenda resumida y una plantilla de correo lista para editar y enviar.</p>
+                    <p class="hero-tagline">Python en la era de la Inteligencia Artificial.<br>Construir. Comprender. Transformar.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="registro.html">Ir al registro</a>
+                        <a class="btn btn-secondary" href="#plantilla"><i class="fas fa-envelope" aria-hidden="true"></i> Ver plantilla de correo</a>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h2>22 y 23 de octubre de 2026</h2>
+                    <ul>
+                        <li><strong>Jueves 22:</strong> jornada híbrida en Universidad del Istmo, Sede Panamá, de 9:00 a.m. a 12:00 m., con transmisión por Google Meet</li>
+                        <li><strong>Viernes 23:</strong> encuentro presencial en Universidad del Istmo, Sede Metromall, de 10:00 a.m. a 2:00 p.m.</li>
+                        <li><strong>Entrada:</strong> gratuita, con registro previo</li>
+                    </ul>
+                    <p><a class="internal-link" href="sedes.html">Ver direcciones y mapas</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="prose" style="max-width: 760px; margin: 0 auto;">
+                    <div class="callout">
+                        <p><strong>El argumento en una frase:</strong> son medio día laboral entre las dos jornadas, sede fija en la ciudad, entrada gratuita, y el equipo vuelve con networking, capacitación en Python e Inteligencia Artificial, y contactos que no se consiguen desde el escritorio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Qué se lleva la empresa</h2>
+                    <p class="section-text">No es "un evento más": es la oportunidad de que tu equipo técnico vuelva con algo concreto.</p>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>Talento actualizado</h3>
+                        <p>Tu equipo se expone a herramientas, prácticas y tendencias actuales de Python e Inteligencia Artificial, de primera mano y sin intermediarios.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Networking con la comunidad tech local</h3>
+                        <p>Contacto directo con otras empresas, desarrolladores y la comunidad de Python en Panamá: relaciones que no se construyen desde una oficina.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Marca empleadora</h3>
+                        <p>Que tu empresa apoye la asistencia de su gente a un evento de la comunidad tech local también se nota hacia afuera.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Contenido aplicable al trabajo</h3>
+                        <p>Charlas pensadas para llevarse ideas que se pueden aplicar de vuelta al equipo, no solo teoría.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Agenda resumida</h2>
+                    <p class="section-text">Lo más fuerte del programa está concentrado en la tarde de cada día, así que ni siquiera se pierde la jornada completa de trabajo. La agenda completa, con horario por charla, se publica en <a class="internal-link" href="agenda.html">la página de agenda</a>.</p>
+                </div>
+                <div class="venue-grid">
+                    <article class="venue-card">
+                        <h2>Día 1 · Jueves 22</h2>
+                        <p class="venue-mode">Híbrido: presencial y por Google Meet</p>
+                        <dl class="venue-details">
+                            <div class="venue-detail">
+                                <dt>Horario</dt>
+                                <dd>9:00 a.m. – 12:00 m.</dd>
+                            </div>
+                            <div class="venue-detail">
+                                <dt>Sede</dt>
+                                <dd>Universidad del Istmo, Sede Panamá</dd>
+                            </div>
+                            <div class="venue-detail">
+                                <dt>Programa</dt>
+                                <dd>1 keynote + 3 charlas + receso</dd>
+                            </div>
+                        </dl>
+                    </article>
+                    <article class="venue-card">
+                        <h2>Día 2 · Viernes 23</h2>
+                        <p class="venue-mode">Presencial</p>
+                        <dl class="venue-details">
+                            <div class="venue-detail">
+                                <dt>Horario</dt>
+                                <dd>10:00 a.m. – 2:00 p.m.</dd>
+                            </div>
+                            <div class="venue-detail">
+                                <dt>Sede</dt>
+                                <dd>Universidad del Istmo, Sede Metromall</dd>
+                            </div>
+                            <div class="venue-detail">
+                                <dt>Programa</dt>
+                                <dd>1 keynote + 4 charlas + receso</dd>
+                            </div>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="card hero-card" style="max-width: 820px; margin: 0 auto;">
+                    <h2>¿Y si mandas a más de una persona?</h2>
+                    <p>Mandar a tres personas del equipo sale más barato para la empresa que perder el día completo de una sola persona: el networking, el aprendizaje y la visibilidad de marca se reparten entre tres, en vez de depender de que una sola persona lo aproveche todo y luego lo transmita al resto.</p>
+                    <p>Es el mismo argumento de siempre: mejor invertir en varios puntos de contacto con la comunidad que en uno solo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="plantilla">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Plantilla lista para copiar y pegar</h2>
+                    <p class="section-text">Edita lo que está entre corchetes y envíasela a tu jefe tal cual, por correo o por chat.</p>
+                </div>
+                <div class="plantilla-box">
+                    <div class="field">
+                        <label for="plantillaCorreo">Correo para pedir permiso</label>
+                        <textarea id="plantillaCorreo" readonly>Asunto: Permiso para asistir a PyCon Panamá 2026
+
+Hola [nombre de tu jefe],
+
+Te escribo para pedirte permiso de asistir a PyCon Panamá 2026, la conferencia anual de Python en Panamá, organizada por Python Panamá. Se realiza el jueves 22 y viernes 23 de octubre, con entrada gratuita: el jueves es híbrido, de 9:00 a.m. a 12:00 m., y el viernes es presencial, de 10:00 a.m. a 2:00 p.m., en Ciudad de Panamá.
+
+El contenido más fuerte del programa está concentrado en la tarde de cada día, así que no significa perder la jornada completa de trabajo. Incluso se puede asistir solo a bloques puntuales.
+
+Para mí sería la oportunidad de actualizarme en Python e Inteligencia Artificial, conectar con la comunidad tech local y traer ideas aplicables a nuestro trabajo.
+
+Si te parece, también podríamos evaluar mandar a un grupo del equipo: repartir la asistencia entre varias personas sale más rentable para la empresa que perder el día completo de una sola, y multiplicamos el aprendizaje y la visibilidad de marca.
+
+Toda la información está en pycon.pa/2026/convence-a-tu-jefe.html y el registro en pycon.pa/2026/registro.html.
+
+Quedo atento a tu respuesta.
+
+Saludos,
+[Tu nombre]</textarea>
+                    </div>
+                    <div class="plantilla-actions">
+                        <button id="btnCopiarPlantilla" class="btn btn-secondary" type="button">
+                            <i class="fas fa-copy" aria-hidden="true"></i> Copiar plantilla
+                        </button>
+                        <p id="copiarStatus" class="status-message" aria-live="polite"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Preguntas frecuentes</h2>
+                </div>
+                <div class="details-accordion">
+                    <details>
+                        <summary>¿Hay que ir los dos días?</summary>
+                        <div class="faq-answer">No. Puedes registrarte para el jueves, el viernes o ambos días, según lo que te autoricen. El formulario de registro te deja elegir.</div>
+                    </details>
+                    <details>
+                        <summary>¿Es gratis?</summary>
+                        <div class="faq-answer">Sí, la entrada a PyCon Panamá 2026 es gratuita, con registro previo.</div>
+                    </details>
+                    <details>
+                        <summary>¿Se puede ir solo a una charla?</summary>
+                        <div class="faq-answer">Sí, puedes asistir a bloques puntuales dentro del horario de cada día; no es necesario quedarte la jornada completa.</div>
+                    </details>
+                    <details>
+                        <summary>¿Hay constancia de asistencia?</summary>
+                        <div class="faq-answer">Todavía no tenemos eso confirmado. Si se habilita una constancia, lo anunciaremos en el sitio y en nuestras redes.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card hero-card" style="max-width: 720px; margin: 0 auto; text-align: center;">
+                    <h2>¿Te dieron el permiso?</h2>
+                    <p>Regístrate para asegurar tu cupo en PyCon Panamá 2026.</p>
+                    <div class="hero-actions" style="justify-content: center; margin-top: 1rem;">
+                        <a class="btn btn-primary" href="registro.html">Ir al registro</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="codigo_conducta.html">Código de Conducta</a> · <a class="internal-link" href="privacidad.html">Aviso de Privacidad</a></p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="mailto:pyconpanama@gmail.com" aria-label="Correo de contacto: pyconpanama@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078380970388" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://www.meetup.com/python-panama/" aria-label="Meetup" target="_blank" rel="noopener noreferrer"><i class="fab fa-meetup" aria-hidden="true"></i></a>
+                <a href="https://linktr.ee/pythonpanama" aria-label="Todas nuestras redes en Linktree" target="_blank" rel="noopener noreferrer"><i class="fas fa-link" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        const btnCopiar = document.getElementById('btnCopiarPlantilla');
+        const plantilla = document.getElementById('plantillaCorreo');
+        const copiarStatus = document.getElementById('copiarStatus');
+
+        btnCopiar.addEventListener('click', async function () {
+            try {
+                await navigator.clipboard.writeText(plantilla.value);
+                copiarStatus.className = 'status-message success';
+                copiarStatus.textContent = 'Plantilla copiada. Ya puedes pegarla en tu correo.';
+            } catch (err) {
+                plantilla.removeAttribute('readonly');
+                plantilla.focus();
+                plantilla.select();
+                copiarStatus.className = 'status-message error';
+                copiarStatus.textContent = 'No pudimos copiarla automáticamente. Está seleccionada: usa Ctrl+C o Cmd+C.';
+            }
+        });
+    </script>
+</body>
+
+</html>
