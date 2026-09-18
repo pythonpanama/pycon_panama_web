@@ -177,23 +177,18 @@ el cambio de fecha. La cuenta regresiva corresponde al issue #119.
 
 ## Publicación de las sedes 2026
 
-Última actualización: 8 de septiembre de 2026.
+Última actualización: 18 de septiembre de 2026.
 
-Por indicación de organización, las sedes siguen el mismo procedimiento de
-publicación manual del 28 de septiembre de 2026 que la agenda, sin hora ni
-activación automática. La versión anterior se conserva en Git en el commit
-`76e034601ee9ddb44fa103872aaba274e4efb4bf`, sin añadir copias al sitio publicado.
+Las sedes se ocultaron el 8 de septiembre de 2026 (commit `05075c0`) a la espera
+de la publicación manual prevista para el 28 de septiembre. Por indicación de
+organización se restituyeron antes de esa fecha: `2026/sedes.html` vuelve a
+mostrar las dos sedes de la Universidad del Istmo (Sede Panamá, jueves 22, y
+Sede Metromall, viernes 23), con direcciones, contacto y mapas, y el enlace
+Sedes vuelve a aparecer en los once menús, la tarjeta y el enlace de inicio,
+y las referencias en Acerca de, FAQ, Código de Conducta, voluntariado y los
+formularios de registro. `sitemap.xml` y `SITEMAP_REQUIRED` incluyen de nuevo
+`/2026/sedes.html`.
 
-Para restituirlas, crear una rama desde `main` actualizado y consultar
-`git show 76e034601ee9ddb44fa103872aaba274e4efb4bf:2026/sedes.html` como referencia.
-Actualizar la página actual con ubicaciones, direcciones, contactos y mapas
-aprobados; revisar sus metadatos. Restituir los enlaces de los once menús,
-la tarjeta y enlace de inicio, las referencias de Acerca de, FAQ y formularios,
-y la entrada del sitemap y de `SITEMAP_REQUIRED`. Revisar también las referencias
-de ubicaciones en voluntariado y Código de Conducta, manteniendo las reglas de
-conducta y los valores persistidos de los formularios.
-
-Consultar el diff de la retirada para localizar cada cambio, sin revertir
-páginas completas. Ejecutar las mismas validaciones indicadas para la agenda,
-revisar móvil/escritorio y publicar con autorización de organización. Verificar
-el acceso directo a `/2026/sedes.html`, los enlaces y los mapas en producción.
+`python3 scripts/validate_site.py --skip-external` pasa sobre las 11 páginas
+de `2026/`. Antes de publicar en producción, correr también la validación
+completa con red y revisar el acceso directo a `/2026/sedes.html` ya desplegado.
