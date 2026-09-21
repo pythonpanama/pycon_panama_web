@@ -28,6 +28,12 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <style>
+        #btnSubmit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .registro-layout {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
@@ -303,7 +309,8 @@
                                 pierdas lo que ya escribiste.</p>
                         </div>
 
-                        <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar propuesta de ponencia</button>
+                        <p id="propuestasCerradas"><strong>La recepción de propuestas de ponencias para PyCon Panamá 2026 está cerrada.</strong> Gracias por tu interés en participar.</p>
+                        <button id="btnSubmit" class="btn btn-primary" type="submit" aria-describedby="propuestasCerradas" disabled>Enviar propuesta de ponencia</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
                 </div>
@@ -336,6 +343,8 @@
 
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
+
+            if (btnSubmit.disabled) return;
 
             if (!form.checkValidity()) {
                 statusMessage.className = 'status-message error';
