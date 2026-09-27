@@ -16,6 +16,7 @@ Este repositorio contiene el sitio público de [PyCon Panamá](https://pycon.pa/
 - [Validar antes de proponer cambios](#validar-antes-de-proponer-cambios)
 - [Despliegue](#despliegue)
 - [Contribuir](#contribuir)
+- [Licencias y recursos de terceros](#licencias-y-recursos-de-terceros)
 - [Documentación y contacto](#documentación-y-contacto)
 
 ## Inicio rápido
@@ -132,7 +133,15 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 - No mezcles una mejora de la edición activa con cambios generados, archivos locales o correcciones de una edición archivada.
 - Escribe la documentación en Markdown con formato completo: encabezados jerárquicos, tablas para lo que tenga fecha o responsable, avisos `> [!NOTE]` y `> [!WARNING]`, bloques de código con el lenguaje declarado y enlaces relativos con texto descriptivo. Sella la fecha de última actualización en cada documento que edites.
 - Respeta el [Código de Conducta](2026/codigo_conducta.html) en toda interacción del proyecto.
-- No hay una licencia general declarada en la raíz del repositorio. Consulta al equipo antes de reutilizar contenido o recursos fuera de este proyecto.
+- Antes de contribuir, comprueba que puedes ofrecer el código o texto propio bajo las licencias indicadas en [LICENSE](LICENSE) y [LICENSE-CONTENT.md](LICENSE-CONTENT.md). No añadas contenido de terceros sin permiso y atribución adecuados.
+
+## Licencias y recursos de terceros
+
+Última actualización: 27 de septiembre de 2026.
+
+El código fuente sobre el que Python Panamá puede conceder derechos se ofrece bajo [MIT](LICENSE). Los textos y la documentación originales de la organización se ofrecen bajo [CC BY 4.0](LICENSE-CONTENT.md), con atribución e indicación de cambios al reutilizarlos. Las licencias específicas de archivos o subdirectorios prevalecen para ese material; el [Código de Conducta de 2026](2026/codigo_conducta.html#creditos), por ejemplo, declara CC BY-SA 3.0.
+
+Estas licencias no autorizan el uso de logos de patrocinadores, marcas, fotografías o recursos de terceros. Para el alcance y las exclusiones, consulta [LICENSE-CONTENT.md](LICENSE-CONTENT.md).
 
 ## Documentación y contacto
 
