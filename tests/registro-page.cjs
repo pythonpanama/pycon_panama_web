@@ -26,5 +26,5 @@ test('el aviso de privacidad coincide con los datos del registro', () => {
   assert.match(privacy, /presencialmente o por Google Meet/);
   assert.match(privacy, /ajuste de accesibilidad/);
   assert.match(privacy, /versión y fecha en que aceptaste/);
-  assert.match(privacy, /Versión 1\.1/);
+  assert.match(privacy, /Versión 1\.2/);
 });
