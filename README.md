@@ -122,6 +122,10 @@ No modifiques `netlify.toml` para cambiar la edición activa ni para publicar ru
 
 ## Contribuir
 
+Última actualización: 27 de septiembre de 2026.
+
+Consulta la [guía de contribución](CONTRIBUTING.md) para abrir issues, preparar un PR y solicitar revisión.
+
 Las contribuciones son bienvenidas, especialmente correcciones de contenido, accesibilidad, enlaces y mantenimiento del sitio.
 
 - Usa una rama con un nombre descriptivo y commits pequeños que expliquen el cambio.
