@@ -176,6 +176,8 @@ Para preparar la restitución:
    horarios y ponentes por la programación aprobada por organización.
 2. Editar la página actual conservando su navegación y metadatos vigentes.
    Actualizar la descripción y el contenido principal con la agenda aprobada.
+   Retirar el aviso de publicación, el elemento `agenda-countdown` y la carga
+   de `js/agenda-countdown.js` al publicar la programación definitiva.
 3. Restituir el enlace Agenda en los menús de todas las páginas de `2026/`,
    incluido `voluntariado/index.html` (ruta `../agenda.html`); la tarjeta de
    inicio; y los botones de `about.html` y `sedes.html`. Consultar el diff del
