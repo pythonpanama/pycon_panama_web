@@ -36,6 +36,7 @@ SITEMAP_REQUIRED = {
     f"{CANONICAL_BASE}/2026/patrocinadores.html",
     f"{CANONICAL_BASE}/2026/privacidad.html",
     f"{CANONICAL_BASE}/2026/registro.html",
+    f"{CANONICAL_BASE}/2026/convence-a-tu-jefe.html",
     f"{CANONICAL_BASE}/2026/ponentes.html",
     f"{CANONICAL_BASE}/2026/voluntariado/",
 }
