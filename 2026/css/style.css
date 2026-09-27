@@ -1187,3 +1187,11 @@ a.sponsor-card:focus-visible {
 .sponsor-empty > * + * {
   margin-top: var(--space-3);
 }
+
+/* Reserva dos líneas en móvil para todos los estados de la cuenta regresiva. */
+.agenda-countdown {
+    min-height: 3em;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    font-variant-numeric: tabular-nums;
+}

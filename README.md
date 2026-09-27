@@ -139,9 +139,9 @@ Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyc
 
 ## Publicación de la agenda 2026 — issue #118
 
-Última actualización: 8 de septiembre de 2026.
+Última actualización: 27 de septiembre de 2026.
 
-La agenda permanece en espera hasta el lunes 28 de septiembre de 2026. No hay
+La agenda permanece en espera hasta el viernes 2 de octubre de 2026. No hay
 hora definida ni publicación automática: organización debe confirmar el contenido
 aprobado y el momento de publicación.
 
@@ -158,6 +158,8 @@ Para preparar la restitución:
    horarios y ponentes por la programación aprobada por organización.
 2. Editar la página actual conservando su navegación y metadatos vigentes.
    Actualizar la descripción y el contenido principal con la agenda aprobada.
+   Retirar el aviso de publicación, el elemento `agenda-countdown` y la carga
+   de `js/agenda-countdown.js` al publicar la programación definitiva.
 3. Restituir el enlace Agenda en los menús de todas las páginas de `2026/`,
    incluido `voluntariado/index.html` (ruta `../agenda.html`); la tarjeta de
    inicio; y los botones de `about.html` y `sedes.html`. Consultar el diff del
@@ -169,7 +171,7 @@ Para preparar la restitución:
    `git diff --check`. Revisar el preview en móvil y escritorio, el menú,
    los enlaces restituidos y el acceso directo a `/2026/agenda.html`.
 6. Integrar el PR revisado cuando organización autorice la publicación el
-   28 de septiembre. Verificar el despliegue de Netlify y repetir la navegación
+   2 de octubre de 2026. Verificar el despliegue de Netlify y repetir la navegación
    y el acceso directo en producción antes de dar la restitución por terminada.
 
 El aviso se mantiene si falta la aprobación; no se elimina automáticamente por
