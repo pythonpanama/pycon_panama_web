@@ -28,6 +28,7 @@ REQUIRED_META = {
     "twitter:image",
 }
 SITEMAP_REQUIRED = {
+    f"{CANONICAL_BASE}/2026/informacion-practica.html",
     f"{CANONICAL_BASE}/2026/",
     f"{CANONICAL_BASE}/2026/about.html",
     f"{CANONICAL_BASE}/2026/sedes.html",
@@ -89,6 +90,11 @@ class PageParser(HTMLParser):
         if tag == "link" and "canonical" in (values.get("rel") or "").split():
             if values.get("href"):
                 self.canonicals.append(values["href"])
+        # preconnect y dns-prefetch nombran un origen, no un recurso: la raíz
+        # de fonts.googleapis.com responde 404 aunque el servicio funcione.
+        link_rels = set((values.get("rel") or "").lower().split())
+        if tag == "link" and link_rels & {"preconnect", "dns-prefetch"}:
+            return
         if tag in {"a", "img", "iframe", "link", "script", "source"}:
             reference = values.get("href") or values.get("src")
             if reference:
