@@ -33,6 +33,9 @@ jobs:
       - name: Validate JavaScript syntax
         run: |
           node --check 2026/js/main.js
+          node --check 2026/js/registro.js
+          node --check 2026/js/ponentes.js
+          node --check 2026/js/convence-a-tu-jefe.js
           node --check 2026/js/supabase-config.js
           node --check 2026/js/voluntariado.js
           node --check tests/consent-coc.cjs
