@@ -38,7 +38,6 @@ jobs:
           node --check tests/consent-coc.cjs
       - name: Check consent persistence and Code of Conduct version
         run: |
-          node --test tests/consent-coc.cjs
-          node --test tests/voluntariado-page.cjs
+          node --test tests/*.cjs
       - name: Check whitespace errors
         run: git diff --check HEAD^ HEAD
