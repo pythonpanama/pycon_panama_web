@@ -61,7 +61,7 @@ El repositorio no contiene submódulos: trabaja siempre en esta raíz. Así se e
 
 1. Crea una rama desde `main` y delimita el cambio a una edición o propósito claro.
 2. Para contenido de 2026, modifica los archivos de [`2026/`](2026/). Conserva la estructura semántica y los estilos compartidos en `2026/css/`.
-3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `sedes.html`, `codigo_conducta.html`, `privacidad.html`, `patrocinadores.html`, `faq.html`, `registro.html` y `ponentes.html`.
+3. Si cambias navegación, aplícala en **todas** las páginas públicas de `2026/`: `index.html`, `about.html`, `agenda.html`, `sedes.html`, `codigo_conducta.html`, `privacidad.html`, `patrocinadores.html`, `faq.html`, `registro.html`, `ponentes.html`, `convence-a-tu-jefe.html` y `voluntariado/index.html`.
 4. Si agregas una página pública, parte de una existente para mantener `lang`, `viewport`, favicon, hojas de estilo, `canonical`, metadatos Open Graph y el enlace al Código de Conducta. Añade además la URL a `sitemap.xml` **y a `SITEMAP_REQUIRED` en [`scripts/validate_site.py`](scripts/validate_site.py)**: el validador compara ambas listas y falla si difieren. Enlázala desde la navegación o el pie según corresponda.
 5. Mantén las fechas, sede, precios, CFP y beneficios como “por anunciar” hasta contar con confirmación pública. No publiques notas operativas, datos personales ni decisiones pendientes.
 
@@ -152,9 +152,9 @@ Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyc
 
 ## Publicación de la agenda 2026 — issue #118
 
-Última actualización: 8 de septiembre de 2026.
+Última actualización: 27 de septiembre de 2026.
 
-La agenda permanece en espera hasta el lunes 28 de septiembre de 2026. No hay
+La agenda permanece en espera hasta el viernes 2 de octubre de 2026. No hay
 hora definida ni publicación automática: organización debe confirmar el contenido
 aprobado y el momento de publicación.
 
@@ -182,7 +182,7 @@ Para preparar la restitución:
    `git diff --check`. Revisar el preview en móvil y escritorio, el menú,
    los enlaces restituidos y el acceso directo a `/2026/agenda.html`.
 6. Integrar el PR revisado cuando organización autorice la publicación el
-   28 de septiembre. Verificar el despliegue de Netlify y repetir la navegación
+   2 de octubre de 2026. Verificar el despliegue de Netlify y repetir la navegación
    y el acceso directo en producción antes de dar la restitución por terminada.
 
 El aviso se mantiene si falta la aprobación; no se elimina automáticamente por
@@ -190,7 +190,7 @@ el cambio de fecha. La cuenta regresiva corresponde al issue #119.
 
 ## Publicación de las sedes 2026
 
-Última actualización: 18 de septiembre de 2026.
+Última actualización: 27 de septiembre de 2026.
 
 Las sedes se ocultaron el 8 de septiembre de 2026 (commit `05075c0`) a la espera
 de la publicación manual prevista para el 28 de septiembre. Por indicación de
@@ -202,6 +202,6 @@ y las referencias en Acerca de, FAQ, Código de Conducta, voluntariado y los
 formularios de registro. `sitemap.xml` y `SITEMAP_REQUIRED` incluyen de nuevo
 `/2026/sedes.html`.
 
-`python3 scripts/validate_site.py --skip-external` pasa sobre las 11 páginas
-de `2026/`. Antes de publicar en producción, correr también la validación
-completa con red y revisar el acceso directo a `/2026/sedes.html` ya desplegado.
+La comprobación de la restitución de sedes se realizó entonces sobre 11 páginas
+de `2026/`; actualmente la edición contiene 12 páginas HTML. Antes de publicar
+en producción, correr también la validación completa con red y revisar el acceso directo a `/2026/sedes.html` ya desplegado.
