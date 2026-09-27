@@ -3,14 +3,16 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 
 const page = fs.readFileSync('2026/registro.html', 'utf8');
+const pageScript = fs.readFileSync('2026/js/registro.js', 'utf8');
 
 test('el registro exige al menos un día y modalidad cuando corresponde', () => {
   assert.match(page, /id="dia_jueves"[^>]+value="Jueves 22"/);
   assert.match(page, /id="dia_viernes"[^>]+value="Viernes 23"/);
   assert.match(page, /name="modalidad_jueves" value="Presencial"/);
   assert.match(page, /name="modalidad_jueves" value="Google Meet"/);
-  assert.match(page, /setCustomValidity\(hasSelectedDay/);
-  assert.match(page, /option\.required = diaJueves\.checked/);
+  assert.match(page, /src="js\/registro\.js"/);
+  assert.match(pageScript, /setCustomValidity\(hasSelectedDay/);
+  assert.match(pageScript, /option\.required = diaJueves\.checked/);
 });
 
 test('el registro recoge accesibilidad y consentimiento de privacidad explícito', () => {
@@ -26,5 +28,5 @@ test('el aviso de privacidad coincide con los datos del registro', () => {
   assert.match(privacy, /presencialmente o por Google Meet/);
   assert.match(privacy, /ajuste de accesibilidad/);
   assert.match(privacy, /versión y fecha en que aceptaste/);
-  assert.match(privacy, /Versión 1\.1/);
+  assert.match(privacy, /Versión 1\.2/);
 });

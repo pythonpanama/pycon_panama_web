@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de ponentes - PyCon Panamá 2026</title>
-    <meta name="description" content="Postula tu charla o taller para PyCon Panamá 2026. Comparte tu conocimiento con la comunidad de Python en Panamá.">
+    <meta name="description" content="La convocatoria de ponencias de PyCon Panamá 2026 cerró el domingo 20 de septiembre. Gracias a quienes enviaron su propuesta.">
     <meta name="theme-color" content="#2483f2">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="PyCon Panamá">
     <meta property="og:title" content="Registro de ponentes - PyCon Panamá 2026">
-    <meta property="og:description" content="Postula tu propuesta de charla o taller para la conferencia anual de Python en Panamá.">
+    <meta property="og:description" content="La convocatoria de ponencias de PyCon Panamá 2026 cerró el domingo 20 de septiembre.">
     <meta property="og:url" content="https://pycon.pa/2026/ponentes.html">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
@@ -22,141 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <style>
-        #btnSubmit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .registro-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: clamp(1.5rem, 2vw, 2.5rem);
-            align-items: start;
-        }
-
-        .registro-aside,
-        .registro-panel {
-            background: var(--surface);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            padding: clamp(1.5rem, 2vw, 2rem);
-        }
-
-        .registro-aside {
-            background: linear-gradient(180deg, rgba(47, 140, 255, 0.08), rgba(255, 255, 255, 0.95));
-        }
-
-        .registro-aside ul {
-            margin: 1rem 0 0;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-        }
-
-        .registro-aside li + li {
-            margin-top: 0.6rem;
-        }
-
-        .registro-form {
-            display: grid;
-            gap: 1.1rem;
-        }
-
-        .field-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-        }
-
-        .field {
-            display: grid;
-            gap: 0.45rem;
-        }
-
-        .field label {
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .field input,
-        .field select,
-        .field textarea {
-            width: 100%;
-            padding: 0.8rem 0.9rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            background: #fff;
-            font: inherit;
-            color: var(--text);
-        }
-
-        .field textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
-
-        .checkbox-item input {
-            width: 1.1rem;
-            height: 1.1rem;
-            padding: 0;
-            margin-top: 0.2rem;
-        }
-
-        .checkbox-note {
-            margin: 0;
-            padding-left: 1.7rem;
-            color: var(--text-secondary);
-            font-size: var(--fs-xs);
-        }
-
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            outline: 3px solid rgba(47, 140, 255, 0.18);
-            border-color: var(--accent);
-        }
-
-        .checkboxes {
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .checkbox-item {
-            display: grid;
-            grid-template-columns: 1.1rem minmax(0, 1fr);
-            align-items: flex-start;
-            gap: 0.6rem;
-            color: var(--text-secondary);
-        }
-        .status-message {
-            min-height: 1.5rem;
-            margin-top: 0.25rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .status-message.error {
-            color: #d9534f;
-        }
-
-        .status-message.success {
-            color: #28a745;
-        }
-
-        @media (max-width: 768px) {
-            .registro-layout,
-            .field-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="css/ponentes.css" rel="stylesheet">
 </head>
 
 <body>
@@ -181,6 +52,7 @@
                             aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
                         <ul id="registro-submenu" class="submenu">
                             <li><a href="registro.html">Registro de asistentes</a></li>
+                            <li><a href="informacion-practica.html">Información práctica</a></li>
                             <li><a href="convence-a-tu-jefe.html">Convence a tu jefe</a></li>
                             <li><a href="ponentes.html" aria-current="page">Registro de ponentes</a></li>
                             <li><a href="voluntariado/">Voluntariado</a></li>
@@ -205,8 +77,8 @@
             <div class="container">
                 <div class="section-header">
                     <h1>Convocatoria de ponencias</h1>
-                    <p class="section-text">¿Tienes un tema emocionante sobre Python o tecnología? Postula tu propuesta para PyCon Panamá 2026.</p>
-                    <p class="section-text"><strong>La convocatoria cierra el viernes 18 de septiembre de 2026 a las 23:59 (hora de Panamá).</strong></p>
+                    <p class="section-text">Gracias a todas las personas que enviaron su propuesta para PyCon Panamá 2026. Estamos revisando las postulaciones y responderemos a cada persona por correo.</p>
+                    <p class="section-text"><strong>La convocatoria cerró el domingo 20 de septiembre de 2026 a las 23:59 (hora de Panamá).</strong></p>
                 </div>
             </div>
         </section>
@@ -218,7 +90,7 @@
                     <p>PyCon Panamá reúne a la comunidad técnica, profesional y académica del país. Es la oportunidad perfecta para inspirar y compartir con otros desarrolladores.</p>
                     <ul>
                         <li><strong>Formato:</strong> charlas (30 a 45 min) y talleres.</li>
-                        <li><strong>Cierre de la convocatoria:</strong> viernes 18 de septiembre de 2026, 23:59 (hora de Panamá).</li>
+                        <li><strong>Cierre de la convocatoria:</strong> domingo 20 de septiembre de 2026, 23:59 (hora de Panamá).</li>
                         <li><strong>Jueves 22 de octubre:</strong> jornada híbrida — Universidad del Istmo, Sede Panamá, con transmisión por Google Meet.</li>
                         <li><strong>Viernes 23 de octubre:</strong> jornada presencial — Universidad del Istmo, Sede Metromall.</li>
                         <li><strong>Sedes:</strong> <a class="internal-link" href="sedes.html">direcciones y mapas</a>.</li>
@@ -332,76 +204,11 @@
     </footer>
 
     <!-- Supabase CDN Client Library & Config -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js" integrity="sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok" crossorigin="anonymous"></script>
     <script src="js/env.js"></script>
-    <script src="js/supabase-config.js?v=5427c37ebf46"></script>
+    <script src="js/supabase-config.js?v=c50c42dd957b"></script>
     <script src="js/main.js"></script>
-    <script>
-        const form = document.getElementById('speakerForm');
-        const statusMessage = document.getElementById('statusMessage');
-        const btnSubmit = document.getElementById('btnSubmit');
-
-        form.addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            if (btnSubmit.disabled) return;
-
-            if (!form.checkValidity()) {
-                statusMessage.className = 'status-message error';
-                // Si lo único que falta es la casilla del Código de Conducta, se dice;
-                // si falta algo más, el mensaje genérico y reportValidity() lleva el
-                // foco al primer campo con problema.
-                if (!document.getElementById('consent_coc').checked) {
-                    statusMessage.textContent = 'Para enviar tu propuesta tienes que aceptar el Código de Conducta.';
-                } else if (!document.getElementById('consent_privacy').checked) {
-                    statusMessage.textContent = 'Para enviar tu propuesta tienes que aceptar el Aviso de Privacidad.';
-                } else {
-                    statusMessage.textContent = 'Revisa los campos obligatorios del formulario.';
-                }
-                form.reportValidity();
-                return;
-            }
-
-            btnSubmit.disabled = true;
-            btnSubmit.textContent = 'Enviando propuesta...';
-            statusMessage.className = 'status-message';
-            statusMessage.textContent = 'Procesando tu propuesta...';
-
-            const datos = {
-                nombre: document.getElementById('nombre').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                telefono: document.getElementById('telefono').value.trim(),
-                organizacion: document.getElementById('organizacion').value.trim(),
-                bio: document.getElementById('bio').value.trim(),
-                titulo_propuesta: document.getElementById('titulo_propuesta').value.trim(),
-                descripcion_propuesta: document.getElementById('descripcion_propuesta').value.trim(),
-                nivel: document.getElementById('nivel').value,
-                modalidad: document.getElementById('modalidad').value,
-                redes_sociales: document.getElementById('redes_sociales').value.trim(),
-                consent_privacy: document.getElementById('consent_privacy').checked,
-                consent_coc: document.getElementById('consent_coc').checked
-            };
-
-            try {
-                const res = await PyConSupabase.registrarSpeaker(datos);
-
-                if (res.success) {
-                    statusMessage.className = 'status-message success';
-                    statusMessage.textContent = `¡Gracias, ${datos.nombre}! Tu propuesta "${datos.titulo_propuesta}" ha sido registrada exitosamente para PyCon Panamá 2026.`;
-                    form.reset();
-                } else {
-                    statusMessage.className = 'status-message error';
-                    statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al enviar tu propuesta. Por favor intenta de nuevo.';
-                }
-            } catch (err) {
-                statusMessage.className = 'status-message error';
-                statusMessage.textContent = 'Error de conexión. Por favor intenta de nuevo.';
-            } finally {
-                btnSubmit.disabled = false;
-                btnSubmit.textContent = 'Enviar propuesta de ponencia';
-            }
-        });
-    </script>
+    <script src="js/ponentes.js"></script>
 </body>
 
 </html>
