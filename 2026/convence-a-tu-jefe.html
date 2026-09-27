@@ -27,35 +27,7 @@
     <link href="css/base.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <style>
-        .plantilla-box {
-            display: grid;
-            gap: 1rem;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .plantilla-box textarea {
-            min-height: 320px;
-            font-family: inherit;
-            line-height: var(--lh-body);
-            white-space: pre-wrap;
-        }
-
-        .plantilla-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        @media (max-width: 600px) {
-            .plantilla-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-    </style>
+    <link href="css/convence-a-tu-jefe.css" rel="stylesheet">
 </head>
 
 <body>
@@ -128,7 +100,7 @@
 
         <section class="section">
             <div class="container">
-                <div class="prose" style="max-width: 760px; margin: 0 auto;">
+                <div class="prose prose--narrow-760">
                     <div class="callout">
                         <p><strong>El argumento en una frase:</strong> dos jornadas en la ciudad de Panamá, entrada gratuita, la opción de asistir solo a los bloques que te interesen, y el equipo vuelve con networking, capacitación en Python e Inteligencia Artificial, y nuevos contactos profesionales.</p>
                     </div>
@@ -165,7 +137,7 @@
 
         <section class="section">
             <div class="container">
-                <div class="card hero-card" style="max-width: 820px; margin: 0 auto;">
+                <div class="card hero-card hero-card--centered-820">
                     <h2>¿Y si mandas a más de una persona?</h2>
                     <p>Enviar a varias personas del equipo puede salir más rentable para la empresa que la salida de una sola persona por el día completo: el networking, el aprendizaje y la visibilidad de marca se reparten entre más personas, en lugar de depender de que una sola los aproveche y luego los comparta con el resto.</p>
                     <p>Así el equipo completo se beneficia, no solo quien asiste.</p>
@@ -239,10 +211,10 @@ Saludos,
 
         <section class="section">
             <div class="container">
-                <div class="card hero-card" style="max-width: 720px; margin: 0 auto; text-align: center;">
+                <div class="card hero-card hero-card--centered-720">
                     <h2>¿Te dieron el permiso?</h2>
                     <p>Regístrate para asegurar tu cupo en PyCon Panamá 2026.</p>
-                    <div class="hero-actions" style="justify-content: center; margin-top: 1rem;">
+                    <div class="hero-actions hero-actions--centered-top">
                         <a class="btn btn-primary" href="registro.html">Ir al registro</a>
                     </div>
                 </div>
@@ -265,25 +237,7 @@ Saludos,
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        const btnCopiar = document.getElementById('btnCopiarPlantilla');
-        const plantilla = document.getElementById('plantillaCorreo');
-        const copiarStatus = document.getElementById('copiarStatus');
-
-        btnCopiar.addEventListener('click', async function () {
-            try {
-                await navigator.clipboard.writeText(plantilla.value);
-                copiarStatus.className = 'status-message success';
-                copiarStatus.textContent = 'Plantilla copiada. Ya puedes pegarla en tu correo.';
-            } catch (err) {
-                plantilla.removeAttribute('readonly');
-                plantilla.focus();
-                plantilla.select();
-                copiarStatus.className = 'status-message error';
-                copiarStatus.textContent = 'No pudimos copiarla automáticamente. Está seleccionada: usa Ctrl+C o Cmd+C.';
-            }
-        });
-    </script>
+    <script src="js/convence-a-tu-jefe.js"></script>
 </body>
 
 </html>
