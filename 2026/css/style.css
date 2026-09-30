@@ -1187,3 +1187,7 @@ a.sponsor-card:focus-visible {
 .sponsor-empty > * + * {
   margin-top: var(--space-3);
 }
+
+/* Variantes de composición antes declaradas como estilos en atributos HTML. */
+.hero-card--centered-900 { max-width: 900px; margin-inline: auto; }
+.hero-actions--top { margin-top: 1rem; }
