@@ -14,6 +14,7 @@ Este repositorio contiene el sitio público de [PyCon Panamá](https://pycon.pa/
 - [Estructura y alcance](#estructura-y-alcance)
 - [Cambiar el sitio](#cambiar-el-sitio)
 - [Validar antes de proponer cambios](#validar-antes-de-proponer-cambios)
+- [Actualizar recursos CDN e integridad](#actualizar-recursos-cdn-e-integridad)
 - [Despliegue](#despliegue)
 - [Contribuir](#contribuir)
 - [Documentación y contacto](#documentación-y-contacto)
@@ -106,6 +107,33 @@ git status --short
 git diff --check
 git diff -- 2026/ netlify.toml sitemap.xml robots.txt
 ```
+
+## Actualizar recursos CDN e integridad
+
+Última actualización: 27 de septiembre de 2026.
+
+La edición 2026 fija Supabase JS en `2.117.2` (`dist/umd/supabase.js`) y Font Awesome en `6.4.0` (`css/all.min.css`). Sus etiquetas llevan `integrity="sha384-…"` y `crossorigin="anonymous"`. La versión de Supabase corresponde a la que resolvía `@2` al realizar este cambio; el archivo UMD coincide con el distribuido en npm.
+
+Para actualizar cualquiera de estos recursos:
+
+1. Revisa las notas de la versión y elige una versión exacta; no uses `@2`, `latest` ni rangos.
+2. Descarga la URL exacta en un archivo temporal fuera del repositorio y calcula SHA-384 sobre sus bytes. Por ejemplo, para la versión actual de Supabase:
+
+   ```bash
+   cdn_file=$(mktemp)
+   curl --fail --location --silent --show-error --compressed \
+     'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js' \
+     --output "$cdn_file" &&
+     openssl dgst -sha384 -binary "$cdn_file" | openssl base64 -A
+   rm -f "$cdn_file"
+   ```
+
+3. Anteponer `sha384-` al resultado da el valor de `integrity`. Para Font Awesome usa su URL exacta de cdnjs y el mismo procedimiento. Verifica el archivo contra la distribución oficial y comprueba que el CDN devuelve `Access-Control-Allow-Origin: *`.
+4. Actualiza URL e integridad juntas en las tres páginas con Supabase (`registro.html`, `ponentes.html`, `voluntariado/index.html`) o en las doce páginas de 2026 con Font Awesome. Conserva `crossorigin="anonymous"`. No cambies las ediciones archivadas.
+5. Ejecuta `node --test tests/*.cjs`, `python3 scripts/validate_site.py` y `git diff --check`. La prueba de CDN detecta versiones flotantes, atributos ausentes e inconsistencias entre páginas; verifica también el hash descargando los recursos, ya que esa prueba local no consulta la red.
+6. Revisa el preview de Netlify: SDK e iconos deben cargar sin errores de SRI/CORS. Antes de probar envíos, confirma que el preview utiliza una base de pruebas aislada. Comprueba los flujos abiertos con datos sintéticos y conserva cerrado el formulario de ponencias mientras la convocatoria siga cerrada; su ruta de integración puede probarse con respuestas simuladas.
+
+Si el navegador rechaza un recurso, compara los bytes y la versión con el hash esperado; no retires `integrity` para sortear el fallo. SRI verifica el JS y la hoja CSS enlazados, no los archivos de fuentes que esa hoja descarga. Consulta [Subresource Integrity en MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity).
 
 ## Despliegue
 
