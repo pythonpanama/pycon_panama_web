@@ -60,3 +60,15 @@ test('el cronograma usa variables de la paleta y tipografía del sitio', () => {
   assert.match(page, /css\/variables\.css/);
   assert.match(page, /family=Montserrat/);
 });
+
+test('todos los menús principales de 2026 enlazan a la agenda', () => {
+  const pages = fs.readdirSync('2026').filter((name) => name.endsWith('.html'))
+    .map((name) => ['2026/' + name, fs.readFileSync('2026/' + name, 'utf8')]);
+  pages.push(['2026/voluntariado/index.html', fs.readFileSync('2026/voluntariado/index.html', 'utf8')]);
+  assert.equal(pages.length, 12);
+  pages.forEach(([file, content]) => {
+    const navigation = content.match(/<nav id="nav-menu"[\s\S]*?<\/nav>/);
+    assert.ok(navigation, file + ' tiene menú principal');
+    assert.match(navigation[0], /href="(?:\.\.\/)?agenda\.html"/, file + ' enlaza a Agenda');
+  });
+});
