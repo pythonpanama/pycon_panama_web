@@ -9,9 +9,8 @@ const styles = fs.readFileSync('2026/css/style.css', 'utf8');
 test('la agenda incluye las dos jornadas y excluye la propuesta individual retirada', () => {
   assert.match(page, /data-agenda-panel="jueves"/);
   assert.match(page, /data-agenda-panel="viernes"/);
-  assert.equal((page.match(/data-session-id="/g) || []).length, 14);
+  assert.equal((page.match(/data-session-id="/g) || []).length, 17);
   assert.doesNotMatch(page, /data-session-id="grpc"|Beyond Hello World/);
-  assert.doesNotMatch(script, /duckdb|Gerardo Enrique Nunez/);
   assert.match(page, /Jornada híbrida/);
 });
 
@@ -30,21 +29,27 @@ test('las vistas Agenda y Sesiones comparten filtro y fichas completas', () => {
   assert.match(script, /bioLabel\.textContent = 'Biografía'/);
   assert.match(script, /fa-linkedin-in/);
   assert.match(script, /fa-github/);
-  assert.match(script, /setTime\(fridayEvents\[4\], 14, 45, 'p\. m\.', 15/);
-  assert.match(script, /'gerardo-vilcaminaza': \[14, 5, 'p\. m\.', 40\]/);
-  assert.match(script, /Keynote de Carlos Alarcón/);
-  assert.match(script, /Keynote de Abdel Martínez/);
-  assert.match(script, /Computer Vision en la nueva era del GenAI/);
+  assert.match(page, /Computer Vision en la nueva era del GenAI/);
   assert.match(script, /selectedDay === tab\.dataset\.agendaDay \? 'all'/);
-  assert.match(script, /const movedToThursday = \['corporativo', 'ai-ready'\]/);
-  assert.match(script, /'carlos', 'viernes', 11, 35, 35/);
-  assert.match(script, /'abdel', 'jueves', 9, 5, 35/);
-  assert.match(script, /setTime\(fridayEvents\[1\], 10, 50, 'a\. m\.', 10/);
-  assert.match(script, /setTime\(fridayEvents\[2\], 12, 45, 'p\. m\.', 45/);
-  assert.match(script, /setTime\(thursdayEvents\[1\], 10, 40, 'a\. m\.', 10/);
-  assert.match(script, /setTime\(thursdayEvents\[2\], 12, 10, 'p\. m\.', 45/);
-  assert.match(script, /fridayEvents\[3\]\.remove\(\)/);
-  assert.match(script, /Cierre del Evento/);
+});
+
+test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
+  const horario = (dia) => {
+    const panel = page.match(new RegExp('data-agenda-panel="' + dia + '"[\\s\\S]*?</ol>'))[0];
+    return Array.from(panel.matchAll(/<li class="agenda-item([^>]*)>[\s\S]*?datetime="[^T]+T(\d\d:\d\d)[\s\S]*?<small>(\d+) min/g))
+      .map(([, atributos, hora, duracion]) => ((atributos.match(/data-session-id="([^"]+)"/) || [])[1] || '·') + ' ' + hora + ' ' + duracion);
+  };
+  assert.deepEqual(horario('jueves'), [
+    '· 09:00 10', 'http3 09:10 30', 'pypi 09:43 30', 'streamlit 10:16 30', '· 10:46 20',
+    'uv 11:09 30', 'educacion-ia 11:42 30', 'ai-ready 12:15 30', '· 12:45 10'
+  ]);
+  assert.deepEqual(horario('viernes'), [
+    '· 09:00 15', 'abdel 09:15 40', 'robotica 09:58 25', 'async 10:26 25', 'pydantic-ai 10:54 25',
+    'gil 11:22 25', 'carlos 11:50 25', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
+    'corporativo 14:04 25', 'duckdb 14:32 25', 'gerardo-vilcamiza 15:00 40', '· 15:40 20'
+  ]);
+  assert.doesNotMatch(script, /setTime|movedToThursday|addReservedTalk/);
+  assert.doesNotMatch(page + script, /Vilcaminaza/i);
 });
 
 test('no quedan controles de búsqueda, favoritos ni niveles', () => {
