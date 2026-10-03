@@ -592,35 +592,12 @@ button[type="submit"], .btn {
   font-size: var(--fs-h2);
 }
 
-.agenda-view-panel[hidden],
 .agenda-day-panel[hidden],
-.agenda-day-group[hidden],
 .agenda-item[hidden] {
   display: none;
 }
 
-/* --- Pestañas Agenda / Sesiones y filtro por día ------------------------- */
-
-.agenda-view-tabs {
-  display: flex;
-  gap: var(--space-2);
-  margin-bottom: var(--space-4);
-  border-bottom: 1px solid var(--border-soft);
-}
-
-.agenda-view-tab {
-  min-height: 48px;
-  margin-bottom: -1px;
-  padding-inline: var(--space-4);
-  border-bottom: 2px solid transparent;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.agenda-view-tab[aria-selected="true"] {
-  border-bottom-color: var(--accent);
-  color: var(--text);
-}
+/* --- Filtro por día ------------------------------------------------------ */
 
 .agenda-day-tabs {
   display: flex;
@@ -694,18 +671,9 @@ button[type="submit"], .btn {
   color: var(--accent);
 }
 
-.agenda-speaker-day {
-  max-width: 920px;
-  margin-block: var(--space-6) var(--space-4);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--border);
-  font-size: var(--fs-lg);
-}
-
 /* --- Lista de sesiones ---------------------------------------------------- */
 
-.agenda-list,
-.agenda-session-directory {
+.agenda-list {
   display: grid;
   gap: var(--space-3);
   max-width: 920px;
@@ -773,19 +741,16 @@ button[type="submit"], .btn {
   line-height: var(--lh-heading);
 }
 
-.agenda-list .session-card[role="button"],
-.agenda-session-directory .session-card {
+.agenda-list .session-card[role="button"] {
   cursor: pointer;
 }
 
-.agenda-list .session-card[role="button"]:hover .agenda-session,
-.agenda-session-directory .session-card:hover .agenda-session {
+.agenda-list .session-card[role="button"]:hover .agenda-session {
   border-color: var(--border);
   box-shadow: var(--shadow-md);
 }
 
-.agenda-list .session-card[role="button"]:hover .session-title,
-.agenda-session-directory .session-card:hover .session-title {
+.agenda-list .session-card[role="button"]:hover .session-title {
   color: var(--accent-hover);
 }
 
@@ -912,18 +877,6 @@ button[type="submit"], .btn {
 
 .session-break .agenda-event-icon {
   color: var(--color-teal);
-}
-
-/* Directorio de sesiones */
-.agenda-session-directory-topic {
-  display: -webkit-box;
-  margin-top: var(--space-3);
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  color: var(--text-secondary);
-  font-size: var(--fs-sm);
-  line-height: 1.6;
 }
 
 /* --- Ficha de detalle (diálogo) ------------------------------------------ */
