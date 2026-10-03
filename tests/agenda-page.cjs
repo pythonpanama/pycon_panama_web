@@ -23,10 +23,11 @@ test('las vistas Agenda y Sesiones comparten filtro y fichas completas', () => {
   assert.match(script, /setDayFilter\('all'\)/);
   assert.match(script, /data-agenda-filter-day/);
   assert.match(script, /sessionCard\.addEventListener\('click'/);
-  assert.match(script, /openSessionView\(sessionId, day, title, topic, description, profile\)/);
-  assert.match(script, /openDetail\(title, topic, description, true, profile\)/);
-  assert.match(script, /nameLabel\.textContent = 'Nombre'/);
-  assert.match(script, /bioLabel\.textContent = 'Biografía'/);
+  assert.match(script, /openSessionView\(sessionId, day, title, topic, description, profile, when\)/);
+  assert.match(script, /openDetail\(title, topic, description, true, profile, when\)/);
+  assert.match(script, /createSpeakerBlock\(profile\)/);
+  assert.match(script, /speaker-profile-bio/);
+  assert.doesNotMatch(script, /'Nombre: '|nameLabel/);
   assert.match(script, /fa-linkedin-in/);
   assert.match(script, /fa-github/);
   assert.match(page, /Computer Vision en la nueva era del GenAI/);
@@ -60,8 +61,9 @@ test('no quedan controles de búsqueda, favoritos ni niveles', () => {
 });
 
 test('el cronograma usa variables de la paleta y tipografía del sitio', () => {
-  assert.match(styles, /\.agenda-time[\s\S]*?var\(--color-navy\)/);
-  assert.match(styles, /\.agenda-day-tab[\s\S]*?var\(--accent\)/);
+  assert.match(styles, /\.speaker-avatar[\s\S]*?object-fit: cover/);
+  assert.match(styles, /\.agenda-day-tab[\s\S]*?var\(--color-navy\)/);
+  assert.match(styles, /\.agenda-session[\s\S]*?var\(--accent-soft\)/);
   assert.match(page, /css\/variables\.css/);
   assert.match(page, /family=Montserrat/);
 });

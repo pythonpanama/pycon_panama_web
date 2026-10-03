@@ -142,22 +142,36 @@
     font-size: 16px; /* Evita que los navegadores móviles hagan zoom y desplacen la pantalla */
   }
 
-  .agenda-controls {
-    grid-template-columns: 1fr;
-  }
-
-  .agenda-speaker-list {
-    grid-template-columns: 1fr;
-  }
-
+  /* Agenda: lectura vertical, la hora encima de cada sesión */
   .agenda-item .session-card {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .agenda-time {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 var(--space-2);
+    padding: 0 0 0 var(--space-1);
+  }
+
+  .agenda-time span,
+  .agenda-time small {
+    display: inline;
+    margin: 0;
+  }
+
+  .agenda-item--event .agenda-time {
+    padding-top: 0;
   }
 
   .agenda-session {
-    padding-block: var(--space-3);
-    padding-right: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .agenda-item--event .agenda-session {
+    padding: var(--space-3) var(--space-4);
   }
 }
 
@@ -196,28 +210,6 @@
     padding-inline: var(--space-2);
   }
 
-  .agenda-day-heading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .agenda-item .session-card {
-    grid-template-columns: 64px minmax(0, 1fr);
-    gap: var(--space-2);
-  }
-
-  .agenda-time {
-    padding-inline: var(--space-1);
-  }
-
-  .agenda-time time {
-    font-size: var(--fs-sm);
-  }
-
-  .agenda-session .session-title {
-    font-size: var(--fs-sm);
-  }
-
   .agenda-view-tabs {
     gap: 0;
   }
@@ -228,16 +220,25 @@
     font-size: var(--fs-sm);
   }
 
+  .agenda-session .session-title,
+  .agenda-item .session-keynote .agenda-session .session-title {
+    font-size: var(--fs-base);
+  }
+
+  .speaker-avatar,
+  .agenda-item .session-keynote .speaker-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.7rem;
+  }
+
   .agenda-dialog-content {
     padding-inline: var(--space-4);
   }
 
-  .agenda-speaker-card {
-    grid-template-columns: 72px minmax(0, 1fr);
-  }
-
-  .agenda-speaker-avatar {
-    width: 72px;
+  .speaker-profile .speaker-avatar {
+    width: 56px;
+    height: 56px;
   }
 }
 
