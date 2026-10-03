@@ -1,8 +1,6 @@
 /* Navegación y fichas de detalle de la agenda. */
 
 document.addEventListener('DOMContentLoaded', function () {
-  const viewTabs = Array.from(document.querySelectorAll('[data-view-tab]'));
-  const viewPanels = Array.from(document.querySelectorAll('[data-view-panel]'));
   const dayTabs = Array.from(document.querySelectorAll('[data-agenda-day]'));
   const dialog = document.getElementById('agenda-detail-dialog');
   const detailTitle = document.getElementById('agenda-detail-title');
@@ -64,18 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     heading.textContent = heading.textContent.replace(/virtual/gi, 'híbrida');
   });
 
-  function setTab(tabs, panels, dataKey, value) {
-    tabs.forEach(function (tab) {
-      const selected = tab.dataset[dataKey] === value;
-      tab.setAttribute('aria-selected', String(selected));
-      tab.tabIndex = selected ? 0 : -1;
-    });
-    panels.forEach(function (panel) {
-      const panelKey = dataKey === 'viewTab' ? 'viewPanel' : 'agendaPanel';
-      panel.hidden = panel.dataset[panelKey] !== value;
-    });
-  }
-
   let selectedDay = 'all';
 
   function setDayFilter(day) {
@@ -86,26 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     document.querySelectorAll('[data-agenda-panel]').forEach(function (panel) {
       panel.hidden = day !== 'all' && panel.dataset.agendaPanel !== day;
-    });
-    document.querySelectorAll('[data-agenda-filter-day]').forEach(function (group) {
-      group.hidden = day !== 'all' && group.dataset.agendaFilterDay !== day;
-    });
-  }
-
-  function addTabKeyboard(tabs, panels, dataKey) {
-    tabs.forEach(function (tab, index) {
-      tab.addEventListener('click', function () {
-        setTab(tabs, panels, dataKey, tab.dataset[dataKey]);
-      });
-      tab.addEventListener('keydown', function (event) {
-        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-        event.preventDefault();
-        const next = event.key === 'Home' ? 0
-          : event.key === 'End' ? tabs.length - 1
-            : (index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
-        tabs[next].focus();
-        setTab(tabs, panels, dataKey, tabs[next].dataset[dataKey]);
-      });
     });
   }
 
@@ -269,16 +235,6 @@ document.addEventListener('DOMContentLoaded', function () {
     container.append(linkList);
   }
 
-  function openSessionView(sessionId, day, title, topic, description, profile, when) {
-    setTab(viewTabs, viewPanels, 'viewTab', 'sesiones');
-    setDayFilter(day);
-    const entry = document.querySelector('[data-session-entry="' + sessionId + '"]');
-    if (!entry) return;
-    entry.scrollIntoView({ block: 'center', behavior: 'smooth' });
-    entry.querySelector('.session-card').focus({ preventScroll: true });
-    openDetail(title, topic, description, true, profile, when);
-  }
-
   document.querySelectorAll('.agenda-list .agenda-time').forEach(formatTimeBlock);
 
   talks.forEach(function (item) {
@@ -314,65 +270,24 @@ document.addEventListener('DOMContentLoaded', function () {
     if (meta) track.replaceWith(meta); else track.remove();
 
     const agendaCard = item.querySelector('.session-card');
-    const day = item.closest('[data-agenda-panel]').dataset.agendaPanel;
     const dayLabel = item.closest('[data-agenda-panel]').querySelector('h2').textContent.trim();
     const when = dayLabel + ' · ' + item.querySelector('.agenda-time').dataset.label;
     agendaCard.tabIndex = 0;
     agendaCard.setAttribute('role', 'button');
-    agendaCard.setAttribute('aria-label', 'Ver detalles de esta sesión en la pestaña Sesiones: ' + title);
-    agendaCard.addEventListener('click', function () { openSessionView(sessionId, day, title, topic, description, profile, when); });
+    agendaCard.setAttribute('aria-label', 'Ver detalles de la sesión: ' + title);
+    agendaCard.addEventListener('click', function () { openDetail(title, topic, description, true, profile, when); });
     agendaCard.addEventListener('keydown', function (event) {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openSessionView(sessionId, day, title, topic, description, profile, when);
-      }
-    });
-
-    const list = document.querySelector('[data-session-list="' + day + '"]');
-    const row = document.createElement('li');
-    const sessionCard = document.createElement('article');
-    const sessionTime = item.querySelector('.agenda-time').cloneNode(true);
-    const sessionInfo = document.createElement('div');
-    const buttonTitle = document.createElement('h3');
-    row.className = 'agenda-item';
-    row.dataset.sessionEntry = sessionId;
-    sessionCard.className = 'session-card';
-    if (keynoteNames[sessionId]) sessionCard.classList.add('session-keynote');
-    sessionInfo.className = 'agenda-session';
-    buttonTitle.className = 'session-title';
-    buttonTitle.textContent = title;
-    sessionInfo.append(buttonTitle);
-    if (profile) sessionInfo.append(createSpeakerBlock(profile));
-    if (description && !description.startsWith('Próximamente')) {
-      const sessionDescription = document.createElement('p');
-      sessionDescription.className = 'agenda-session-directory-topic';
-      sessionDescription.textContent = description;
-      sessionInfo.append(sessionDescription);
-    }
-    const directoryMeta = createMeta(topic);
-    if (directoryMeta) sessionInfo.append(directoryMeta);
-    sessionCard.append(sessionTime, sessionInfo);
-    sessionCard.tabIndex = 0;
-    sessionCard.setAttribute('role', 'group');
-    sessionCard.setAttribute('aria-label', 'Abrir detalles de la sesión: ' + title);
-    row.append(sessionCard);
-    sessionCard.addEventListener('click', function () { openDetail(title, topic, description, true, profile, when); });
-    sessionCard.addEventListener('keydown', function (event) {
-      if (event.target.closest('a')) return;
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         openDetail(title, topic, description, true, profile, when);
       }
     });
-    list.append(row);
   });
 
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) dialog.close();
   });
 
-  addTabKeyboard(viewTabs, viewPanels, 'viewTab');
   addDayFilterControls();
-  setTab(viewTabs, viewPanels, 'viewTab', 'agenda');
   setDayFilter('all');
 });

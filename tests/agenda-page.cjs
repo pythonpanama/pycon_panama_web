@@ -14,16 +14,13 @@ test('la agenda incluye las dos jornadas y excluye la propuesta individual retir
   assert.match(page, /Jornada híbrida/);
 });
 
-test('las vistas Agenda y Sesiones comparten filtro y fichas completas', () => {
-  assert.match(page, /data-view-tab="agenda"/);
-  assert.match(page, /data-view-tab="sesiones"/);
-  assert.doesNotMatch(page, /data-view-tab="conferencistas"/);
+test('la agenda es una sola vista con filtro por día y ficha de detalle', () => {
+  assert.doesNotMatch(page, /data-view-tab|panel-sesiones|data-session-list/);
+  assert.doesNotMatch(script, /openSessionView|setTab\(|data-agenda-filter-day/);
   assert.match(page, /agenda-detail-dialog/);
-  assert.match(script, /Ver detalles de/);
+  assert.match(script, /Ver detalles de la sesión/);
   assert.match(script, /setDayFilter\('all'\)/);
-  assert.match(script, /data-agenda-filter-day/);
-  assert.match(script, /sessionCard\.addEventListener\('click'/);
-  assert.match(script, /openSessionView\(sessionId, day, title, topic, description, profile, when\)/);
+  assert.match(script, /agendaCard\.addEventListener\('click', function \(\) \{ openDetail\(/);
   assert.match(script, /openDetail\(title, topic, description, true, profile, when\)/);
   assert.match(script, /createSpeakerBlock\(profile\)/);
   assert.match(script, /speaker-profile-bio/);

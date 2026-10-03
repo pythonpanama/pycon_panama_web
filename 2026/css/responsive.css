@@ -210,16 +210,6 @@
     padding-inline: var(--space-2);
   }
 
-  .agenda-view-tabs {
-    gap: 0;
-  }
-
-  .agenda-view-tab {
-    flex: 1;
-    padding-inline: var(--space-2);
-    font-size: var(--fs-sm);
-  }
-
   .agenda-session .session-title,
   .agenda-item .session-keynote .agenda-session .session-title {
     font-size: var(--fs-base);
