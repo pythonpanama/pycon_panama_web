@@ -238,6 +238,18 @@
    3. Hero
    ========================================================================== */
 
+.official-banner {
+  overflow: hidden;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.official-banner img {
+  width: 100%;
+  max-width: 2400px;
+  margin-inline: auto;
+}
+
 .hero-section {
   padding-block: var(--section-y);
   background: linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
@@ -410,6 +422,11 @@ button[type="submit"], .btn {
   margin-bottom: var(--space-6);
   font-weight: 700;
   font-style: italic;
+  color: var(--accent);
+}
+
+.hero-admission {
+  margin-bottom: var(--space-4);
   color: var(--accent);
 }
 
@@ -1581,6 +1598,26 @@ a.sponsor-card:focus-visible {
 
 .sponsor-empty > * + * {
   margin-top: var(--space-3);
+}
+
+.sponsor-options {
+  margin-bottom: var(--space-7);
+}
+
+.sponsor-options .card {
+  border-top: 4px solid var(--accent);
+}
+
+.sponsor-options .card:nth-child(2) {
+  border-top-color: var(--color-teal);
+}
+
+.sponsor-options .card:nth-child(3) {
+  border-top-color: var(--color-amber);
+}
+
+.sponsor-recognition {
+  max-width: 820px;
 }
 
 /* Variantes de composición antes declaradas como estilos en atributos HTML. */

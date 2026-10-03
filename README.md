@@ -174,13 +174,11 @@ Estas licencias no autorizan el uso de logos de patrocinadores, marcas, fotograf
 
 Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com).
 
-## Publicación de la agenda 2026 — issue #118
+## Publicación de la agenda 2026 — nota histórica
 
-Última actualización: 27 de septiembre de 2026.
-
-La agenda permanece en espera hasta el viernes 2 de octubre de 2026. No hay
-hora definida ni publicación automática: organización debe confirmar el contenido
-aprobado y el momento de publicación.
+La agenda se publicó en octubre de 2026 y está disponible en
+[`2026/agenda.html`](2026/agenda.html). El siguiente procedimiento queda como
+registro del flujo utilizado para retirar y restituir contenido sujeto a aprobación.
 
 La versión preliminar se conserva exclusivamente en el historial de Git, en el
 commit `bbaf5d9abb6594f3aec972b083f36445123fca68`. No guardar copias, parches ni
@@ -205,8 +203,8 @@ Para preparar la restitución:
 5. Ejecutar `python3 scripts/validate_site.py`, `node --test tests/*.cjs` y
    `git diff --check`. Revisar el preview en móvil y escritorio, el menú,
    los enlaces restituidos y el acceso directo a `/2026/agenda.html`.
-6. Integrar el PR revisado cuando organización autorice la publicación el
-   2 de octubre de 2026. Verificar el despliegue de Netlify y repetir la navegación
+6. Integrar el PR revisado cuando organización autorice la publicación. Verificar
+   el despliegue de Netlify y repetir la navegación
    y el acceso directo en producción antes de dar la restitución por terminada.
 
 El aviso se mantiene si falta la aprobación; no se elimina automáticamente por
