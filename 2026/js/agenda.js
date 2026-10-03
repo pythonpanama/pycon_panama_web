@@ -29,49 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
     carlos: { name: 'Carlos Alarcón', bio: 'Ponente de PyCon Panamá.', links: [] },
     odoo: { name: 'Yudith Recio Milanés', bio: 'Desarrolladora de software y consultora en Solvixer. Cuenta con 15 años de experiencia con Python y el framework Odoo.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/yudithrecio0503' }] },
     'pydantic-ai': { name: 'Ricardo Tovar', bio: 'Desarrollador enfocado en AI Engineering, cofundador y Technical Lead en MART Automations. Especializado en agentes autónomos y arquitecturas backend con FastAPI.', links: [{ label: 'GitHub', url: 'https://github.com/rtovardev' }, { label: 'LinkedIn', url: 'https://linkedin.com/in/ricardotovar-ai' }] },
-    'gerardo-vilcaminaza': { name: 'Gerardo Vilcaminaza', bio: 'Ingeniero Mecatrónico y magíster en Inteligencia Artificial Embebida. Senior AI Engineer en banca y seguros, docente en la Universidad de Buenos Aires e investigador en el Laboratorio de Sistemas Embebidos. Community Lead y fundador de Python Lima.', links: [] }
+    'gerardo-vilcamiza': { name: 'Gerardo Vilcamiza', bio: 'Ingeniero Mecatrónico y magíster en Inteligencia Artificial Embebida. Senior AI Engineer en banca y seguros, docente en la Universidad de Buenos Aires e investigador en el Laboratorio de Sistemas Embebidos. Community Lead y fundador de Python Lima.', links: [] }
   };
 
-  const keynote = document.querySelector('[data-session-id="keynote"]');
-  if (keynote) {
-    keynote.dataset.sessionId = 'gerardo-vilcaminaza';
-    keynote.dataset.level = 'todos';
-    keynote.dataset.track = 'vision';
-    keynote.dataset.search = 'computer vision gerardo vilcaminaza genai';
-    keynote.querySelector('.session-title').textContent = 'Computer Vision en la nueva era del GenAI';
-    keynote.querySelector('.session-speaker').textContent = speakerProfiles['gerardo-vilcaminaza'].name;
-    keynote.querySelector('.agenda-track').textContent = 'Computer Vision / IA / GenAI';
-    keynote.querySelector('.agenda-session-top .session-badge').textContent = 'Keynote de cierre';
-  }
-
-  function setTime(item, hour, minute, period, duration, date) {
-    const time = item.querySelector('.agenda-time time');
-    const displayHour = hour > 12 ? hour - 12 : hour;
-    time.textContent = displayHour + ':' + String(minute).padStart(2, '0');
-    time.dateTime = date + 'T' + String(hour).padStart(2, '0') + ':' + String(minute).padStart(2, '0') + ':00-05:00';
-    item.querySelector('.agenda-time > span').textContent = period;
-    item.querySelector('.agenda-time small').textContent = duration + ' min';
-  }
-
-  function addReservedTalk(id, day, title, topic, summary, date, hour, minute, duration) {
-    const item = document.createElement('li');
-    item.className = 'agenda-item';
-    item.dataset.sessionId = id;
-    item.dataset.level = 'todos';
-    item.dataset.track = 'invitados';
-    item.dataset.search = title.toLowerCase();
-    item.innerHTML = '<div class="session-card session-keynote"><div class="agenda-time"><time></time><span></span><small></small></div><article class="agenda-session"><div class="agenda-session-top"><div><span class="session-badge">Keynote</span><h3 class="session-title"></h3></div></div><p class="session-speaker"></p><p class="agenda-track"></p><details class="agenda-abstract"><summary>Resumen de la charla</summary><p></p></details></article></div>';
-    item.querySelector('.session-title').textContent = title;
-    item.querySelector('.session-speaker').textContent = speakerProfiles[id].name;
-    item.querySelector('.agenda-track').textContent = topic;
-    item.querySelector('.agenda-abstract p').textContent = summary;
-    setTime(item, hour, minute, hour < 12 ? 'a. m.' : 'p. m.', duration, date);
-    document.querySelector('[data-agenda-panel="' + day + '"] .agenda-list').append(item);
-    return item;
-  }
-
-  const dateThursday = '2026-10-22';
-  const dateFriday = '2026-10-23';
   const sessionDetails = {
     http3: ['How Python Speaks HTTP/3', 'Redes y protocolos'],
     uv: ['uv: la mejor noticia en Python de los últimos años', 'Herramientas de desarrollo', 'Por qué uv simplifica la configuración del entorno y la administración de paquetes, con trucos para usuarios nuevos y avanzados.'],
@@ -93,69 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
     item.querySelector('.session-title').textContent = title;
     item.querySelector('.agenda-track').textContent = topic;
     if (summary) item.querySelector('.agenda-abstract p').textContent = summary;
-  });
-
-  const thursdayTimes = { http3: [9, 40, 'a. m.', 35], pypi: [10, 15, 'a. m.', 35], uv: [11, 0, 'a. m.', 35], 'educacion-ia': [11, 35, 'a. m.', 35], streamlit: [12, 55, 'p. m.', 35], corporativo: [13, 30, 'p. m.', 35], 'ai-ready': [14, 5, 'p. m.', 35] };
-  Object.keys(thursdayTimes).forEach(function (id) {
-    const item = document.querySelector('[data-session-id="' + id + '"]');
-    const [hour, minute, period, duration] = thursdayTimes[id];
-    document.querySelector('#panel-jueves .agenda-list').append(item);
-    setTime(item, hour, minute, period, duration, dateThursday);
-  });
-  const thursdayEvents = Array.from(document.querySelectorAll('#panel-jueves .agenda-item--event'));
-  setTime(thursdayEvents[0], 9, 0, 'a. m.', 5, dateThursday);
-  setTime(thursdayEvents[1], 10, 40, 'a. m.', 10, dateThursday);
-  setTime(thursdayEvents[2], 12, 10, 'p. m.', 45, dateThursday);
-  setTime(thursdayEvents[3], 14, 40, 'p. m.', 20, dateThursday);
-  const abdelTalk = addReservedTalk('abdel', 'jueves', 'Keynote de Abdel Martínez', 'Próximamente...', 'Próximamente...', dateThursday, 9, 10, 35);
-  document.querySelector('#panel-jueves .agenda-list').append(abdelTalk);
-
-  const fridayTimes = { gil: [9, 5, 'a. m.', 35], async: [9, 40, 'a. m.', 35], 'pydantic-ai': [10, 15, 'a. m.', 35], robotica: [11, 0, 'a. m.', 35], django: [12, 10, 'p. m.', 35], odoo: [13, 30, 'p. m.', 35], 'gerardo-vilcaminaza': [14, 5, 'p. m.', 40] };
-  Object.keys(fridayTimes).forEach(function (id) {
-    const item = document.querySelector('[data-session-id="' + id + '"]');
-    const [hour, minute, period, duration] = fridayTimes[id];
-    document.querySelector('#panel-viernes .agenda-list').append(item);
-    setTime(item, hour, minute, period, duration, dateFriday);
-  });
-  const fridayEvents = Array.from(document.querySelectorAll('#panel-viernes .agenda-item--event'));
-  setTime(fridayEvents[0], 9, 0, 'a. m.', 5, dateFriday);
-  setTime(fridayEvents[1], 10, 50, 'a. m.', 10, dateFriday);
-  setTime(fridayEvents[2], 12, 45, 'p. m.', 45, dateFriday);
-  setTime(fridayEvents[4], 14, 45, 'p. m.', 15, dateFriday);
-  fridayEvents[4].querySelector('.session-title').textContent = 'Cierre del Evento';
-  fridayEvents[3].remove();
-  const carlosTalk = addReservedTalk('carlos', 'viernes', 'Keynote de Carlos Alarcón', 'Próximamente...', 'Próximamente...', dateFriday, 11, 35, 35);
-  document.querySelector('#panel-viernes .agenda-list').append(carlosTalk);
-
-  const fridayList = document.querySelector('#panel-viernes .agenda-list');
-  const movedToThursday = ['corporativo', 'ai-ready'];
-  movedToThursday.forEach(function (id) {
-    const item = fridayList.querySelector('[data-session-id="' + id + '"]');
-    if (item) document.querySelector('#panel-jueves .agenda-list').append(item);
-  });
-  [
-    ['http3', 'jueves'], ['pypi', 'jueves'], ['uv', 'jueves'], ['educacion-ia', 'jueves'],
-    ['streamlit', 'jueves'], ['corporativo', 'jueves'], ['ai-ready', 'jueves'],
-    ['gil', 'viernes'], ['async', 'viernes'], ['pydantic-ai', 'viernes'], ['robotica', 'viernes'],
-    ['django', 'viernes'], ['odoo', 'viernes'], ['gerardo-vilcaminaza', 'viernes'], ['carlos', 'viernes']
-  ].forEach(function ([id, day]) {
-    const item = document.querySelector('[data-session-id="' + id + '"]');
-    const dayList = document.querySelector('#panel-' + day + ' .agenda-list');
-    if (item && item.parentElement !== dayList) dayList.append(item);
-  });
-  [
-    ['abdel', 'jueves', 9, 5, 35], ['gil', 'viernes', 9, 5, 35], ['async', 'viernes', 9, 40, 35],
-    ['pydantic-ai', 'viernes', 10, 15, 35], ['robotica', 'viernes', 11, 0, 35],
-    ['carlos', 'viernes', 11, 35, 35], ['django', 'viernes', 12, 10, 35], ['odoo', 'viernes', 13, 30, 35],
-    ['gerardo-vilcaminaza', 'viernes', 14, 5, 40]
-  ].forEach(function ([id, day, hour, minute, duration]) {
-    const item = document.querySelector('#panel-' + day + ' [data-session-id="' + id + '"]');
-    setTime(item, hour, minute, hour < 12 ? 'a. m.' : 'p. m.', duration, day === 'jueves' ? dateThursday : dateFriday);
-  });
-  document.querySelectorAll('[data-agenda-panel] .agenda-list').forEach(function (list) {
-    Array.from(list.children).sort(function (first, second) {
-      return new Date(first.querySelector('time').dateTime) - new Date(second.querySelector('time').dateTime);
-    }).forEach(function (item) { list.append(item); });
   });
 
   let talks = Array.from(document.querySelectorAll('.agenda-item[data-session-id]'));
@@ -310,8 +207,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     const keynoteNames = {
       abdel: 'Keynote de apertura',
-      carlos: 'Keynote',
-      'gerardo-vilcaminaza': 'Keynote de cierre'
+      carlos: 'Conferencia invitada',
+      'gerardo-vilcamiza': 'Keynote de cierre'
     };
     const keynoteBadge = item.querySelector('.agenda-session-top .session-badge');
     if (keynoteBadge && keynoteNames[sessionId]) {
