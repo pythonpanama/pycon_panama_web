@@ -141,6 +141,24 @@
   .field textarea {
     font-size: 16px; /* Evita que los navegadores móviles hagan zoom y desplacen la pantalla */
   }
+
+  .agenda-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-speaker-list {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-item .session-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .agenda-session {
+    padding-block: var(--space-3);
+    padding-right: var(--space-3);
+  }
 }
 
 
@@ -165,6 +183,61 @@
 
   .brand {
     font-size: var(--fs-sm);
+  }
+
+  .agenda-day-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .agenda-day-tab {
+    justify-content: center;
+    gap: var(--space-1);
+    padding-inline: var(--space-2);
+  }
+
+  .agenda-day-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .agenda-item .session-card {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .agenda-time {
+    padding-inline: var(--space-1);
+  }
+
+  .agenda-time time {
+    font-size: var(--fs-sm);
+  }
+
+  .agenda-session .session-title {
+    font-size: var(--fs-sm);
+  }
+
+  .agenda-view-tabs {
+    gap: 0;
+  }
+
+  .agenda-view-tab {
+    flex: 1;
+    padding-inline: var(--space-2);
+    font-size: var(--fs-sm);
+  }
+
+  .agenda-dialog-content {
+    padding-inline: var(--space-4);
+  }
+
+  .agenda-speaker-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .agenda-speaker-avatar {
+    width: 72px;
   }
 }
 
