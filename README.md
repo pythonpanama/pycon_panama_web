@@ -14,8 +14,10 @@ Este repositorio contiene el sitio público de [PyCon Panamá](https://pycon.pa/
 - [Estructura y alcance](#estructura-y-alcance)
 - [Cambiar el sitio](#cambiar-el-sitio)
 - [Validar antes de proponer cambios](#validar-antes-de-proponer-cambios)
+- [Actualizar recursos CDN e integridad](#actualizar-recursos-cdn-e-integridad)
 - [Despliegue](#despliegue)
 - [Contribuir](#contribuir)
+- [Licencias y recursos de terceros](#licencias-y-recursos-de-terceros)
 - [Documentación y contacto](#documentación-y-contacto)
 
 ## Inicio rápido
@@ -113,6 +115,33 @@ git diff --check
 git diff -- 2026/ netlify.toml sitemap.xml robots.txt
 ```
 
+## Actualizar recursos CDN e integridad
+
+Última actualización: 27 de septiembre de 2026.
+
+La edición 2026 fija Supabase JS en `2.117.2` (`dist/umd/supabase.js`) y Font Awesome en `6.4.0` (`css/all.min.css`). Sus etiquetas llevan `integrity="sha384-…"` y `crossorigin="anonymous"`. La versión de Supabase corresponde a la que resolvía `@2` al realizar este cambio; el archivo UMD coincide con el distribuido en npm.
+
+Para actualizar cualquiera de estos recursos:
+
+1. Revisa las notas de la versión y elige una versión exacta; no uses `@2`, `latest` ni rangos.
+2. Descarga la URL exacta en un archivo temporal fuera del repositorio y calcula SHA-384 sobre sus bytes. Por ejemplo, para la versión actual de Supabase:
+
+   ```bash
+   cdn_file=$(mktemp)
+   curl --fail --location --silent --show-error --compressed \
+     'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js' \
+     --output "$cdn_file" &&
+     openssl dgst -sha384 -binary "$cdn_file" | openssl base64 -A
+   rm -f "$cdn_file"
+   ```
+
+3. Anteponer `sha384-` al resultado da el valor de `integrity`. Para Font Awesome usa su URL exacta de cdnjs y el mismo procedimiento. Verifica el archivo contra la distribución oficial y comprueba que el CDN devuelve `Access-Control-Allow-Origin: *`.
+4. Actualiza URL e integridad juntas en las tres páginas con Supabase (`registro.html`, `ponentes.html`, `voluntariado/index.html`) o en las doce páginas de 2026 con Font Awesome. Conserva `crossorigin="anonymous"`. No cambies las ediciones archivadas.
+5. Ejecuta `node --test tests/*.cjs`, `python3 scripts/validate_site.py` y `git diff --check`. La prueba de CDN detecta versiones flotantes, atributos ausentes e inconsistencias entre páginas; verifica también el hash descargando los recursos, ya que esa prueba local no consulta la red.
+6. Revisa el preview de Netlify: SDK e iconos deben cargar sin errores de SRI/CORS. Antes de probar envíos, confirma que el preview utiliza una base de pruebas aislada. Comprueba los flujos abiertos con datos sintéticos y conserva cerrado el formulario de ponencias mientras la convocatoria siga cerrada; su ruta de integración puede probarse con respuestas simuladas.
+
+Si el navegador rechaza un recurso, compara los bytes y la versión con el hash esperado; no retires `integrity` para sortear el fallo. SRI verifica el JS y la hoja CSS enlazados, no los archivos de fuentes que esa hoja descarga. Consulta [Subresource Integrity en MDN](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity).
+
 ## Despliegue
 
 Netlify publica la raíz del repositorio (`publish = "."`) según [`netlify.toml`](netlify.toml). La configuración redirige `/` a `/2026/` y define cabeceras de seguridad para el sitio.
@@ -134,7 +163,15 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 - No mezcles una mejora de la edición activa con cambios generados, archivos locales o correcciones de una edición archivada.
 - Escribe la documentación en Markdown con formato completo: encabezados jerárquicos, tablas para lo que tenga fecha o responsable, avisos `> [!NOTE]` y `> [!WARNING]`, bloques de código con el lenguaje declarado y enlaces relativos con texto descriptivo. Sella la fecha de última actualización en cada documento que edites.
 - Respeta el [Código de Conducta](2026/codigo_conducta.html) en toda interacción del proyecto.
-- No hay una licencia general declarada en la raíz del repositorio. Consulta al equipo antes de reutilizar contenido o recursos fuera de este proyecto.
+- Antes de contribuir, comprueba que puedes ofrecer el código o texto propio bajo las licencias indicadas en [LICENSE](LICENSE) y [LICENSE-CONTENT.md](LICENSE-CONTENT.md). No añadas contenido de terceros sin permiso y atribución adecuados.
+
+## Licencias y recursos de terceros
+
+Última actualización: 27 de septiembre de 2026.
+
+El código fuente sobre el que Python Panamá puede conceder derechos se ofrece bajo [MIT](LICENSE). Los textos y la documentación originales de la organización se ofrecen bajo [CC BY 4.0](LICENSE-CONTENT.md), con atribución e indicación de cambios al reutilizarlos. Las licencias específicas de archivos o subdirectorios prevalecen para ese material; el [Código de Conducta de 2026](2026/codigo_conducta.html#creditos), por ejemplo, declara CC BY-SA 3.0.
+
+Estas licencias no autorizan el uso de logos de patrocinadores, marcas, fotografías o recursos de terceros. Para el alcance y las exclusiones, consulta [LICENSE-CONTENT.md](LICENSE-CONTENT.md).
 
 ## Documentación y contacto
 
@@ -143,13 +180,11 @@ Las contribuciones son bienvenidas, especialmente correcciones de contenido, acc
 
 Para consultas sobre PyCon Panamá, escribe a [pyconpanama@gmail.com](mailto:pyconpanama@gmail.com).
 
-## Publicación de la agenda 2026 — issue #118
+## Publicación de la agenda 2026 — nota histórica
 
-Última actualización: 8 de septiembre de 2026.
-
-La agenda permanece en espera hasta el lunes 28 de septiembre de 2026. No hay
-hora definida ni publicación automática: organización debe confirmar el contenido
-aprobado y el momento de publicación.
+La agenda se publicó en octubre de 2026 y está disponible en
+[`2026/agenda.html`](2026/agenda.html). El siguiente procedimiento queda como
+registro del flujo utilizado para retirar y restituir contenido sujeto a aprobación.
 
 La versión preliminar se conserva exclusivamente en el historial de Git, en el
 commit `bbaf5d9abb6594f3aec972b083f36445123fca68`. No guardar copias, parches ni
@@ -174,8 +209,8 @@ Para preparar la restitución:
 5. Ejecutar `python3 scripts/validate_site.py`, `node --test tests/*.cjs` y
    `git diff --check`. Revisar el preview en móvil y escritorio, el menú,
    los enlaces restituidos y el acceso directo a `/2026/agenda.html`.
-6. Integrar el PR revisado cuando organización autorice la publicación el
-   28 de septiembre. Verificar el despliegue de Netlify y repetir la navegación
+6. Integrar el PR revisado cuando organización autorice la publicación. Verificar
+   el despliegue de Netlify y repetir la navegación
    y el acceso directo en producción antes de dar la restitución por terminada.
 
 El aviso se mantiene si falta la aprobación; no se elimina automáticamente por
@@ -183,7 +218,7 @@ el cambio de fecha. La cuenta regresiva corresponde al issue #119.
 
 ## Publicación de las sedes 2026
 
-Última actualización: 18 de septiembre de 2026.
+Última actualización: 27 de septiembre de 2026.
 
 Las sedes se ocultaron el 8 de septiembre de 2026 (commit `05075c0`) a la espera
 de la publicación manual prevista para el 28 de septiembre. Por indicación de
@@ -195,6 +230,6 @@ y las referencias en Acerca de, FAQ, Código de Conducta, voluntariado y los
 formularios de registro. `sitemap.xml` y `SITEMAP_REQUIRED` incluyen de nuevo
 `/2026/sedes.html`.
 
-`python3 scripts/validate_site.py --skip-external` pasa sobre las 11 páginas
-de `2026/`. Antes de publicar en producción, correr también la validación
-completa con red y revisar el acceso directo a `/2026/sedes.html` ya desplegado.
+La comprobación de la restitución de sedes se realizó entonces sobre 11 páginas
+de `2026/`; actualmente la edición contiene 12 páginas HTML. Antes de publicar
+en producción, correr también la validación completa con red y revisar el acceso directo a `/2026/sedes.html` ya desplegado.

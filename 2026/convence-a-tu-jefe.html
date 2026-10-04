@@ -22,40 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <style>
-        .plantilla-box {
-            display: grid;
-            gap: 1rem;
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .plantilla-box textarea {
-            min-height: 320px;
-            font-family: inherit;
-            line-height: var(--lh-body);
-            white-space: pre-wrap;
-        }
-
-        .plantilla-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        @media (max-width: 600px) {
-            .plantilla-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-    </style>
+    <link href="css/convence-a-tu-jefe.css" rel="stylesheet">
 </head>
 
 <body>
@@ -75,6 +47,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="sedes.html">Sedes</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
                     <li class="nav-item-has-children">
                         <button class="submenu-toggle" type="button" aria-haspopup="true"
                             aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
@@ -116,8 +89,9 @@
                 <div class="hero-card">
                     <h2>22 y 23 de octubre de 2026</h2>
                     <ul>
-                        <li><strong>Jueves 22:</strong> jornada híbrida en Universidad del Istmo, Sede Panamá, de 9:00 a.m. a 12:00 m., con transmisión por Google Meet</li>
-                        <li><strong>Viernes 23:</strong> encuentro presencial en Universidad del Istmo, Sede Metromall, de 10:00 a.m. a 2:00 p.m.</li>
+                        <li><strong>Jueves 22:</strong> jornada híbrida en Universidad del Istmo, Sede Panamá, con transmisión por Google Meet</li>
+                        <li><strong>Viernes 23:</strong> encuentro presencial en Universidad del Istmo, Sede Metromall</li>
+                        <li><strong>Horario:</strong> jueves de 9:00 a. m. a 12:55 p. m.; viernes de 9:00 a. m. a 4:00 p. m.</li>
                         <li><strong>Entrada:</strong> gratuita, con registro previo</li>
                     </ul>
                     <p><a class="internal-link" href="sedes.html">Ver direcciones y mapas</a></p>
@@ -127,9 +101,9 @@
 
         <section class="section">
             <div class="container">
-                <div class="prose" style="max-width: 760px; margin: 0 auto;">
+                <div class="prose prose--narrow-760">
                     <div class="callout">
-                        <p><strong>El argumento en una frase:</strong> son medio día laboral entre las dos jornadas, sede fija en la ciudad, entrada gratuita, y el equipo vuelve con networking, capacitación en Python e Inteligencia Artificial, y nuevos contactos profesionales.</p>
+                        <p><strong>El argumento en una frase:</strong> dos jornadas en la ciudad de Panamá, entrada gratuita, la opción de asistir solo a los bloques que te interesen, y el equipo vuelve con networking, capacitación en Python e Inteligencia Artificial, y nuevos contactos profesionales.</p>
                     </div>
                 </div>
             </div>
@@ -164,7 +138,7 @@
 
         <section class="section">
             <div class="container">
-                <div class="card hero-card" style="max-width: 820px; margin: 0 auto;">
+                <div class="card hero-card hero-card--centered-820">
                     <h2>¿Y si mandas a más de una persona?</h2>
                     <p>Enviar a varias personas del equipo puede salir más rentable para la empresa que la salida de una sola persona por el día completo: el networking, el aprendizaje y la visibilidad de marca se reparten entre más personas, en lugar de depender de que una sola los aproveche y luego los comparta con el resto.</p>
                     <p>Así el equipo completo se beneficia, no solo quien asiste.</p>
@@ -185,9 +159,9 @@
 
 Hola [nombre de tu jefe],
 
-Te escribo para pedirte permiso de asistir a PyCon Panamá 2026, la conferencia anual de Python en Panamá, organizada por Python Panamá. Se realiza el jueves 22 y viernes 23 de octubre, con entrada gratuita: el jueves es híbrido, de 9:00 a.m. a 12:00 m., y el viernes es presencial, de 10:00 a.m. a 2:00 p.m., en Ciudad de Panamá.
+Te escribo para pedirte permiso de asistir a PyCon Panamá 2026, la conferencia anual de Python en Panamá, organizada por Python Panamá. Se realiza el jueves 22 de octubre, de 9:00 a. m. a 12:55 p. m., en modalidad híbrida, y el viernes 23, de 9:00 a. m. a 4:00 p. m., de forma presencial en Ciudad de Panamá. La entrada es gratuita, con registro previo.
 
-El contenido más fuerte del programa está concentrado en la tarde de cada día, así que no significa perder la jornada completa de trabajo. Incluso se puede asistir solo a bloques puntuales.
+No hace falta perder la jornada completa de trabajo: se puede asistir solo a los bloques que más aporten a nuestro trabajo.
 
 Para mí sería la oportunidad de actualizarme en Python e Inteligencia Artificial, conectar con la comunidad tech local y traer ideas aplicables a nuestro trabajo.
 
@@ -222,7 +196,7 @@ Saludos,
                     </details>
                     <details>
                         <summary>¿Es gratis?</summary>
-                        <div class="faq-answer">Sí, la entrada a PyCon Panamá 2026 es gratuita, con registro previo.</div>
+                        <div class="faq-answer">Entrada gratuita, con registro previo.</div>
                     </details>
                     <details>
                         <summary>¿Se puede ir solo a una charla?</summary>
@@ -238,10 +212,10 @@ Saludos,
 
         <section class="section">
             <div class="container">
-                <div class="card hero-card" style="max-width: 720px; margin: 0 auto; text-align: center;">
+                <div class="card hero-card hero-card--centered-720">
                     <h2>¿Te dieron el permiso?</h2>
                     <p>Regístrate para asegurar tu cupo en PyCon Panamá 2026.</p>
-                    <div class="hero-actions" style="justify-content: center; margin-top: 1rem;">
+                    <div class="hero-actions hero-actions--centered-top">
                         <a class="btn btn-primary" href="registro.html">Ir al registro</a>
                     </div>
                 </div>
@@ -264,25 +238,7 @@ Saludos,
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        const btnCopiar = document.getElementById('btnCopiarPlantilla');
-        const plantilla = document.getElementById('plantillaCorreo');
-        const copiarStatus = document.getElementById('copiarStatus');
-
-        btnCopiar.addEventListener('click', async function () {
-            try {
-                await navigator.clipboard.writeText(plantilla.value);
-                copiarStatus.className = 'status-message success';
-                copiarStatus.textContent = 'Plantilla copiada. Ya puedes pegarla en tu correo.';
-            } catch (err) {
-                plantilla.removeAttribute('readonly');
-                plantilla.focus();
-                plantilla.select();
-                copiarStatus.className = 'status-message error';
-                copiarStatus.textContent = 'No pudimos copiarla automáticamente. Está seleccionada: usa Ctrl+C o Cmd+C.';
-            }
-        });
-    </script>
+    <script src="js/convence-a-tu-jefe.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,78 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+
+const page = fs.readFileSync('2026/agenda.html', 'utf8');
+const script = fs.readFileSync('2026/js/agenda.js', 'utf8');
+const styles = fs.readFileSync('2026/css/style.css', 'utf8');
+
+test('la agenda incluye las dos jornadas y excluye la propuesta individual retirada', () => {
+  assert.match(page, /data-agenda-panel="jueves"/);
+  assert.match(page, /data-agenda-panel="viernes"/);
+  assert.equal((page.match(/data-session-id="/g) || []).length, 17);
+  assert.doesNotMatch(page, /data-session-id="grpc"|Beyond Hello World/);
+  assert.match(page, /Jornada híbrida/);
+});
+
+test('la agenda es una sola vista con filtro por día y ficha de detalle', () => {
+  assert.doesNotMatch(page, /data-view-tab|panel-sesiones|data-session-list/);
+  assert.doesNotMatch(script, /openSessionView|setTab\(|data-agenda-filter-day/);
+  assert.match(page, /agenda-detail-dialog/);
+  assert.match(script, /Ver detalles de la sesión/);
+  assert.match(script, /setDayFilter\('all'\)/);
+  assert.match(script, /agendaCard\.addEventListener\('click', function \(\) \{ openDetail\(/);
+  assert.match(script, /openDetail\(title, topic, description, true, profile, when\)/);
+  assert.match(script, /createSpeakerBlock\(profile\)/);
+  assert.match(script, /speaker-profile-bio/);
+  assert.doesNotMatch(script, /'Nombre: '|nameLabel/);
+  assert.match(script, /fa-linkedin-in/);
+  assert.match(script, /fa-github/);
+  assert.match(page, /Computer Vision en la nueva era del GenAI/);
+  assert.match(script, /selectedDay === tab\.dataset\.agendaDay \? 'all'/);
+});
+
+test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
+  const horario = (dia) => {
+    const panel = page.match(new RegExp('data-agenda-panel="' + dia + '"[\\s\\S]*?</ol>'))[0];
+    return Array.from(panel.matchAll(/<li class="agenda-item([^>]*)>[\s\S]*?datetime="[^T]+T(\d\d:\d\d)[\s\S]*?<small>(\d+) min/g))
+      .map(([, atributos, hora, duracion]) => ((atributos.match(/data-session-id="([^"]+)"/) || [])[1] || '·') + ' ' + hora + ' ' + duracion);
+  };
+  assert.deepEqual(horario('jueves'), [
+    '· 09:00 10', 'http3 09:10 30', 'pypi 09:43 30', 'streamlit 10:16 30', '· 10:46 20',
+    'uv 11:09 30', 'educacion-ia 11:42 30', 'ai-ready 12:15 30', '· 12:45 10'
+  ]);
+  assert.deepEqual(horario('viernes'), [
+    '· 09:00 15', 'abdel 09:15 40', 'robotica 09:58 25', 'async 10:26 25', 'pydantic-ai 10:54 25',
+    'gil 11:22 25', 'carlos 11:50 25', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
+    'corporativo 14:04 25', 'duckdb 14:32 25', 'gerardo-vilcamiza 15:00 40', '· 15:40 20'
+  ]);
+  assert.doesNotMatch(script, /setTime|movedToThursday|addReservedTalk/);
+  assert.doesNotMatch(page + script, /Vilcaminaza/i);
+});
+
+test('no quedan controles de búsqueda, favoritos ni niveles', () => {
+  assert.doesNotMatch(page, /agenda-search|agenda-favorites-toggle|agenda-level|agenda-results/);
+  assert.doesNotMatch(script, /favoriteKey|agenda-search|agenda-level/);
+  assert.match(page, /Redes y protocolos/);
+  assert.match(page, /IA y agentes/);
+});
+
+test('el cronograma usa variables de la paleta y tipografía del sitio', () => {
+  assert.match(styles, /\.speaker-avatar[\s\S]*?object-fit: cover/);
+  assert.match(styles, /\.agenda-day-tab[\s\S]*?var\(--color-navy\)/);
+  assert.match(styles, /\.agenda-session[\s\S]*?var\(--accent-soft\)/);
+  assert.match(page, /css\/variables\.css/);
+  assert.match(page, /family=Montserrat/);
+});
+
+test('todos los menús principales de 2026 enlazan a la agenda', () => {
+  const pages = fs.readdirSync('2026').filter((name) => name.endsWith('.html'))
+    .map((name) => ['2026/' + name, fs.readFileSync('2026/' + name, 'utf8')]);
+  pages.push(['2026/voluntariado/index.html', fs.readFileSync('2026/voluntariado/index.html', 'utf8')]);
+  assert.equal(pages.length, 12);
+  pages.forEach(([file, content]) => {
+    const navigation = content.match(/<nav id="nav-menu"[\s\S]*?<\/nav>/);
+    assert.ok(navigation, file + ' tiene menú principal');
+    assert.match(navigation[0], /href="(?:\.\.\/)?agenda\.html"/, file + ' enlaza a Agenda');
+  });
+});

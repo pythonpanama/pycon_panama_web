@@ -22,150 +22,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <style>
-        .registro-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: clamp(1.5rem, 2vw, 2.5rem);
-            align-items: start;
-        }
-
-        .registro-aside,
-        .registro-panel {
-            background: var(--surface);
-            border: 1px solid var(--border-soft);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
-            padding: clamp(1.5rem, 2vw, 2rem);
-        }
-
-        .registro-aside {
-            background: linear-gradient(180deg, rgba(47, 140, 255, 0.08), rgba(255, 255, 255, 0.95));
-        }
-
-        .registro-aside ul {
-            margin: 1rem 0 0;
-            padding-left: 1.1rem;
-            color: var(--text-secondary);
-        }
-
-        .registro-aside li + li {
-            margin-top: 0.6rem;
-        }
-
-        .registro-form {
-            display: grid;
-            gap: 1.1rem;
-        }
-
-        .field-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-        }
-
-        .field {
-            display: grid;
-            gap: 0.45rem;
-        }
-
-        fieldset.field {
-            min-width: 0;
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-
-        .field label,
-        .field legend {
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .field-hint {
-            margin: 0;
-            color: var(--text-secondary);
-            font-size: var(--fs-xs);
-        }
-
-        .field input,
-        .field select,
-        .field textarea {
-            width: 100%;
-            padding: 0.8rem 0.9rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            background: #fff;
-            font: inherit;
-            color: var(--text);
-        }
-
-        .field textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
-
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus {
-            outline: 3px solid rgba(47, 140, 255, 0.18);
-            border-color: var(--accent);
-        }
-
-        .checkboxes {
-            display: grid;
-            gap: 0.6rem;
-        }
-
-        .checkbox-item {
-            display: grid;
-            grid-template-columns: 1.1rem minmax(0, 1fr);
-            align-items: flex-start;
-            gap: 0.6rem;
-            color: var(--text-secondary);
-        }
-
-        .checkbox-item input {
-            width: 1.1rem;
-            height: 1.1rem;
-            padding: 0;
-            margin-top: 0.2rem;
-        }
-
-        .checkbox-note {
-            margin: 0;
-            padding-left: 1.7rem;
-            color: var(--text-secondary);
-            font-size: var(--fs-xs);
-        }
-
-        .status-message {
-            min-height: 1.5rem;
-            margin-top: 0.25rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .status-message.error {
-            color: #d9534f;
-        }
-
-        .status-message.success {
-            color: #28a745;
-        }
-
-        @media (max-width: 768px) {
-            .registro-layout,
-            .field-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="css/registro.css" rel="stylesheet">
 </head>
 
 <body>
@@ -185,6 +47,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="about.html">Acerca de</a></li>
                     <li><a href="sedes.html">Sedes</a></li>
+                    <li><a href="agenda.html">Agenda</a></li>
                     <li class="nav-item-has-children">
                         <button class="submenu-toggle" type="button" aria-haspopup="true"
                             aria-expanded="false" aria-controls="registro-submenu" aria-current="page">Registro</button>
@@ -230,7 +93,7 @@
                         <li><strong>Jueves 22:</strong> jornada híbrida en Universidad del Istmo, Sede Panamá, con transmisión por Google Meet.</li>
                         <li><strong>Viernes 23:</strong> encuentro presencial en Universidad del Istmo, Sede Metromall.</li>
                         <li><strong>Sedes:</strong> <a class="internal-link" href="sedes.html">direcciones y mapas</a>.</li>
-                        <li><strong>Ingreso:</strong> gratuito, con registro previo.</li>
+                        <li><strong>Entrada gratuita, con registro previo.</strong></li>
                     </ul>
                 </aside>
 
@@ -339,94 +202,11 @@
     </footer>
 
     <!-- Supabase CDN Client Library & Config -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js" integrity="sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok" crossorigin="anonymous"></script>
     <script src="js/env.js"></script>
-    <script src="js/supabase-config.js?v=5427c37ebf46"></script>
+    <script src="js/supabase-config.js?v=c50c42dd957b"></script>
     <script src="js/main.js"></script>
-    <script>
-        const form = document.getElementById('registroForm');
-        const statusMessage = document.getElementById('statusMessage');
-        const btnSubmit = document.getElementById('btnSubmit');
-        const dayInputs = Array.from(document.querySelectorAll('input[name="dias"]'));
-        const diaJueves = document.getElementById('dia_jueves');
-        const modalidadJuevesField = document.getElementById('modalidadJuevesField');
-        const modalidadJuevesInputs = Array.from(document.querySelectorAll('input[name="modalidad_jueves"]'));
-
-        function syncAttendanceFields() {
-            const hasSelectedDay = dayInputs.some(option => option.checked);
-            dayInputs[0].setCustomValidity(hasSelectedDay ? '' : 'Selecciona al menos un día.');
-
-            modalidadJuevesField.hidden = !diaJueves.checked;
-            modalidadJuevesInputs.forEach(option => {
-                option.required = diaJueves.checked;
-                if (!diaJueves.checked) option.checked = false;
-            });
-        }
-
-        dayInputs.forEach(option => option.addEventListener('change', syncAttendanceFields));
-        syncAttendanceFields();
-
-        form.addEventListener('submit', async function (event) {
-            event.preventDefault();
-            syncAttendanceFields();
-
-            if (!form.checkValidity()) {
-                statusMessage.className = 'status-message error';
-                if (!dayInputs.some(option => option.checked)) {
-                    statusMessage.textContent = 'Selecciona al menos un día para asistir.';
-                } else if (diaJueves.checked && !modalidadJuevesInputs.some(option => option.checked)) {
-                    statusMessage.textContent = 'Indica cómo participarás el jueves 22.';
-                } else if (!document.getElementById('consent_coc').checked) {
-                    statusMessage.textContent = 'Para registrarte tienes que aceptar el Código de Conducta.';
-                } else if (!document.getElementById('consent_privacy').checked) {
-                    statusMessage.textContent = 'Para registrarte tienes que aceptar el Aviso de Privacidad.';
-                } else {
-                    statusMessage.textContent = 'Revisa los campos obligatorios del formulario.';
-                }
-                form.reportValidity();
-                return;
-            }
-
-            btnSubmit.disabled = true;
-            btnSubmit.textContent = 'Enviando registro...';
-            statusMessage.className = 'status-message';
-            statusMessage.textContent = 'Procesando tu registro...';
-
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const organizacion = document.getElementById('organizacion') ? document.getElementById('organizacion').value.trim() : '';
-            const rol = document.getElementById('rol').value;
-            const dias = dayInputs.filter(option => option.checked).map(option => option.value);
-            const modalidad_jueves = modalidadJuevesInputs.find(option => option.checked)?.value || '';
-            const expectativas = document.getElementById('expectativas').value.trim();
-            const accesibilidad = document.getElementById('accesibilidad').value.trim();
-            const consent_privacy = document.getElementById('consent_privacy').checked;
-            const consent_coc = document.getElementById('consent_coc').checked;
-
-            const datos = { nombre, email, telefono, organizacion, rol, dias, modalidad_jueves, expectativas, accesibilidad, consent_privacy, consent_coc };
-
-            try {
-                const res = await PyConSupabase.registrarAsistente(datos);
-
-                if (res.success) {
-                    statusMessage.className = 'status-message success';
-                    statusMessage.textContent = `¡Gracias, ${nombre}! Recibimos tu registro para ${dias.join(' y ')}. Te enviaremos una confirmación por correo.`;
-                    form.reset();
-                    syncAttendanceFields();
-                } else {
-                    statusMessage.className = 'status-message error';
-                    statusMessage.textContent = res.friendlyMessage || 'Ocurrió un inconveniente al procesar tu registro. Por favor intenta de nuevo.';
-                }
-            } catch (err) {
-                statusMessage.className = 'status-message error';
-                statusMessage.textContent = 'Error de conexión. Por favor intenta de nuevo.';
-            } finally {
-                btnSubmit.disabled = false;
-                btnSubmit.textContent = 'Enviar registro';
-            }
-        });
-    </script>
+    <script src="js/registro.js"></script>
 </body>
 
 </html>
