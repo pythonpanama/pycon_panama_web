@@ -1451,7 +1451,8 @@ button[type="submit"], .btn {
   box-shadow: var(--shadow-sm);
 }
 
-.venue-card h2 {
+.venue-card h2,
+.venue-card h3 {
   font-size: var(--fs-lg);
   line-height: var(--lh-heading);
 }
