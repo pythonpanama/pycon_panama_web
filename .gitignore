@@ -98,3 +98,44 @@ docs/
 # El esquema de Supabase vive en el repositorio privado pycon_panama_docs: un
 # .sql aquí queda descargable desde pycon.pa.
 *.sql
+
+# Llaves, certificados y credenciales de servicios (Google, Supabase, npm).
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+credentials*.json
+client_secret*.json
+*service-account*.json
+*service_account*.json
+token*.json
+.npmrc
+.pypirc
+.netrc
+.secrets/
+secrets/
+.supabase/
+supabase/.temp/
+supabase/.branches/
+
+# Exportaciones de datos personales (Ley 81): los registros de asistentes,
+# ponentes y voluntariado nunca se versionan; viven solo en Supabase.
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.ods
+*.dump
+*.backup
+exports/
+backups/
+
+# Salidas de herramientas de IA y análisis local.
+graphify-out/
+.codex/
+.cursor/
+.aider*
