@@ -255,10 +255,12 @@
   .feature-card-grid .card:hover,
   .feature-card-grid .venue-card:hover,
   .home-hero-card:hover,
+  .sponsor-options .card:hover,
   .home-card-grid .card--link:hover .home-card-icon,
   .home-card-grid .card--link:focus-visible .home-card-icon,
   .feature-card-grid .card:hover .home-card-icon,
   .feature-card-grid .venue-card:hover .home-card-icon,
+  .sponsor-options .card:hover .home-card-icon,
   .home-card-grid .card--link:hover .home-card-arrow,
   .home-card-grid .card--link:focus-visible .home-card-arrow,
   .home-card-grid .card--link:focus-visible {
