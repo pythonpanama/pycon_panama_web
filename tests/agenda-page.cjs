@@ -31,6 +31,25 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(script, /selectedDay === tab\.dataset\.agendaDay \? 'all'/);
 });
 
+test('las fotos de conferencistas aparecen en la agenda y en sus biografías', () => {
+  const photos = [
+    'img/conferencistas/Stuti Jain.png',
+    'img/conferencistas/Palak Jain.png',
+    'img/conferencistas/DavidSolCaylent.png',
+    'img/conferencistas/ValeriaCalderonBriz.png',
+    'img/conferencistas/MaríaClaraSanchez.png',
+    'img/conferencistas/JairManuelPoveda.png',
+    'img/conferencistas/GerardoVilcamiza.png'
+  ];
+  photos.forEach((photo) => {
+    assert.ok(fs.existsSync('2026/' + photo), 'existe la foto ' + photo);
+    assert.ok(script.includes(photo), 'el perfil usa la foto ' + photo);
+  });
+  assert.match(script, /photo: \['img\/conferencistas\/Stuti Jain\.png', 'img\/conferencistas\/Palak Jain\.png'\]/);
+  assert.match(script, /createAvatars\(profile\)/);
+  assert.match(script, /speaker-profile-bio/);
+});
+
 test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
   const horario = (dia) => {
     const panel = page.match(new RegExp('data-agenda-panel="' + dia + '"[\\s\\S]*?</ol>'))[0];

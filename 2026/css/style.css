@@ -1000,8 +1000,8 @@ button[type="submit"], .btn {
 }
 
 .speaker-profile .speaker-avatar {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   font-size: var(--fs-base);
 }
 
