@@ -471,6 +471,31 @@ button[type="submit"], .btn {
   background: var(--highlight);
 }
 
+.home-hero-card {
+  border-left: 4px solid var(--highlight);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--accent-softer) 72%, var(--color-cream) 100%);
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.home-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-card-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  margin-bottom: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 212, 0, 0.2);
+  color: var(--color-navy);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+}
+
 
 /* ==========================================================================
    4. Botones
@@ -570,6 +595,94 @@ button[type="submit"], .btn {
 .card-grid .card--link:nth-of-type(6n + 4) { --card-accent: var(--color-green); }
 .card-grid .card--link:nth-of-type(6n + 5) { --card-accent: var(--color-sky); }
 .card-grid .card--link:nth-of-type(6n + 6) { --card-accent: var(--color-orange); }
+
+.feature-card-grid .card,
+.feature-card-grid .venue-card {
+  --card-accent: var(--accent);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.feature-card-grid .card:nth-of-type(3n + 2),
+.feature-card-grid .venue-card:nth-of-type(3n + 2) {
+  --card-accent: var(--color-teal);
+}
+
+.feature-card-grid .card:nth-of-type(3n + 3) {
+  --card-accent: var(--color-amber);
+}
+
+.feature-card-grid .card {
+  position: relative;
+  overflow: hidden;
+  border-top: 5px solid var(--card-accent);
+}
+
+.feature-card-grid .card:hover,
+.feature-card-grid .venue-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--card-accent) 42%, white);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card-grid .card:hover .home-card-icon,
+.feature-card-grid .venue-card:hover .home-card-icon {
+  transform: rotate(-7deg) scale(1.08);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--card-accent) 20%, white);
+}
+
+.home-card-grid .card--link {
+  position: relative;
+  overflow: hidden;
+  border-top-width: 5px;
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.home-card-grid .card--link h3 {
+  color: var(--card-accent);
+  transition: color 200ms ease;
+}
+
+.home-card-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--card-accent) 12%, white);
+  color: var(--card-accent);
+  font-size: 1.35rem;
+  transition: transform 260ms ease, border-radius 260ms ease, background-color 260ms ease;
+}
+
+.home-card-arrow {
+  align-self: flex-end;
+  margin-top: auto;
+  color: var(--card-accent);
+  transition: transform 260ms ease;
+}
+
+.home-card-grid .card--link:hover,
+.home-card-grid .card--link:focus-visible {
+  transform: translateY(-7px) scale(1.015);
+  border-color: color-mix(in srgb, var(--card-accent) 42%, white);
+  border-top-color: var(--card-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-card-grid .card--link:hover .home-card-icon,
+.home-card-grid .card--link:focus-visible .home-card-icon {
+  transform: rotate(-7deg) scale(1.08);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--card-accent) 20%, white);
+}
+
+.home-card-grid .card--link:hover .home-card-arrow,
+.home-card-grid .card--link:focus-visible .home-card-arrow {
+  transform: translateX(5px);
+}
 
 .card--link:hover,
 .card--link:focus-visible {
@@ -1446,7 +1559,7 @@ button[type="submit"], .btn {
   padding: var(--space-6);
   background: var(--surface);
   border: 1px solid var(--border-soft);
-  border-left: 4px solid var(--accent);
+  border-left: 4px solid var(--card-accent, var(--accent));
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
@@ -1486,6 +1599,22 @@ button[type="submit"], .btn {
    ocupen distinto alto. */
 .venue-map-link {
   margin-top: auto;
+}
+
+.venue-map {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.venue-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 
@@ -1605,15 +1734,36 @@ a.sponsor-card:focus-visible {
 }
 
 .sponsor-options .card {
-  border-top: 4px solid var(--accent);
+  --card-accent: var(--accent);
+  position: relative;
+  overflow: hidden;
+  border-top: 5px solid var(--card-accent);
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 260ms ease, border-color 260ms ease;
 }
 
 .sponsor-options .card:nth-child(2) {
-  border-top-color: var(--color-teal);
+  --card-accent: var(--color-teal);
 }
 
 .sponsor-options .card:nth-child(3) {
-  border-top-color: var(--color-amber);
+  --card-accent: var(--color-amber);
+}
+
+.sponsor-options .card h3 {
+  color: var(--card-accent);
+}
+
+.sponsor-options .card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--card-accent) 42%, white);
+  box-shadow: var(--shadow-lg);
+}
+
+.sponsor-options .card:hover .home-card-icon {
+  transform: rotate(-7deg) scale(1.08);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--card-accent) 20%, white);
 }
 
 .sponsor-recognition {

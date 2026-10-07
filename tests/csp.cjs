@@ -26,6 +26,7 @@ test('la CSP de Netlify bloquea código en línea y limita recursos activos', ()
   assert.match(block, /Content-Security-Policy = /);
   assert.match(block, /script-src 'self' https:\/\/cdn\.jsdelivr\.net/);
   assert.match(block, /connect-src 'self' https:\/\/\*\.supabase\.co/);
+  assert.match(block, /frame-src https:\/\/www\.google\.com https:\/\/maps\.google\.com/);
   assert.match(block, /object-src 'none'/);
   assert.match(block, /frame-ancestors 'self'/);
   assert.doesNotMatch(block, /unsafe-inline|unsafe-eval|Report-Only/);
