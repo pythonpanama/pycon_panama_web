@@ -16,7 +16,7 @@ test('los recursos CDN usan versiones exactas, SRI y CORS coherentes', () => {
   for (const file of htmlFiles('2026')) {
     const html = fs.readFileSync(file, 'utf8');
     let fontAwesome = 0;
-    for (const [tag] of html.matchAll(/<(?:script|link)\b[^>]*>/g)) {
+    for (const [tag] of html.matchAll(/<(?:script|link)\b[^>]*>/gi)) {
       const attrs = Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m => [m[1], m[2]]));
       const url = attrs.src || attrs.href || '';
       if (!url.includes('cdn.jsdelivr.net/npm/@supabase/') && !url.includes('cdnjs.cloudflare.com/ajax/libs/font-awesome/')) continue;
