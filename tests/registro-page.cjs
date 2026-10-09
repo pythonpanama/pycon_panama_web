@@ -41,5 +41,5 @@ test('el registro incluye honeypot oculto y Turnstile', () => {
   assert.match(pageScript, /renovarTurnstile\(\)/);
   const config = fs.readFileSync('netlify.toml', 'utf8');
   assert.match(config, /script-src[^;]*https:\/\/challenges\.cloudflare\.com/);
-  assert.match(config, /frame-src https:\/\/challenges\.cloudflare\.com/);
+  assert.match(config, /frame-src[^;]*https:\/\/challenges\.cloudflare\.com/);
 });

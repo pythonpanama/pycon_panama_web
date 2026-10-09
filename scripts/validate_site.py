@@ -67,6 +67,7 @@ class PageParser(HTMLParser):
         self.duplicate_ids: set[str] = set()
         self.meta: dict[str, str] = {}
         self.references: list[str] = []
+        self.embedded_references: list[str] = []
         self.title = ""
         self._in_title = False
 
@@ -95,7 +96,11 @@ class PageParser(HTMLParser):
         link_rels = set((values.get("rel") or "").lower().split())
         if tag == "link" and link_rels & {"preconnect", "dns-prefetch"}:
             return
-        if tag in {"a", "img", "iframe", "link", "script", "source"}:
+        if tag == "iframe":
+            reference = values.get("src")
+            if reference:
+                self.embedded_references.append(reference)
+        elif tag in {"a", "img", "link", "script", "source"}:
             reference = values.get("href") or values.get("src")
             if reference:
                 self.references.append(reference)
@@ -153,11 +158,16 @@ def local_production_target(url: str) -> Path | None:
     return target
 
 
-def collect_http_urls(pages: dict[Path, PageParser]) -> dict[str, str]:
+def collect_http_urls(
+    pages: dict[Path, PageParser], *, include_embedded: bool = False
+) -> dict[str, str]:
     found: dict[str, str] = {}
     for page, parser in pages.items():
         label = page.relative_to(ROOT).as_posix()
-        for reference in parser.references:
+        references = parser.references + (
+            parser.embedded_references if include_embedded else []
+        )
+        for reference in references:
             url = absolute_http_url(reference)
             if url and url not in found:
                 found[url] = label
@@ -197,7 +207,7 @@ def parse_pages() -> tuple[dict[Path, PageParser], list[str]]:
 def validate_references(pages: dict[Path, PageParser]) -> list[str]:
     errors: list[str] = []
     for page, parser in pages.items():
-        for reference in parser.references:
+        for reference in parser.references + parser.embedded_references:
             target, fragment = target_for(page, reference)
             if target is None:
                 continue
@@ -216,7 +226,7 @@ def validate_references(pages: dict[Path, PageParser]) -> list[str]:
 
 def validate_production_assets(pages: dict[Path, PageParser]) -> list[str]:
     errors: list[str] = []
-    for url, label in sorted(collect_http_urls(pages).items()):
+    for url, label in sorted(collect_http_urls(pages, include_embedded=True).items()):
         target = local_production_target(url)
         if target is None:
             continue

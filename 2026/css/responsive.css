@@ -217,8 +217,8 @@
 
   .speaker-avatar,
   .agenda-item .session-keynote .speaker-avatar {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     font-size: 0.7rem;
   }
 
@@ -227,8 +227,8 @@
   }
 
   .speaker-profile .speaker-avatar {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
   }
 }
 
@@ -251,7 +251,19 @@
   }
 
   .btn:hover,
-  .card--link:hover {
+  .card--link:hover,
+  .feature-card-grid .card:hover,
+  .feature-card-grid .venue-card:hover,
+  .home-hero-card:hover,
+  .sponsor-options .card:hover,
+  .home-card-grid .card--link:hover .home-card-icon,
+  .home-card-grid .card--link:focus-visible .home-card-icon,
+  .feature-card-grid .card:hover .home-card-icon,
+  .feature-card-grid .venue-card:hover .home-card-icon,
+  .sponsor-options .card:hover .home-card-icon,
+  .home-card-grid .card--link:hover .home-card-arrow,
+  .home-card-grid .card--link:focus-visible .home-card-arrow,
+  .home-card-grid .card--link:focus-visible {
     transform: none;
   }
 }
