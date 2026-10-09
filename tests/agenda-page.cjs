@@ -28,6 +28,29 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(script, /fa-linkedin-in/);
   assert.match(script, /fa-github/);
   assert.match(page, /Computer Vision en la nueva era del GenAI/);
+  assert.match(page, /data-session-id="duckdb"[\s\S]*?Keisa Ávila/);
+  assert.match(page, /data-session-id="duckdb"[\s\S]*?Información por confirmar/);
+  assert.match(script, /odoo: \{ name: 'Yudith Recio Milanés', role: 'Directora y Fundadora de Solvixer \| Consultora Empresarial \| ERP Odoo'/);
+  assert.match(script, /duckdb: \{ name: 'Keisa Ávila', role: 'Información por confirmar'/);
+  assert.match(script, /function createCountryFlag\(profile\)/);
+  assert.match(script, /flag\.src = 'img\/flags\/' \+ profile\.countryCode\.toLowerCase\(\) \+ '\.svg'/);
+  assert.match(script, /flag\.alt = 'Bandera de ' \+ profile\.country/);
+  assert.match(script, /name\.append\(nameText\);\s*if \(flag\) name\.append\(flag\)/);
+  assert.match(styles, /\.session-speaker\s*\{[^}]*display:\s*flex;[^}]*align-items:\s*center;/);
+  assert.match(script, /countryCode: 'PA'/);
+  const profiles = script.split('const speakerProfiles = {')[1].split('\n  };')[0];
+  assert.equal((profiles.match(/countryCode:/g) || []).length, 16);
+  assert.match(profiles, /'educacion-ia': \{[^}]*name: 'Juan Camilo Infante'[^}]*bio:/);
+  assert.doesNotMatch(profiles.match(/'educacion-ia': \{[^}]*\}/)[0], /country|countryCode/);
+  [
+    /http3: \{[^}]*countryCode: 'IN'/,
+    /uv: \{[^}]*countryCode: 'MX'/,
+    /pypi: \{[^}]*countryCode: 'PE'/,
+    /'ai-ready': \{[^}]*countryCode: 'MX'/,
+    /streamlit: \{[^}]*countryCode: 'BR'/,
+    /carlos: \{[^}]*countryCode: 'CO'/,
+    /'gerardo-vilcamiza': \{[^}]*countryCode: 'PE'/
+  ].forEach((nationality) => assert.match(profiles, nationality));
   assert.match(script, /selectedDay === tab\.dataset\.agendaDay \? 'all'/);
 });
 
@@ -39,7 +62,12 @@ test('las fotos de conferencistas aparecen en la agenda y en sus biografías', (
     'img/conferencistas/ValeriaCalderonBriz.png',
     'img/conferencistas/MaríaClaraSanchez.png',
     'img/conferencistas/JairManuelPoveda.png',
-    'img/conferencistas/GerardoVilcamiza.png'
+    'img/conferencistas/GerardoVilcamiza.png',
+    'img/conferencistas/Carlos Alarcon.png',
+    'img/conferencistas/LuisMeron.png',
+    'img/conferencistas/RENZOCACERESROSSI.png',
+    'img/conferencistas/Ricardo Tovar.png',
+    'img/conferencistas/YudithRecio.png'
   ];
   photos.forEach((photo) => {
     assert.ok(fs.existsSync('2026/' + photo), 'existe la foto ' + photo);
@@ -48,6 +76,13 @@ test('las fotos de conferencistas aparecen en la agenda y en sus biografías', (
   assert.match(script, /photo: \['img\/conferencistas\/Stuti Jain\.png', 'img\/conferencistas\/Palak Jain\.png'\]/);
   assert.match(script, /createAvatars\(profile\)/);
   assert.match(script, /speaker-profile-bio/);
+});
+
+test('las banderas nacionales se cargan desde SVG locales', () => {
+  ['br', 'co', 'in', 'mx', 'pa', 'pe'].forEach((country) => {
+    assert.ok(fs.existsSync('2026/img/flags/' + country + '.svg'), 'existe la bandera ' + country);
+  });
+  assert.ok(fs.existsSync('2026/img/flags/LICENSE'), 'se incluye la licencia de las banderas');
 });
 
 test('el horario oficial vive en el HTML y el script no lo reescribe', () => {

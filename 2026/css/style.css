@@ -897,10 +897,20 @@ button[type="submit"], .btn {
 }
 
 .session-speaker {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
   color: var(--text);
   font-size: var(--fs-sm);
   font-weight: 600;
   line-height: 1.35;
+}
+
+.speaker-flag {
+  width: 1.333em;
+  height: 1em;
+  flex: none;
+  object-fit: cover;
 }
 
 .session-role {
