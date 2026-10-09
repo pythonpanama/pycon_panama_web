@@ -9,6 +9,7 @@
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
+    if (btnSubmit.disabled) return;
     const roles = checkedValues('roles');
     const availability = checkedValues('availability');
 

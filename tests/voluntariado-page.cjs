@@ -27,6 +27,13 @@ test('el formulario recoge funciones, disponibilidad y consentimientos explícit
   assert.match(page, /src="\.\.\/js\/voluntariado\.js"/);
 });
 
+test('la convocatoria está cerrada y el envío deshabilitado', () => {
+  assert.match(page, /La convocatoria cerró el jueves 8 de octubre de 2026/);
+  assert.match(page, /id="btnSubmit"[^>]+aria-describedby="postulacionesCerradas"[^>]+disabled/);
+  const script = fs.readFileSync('2026/js/voluntariado.js', 'utf8');
+  assert.match(script, /if \(btnSubmit\.disabled\) return;/);
+});
+
 test('todas las páginas principales enlazan el voluntariado', () => {
   const pages = fs.readdirSync('2026')
     .filter(name => name.endsWith('.html'))
