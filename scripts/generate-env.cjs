@@ -29,6 +29,10 @@ const anonKey =
   process.env.SUPABASE_ANON_KEY ||
   '';
 
+// Clave de sitio de Cloudflare Turnstile (pública por diseño). La clave
+// secreta vive solo en los secretos de la Edge Function registrar-asistente.
+const turnstileSiteKey = process.env.TURNSTILE_SITE_KEY || '';
+
 const outputPath = path.join(__dirname, '..', '2026', 'js', 'env.js');
 
 const contents = `/**
@@ -38,7 +42,8 @@ const contents = `/**
  */
 window.SUPABASE_CONFIG = {
   url: ${JSON.stringify(url)},
-  anonKey: ${JSON.stringify(anonKey)}
+  anonKey: ${JSON.stringify(anonKey)},
+  turnstileSiteKey: ${JSON.stringify(turnstileSiteKey)}
 };
 `;
 
@@ -61,4 +66,9 @@ if (!url || !anonKey) {
   console.warn('');
 } else {
   console.log('✓ 2026/js/env.js generado para ' + url);
+}
+
+if (!turnstileSiteKey) {
+  console.warn('⚠️  ATENCIÓN: falta TURNSTILE_SITE_KEY. El registro de asistentes no');
+  console.warn('⚠️  podrá enviarse hasta configurarla en Netlify.');
 }

@@ -4,5 +4,7 @@
  */
 window.SUPABASE_CONFIG = {
   url: 'https://tu-proyecto.supabase.co',
-  anonKey: 'tu-anon-key-aqui'
+  anonKey: 'tu-anon-key-aqui',
+  // Clave de prueba de Cloudflare que siempre aprueba; en producción va la real.
+  turnstileSiteKey: '1x00000000000000000000AA'
 };

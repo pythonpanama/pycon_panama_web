@@ -144,42 +144,53 @@ async function registrarAsistente(datos) {
     created_at: consentTimestamp
   };
 
-  console.log('📤 Enviando registro de asistente a public.registrations');
+  // La Edge Function verifica Turnstile, el honeypot y el límite por IP antes
+  // de guardar; la tabla ya no acepta escrituras directas del navegador.
+  payload.turnstile_token = datos.turnstile_token || '';
+  payload.sitio_web = datos.sitio_web || '';
 
-  // Intentar primero vía SDK Supabase si está disponible
-  if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
-    try {
-      const client = window.supabase.createClient(url, key);
-      const { error } = await client.from('registrations').insert([payload]);
-      if (!error) {
-        console.log('✅ Registro de asistente guardado');
-        return { success: true };
-      }
-      if (!servidorRechazoDefinitivamente(error)) {
-        console.error('❌ Resultado desconocido al registrar asistente; no se reintenta:', error);
-        return { success: false, error, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
-      }
-      console.warn('⚠️ El servidor rechazó el INSERT del SDK, intentando envío directo REST API...', error);
-    } catch (e) {
-      // Una excepción deja el resultado en el aire: el INSERT pudo confirmarse.
-      console.error('❌ Excepción en el SDK al registrar asistente; no se reintenta:', e);
-      return { success: false, error: e, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
-    }
+  console.log('📤 Enviando registro de asistente a la función registrar-asistente');
+
+  let response;
+  try {
+    response = await fetch(url + '/functions/v1/registrar-asistente', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (err) {
+    // Sin respuesta, el registro pudo guardarse igual: no se reintenta solo.
+    console.error('❌ Resultado desconocido al registrar asistente; no se reintenta:', err);
+    return { success: false, error: err, friendlyMessage: MENSAJE_RESULTADO_DESCONOCIDO };
   }
 
-  // Fallback seguro: Envío HTTP REST directo, sin reintentos posteriores
-  try {
-    await postToSupabaseRest('registrations', payload);
+  if (response.ok) {
     console.log('✅ Registro de asistente guardado');
     return { success: true };
-  } catch (err) {
-    console.error('❌ Error al registrar asistente:', err);
-    return {
-      success: false,
-      error: err,
-      friendlyMessage: 'Ocurrió un error al guardar tu registro. Vuelve a intentarlo en unos minutos o escríbenos a pyconpanama@gmail.com.'
-    };
   }
+
+  let body = {};
+  try {
+    body = await response.json();
+  } catch (_) {
+    // Una respuesta que no sea JSON se trata como error genérico.
+  }
+
+  const mensajes = {
+    validacion: body.message || 'Revisa los datos del formulario.',
+    verificacion: 'No pudimos verificar que el envío lo hace una persona. Espera unos segundos y vuelve a enviarlo.',
+    limite: body.motivo === 'email'
+      ? 'Ya recibimos varios registros con este correo hoy. Si necesitas corregir algo, escríbenos a pyconpanama@gmail.com.'
+      : 'Recibimos demasiados registros desde tu red en poco tiempo. Vuelve a intentarlo más tarde o escríbenos a pyconpanama@gmail.com.'
+  };
+
+  console.error('❌ El servidor rechazó el registro de asistente:', response.status, body.error);
+  return {
+    success: false,
+    error: body.error || 'HTTP ' + response.status,
+    friendlyMessage: mensajes[body.error] ||
+      'Ocurrió un error al guardar tu registro. Vuelve a intentarlo en unos minutos o escríbenos a pyconpanama@gmail.com.'
+  };
 }
 
 /**

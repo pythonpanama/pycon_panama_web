@@ -114,6 +114,19 @@
             font-size: var(--fs-xs);
         }
 
+        /* Honeypot: fuera de pantalla (no display:none, que algunos bots ignoran). */
+        .campo-trampa {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .turnstile-widget:empty {
+            display: none;
+        }
+
         .status-message {
             min-height: 1.5rem;
             margin-top: 0.25rem;

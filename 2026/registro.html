@@ -151,7 +151,7 @@
 
                         <div class="field">
                             <label for="expectativas">¿Qué te gustaría aprender o compartir?</label>
-                            <textarea id="expectativas" name="expectativas" placeholder="Cuéntanos tus expectativas para el evento…"></textarea>
+                            <textarea id="expectativas" name="expectativas" maxlength="1000" placeholder="Cuéntanos tus expectativas para el evento…"></textarea>
                         </div>
 
                         <div class="field">
@@ -179,6 +179,13 @@
                                 pierdas lo que ya escribiste.</p>
                         </div>
 
+                        <div class="campo-trampa" aria-hidden="true">
+                            <label for="sitio_web">No llenes este campo</label>
+                            <input id="sitio_web" name="sitio_web" type="text" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div id="turnstileWidget" class="turnstile-widget"></div>
+
                         <button id="btnSubmit" class="btn btn-primary" type="submit">Enviar registro</button>
                         <p id="statusMessage" class="status-message" aria-live="polite"></p>
                     </form>
@@ -203,9 +210,10 @@
     <!-- Supabase CDN Client Library & Config -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js" integrity="sha384-Rj26LVGvoeRVR6+mwQmFfcR3QOBEwT+ZmuCWpuiqeTzJpCs0ER4ITAWGb4Hiy3Ok" crossorigin="anonymous"></script>
     <script src="js/env.js"></script>
-    <script src="js/supabase-config.js?v=c50c42dd957b"></script>
+    <script src="js/supabase-config.js?v=c2b00b5bb6b4"></script>
     <script src="js/main.js"></script>
     <script src="js/registro.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&amp;onload=pyconTurnstileListo" async defer></script>
 </body>
 
 </html>

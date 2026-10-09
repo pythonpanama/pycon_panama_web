@@ -5,9 +5,9 @@ const vm = require('node:vm');
 const source = fs.readFileSync('2026/js/supabase-config.js', 'utf8');
 function setup(sdk = false) {
   const writes = [];
-  const context = { window: {}, console: { log() {}, error() {}, warn() {} }, fetch: async (_, options) => {
+  const context = { window: {}, console: { log() {}, error() {}, warn() {} }, fetch: async (url, options) => {
     writes.push(JSON.parse(options.body));
-    assert.equal(options.headers.Prefer, 'return=minimal');
+    if (url.includes('/rest/v1/')) assert.equal(options.headers.Prefer, 'return=minimal');
     return { ok: true };
   }};
   if (sdk) context.window.supabase = { createClient: () => ({ from: () => ({ insert: async payload => {
@@ -181,4 +181,50 @@ test('los tres formularios cargan la versión vigente del módulo de envío', ()
     assert.ok(page.includes(`js/supabase-config.js?v=${version}"`), `${file}: actualiza la versión del script al modificarlo`);
     assert.ok(!page.includes('js/supabase-config.js"'), `${file}: no debe cargar la URL antigua`);
   }
+});
+
+function setupAsistente(respuesta) {
+  const requests = [];
+  const context = {
+    window: {}, console: { log() {}, error() {}, warn() {} },
+    fetch: async (url, options) => {
+      requests.push({ url, body: JSON.parse(options.body) });
+      if (respuesta instanceof Error) throw respuesta;
+      return respuesta;
+    }
+  };
+  vm.createContext(context); vm.runInContext(source, context);
+  return { api: context.window.PyConSupabase, requests };
+}
+const asistenteValido = {
+  nombre: 'Prueba', email: 'test@example.invalid', dias: ['Viernes 23'],
+  consent_coc: true, consent_privacy: true, turnstile_token: 'token-prueba', sitio_web: ''
+};
+
+test('registrarAsistente: envía por la Edge Function con token de Turnstile y honeypot', async () => {
+  const { api, requests } = setupAsistente({ ok: true, status: 200 });
+  const result = await api.registrarAsistente(asistenteValido);
+  assert.equal(result.success, true);
+  assert.equal(requests.length, 1);
+  assert.match(requests[0].url, /\/functions\/v1\/registrar-asistente$/);
+  assert.doesNotMatch(requests[0].url, /\/rest\/v1\//);
+  assert.equal(requests[0].body.turnstile_token, 'token-prueba');
+  assert.equal(requests[0].body.sitio_web, '');
+});
+
+test('registrarAsistente: explica el límite por red y por correo', async () => {
+  for (const [motivo, texto] of [['ip', /desde tu red/], ['email', /con este correo/]]) {
+    const { api } = setupAsistente({ ok: false, status: 429, json: async () => ({ error: 'limite', motivo }) });
+    const result = await api.registrarAsistente(asistenteValido);
+    assert.equal(result.success, false);
+    assert.match(result.friendlyMessage, texto);
+  }
+});
+
+test('registrarAsistente: un fallo de red no se reintenta y pide verificación humana', async () => {
+  const { api, requests } = setupAsistente(new TypeError('Failed to fetch'));
+  const result = await api.registrarAsistente(asistenteValido);
+  assert.equal(result.success, false);
+  assert.equal(requests.length, 1);
+  assert.match(result.friendlyMessage, /No pudimos confirmar si tu envío quedó guardado/);
 });

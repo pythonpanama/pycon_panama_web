@@ -20,6 +20,30 @@
         dayInputs.forEach(option => option.addEventListener('change', syncAttendanceFields));
         syncAttendanceFields();
 
+        // Cloudflare Turnstile en modo invisible: solo muestra un reto si duda.
+        // El token es de un solo uso, así que se renueva después de cada envío.
+        const turnstileWidget = document.getElementById('turnstileWidget');
+        let turnstileId = null;
+
+        window.pyconTurnstileListo = function () {
+            const siteKey = window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.turnstileSiteKey;
+            if (!siteKey || !window.turnstile) return;
+            turnstileId = window.turnstile.render(turnstileWidget, {
+                sitekey: siteKey,
+                action: 'registro',
+                appearance: 'interaction-only',
+                language: 'es'
+            });
+        };
+
+        function turnstileToken() {
+            return turnstileId !== null && window.turnstile ? window.turnstile.getResponse(turnstileId) || '' : '';
+        }
+
+        function renovarTurnstile() {
+            if (turnstileId !== null && window.turnstile) window.turnstile.reset(turnstileId);
+        }
+
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
             syncAttendanceFields();
@@ -41,6 +65,15 @@
                 return;
             }
 
+            const turnstile_token = turnstileToken();
+            if (!turnstile_token) {
+                statusMessage.className = 'status-message error';
+                statusMessage.textContent = turnstileId === null
+                    ? 'No se cargó la verificación antibots. Desactiva el bloqueador de contenido para pycon.pa o escríbenos a pyconpanama@gmail.com.'
+                    : 'Estamos verificando que eres una persona. Espera unos segundos y vuelve a enviar.';
+                return;
+            }
+
             btnSubmit.disabled = true;
             btnSubmit.textContent = 'Enviando registro...';
             statusMessage.className = 'status-message';
@@ -58,7 +91,9 @@
             const consent_privacy = document.getElementById('consent_privacy').checked;
             const consent_coc = document.getElementById('consent_coc').checked;
 
-            const datos = { nombre, email, telefono, organizacion, rol, dias, modalidad_jueves, expectativas, accesibilidad, consent_privacy, consent_coc };
+            const sitio_web = document.getElementById('sitio_web').value;
+
+            const datos = { nombre, email, telefono, organizacion, rol, dias, modalidad_jueves, expectativas, accesibilidad, consent_privacy, consent_coc, turnstile_token, sitio_web };
 
             try {
                 const res = await PyConSupabase.registrarAsistente(datos);
@@ -76,6 +111,7 @@
                 statusMessage.className = 'status-message error';
                 statusMessage.textContent = 'Error de conexión. Por favor intenta de nuevo.';
             } finally {
+                renovarTurnstile();
                 btnSubmit.disabled = false;
                 btnSubmit.textContent = 'Enviar registro';
             }

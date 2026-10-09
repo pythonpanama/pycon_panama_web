@@ -30,3 +30,16 @@ test('el aviso de privacidad coincide con los datos del registro', () => {
   assert.match(privacy, /versión y fecha en que aceptaste/);
   assert.match(privacy, /Versión 1\.2/);
 });
+
+test('el registro incluye honeypot oculto y Turnstile', () => {
+  assert.match(page, /class="campo-trampa" aria-hidden="true"/);
+  assert.match(page, /id="sitio_web"[^>]+tabindex="-1"[^>]+autocomplete="off"/);
+  assert.match(page, /id="turnstileWidget"/);
+  assert.match(page, /src="https:\/\/challenges\.cloudflare\.com\/turnstile\/v0\/api\.js\?render=explicit&amp;onload=pyconTurnstileListo"/);
+  assert.match(pageScript, /action: 'registro'/);
+  assert.match(pageScript, /appearance: 'interaction-only'/);
+  assert.match(pageScript, /renovarTurnstile\(\)/);
+  const config = fs.readFileSync('netlify.toml', 'utf8');
+  assert.match(config, /script-src[^;]*https:\/\/challenges\.cloudflare\.com/);
+  assert.match(config, /frame-src https:\/\/challenges\.cloudflare\.com/);
+});
