@@ -8,25 +8,26 @@ document.addEventListener('DOMContentLoaded', function () {
   const detailDescription = document.getElementById('agenda-detail-description');
   const detailSpeaker = document.getElementById('agenda-detail-speaker');
   const detailMeta = document.getElementById('agenda-detail-meta');
-  /* Campos opcionales por perfil: role, org, country, photo (ruta o lista de rutas) y links.
+  /* Campos opcionales por perfil: role, org, country, countryCode, photo (ruta o lista de rutas) y links.
      Lo que no exista simplemente no se muestra. */
   const speakerProfiles = {
-    abdel: { name: 'Abdel Martínez', bio: '', links: [] },
-    http3: { name: 'Stuti Jain y Palak Jain', org: 'Adobe · HSBC', bio: 'Stuti Jain es SDE II en Adobe y ha presentado en PyCon Indonesia y PyCon Korea. Palak Jain es ingeniera de software en HSBC, con experiencia en sistemas backend y aplicaciones distribuidas con Python; también ha presentado en PyCon Indonesia y PyCon Korea.', photo: ['img/conferencistas/Stuti Jain.png', 'img/conferencistas/Palak Jain.png'], links: [{ label: 'Stuti Jain en LinkedIn', url: 'https://linkedin.com/in/stuti-jain-98630a197' }, { label: 'Palak Jain en LinkedIn', url: 'https://linkedin.com/in/palak-jain-980622145' }] },
-    uv: { name: 'David Jonathan Sol Llaven', role: 'Cloud Architect', org: 'Caylent', bio: 'Cloud Architect en Caylent; ayuda a organizar PythonCDMX y Ajolotes en la Nube (AWS).', photo: 'img/conferencistas/DavidSolCaylent.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/soldavidcloud' }] },
-    pypi: { name: 'Renzo Caceres Rossi', role: 'Especialista en R y Python', bio: 'Especialista en R y Python, creador de más de 30 librerías en R y 10 en Python para ciencia de datos. Ha sido ponente en PyDay Chile 2022 y PyCon Bolivia 2022.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/andrescaceresrossi' }] },
-    'ai-ready': { name: 'Valery C. Briz', role: 'Senior Data Engineer', org: 'Mitek Systems', bio: 'Senior Data Engineer en Mitek Systems, con más de 10 años de experiencia. Excoorganizadora de PyLadies Madrid y PyLadies CDMX, fundadora de Python Guatemala e instructora en OpenWebinars.', photo: 'img/conferencistas/ValeriaCalderonBriz.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/valerybriz' }] },
-    streamlit: { name: 'Maria Clara Sanchez de Mira', role: 'Backend Software Engineer', org: 'CI&T', bio: 'Ingeniera de Computación con más de 4 años de experiencia en Python. Backend Software Engineer en CI&T y estudiante de maestría en Ciencias de la Computación, enfocada en sistemas distribuidos y concurrencia.', photo: 'img/conferencistas/MaríaClaraSanchez.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/maasanchez' }, { label: 'Sitio web', url: 'https://maria-sanchez.netlify.app' }] },
+    abdel: { name: 'Abdel Martínez', country: 'Panamá', countryCode: 'PA', bio: '', links: [] },
+    http3: { name: 'Stuti Jain y Palak Jain', org: 'Adobe · HSBC', country: 'India', countryCode: 'IN', bio: 'Stuti Jain es SDE II en Adobe y ha presentado en PyCon Indonesia y PyCon Korea. Palak Jain es ingeniera de software en HSBC, con experiencia en sistemas backend y aplicaciones distribuidas con Python; también ha presentado en PyCon Indonesia y PyCon Korea.', photo: ['img/conferencistas/Stuti Jain.png', 'img/conferencistas/Palak Jain.png'], links: [{ label: 'Stuti Jain en LinkedIn', url: 'https://linkedin.com/in/stuti-jain-98630a197' }, { label: 'Palak Jain en LinkedIn', url: 'https://linkedin.com/in/palak-jain-980622145' }] },
+    uv: { name: 'David Jonathan Sol Llaven', role: 'Cloud Architect', org: 'Caylent', country: 'México', countryCode: 'MX', bio: 'Cloud Architect en Caylent; ayuda a organizar PythonCDMX y Ajolotes en la Nube (AWS).', photo: 'img/conferencistas/DavidSolCaylent.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/soldavidcloud' }] },
+    pypi: { name: 'Renzo Caceres Rossi', role: 'Especialista en R y Python', country: 'Perú', countryCode: 'PE', bio: 'Especialista en R y Python, creador de más de 30 librerías en R y 10 en Python para ciencia de datos. Ha sido ponente en PyDay Chile 2022 y PyCon Bolivia 2022.', photo: 'img/conferencistas/RENZOCACERESROSSI.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/andrescaceresrossi' }] },
+    'ai-ready': { name: 'Valery C. Briz', role: 'Senior Data Engineer', org: 'Mitek Systems', country: 'México', countryCode: 'MX', bio: 'Senior Data Engineer en Mitek Systems, con más de 10 años de experiencia. Excoorganizadora de PyLadies Madrid y PyLadies CDMX, fundadora de Python Guatemala e instructora en OpenWebinars.', photo: 'img/conferencistas/ValeriaCalderonBriz.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/valerybriz' }] },
+    streamlit: { name: 'Maria Clara Sanchez de Mira', role: 'Backend Software Engineer', org: 'CI&T', country: 'Brasil', countryCode: 'BR', bio: 'Ingeniera de Computación con más de 4 años de experiencia en Python. Backend Software Engineer en CI&T y estudiante de maestría en Ciencias de la Computación, enfocada en sistemas distribuidos y concurrencia.', photo: 'img/conferencistas/MaríaClaraSanchez.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/maasanchez' }, { label: 'Sitio web', url: 'https://maria-sanchez.netlify.app' }] },
     'educacion-ia': { name: 'Juan Camilo Infante', role: 'Fundador y product manager técnico', bio: 'Especializado en Machine Learning, con 11 años de experiencia como fundador y product manager técnico. Ha trabajado con clientes como Naciones Unidas y Unicef.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/juan-camilo-infante' }] },
-    gil: { name: 'Alberto Castillo', role: 'Líder de infraestructura', bio: 'Más de 8 años de experiencia en desarrollo e infraestructura. Lidera infraestructura en una empresa de tecnología y forma parte de FLOSSPA desde 2016.', links: [{ label: 'Sitio web', url: 'https://www.betoissues.com' }] },
-    async: { name: 'Andres Vasquez', role: 'Software Engineer en IA y Machine Learning', bio: 'Software Engineer especializado en Inteligencia Artificial, Machine Learning y Deep Learning, con foco en arquitectura backend, integración de LLM y sistemas escalables.', links: [{ label: 'LinkedIn', url: 'https://co.linkedin.com/in/andresvasquez-softwareengineerai' }] },
-    corporativo: { name: 'Ivan Lopez Raudales', role: 'Líder regional de Business Intelligence y Analítica Estratégica', bio: 'Líder regional de Business Intelligence y Analítica Estratégica, MBA de INCAE Business School. Desarrolló pipelines regionales de datos con Python y APIs en Samsung Latinoamérica.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/ivanlopezraudales' }] },
-    robotica: { name: 'Luis Meron', role: 'Estudiante de Ingeniería Electrónica y Telecomunicaciones', org: 'Universidad Tecnológica de Panamá', bio: 'Estudiante de Ingeniería Electrónica y Telecomunicaciones en la Universidad Tecnológica de Panamá.', links: [] },
-    django: { name: 'Jair Manuel Poveda Frago', role: 'Socio fundador', org: 'Cohesive DataOps y Cooltimedia', bio: 'Ingeniero en Sistemas Computacionales, con más de una década liderando proyectos de software e ingeniería de datos. Socio fundador de Cohesive DataOps y Cooltimedia en Panamá.', photo: 'img/conferencistas/JairManuelPoveda.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/jairpoveda' }] },
-    carlos: { name: 'Carlos Alarcón', bio: '', links: [] },
-    odoo: { name: 'Yudith Recio Milanés', role: 'Desarrolladora de software y consultora', org: 'Solvixer', bio: 'Desarrolladora de software y consultora en Solvixer. Cuenta con 15 años de experiencia con Python y el framework Odoo.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/yudithrecio0503' }] },
-    'pydantic-ai': { name: 'Ricardo Tovar', role: 'Cofundador y Technical Lead', org: 'MART Automations', bio: 'Desarrollador enfocado en AI Engineering, cofundador y Technical Lead en MART Automations. Especializado en agentes autónomos y arquitecturas backend con FastAPI.', links: [{ label: 'GitHub', url: 'https://github.com/rtovardev' }, { label: 'LinkedIn', url: 'https://linkedin.com/in/ricardotovar-ai' }] },
-    'gerardo-vilcamiza': { name: 'Gerardo Vilcamiza', role: 'Senior AI Engineer · Fundador de Python Lima', bio: 'Ingeniero Mecatrónico y magíster en Inteligencia Artificial Embebida. Senior AI Engineer en banca y seguros, docente en la Universidad de Buenos Aires e investigador en el Laboratorio de Sistemas Embebidos. Community Lead y fundador de Python Lima.', photo: 'img/conferencistas/GerardoVilcamiza.png', links: [] }
+    gil: { name: 'Alberto Castillo', role: 'Líder de infraestructura', country: 'Panamá', countryCode: 'PA', bio: 'Más de 8 años de experiencia en desarrollo e infraestructura. Lidera infraestructura en una empresa de tecnología y forma parte de FLOSSPA desde 2016.', links: [{ label: 'Sitio web', url: 'https://www.betoissues.com' }] },
+    async: { name: 'Andres Vasquez', role: 'Software Engineer en IA y Machine Learning', country: 'Panamá', countryCode: 'PA', bio: 'Software Engineer especializado en Inteligencia Artificial, Machine Learning y Deep Learning, con foco en arquitectura backend, integración de LLM y sistemas escalables.', links: [{ label: 'LinkedIn', url: 'https://co.linkedin.com/in/andresvasquez-softwareengineerai' }] },
+    corporativo: { name: 'Ivan Lopez Raudales', role: 'Líder regional de Business Intelligence y Analítica Estratégica', country: 'Panamá', countryCode: 'PA', bio: 'Líder regional de Business Intelligence y Analítica Estratégica, MBA de INCAE Business School. Desarrolló pipelines regionales de datos con Python y APIs en Samsung Latinoamérica.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/ivanlopezraudales' }] },
+    robotica: { name: 'Luis Meron', role: 'Estudiante de Ingeniería Electrónica y Telecomunicaciones', org: 'Universidad Tecnológica de Panamá', country: 'Panamá', countryCode: 'PA', bio: 'Estudiante de Ingeniería Electrónica y Telecomunicaciones en la Universidad Tecnológica de Panamá.', photo: 'img/conferencistas/LuisMeron.png', links: [] },
+    django: { name: 'Jair Manuel Poveda Frago', role: 'Socio fundador', org: 'Cohesive DataOps y Cooltimedia', country: 'Panamá', countryCode: 'PA', bio: 'Ingeniero en Sistemas Computacionales, con más de una década liderando proyectos de software e ingeniería de datos. Socio fundador de Cohesive DataOps y Cooltimedia en Panamá.', photo: 'img/conferencistas/JairManuelPoveda.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/jairpoveda' }] },
+    carlos: { name: 'Carlos Alarcón', country: 'Colombia', countryCode: 'CO', bio: '', photo: 'img/conferencistas/Carlos Alarcon.png', links: [] },
+    odoo: { name: 'Yudith Recio Milanés', role: 'Directora y Fundadora de Solvixer | Consultora Empresarial | ERP Odoo', country: 'Panamá', countryCode: 'PA', bio: 'Cuenta con 15 años de experiencia con Python y el framework Odoo.', photo: 'img/conferencistas/YudithRecio.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/yudithrecio0503' }] },
+    duckdb: { name: 'Keisa Ávila', role: 'Información por confirmar', country: 'Panamá', countryCode: 'PA', bio: 'Información por confirmar', links: [] },
+    'pydantic-ai': { name: 'Ricardo Tovar', role: 'Cofundador y Technical Lead', org: 'MART Automations', country: 'Panamá', countryCode: 'PA', bio: 'Desarrollador enfocado en AI Engineering, cofundador y Technical Lead en MART Automations. Especializado en agentes autónomos y arquitecturas backend con FastAPI.', photo: 'img/conferencistas/Ricardo Tovar.png', links: [{ label: 'GitHub', url: 'https://github.com/rtovardev' }, { label: 'LinkedIn', url: 'https://linkedin.com/in/ricardotovar-ai' }] },
+    'gerardo-vilcamiza': { name: 'Gerardo Vilcamiza', role: 'Senior AI Engineer · Fundador de Python Lima', country: 'Perú', countryCode: 'PE', bio: 'Ingeniero Mecatrónico y magíster en Inteligencia Artificial Embebida. Senior AI Engineer en banca y seguros, docente en la Universidad de Buenos Aires e investigador en el Laboratorio de Sistemas Embebidos. Community Lead y fundador de Python Lima.', photo: 'img/conferencistas/GerardoVilcamiza.png', links: [] }
   };
 
   const sessionDetails = {
@@ -42,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     django: ['De cero a producción en Django: arquitectura MVT, migraciones y Wagtail CMS bajo el estándar “No Doc, No Deploy”', 'Desarrollo web'],
     'ai-ready': ['AI-Ready Data (por qué no hay IA sin una estrategia de datos)', 'Datos e IA'],
     odoo: ['De junior a productivo: automatizando el desarrollo de módulos Odoo con Python y Claude', 'IA aplicada al desarrollo'],
+    duckdb: ['Información por confirmar', 'Ingeniería de datos', 'Información por confirmar'],
     'pydantic-ai': ['Agentes de IA con Pydantic AI: de cero a producción con menos magia y más ingeniería', 'IA y agentes']
   };
   Object.keys(sessionDetails).forEach(function (id) {
@@ -150,14 +152,30 @@ document.addEventListener('DOMContentLoaded', function () {
     return group;
   }
 
+  function createCountryFlag(profile) {
+    if (!profile.country || !/^[A-Z]{2}$/.test(profile.countryCode || '')) return null;
+    const flag = document.createElement('img');
+    flag.className = 'speaker-flag';
+    flag.src = 'img/flags/' + profile.countryCode.toLowerCase() + '.svg';
+    flag.alt = 'Bandera de ' + profile.country;
+    flag.loading = 'lazy';
+    flag.decoding = 'async';
+    return flag;
+  }
+
   function createSpeakerBlock(profile) {
     const block = document.createElement('div');
     const text = document.createElement('div');
     const name = document.createElement('p');
+    const nameText = document.createElement('span');
     const subtitle = profileSubtitle(profile);
     block.className = 'session-person';
     name.className = 'session-speaker';
-    name.textContent = profile.name;
+    nameText.className = 'session-speaker-name';
+    nameText.textContent = profile.name;
+    const flag = createCountryFlag(profile);
+    name.append(nameText);
+    if (flag) name.append(flag);
     text.append(name);
     if (subtitle) {
       const role = document.createElement('p');
