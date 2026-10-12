@@ -157,6 +157,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const flag = document.createElement('img');
     flag.className = 'speaker-flag';
     flag.src = 'img/flags/' + profile.countryCode.toLowerCase() + '.svg';
+    flag.width = 20;
+    flag.height = 15;
     flag.alt = 'Bandera de ' + profile.country;
     flag.loading = 'lazy';
     flag.decoding = 'async';

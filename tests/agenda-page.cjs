@@ -85,6 +85,12 @@ test('las banderas nacionales se cargan desde SVG locales', () => {
   assert.ok(fs.existsSync('2026/img/flags/LICENSE'), 'se incluye la licencia de las banderas');
 });
 
+test('las banderas conservan un tamaño pequeño aunque haya CSS cacheado', () => {
+  assert.match(script, /flag\.width = 20;\s*flag\.height = 15;/);
+  assert.match(page, /css\/style\.css\?v=\d+/);
+  assert.match(page, /js\/agenda\.js\?v=\d+/);
+});
+
 test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
   const horario = (dia) => {
     const panel = page.match(new RegExp('data-agenda-panel="' + dia + '"[\\s\\S]*?</ol>'))[0];
