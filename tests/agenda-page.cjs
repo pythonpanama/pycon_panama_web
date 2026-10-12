@@ -39,15 +39,16 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(styles, /\.session-speaker\s*\{[^}]*display:\s*flex;[^}]*align-items:\s*center;/);
   assert.match(script, /countryCode: 'PA'/);
   const profiles = script.split('const speakerProfiles = {')[1].split('\n  };')[0];
-  assert.equal((profiles.match(/countryCode:/g) || []).length, 16);
+  assert.equal((profiles.match(/countryCode:/g) || []).length, 17);
   assert.match(profiles, /'educacion-ia': \{[^}]*name: 'Juan Camilo Infante'[^}]*bio:/);
-  assert.doesNotMatch(profiles.match(/'educacion-ia': \{[^}]*\}/)[0], /country|countryCode/);
+  assert.match(profiles, /'educacion-ia': \{[^}]*country: 'Colombia'[^}]*countryCode: 'CO'/);
   [
     /http3: \{[^}]*countryCode: 'IN'/,
     /uv: \{[^}]*countryCode: 'MX'/,
     /pypi: \{[^}]*countryCode: 'PE'/,
     /'ai-ready': \{[^}]*countryCode: 'MX'/,
     /streamlit: \{[^}]*countryCode: 'BR'/,
+    /'educacion-ia': \{[^}]*countryCode: 'CO'/,
     /carlos: \{[^}]*countryCode: 'CO'/,
     /'gerardo-vilcamiza': \{[^}]*countryCode: 'PE'/
   ].forEach((nationality) => assert.match(profiles, nationality));
@@ -83,6 +84,12 @@ test('las banderas nacionales se cargan desde SVG locales', () => {
     assert.ok(fs.existsSync('2026/img/flags/' + country + '.svg'), 'existe la bandera ' + country);
   });
   assert.ok(fs.existsSync('2026/img/flags/LICENSE'), 'se incluye la licencia de las banderas');
+});
+
+test('las banderas conservan un tamaño pequeño aunque haya CSS cacheado', () => {
+  assert.match(script, /flag\.width = 20;\s*flag\.height = 15;/);
+  assert.match(page, /css\/style\.css\?v=\d+/);
+  assert.match(page, /js\/agenda\.js\?v=\d+/);
 });
 
 test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
