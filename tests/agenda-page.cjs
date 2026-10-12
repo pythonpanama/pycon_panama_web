@@ -39,15 +39,16 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(styles, /\.session-speaker\s*\{[^}]*display:\s*flex;[^}]*align-items:\s*center;/);
   assert.match(script, /countryCode: 'PA'/);
   const profiles = script.split('const speakerProfiles = {')[1].split('\n  };')[0];
-  assert.equal((profiles.match(/countryCode:/g) || []).length, 16);
+  assert.equal((profiles.match(/countryCode:/g) || []).length, 17);
   assert.match(profiles, /'educacion-ia': \{[^}]*name: 'Juan Camilo Infante'[^}]*bio:/);
-  assert.doesNotMatch(profiles.match(/'educacion-ia': \{[^}]*\}/)[0], /country|countryCode/);
+  assert.match(profiles, /'educacion-ia': \{[^}]*country: 'Colombia'[^}]*countryCode: 'CO'/);
   [
     /http3: \{[^}]*countryCode: 'IN'/,
     /uv: \{[^}]*countryCode: 'MX'/,
     /pypi: \{[^}]*countryCode: 'PE'/,
     /'ai-ready': \{[^}]*countryCode: 'MX'/,
     /streamlit: \{[^}]*countryCode: 'BR'/,
+    /'educacion-ia': \{[^}]*countryCode: 'CO'/,
     /carlos: \{[^}]*countryCode: 'CO'/,
     /'gerardo-vilcamiza': \{[^}]*countryCode: 'PE'/
   ].forEach((nationality) => assert.match(profiles, nationality));
