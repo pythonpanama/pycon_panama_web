@@ -68,7 +68,9 @@ test('las fotos de conferencistas aparecen en la agenda y en sus biografías', (
     'img/conferencistas/LuisMeron.png',
     'img/conferencistas/RENZOCACERESROSSI.png',
     'img/conferencistas/Ricardo Tovar.png',
-    'img/conferencistas/YudithRecio.png'
+    'img/conferencistas/YudithRecio.png',
+    'img/conferencistas/JuanCamiloInfante.jpg',
+    'img/conferencistas/AbdelMartinez.png'
   ];
   photos.forEach((photo) => {
     assert.ok(fs.existsSync('2026/' + photo), 'existe la foto ' + photo);
