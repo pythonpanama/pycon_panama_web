@@ -28,6 +28,7 @@ REQUIRED_META = {
     "twitter:image",
 }
 SITEMAP_REQUIRED = {
+    f"{CANONICAL_BASE}/2026/informacion-practica.html",
     f"{CANONICAL_BASE}/2026/",
     f"{CANONICAL_BASE}/2026/about.html",
     f"{CANONICAL_BASE}/2026/sedes.html",
