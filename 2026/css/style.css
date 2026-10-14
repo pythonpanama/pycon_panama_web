@@ -1655,7 +1655,7 @@ button[type="submit"], .btn {
    grande solo porque su archivo lo es. */
 .sponsor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
   gap: var(--space-5);
   padding: 0;
   list-style: none;
@@ -1663,7 +1663,7 @@ button[type="submit"], .btn {
 
 /* Nivel principal: menos marcas por fila, cajas más altas. */
 .sponsor-grid--lead {
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
 }
 
 .sponsor-card {
@@ -1704,6 +1704,12 @@ a.sponsor-card:focus-visible {
 
 .sponsor-grid--lead .sponsor-card img {
   max-height: 104px;
+}
+
+/* Logos cuadrados (isotipo con texto debajo): a la misma altura que un logo
+   horizontal se ven diminutos; se les da más alto para igualar el peso visual. */
+.sponsor-card img.sponsor-logo--square {
+  max-height: 112px;
 }
 
 .sponsor-card-name {
