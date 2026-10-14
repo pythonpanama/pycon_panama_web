@@ -32,23 +32,23 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(page, /data-session-id="duckdb"[\s\S]*?Información por confirmar/);
   assert.match(script, /odoo: \{ name: 'Yudith Recio Milanés', role: 'Directora y Fundadora de Solvixer \| Consultora Empresarial \| ERP Odoo'/);
   assert.match(script, /duckdb: \{ name: 'Keisa Ávila', role: 'Información por confirmar'/);
-  assert.match(script, /function createCountryFlag\(profile\)/);
-  assert.match(script, /flag\.src = 'img\/flags\/' \+ profile\.countryCode\.toLowerCase\(\) \+ '\.svg'/);
-  assert.match(script, /flag\.alt = 'Bandera de ' \+ profile\.country/);
-  assert.match(script, /name\.append\(nameText\);\s*if \(flag\) name\.append\(flag\)/);
+  assert.match(script, /function createCountryFlags\(profile\)/);
+  assert.match(script, /flag\.src = 'img\/flags\/' \+ code\.toLowerCase\(\) \+ '\.svg'/);
+  assert.match(script, /flag\.alt = 'Bandera de ' \+ country/);
+  assert.match(script, /name\.append\(nameText, \.\.\.createCountryFlags\(profile\)\)/);
   assert.match(styles, /\.session-speaker\s*\{[^}]*display:\s*flex;[^}]*align-items:\s*center;/);
   assert.match(script, /countryCode: 'PA'/);
   const profiles = script.split('const speakerProfiles = {')[1].split('\n  };')[0];
   assert.equal((profiles.match(/countryCode:/g) || []).length, 17);
   assert.match(profiles, /'educacion-ia': \{[^}]*name: 'Juan Camilo Infante'[^}]*bio:/);
-  assert.match(profiles, /'educacion-ia': \{[^}]*country: 'Colombia'[^}]*countryCode: 'CO'/);
+  assert.match(profiles, /'educacion-ia': \{[^}]*country: \['Colombia', 'Costa Rica'\][^}]*countryCode: \['CO', 'CR'\]/);
   [
     /http3: \{[^}]*countryCode: 'IN'/,
     /uv: \{[^}]*countryCode: 'MX'/,
     /pypi: \{[^}]*countryCode: 'PE'/,
     /'ai-ready': \{[^}]*countryCode: 'MX'/,
     /streamlit: \{[^}]*countryCode: 'BR'/,
-    /'educacion-ia': \{[^}]*countryCode: 'CO'/,
+    /'educacion-ia': \{[^}]*countryCode: \['CO', 'CR'\]/,
     /carlos: \{[^}]*countryCode: 'CO'/,
     /'gerardo-vilcamiza': \{[^}]*countryCode: 'PE'/
   ].forEach((nationality) => assert.match(profiles, nationality));

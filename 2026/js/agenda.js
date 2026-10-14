@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const detailDescription = document.getElementById('agenda-detail-description');
   const detailSpeaker = document.getElementById('agenda-detail-speaker');
   const detailMeta = document.getElementById('agenda-detail-meta');
-  /* Campos opcionales por perfil: role, org, country, countryCode, photo (ruta o lista de rutas) y links.
+  /* Campos opcionales por perfil: role, org, country y countryCode (valor o lista), photo (ruta o lista de rutas) y links.
      Lo que no exista simplemente no se muestra. */
   const speakerProfiles = {
     abdel: { name: 'Abdel Martínez', country: 'Panamá', countryCode: 'PA', bio: '', links: [] },
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     pypi: { name: 'Renzo Caceres Rossi', role: 'Especialista en R y Python', country: 'Perú', countryCode: 'PE', bio: 'Especialista en R y Python, creador de más de 30 librerías en R y 10 en Python para ciencia de datos. Ha sido ponente en PyDay Chile 2022 y PyCon Bolivia 2022.', photo: 'img/conferencistas/RENZOCACERESROSSI.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/andrescaceresrossi' }] },
     'ai-ready': { name: 'Valery C. Briz', role: 'Senior Data Engineer', org: 'Mitek Systems', country: 'México', countryCode: 'MX', bio: 'Senior Data Engineer en Mitek Systems, con más de 10 años de experiencia. Excoorganizadora de PyLadies Madrid y PyLadies CDMX, fundadora de Python Guatemala e instructora en OpenWebinars.', photo: 'img/conferencistas/ValeriaCalderonBriz.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/valerybriz' }] },
     streamlit: { name: 'Maria Clara Sanchez de Mira', role: 'Backend Software Engineer', org: 'CI&T', country: 'Brasil', countryCode: 'BR', bio: 'Ingeniera de Computación con más de 4 años de experiencia en Python. Backend Software Engineer en CI&T y estudiante de maestría en Ciencias de la Computación, enfocada en sistemas distribuidos y concurrencia.', photo: 'img/conferencistas/MaríaClaraSanchez.png', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/maasanchez' }, { label: 'Sitio web', url: 'https://maria-sanchez.netlify.app' }] },
-    'educacion-ia': { name: 'Juan Camilo Infante', role: 'Fundador y product manager técnico', country: 'Colombia', countryCode: 'CO', bio: 'Especializado en Machine Learning, con 11 años de experiencia como fundador y product manager técnico. Ha trabajado con clientes como Naciones Unidas y Unicef.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/juan-camilo-infante' }] },
+    'educacion-ia': { name: 'Juan Camilo Infante', role: 'Educador, cofundador de Perspektiva 360 y Truvadur', country: ['Colombia', 'Costa Rica'], countryCode: ['CO', 'CR'], bio: 'Educador, apasionado por cómo la tecnología puede solucionar los problemas del mundo. Cofundó Perspektiva 360, empresa de software que durante 11 años creó productos para clientes como el Programa de las Naciones Unidas para el Desarrollo (PNUD) y UNICEF. Hoy construye productos de IA por voz con Python en Truvadur, como Bjørn, un tutor de idiomas por voz en Telegram. Ingeniero industrial de la Universidad de los Andes, MSc en Technology-based Entrepreneurship de KTH Royal Institute of Technology (Suecia) y Machine Learning Specialization de DeepLearning.AI. Fellow de la Young Leaders of the Americas Initiative (YLAI) y becario del Swedish Institute (SISGP).', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/juan-camilo-infante' }, { label: 'Sitio web', url: 'https://www.truvadur.com' }] },
     gil: { name: 'Alberto Castillo', role: 'Líder de infraestructura', country: 'Panamá', countryCode: 'PA', bio: 'Más de 8 años de experiencia en desarrollo e infraestructura. Lidera infraestructura en una empresa de tecnología y forma parte de FLOSSPA desde 2016.', links: [{ label: 'Sitio web', url: 'https://www.betoissues.com' }] },
     async: { name: 'Andres Vasquez', role: 'Software Engineer en IA y Machine Learning', country: 'Panamá', countryCode: 'PA', bio: 'Software Engineer especializado en Inteligencia Artificial, Machine Learning y Deep Learning, con foco en arquitectura backend, integración de LLM y sistemas escalables.', links: [{ label: 'LinkedIn', url: 'https://co.linkedin.com/in/andresvasquez-softwareengineerai' }] },
     corporativo: { name: 'Ivan Lopez Raudales', role: 'Líder regional de Business Intelligence y Analítica Estratégica', country: 'Panamá', countryCode: 'PA', bio: 'Líder regional de Business Intelligence y Analítica Estratégica, MBA de INCAE Business School. Desarrolló pipelines regionales de datos con Python y APIs en Samsung Latinoamérica.', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/ivanlopezraudales' }] },
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     uv: ['uv: la mejor noticia en Python de los últimos años', 'Herramientas de desarrollo', 'Por qué uv simplifica la configuración del entorno y la administración de paquetes, con trucos para usuarios nuevos y avanzados.'],
     pypi: ['De la idea al PyPI: el camino para enseñar a crear librerías de Python en Latinoamérica', 'Empaquetado y educación'],
     streamlit: ['Monitoreando los datos que entrenan la IA con Streamlit', 'Datos e IA'],
-    'educacion-ia': ['Usando Python, modelos LLM open source, STT, TTS y Design Thinking humano para optimizar mis labores en educación', 'IA aplicada a la educación'],
+    'educacion-ia': ['Usando Python, modelos LLM open source, STT, TTS y Design Thinking humano para optimizar mis labores en educación', 'IA aplicada a la educación', 'Como docente, la carga administrativa me saturaba y me quitaba tiempo para conectar con mis estudiantes y pensar en la mejor forma de explicar. Perdía horas cada semana en correos y mensajes de muchos canales de comunicación. Construí Marimba, un asistente en Python con modelos open source, voz a texto (STT) y texto a voz (TTS). Marimba prioriza mis tareas, redacta correos, resume reuniones, guarda clases y consulta mis documentos con RAG. Contaré cómo lo diseñé con Design Thinking, empezando por el problema con empatía hacia la labor docente y las buenas prácticas de lo que he aprendido en mi uso diario de la herramienta.'],
     gil: ['Ocho núcleos y usas uno: el GIL ya no es obligatorio', 'Rendimiento y concurrencia'],
     async: ['Cómo entender async / await sin usar async / await', 'Rendimiento y concurrencia'],
     corporativo: ['Más allá del código: casos reales de Python para transformar operaciones corporativas', 'Automatización empresarial'],
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function profileSubtitle(profile) {
-    return [profile.role, profile.org, profile.country].filter(Boolean).join(' · ');
+    return [profile.role, profile.org, [].concat(profile.country || []).join(' y ')].filter(Boolean).join(' · ');
   }
 
   function createAvatars(profile) {
@@ -152,17 +152,22 @@ document.addEventListener('DOMContentLoaded', function () {
     return group;
   }
 
-  function createCountryFlag(profile) {
-    if (!profile.country || !/^[A-Z]{2}$/.test(profile.countryCode || '')) return null;
-    const flag = document.createElement('img');
-    flag.className = 'speaker-flag';
-    flag.src = 'img/flags/' + profile.countryCode.toLowerCase() + '.svg';
-    flag.width = 20;
-    flag.height = 15;
-    flag.alt = 'Bandera de ' + profile.country;
-    flag.loading = 'lazy';
-    flag.decoding = 'async';
-    return flag;
+  function createCountryFlags(profile) {
+    const countries = [].concat(profile.country || []);
+    const codes = [].concat(profile.countryCode || []);
+    return countries.map(function (country, index) {
+      const code = codes[index];
+      if (!/^[A-Z]{2}$/.test(code || '')) return null;
+      const flag = document.createElement('img');
+      flag.className = 'speaker-flag';
+      flag.src = 'img/flags/' + code.toLowerCase() + '.svg';
+      flag.width = 20;
+      flag.height = 15;
+      flag.alt = 'Bandera de ' + country;
+      flag.loading = 'lazy';
+      flag.decoding = 'async';
+      return flag;
+    }).filter(Boolean);
   }
 
   function createSpeakerBlock(profile) {
@@ -175,9 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     name.className = 'session-speaker';
     nameText.className = 'session-speaker-name';
     nameText.textContent = profile.name;
-    const flag = createCountryFlag(profile);
-    name.append(nameText);
-    if (flag) name.append(flag);
+    name.append(nameText, ...createCountryFlags(profile));
     text.append(name);
     if (subtitle) {
       const role = document.createElement('p');
