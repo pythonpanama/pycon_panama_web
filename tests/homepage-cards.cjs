@@ -34,7 +34,10 @@ test('Sedes incluye mapas incrustados y enlaces para abrirlos', () => {
   assert.equal(maps.length, 2);
   assert.match(maps[0], /title="Mapa de Universidad del Istmo, Sede Panamá"/);
   assert.match(maps[1], /title="Mapa de Universidad del Istmo, Sede Metromall"/);
-  assert.ok(maps.every((map) => map.includes('loading="lazy"') && map.includes('output=embed')));
+  assert.ok(maps.every((map) =>
+    map.includes('loading="lazy"') &&
+    map.includes('output=embed')
+  ));
   assert.equal((venues.match(/aria-label="Ver la Sede .*? en Google Maps/g) || []).length, 2);
   assert.match(styles, /\.venue-map iframe[\s\S]*?width: 100%;[\s\S]*?height: 100%/);
 });
