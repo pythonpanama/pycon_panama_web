@@ -57,26 +57,28 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
 
 test('las fotos de conferencistas aparecen en la agenda y en sus biografías', () => {
   const photos = [
-    'img/conferencistas/Stuti Jain.png',
-    'img/conferencistas/Palak Jain.png',
-    'img/conferencistas/DavidSolCaylent.png',
-    'img/conferencistas/ValeriaCalderonBriz.png',
-    'img/conferencistas/MaríaClaraSanchez.png',
-    'img/conferencistas/JairManuelPoveda.png',
-    'img/conferencistas/GerardoVilcamiza.png',
-    'img/conferencistas/Carlos Alarcon.png',
-    'img/conferencistas/LuisMeron.png',
-    'img/conferencistas/RENZOCACERESROSSI.png',
-    'img/conferencistas/Ricardo Tovar.png',
-    'img/conferencistas/YudithRecio.png',
-    'img/conferencistas/JuanCamiloInfante.jpg',
-    'img/conferencistas/AbdelMartinez.png'
+    'img/conferencistas/Stuti Jain.webp',
+    'img/conferencistas/Palak Jain.webp',
+    'img/conferencistas/DavidSolCaylent.webp',
+    'img/conferencistas/ValeriaCalderonBriz.webp',
+    'img/conferencistas/MaríaClaraSanchez.webp',
+    'img/conferencistas/JairManuelPoveda.webp',
+    'img/conferencistas/GerardoVilcamiza.webp',
+    'img/conferencistas/Carlos Alarcon.webp',
+    'img/conferencistas/LuisMeron.webp',
+    'img/conferencistas/RENZOCACERESROSSI.webp',
+    'img/conferencistas/Ricardo Tovar.webp',
+    'img/conferencistas/YudithRecio.webp',
+    'img/conferencistas/JuanCamiloInfante.webp',
+    'img/conferencistas/AbdelMartinez.webp'
   ];
   photos.forEach((photo) => {
     assert.ok(fs.existsSync('2026/' + photo), 'existe la foto ' + photo);
     assert.ok(script.includes(photo), 'el perfil usa la foto ' + photo);
+    // Los avatares se muestran a 56 px como máximo: una foto pesada frena la agenda.
+    assert.ok(fs.statSync('2026/' + photo).size < 100 * 1024, 'la foto pesa menos de 100 KB: ' + photo);
   });
-  assert.match(script, /photo: \['img\/conferencistas\/Stuti Jain\.png', 'img\/conferencistas\/Palak Jain\.png'\]/);
+  assert.match(script, /photo: \['img\/conferencistas\/Stuti Jain\.webp', 'img\/conferencistas\/Palak Jain\.webp'\]/);
   assert.match(script, /createAvatars\(profile\)/);
   assert.match(script, /speaker-profile-bio/);
 });
