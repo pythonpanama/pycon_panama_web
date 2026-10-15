@@ -28,10 +28,12 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(script, /fa-linkedin-in/);
   assert.match(script, /fa-github/);
   assert.match(page, /Computer Vision en la nueva era del GenAI/);
-  assert.match(page, /data-session-id="duckdb"[\s\S]*?Keisa Ávila/);
-  assert.match(page, /data-session-id="duckdb"[\s\S]*?Información por confirmar/);
+  assert.match(page, /data-session-id="keisa-cloud"[\s\S]*?Keisa Ávila/);
+  assert.match(page, /data-session-id="keisa-cloud"[\s\S]*?Tus datos no van a subir solos: llévalos a la nube con Python y PySpark/);
+  assert.match(page, /SQL Server on-premise[\s\S]*?Amazon S3[\s\S]*?PySpark/);
+  assert.match(page, /LinkedIn de Keisa Ávila[\s\S]*?Sitio web de Keisa Ávila/);
   assert.match(script, /odoo: \{ name: 'Yudith Recio Milanés', role: 'Directora y Fundadora de Solvixer \| Consultora Empresarial \| ERP Odoo'/);
-  assert.match(script, /duckdb: \{ name: 'Keisa Ávila', role: 'Información por confirmar'/);
+  assert.match(script, /'keisa-cloud': \{ name: 'Keisa Ávila', role: 'Licenciada en Informática/);
   assert.match(script, /function createCountryFlags\(profile\)/);
   assert.match(script, /flag\.src = 'img\/flags\/' \+ code\.toLowerCase\(\) \+ '\.svg'/);
   assert.match(script, /flag\.alt = 'Bandera de ' \+ country/);
@@ -55,6 +57,11 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(script, /selectedDay === tab\.dataset\.agendaDay \? 'all'/);
 });
 
+test('la sesión de Streamlit incluye los resúmenes y la ponente actualizados', () => {
+  assert.match(script, /streamlit: \{[^}]*name: 'Maria Clara Sanchez de Mira'[^}]*role: 'Ingeniera de software backend'[^}]*org: 'CI&T'[^}]*bio: 'Soy ingeniera informática con más de 4 años de experiencia en desarrollo de software, trabajando principalmente con Python\.[^']*ICMC-USP[^']*programación concurrente\.'/);
+  assert.match(page, /datos reales de la API pública de Hugging Face Hub[\s\S]*?columnas y métricas, gráficos[\s\S]*?session_state[\s\S]*?sin escribir una sola línea de HTML, CSS o JavaScript[\s\S]*?enlace público/);
+});
+
 test('las fotos de conferencistas aparecen en la agenda y en sus biografías', () => {
   const photos = [
     'img/conferencistas/Stuti Jain.webp',
@@ -70,7 +77,9 @@ test('las fotos de conferencistas aparecen en la agenda y en sus biografías', (
     'img/conferencistas/Ricardo Tovar.webp',
     'img/conferencistas/YudithRecio.webp',
     'img/conferencistas/JuanCamiloInfante.webp',
-    'img/conferencistas/AbdelMartinez.webp'
+    'img/conferencistas/AbdelMartinez.webp',
+    'img/conferencistas/Ivan Lopez.webp',
+    'img/conferencistas/Keisa_Avila.webp'
   ];
   photos.forEach((photo) => {
     assert.ok(fs.existsSync('2026/' + photo), 'existe la foto ' + photo);
@@ -109,7 +118,7 @@ test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
   assert.deepEqual(horario('viernes'), [
     '· 09:00 15', 'abdel 09:15 40', 'robotica 09:58 25', 'async 10:26 25', 'pydantic-ai 10:54 25',
     'gil 11:22 25', 'carlos 11:50 25', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
-    'corporativo 14:04 25', 'duckdb 14:32 25', 'gerardo-vilcamiza 15:00 40', '· 15:40 20'
+    'corporativo 14:04 25','keisa-cloud 14:32 25', 'gerardo-vilcamiza 15:00 40', '· 15:40 20'
   ]);
   assert.doesNotMatch(script, /setTime|movedToThursday|addReservedTalk/);
   assert.doesNotMatch(page + script, /Vilcaminaza/i);
