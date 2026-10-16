@@ -943,6 +943,35 @@ button[type="submit"], .btn {
   margin-left: -10px;
 }
 
+.speaker-avatar-trigger {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.speaker-avatar-trigger .speaker-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.speaker-avatar-trigger:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.speaker-avatar-trigger + .speaker-avatar-trigger {
+  margin-left: -10px;
+}
+
 /* Tema y nivel: información secundaria */
 .session-meta {
   display: flex;
@@ -1032,6 +1061,21 @@ button[type="submit"], .btn {
   background: var(--surface);
   color: var(--text);
   box-shadow: var(--shadow-lg);
+}
+
+.agenda-photo-dialog {
+  width: min(900px, calc(100% - 32px));
+  max-height: 92dvh;
+  overflow: auto;
+}
+
+.agenda-photo-dialog-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(92dvh - 72px);
+  margin: 0 auto var(--space-4);
+  object-fit: contain;
 }
 
 .agenda-dialog::backdrop {
@@ -1128,7 +1172,16 @@ button[type="submit"], .btn {
   font-size: var(--fs-base);
 }
 
+.speaker-profile .speaker-avatar-trigger {
+  width: 56px;
+  height: 56px;
+}
+
 .speaker-profile .speaker-avatar + .speaker-avatar {
+  margin-left: -16px;
+}
+
+.speaker-profile .speaker-avatar-trigger + .speaker-avatar-trigger {
   margin-left: -16px;
 }
 

@@ -8,14 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const detailDescription = document.getElementById('agenda-detail-description');
   const detailSpeaker = document.getElementById('agenda-detail-speaker');
   const detailMeta = document.getElementById('agenda-detail-meta');
-  /* Campos opcionales por perfil: role, org, country y countryCode (valor o lista), photo (ruta o lista de rutas) y links.
+  const photoDialog = document.getElementById('agenda-photo-dialog');
+  const photoDialogImage = document.getElementById('agenda-photo-dialog-image');
+  /* Campos opcionales por perfil: role, org, country y countryCode (valor o lista), photo (ruta o lista de rutas),
+     photoPosition (posición del encuadre), y links.
      Lo que no exista simplemente no se muestra. */
   const speakerProfiles = {
     abdel: { name: 'Abdel Gadiel Martínez Lassonde', role: 'Director de Soluciones y Servicios Tecnológicos', org: 'Solusoft, S.A.', country: 'Panamá', countryCode: 'PA', bio: 'Abdel Gadiel Martínez Lassonde es Director de Soluciones y Servicios Tecnológicos en Solusoft, empresa panameña de servicios de ingeniería de datos con más de 30 años de trayectoria. Lidera equipos de consultores que dan soporte a clientes de banca, gobierno, salud, retail y telecomunicaciones, y es el arquitecto principal de Holos, la plataforma de observabilidad de Solusoft. Tiene amplia experiencia como DBA, ingeniero DevOps y arquitecto cloud, y cuenta con múltiples certificaciones en todas estas tecnologías. Es vicepresidente de la Fundación de Tecnologías Libres de Panamá y docente en la Universidad Interamericana de Panamá, UNICyT y CEAGRO AIP, donde comparte su experiencia con nuevas generaciones de profesionales.', photo: 'img/conferencistas/AbdelMartinez.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/abdelgmartinezl' }, { label: 'Sitio web', url: 'https://www.solusoft.com' }, { label: 'Holos', url: 'https://www.holosmonitor.com' }] },
     http3: { name: 'Stuti Jain y Palak Jain', org: 'Adobe · HSBC', country: 'India', countryCode: 'IN', bio: 'Stuti Jain es SDE II en Adobe y ha presentado en PyCon Indonesia y PyCon Korea. Palak Jain es ingeniera de software en HSBC, con experiencia en sistemas backend y aplicaciones distribuidas con Python; también ha presentado en PyCon Indonesia y PyCon Korea.', photo: ['img/conferencistas/Stuti Jain.webp', 'img/conferencistas/Palak Jain.webp'], links: [{ label: 'Stuti Jain en LinkedIn', url: 'https://linkedin.com/in/stuti-jain-98630a197' }, { label: 'Palak Jain en LinkedIn', url: 'https://linkedin.com/in/palak-jain-980622145' }] },
     uv: { name: 'David Jonathan Sol Llaven', role: 'Cloud Architect', org: 'Caylent', country: 'México', countryCode: 'MX', bio: 'Cloud Architect en Caylent; ayuda a organizar PythonCDMX y Ajolotes en la Nube (AWS).', photo: 'img/conferencistas/DavidSolCaylent.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/soldavidcloud' }] },
     pypi: { name: 'Renzo Caceres Rossi', role: 'Especialista en R y Python', country: 'Perú', countryCode: 'PE', bio: 'Especialista en R y Python, creador de más de 30 librerías en R y 10 en Python para ciencia de datos. Ha sido ponente en PyDay Chile 2022 y PyCon Bolivia 2022.', photo: 'img/conferencistas/RENZOCACERESROSSI.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/andrescaceresrossi' }] },
-    'ai-ready': { name: 'Valery C. Briz', role: 'Senior Data Engineer', org: 'Mitek Systems', country: 'México', countryCode: 'MX', bio: 'Senior Data Engineer en Mitek Systems, con más de 10 años de experiencia. Excoorganizadora de PyLadies Madrid y PyLadies CDMX, fundadora de Python Guatemala e instructora en OpenWebinars.', photo: 'img/conferencistas/ValeriaCalderonBriz.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/valerybriz' }] },
+    'ai-ready': { name: 'Valery C. Briz', role: 'Senior Data Engineer', org: 'Mitek Systems', country: 'Guatemala', countryCode: 'GT', bio: 'Senior Data Engineer en Mitek Systems, con más de 10 años de experiencia. Excoorganizadora de PyLadies Madrid y PyLadies CDMX, fundadora de Python Guatemala e instructora en OpenWebinars.', photo: 'img/conferencistas/ValeriaCalderonBriz.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/valerybriz' }] },
     streamlit: { name: 'Maria Clara Sanchez de Mira', role: 'Ingeniera de software backend', org: 'CI&T', country: 'Brasil', countryCode: 'BR', bio: 'Soy ingeniera informática con más de 4 años de experiencia en desarrollo de software, trabajando principalmente con Python. Actualmente, me desempeño como ingeniera de software backend en CI&T, atendiendo a un cliente del sector financiero. Estoy cursando una maestría en Ciencias de la Computación en el ICMC-USP, con enfoque en sistemas distribuidos y programación concurrente.', photo: 'img/conferencistas/MaríaClaraSanchez.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/maasanchez' }, { label: 'Sitio web', url: 'https://maria-sanchez.netlify.app' }] },
     'educacion-ia': { name: 'Juan Camilo Infante', role: 'Educador, cofundador de Perspektiva 360 y Truvadur', country: ['Colombia', 'Costa Rica'], countryCode: ['CO', 'CR'], bio: 'Educador, apasionado por cómo la tecnología puede solucionar los problemas del mundo. Cofundó Perspektiva 360, empresa de software que durante 11 años creó productos para clientes como el Programa de las Naciones Unidas para el Desarrollo (PNUD) y UNICEF. Hoy construye productos de IA por voz con Python en Truvadur, como Bjørn, un tutor de idiomas por voz en Telegram. Ingeniero industrial de la Universidad de los Andes, MSc en Technology-based Entrepreneurship de KTH Royal Institute of Technology (Suecia) y Machine Learning Specialization de DeepLearning.AI. Fellow de la Young Leaders of the Americas Initiative (YLAI) y becario del Swedish Institute (SISGP).', photo: 'img/conferencistas/JuanCamiloInfante.webp', links: [{ label: 'LinkedIn', url: 'https://linkedin.com/in/juan-camilo-infante' }, { label: 'Sitio web', url: 'https://www.truvadur.com' }] },
     gil: { name: 'Alberto Castillo', role: 'Líder de infraestructura', country: 'Panamá', countryCode: 'PA', bio: 'Más de 8 años de experiencia en desarrollo e infraestructura. Lidera infraestructura en una empresa de tecnología y forma parte de FLOSSPA desde 2016.', links: [{ label: 'Sitio web', url: 'https://www.betoissues.com' }] },
@@ -129,11 +132,11 @@ document.addEventListener('DOMContentLoaded', function () {
     return [profile.role, profile.org, [].concat(profile.country || []).join(' y ')].filter(Boolean).join(' · ');
   }
 
-  function createAvatars(profile) {
+  function createAvatars(profile, zoomable) {
     const group = document.createElement('span');
     const photos = [].concat(profile.photo || []);
     group.className = 'speaker-avatars';
-    group.setAttribute('aria-hidden', 'true');
+    if (!zoomable) group.setAttribute('aria-hidden', 'true');
     profile.name.split(' y ').forEach(function (name, index) {
       let avatar;
       if (photos[index]) {
@@ -142,6 +145,21 @@ document.addEventListener('DOMContentLoaded', function () {
         avatar.alt = '';
         avatar.loading = 'lazy';
         avatar.decoding = 'async';
+        if (profile.photoPosition) avatar.style.objectPosition = profile.photoPosition;
+        if (zoomable) {
+          const trigger = document.createElement('button');
+          trigger.type = 'button';
+          trigger.className = 'speaker-avatar-trigger';
+          trigger.setAttribute('aria-label', 'Ampliar foto de ' + name);
+          trigger.append(avatar);
+          trigger.addEventListener('click', function () {
+            photoDialogImage.src = avatar.src;
+            photoDialogImage.alt = 'Foto ampliada de ' + name;
+            photoDialog.showModal();
+          });
+          group.append(trigger);
+          return;
+        }
       } else {
         avatar = document.createElement('span');
         avatar.textContent = name.split(/\s+/).filter(Boolean).slice(0, 2).map(function (word) { return word[0]; }).join('').toUpperCase();
@@ -170,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }).filter(Boolean);
   }
 
-  function createSpeakerBlock(profile) {
+  function createSpeakerBlock(profile, zoomable) {
     const block = document.createElement('div');
     const text = document.createElement('div');
     const name = document.createElement('p');
@@ -188,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
       role.textContent = subtitle;
       text.append(role);
     }
-    block.append(createAvatars(profile), text);
+    block.append(createAvatars(profile, zoomable), text);
     return block;
   }
 
@@ -220,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
     detailSpeaker.hidden = !(showSpeaker && profile);
     if (showSpeaker && profile) {
       const label = document.createElement('h3');
-      const card = createSpeakerBlock(profile);
+      const card = createSpeakerBlock(profile, true);
       label.className = 'agenda-dialog-label';
       label.textContent = profile.name.includes(' y ') ? 'Conferencistas' : 'Conferencista';
       card.classList.add('speaker-profile');
@@ -309,6 +327,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) dialog.close();
+  });
+
+  photoDialog.addEventListener('click', function (event) {
+    if (event.target === photoDialog) photoDialog.close();
   });
 
   addDayFilterControls();
