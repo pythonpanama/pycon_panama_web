@@ -48,7 +48,7 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
     /http3: \{[^}]*countryCode: 'IN'/,
     /uv: \{[^}]*countryCode: 'MX'/,
     /pypi: \{[^}]*countryCode: 'PE'/,
-    /'ai-ready': \{[^}]*countryCode: 'MX'/,
+    /'ai-ready': \{[^}]*country: 'Guatemala'[^}]*countryCode: 'GT'/,
     /streamlit: \{[^}]*countryCode: 'BR'/,
     /'educacion-ia': \{[^}]*countryCode: \['CO', 'CR'\]/,
     /carlos: \{[^}]*countryCode: 'CO'/,
@@ -88,12 +88,15 @@ test('las fotos de conferencistas aparecen en la agenda y en sus biografías', (
     assert.ok(fs.statSync('2026/' + photo).size < 100 * 1024, 'la foto pesa menos de 100 KB: ' + photo);
   });
   assert.match(script, /photo: \['img\/conferencistas\/Stuti Jain\.webp', 'img\/conferencistas\/Palak Jain\.webp'\]/);
-  assert.match(script, /createAvatars\(profile\)/);
+  assert.match(script, /createAvatars\(profile, zoomable\)/);
   assert.match(script, /speaker-profile-bio/);
+  assert.match(script, /Ampliar foto de '/);
+  assert.match(script, /photoDialog\.showModal\(\)/);
+  assert.match(page, /id="agenda-photo-dialog"/);
 });
 
 test('las banderas nacionales se cargan desde SVG locales', () => {
-  ['br', 'co', 'in', 'mx', 'pa', 'pe'].forEach((country) => {
+  ['br', 'co', 'gt', 'in', 'mx', 'pa', 'pe'].forEach((country) => {
     assert.ok(fs.existsSync('2026/img/flags/' + country + '.svg'), 'existe la bandera ' + country);
   });
   assert.ok(fs.existsSync('2026/img/flags/LICENSE'), 'se incluye la licencia de las banderas');

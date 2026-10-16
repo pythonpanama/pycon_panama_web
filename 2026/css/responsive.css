@@ -230,6 +230,11 @@
     width: 48px;
     height: 48px;
   }
+
+  .speaker-profile .speaker-avatar-trigger {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 
