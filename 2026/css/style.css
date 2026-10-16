@@ -1174,6 +1174,160 @@ button[type="submit"], .btn {
   color: var(--accent);
 }
 
+/* --- Foto ampliada del conferencista ------------------------------------- */
+
+.speaker-avatar-zoom {
+  position: relative;
+  padding: 0;
+  cursor: zoom-in;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.speaker-avatar-zoom img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.speaker-avatar-zoom:hover,
+.speaker-avatar-zoom:focus-visible {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+  transform: scale(1.05);
+}
+
+.speaker-profile .speaker-avatar-zoom + .speaker-avatar-zoom {
+  margin-left: var(--space-2);
+}
+
+.speaker-avatar-zoom-badge {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--surface);
+  color: var(--text-on-accent);
+  font-size: 0.6875rem;
+}
+
+.photo-lightbox {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+
+.photo-lightbox::backdrop {
+  background: rgba(5, 25, 45, 0.82);
+}
+
+.photo-lightbox[open] .photo-lightbox-frame {
+  animation: photo-lightbox-in 0.2s ease;
+}
+
+@keyframes photo-lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+.photo-lightbox-frame {
+  position: relative;
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.photo-lightbox-frame img {
+  display: block;
+  width: auto;
+  min-width: min(280px, 100%);
+  max-width: min(440px, 100%);
+  height: auto;
+  max-height: calc(100dvh - 160px);
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+}
+
+.photo-lightbox-frame figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: min(440px, 100%);
+  padding: var(--space-3) var(--space-1) var(--space-1);
+  text-align: center;
+}
+
+.photo-lightbox-frame figcaption strong {
+  color: var(--text);
+  font-size: var(--fs-md);
+}
+
+.photo-lightbox-frame figcaption span {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.photo-lightbox-frame figcaption span[hidden],
+.photo-lightbox-nav[hidden] {
+  display: none;
+}
+
+.photo-lightbox-frame form {
+  position: absolute;
+  top: calc(-1 * var(--space-3));
+  right: calc(-1 * var(--space-3));
+  z-index: 1;
+  margin: 0;
+}
+
+.photo-lightbox-close,
+.photo-lightbox-nav {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-navy);
+  transition: color var(--transition), background var(--transition);
+}
+
+.photo-lightbox-close:hover,
+.photo-lightbox-nav:hover {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.photo-lightbox-nav {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.photo-lightbox-prev {
+  left: calc(-1 * var(--space-3));
+}
+
+.photo-lightbox-next {
+  right: calc(-1 * var(--space-3));
+}
+
 
 /* ==========================================================================
    6. Acordeón (preguntas frecuentes)

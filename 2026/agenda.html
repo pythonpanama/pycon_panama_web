@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/base.css" rel="stylesheet">
-    <link href="css/style.css?v=20261012" rel="stylesheet">
+    <link href="css/style.css?v=20261015" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
 </head>
 
@@ -140,6 +140,16 @@
                         <section class="agenda-dialog-speaker" id="agenda-detail-speaker"></section>
                     </div>
                 </dialog>
+
+                <dialog class="photo-lightbox" id="speaker-photo-dialog" aria-labelledby="speaker-photo-name">
+                    <figure class="photo-lightbox-frame">
+                        <form method="dialog"><button class="photo-lightbox-close" aria-label="Cerrar fotografía"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></form>
+                        <img id="speaker-photo-image" alt="" decoding="async">
+                        <button class="photo-lightbox-nav photo-lightbox-prev" type="button" data-photo-step="-1" aria-label="Fotografía anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button class="photo-lightbox-nav photo-lightbox-next" type="button" data-photo-step="1" aria-label="Fotografía siguiente"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                        <figcaption><strong id="speaker-photo-name"></strong><span id="speaker-photo-role"></span></figcaption>
+                    </figure>
+                </dialog>
             </div>
         </section>
     </main>
@@ -159,7 +169,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/agenda.js?v=20261014"></script>
+    <script src="js/agenda.js?v=20261015"></script>
 </body>
 
 </html>

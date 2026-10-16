@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const detailDescription = document.getElementById('agenda-detail-description');
   const detailSpeaker = document.getElementById('agenda-detail-speaker');
   const detailMeta = document.getElementById('agenda-detail-meta');
+  const photoDialog = document.getElementById('speaker-photo-dialog');
+  const photoImage = document.getElementById('speaker-photo-image');
+  const photoName = document.getElementById('speaker-photo-name');
+  const photoRole = document.getElementById('speaker-photo-role');
+  const photoSteps = Array.from(photoDialog.querySelectorAll('[data-photo-step]'));
+  let photoGallery = [];
+  let photoIndex = 0;
   /* Campos opcionales por perfil: role, org, country y countryCode (valor o lista), photo (ruta o lista de rutas) y links.
      Lo que no exista simplemente no se muestra. */
   const speakerProfiles = {
@@ -152,6 +159,49 @@ document.addEventListener('DOMContentLoaded', function () {
     return group;
   }
 
+  function showPhoto(index) {
+    photoIndex = (index + photoGallery.length) % photoGallery.length;
+    const entry = photoGallery[photoIndex];
+    photoImage.src = entry.src;
+    photoImage.alt = 'Fotografía de ' + entry.name;
+    photoName.textContent = entry.name;
+    photoRole.textContent = entry.role;
+    photoRole.hidden = !entry.role;
+  }
+
+  /* En la ficha de detalle, cada foto es un botón que la amplía; en las tarjetas siguen abriendo la ficha. */
+  function makePhotosZoomable(card, profile) {
+    const names = profile.name.split(' y ');
+    const role = names.length > 1 ? '' : profileSubtitle(profile);
+    const group = card.querySelector('.speaker-avatars');
+    const gallery = [];
+    group.removeAttribute('aria-hidden');
+    Array.from(group.children).forEach(function (avatar, index) {
+      if (avatar.tagName !== 'IMG') {
+        avatar.setAttribute('aria-hidden', 'true');
+        return;
+      }
+      const position = gallery.push({ src: avatar.getAttribute('src'), name: names[index], role: role }) - 1;
+      const button = document.createElement('button');
+      const badge = document.createElement('i');
+      button.type = 'button';
+      button.className = 'speaker-avatar speaker-avatar-zoom';
+      button.setAttribute('aria-label', 'Ampliar la fotografía de ' + names[index]);
+      button.title = 'Ampliar fotografía';
+      badge.className = 'fa-solid fa-magnifying-glass-plus speaker-avatar-zoom-badge';
+      badge.setAttribute('aria-hidden', 'true');
+      avatar.classList.remove('speaker-avatar');
+      avatar.replaceWith(button);
+      button.append(avatar, badge);
+      button.addEventListener('click', function () {
+        photoGallery = gallery;
+        photoSteps.forEach(function (control) { control.hidden = gallery.length < 2; });
+        showPhoto(position);
+        photoDialog.showModal();
+      });
+    });
+  }
+
   function createCountryFlags(profile) {
     const countries = [].concat(profile.country || []);
     const codes = [].concat(profile.countryCode || []);
@@ -224,6 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
       label.className = 'agenda-dialog-label';
       label.textContent = profile.name.includes(' y ') ? 'Conferencistas' : 'Conferencista';
       card.classList.add('speaker-profile');
+      makePhotosZoomable(card, profile);
       detailSpeaker.append(label, card);
       if (profile.bio) {
         const bio = document.createElement('p');
@@ -309,6 +360,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   dialog.addEventListener('click', function (event) {
     if (event.target === dialog) dialog.close();
+  });
+
+  photoSteps.forEach(function (control) {
+    control.addEventListener('click', function () { showPhoto(photoIndex + Number(control.dataset.photoStep)); });
+  });
+  photoDialog.addEventListener('click', function (event) {
+    if (event.target === photoDialog) photoDialog.close();
+  });
+  photoDialog.addEventListener('keydown', function (event) {
+    if (photoGallery.length < 2 || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    showPhoto(photoIndex + (event.key === 'ArrowRight' ? 1 : -1));
   });
 
   addDayFilterControls();

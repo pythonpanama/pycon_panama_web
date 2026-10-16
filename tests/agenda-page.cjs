@@ -150,3 +150,14 @@ test('todos los menús principales de 2026 enlazan a la agenda', () => {
     assert.match(navigation[0], /href="(?:\.\.\/)?agenda\.html"/, file + ' enlaza a Agenda');
   });
 });
+test('las fotos de la ficha de detalle se amplían en un visor accesible', () => {
+  assert.match(page, /<dialog class="photo-lightbox" id="speaker-photo-dialog" aria-labelledby="speaker-photo-name">/);
+  assert.match(page, /aria-label="Cerrar fotografía"/);
+  assert.match(page, /data-photo-step="-1"[\s\S]*?data-photo-step="1"/);
+  assert.match(script, /makePhotosZoomable\(card, profile\)/);
+  assert.match(script, /'Ampliar la fotografía de ' \+ names\[index\]/);
+  assert.match(script, /photoImage\.alt = 'Fotografía de ' \+ entry\.name/);
+  assert.match(script, /photoDialog\.showModal\(\)/);
+  assert.match(styles, /\.speaker-avatar-zoom\s*\{[^}]*cursor: zoom-in/);
+  assert.match(styles, /\.photo-lightbox::backdrop/);
+});
