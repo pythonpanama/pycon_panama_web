@@ -9,7 +9,7 @@ const styles = fs.readFileSync('2026/css/style.css', 'utf8');
 test('la agenda incluye las dos jornadas y excluye la propuesta individual retirada', () => {
   assert.match(page, /data-agenda-panel="jueves"/);
   assert.match(page, /data-agenda-panel="viernes"/);
-  assert.equal((page.match(/data-session-id="/g) || []).length, 15);
+  assert.equal((page.match(/data-session-id="/g) || []).length, 16);
   assert.doesNotMatch(page, /data-session-id="grpc"|Beyond Hello World/);
   assert.match(page, /Jornada híbrida/);
 });
@@ -41,7 +41,7 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(styles, /\.session-speaker\s*\{[^}]*display:\s*flex;[^}]*align-items:\s*center;/);
   assert.match(script, /countryCode: 'PA'/);
   const profiles = script.split('const speakerProfiles = {')[1].split('\n  };')[0];
-  assert.equal((profiles.match(/countryCode:/g) || []).length, 15);
+  assert.equal((profiles.match(/countryCode:/g) || []).length, 16);
   assert.match(profiles, /'educacion-ia': \{[^}]*name: 'Juan Camilo Infante'[^}]*bio:/);
   assert.match(profiles, /'educacion-ia': \{[^}]*country: \['Colombia', 'Costa Rica'\][^}]*countryCode: \['CO', 'CR'\]/);
   [
@@ -120,7 +120,7 @@ test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
   ]);
   assert.deepEqual(horario('viernes'), [
     '· 09:00 15', 'abdel 09:15 40', 'robotica 09:58 25', 'pydantic-ai 10:54 25',
-    'carlos 11:35 40', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
+    'arnulfo 11:22 10', 'carlos 11:35 40', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
     'corporativo 14:04 25','keisa-cloud 14:32 25', 'gerardo-vilcamiza 15:00 40', '· 15:40 20'
   ]);
   assert.doesNotMatch(script, /setTime|movedToThursday|addReservedTalk/);
