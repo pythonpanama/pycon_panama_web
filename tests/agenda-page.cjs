@@ -52,7 +52,8 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
     /streamlit: \{[^}]*countryCode: 'BR'/,
     /'educacion-ia': \{[^}]*countryCode: \['CO', 'CR'\]/,
     /carlos: \{[^}]*countryCode: 'CO'/,
-    /'gerardo-vilcamiza': \{[^}]*countryCode: 'PE'/
+    /'gerardo-vilcamiza': \{[^}]*countryCode: 'PE'/,
+    /corporativo: \{[^}]*country: 'Honduras'[^}]*countryCode: 'HN'/
   ].forEach((nationality) => assert.match(profiles, nationality));
   assert.match(script, /selectedDay === tab\.dataset\.agendaDay \? 'all'/);
 });
@@ -96,7 +97,7 @@ test('las fotos de conferencistas aparecen en la agenda y en sus biografías', (
 });
 
 test('las banderas nacionales se cargan desde SVG locales', () => {
-  ['br', 'co', 'gt', 'in', 'mx', 'pa', 'pe'].forEach((country) => {
+  ['br', 'co', 'gt', 'hn', 'in', 'mx', 'pa', 'pe'].forEach((country) => {
     assert.ok(fs.existsSync('2026/img/flags/' + country + '.svg'), 'existe la bandera ' + country);
   });
   assert.ok(fs.existsSync('2026/img/flags/LICENSE'), 'se incluye la licencia de las banderas');
