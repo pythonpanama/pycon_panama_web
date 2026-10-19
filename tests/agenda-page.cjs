@@ -41,7 +41,7 @@ test('la agenda es una sola vista con filtro por día y ficha de detalle', () =>
   assert.match(styles, /\.session-speaker\s*\{[^}]*display:\s*flex;[^}]*align-items:\s*center;/);
   assert.match(script, /countryCode: 'PA'/);
   const profiles = script.split('const speakerProfiles = {')[1].split('\n  };')[0];
-  assert.equal((profiles.match(/countryCode:/g) || []).length, 15);
+  assert.equal((profiles.match(/countryCode:/g) || []).length, 16);
   assert.match(profiles, /'educacion-ia': \{[^}]*name: 'Juan Camilo Infante'[^}]*bio:/);
   assert.match(profiles, /'educacion-ia': \{[^}]*country: \['Colombia', 'Costa Rica'\][^}]*countryCode: \['CO', 'CR'\]/);
   [
@@ -126,7 +126,7 @@ test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
   ]);
   assert.doesNotMatch(script, /setTime|movedToThursday|addReservedTalk/);
   assert.doesNotMatch(page + script, /Vilcaminaza/i);
-  assert.match(script, /arnulfo: \{ name: 'Arnulfo Reyes', org: 'Python Panamá' \}/);
+  assert.match(script, /arnulfo: \{ name: 'Arnulfo Reyes', org: 'Python Panamá', country: 'Panamá', countryCode: 'PA' \}/);
   assert.doesNotMatch(page + script, /Alberto Castillo|Andres Vasquez|data-session-id="(gil|async)"/);
 });
 
