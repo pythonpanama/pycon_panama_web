@@ -120,12 +120,13 @@ test('el horario oficial vive en el HTML y el script no lo reescribe', () => {
     'uv 11:09 30', 'educacion-ia 11:42 30', 'ai-ready 12:15 30', '· 12:45 10'
   ]);
   assert.deepEqual(horario('viernes'), [
-    '· 09:00 15', 'abdel 09:15 40', 'robotica 09:58 25', 'pydantic-ai 10:54 25',
-    'arnulfo 11:22 10', 'carlos 11:35 40', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
+    '· 09:00 15', 'abdel 09:15 40', 'robotica 09:58 25', 'arnulfo 10:26 25', 'pydantic-ai 10:54 25',
+    '· 11:22 10', 'carlos 11:35 40', '· 12:20 45', 'django 13:08 25', 'odoo 13:36 25',
     'corporativo 14:04 25','keisa-cloud 14:32 25', 'gerardo-vilcamiza 15:00 40', '· 15:40 20'
   ]);
   assert.doesNotMatch(script, /setTime|movedToThursday|addReservedTalk/);
   assert.doesNotMatch(page + script, /Vilcaminaza/i);
+  assert.match(script, /arnulfo: \{ name: 'Arnulfo Reyes', org: 'Python Panamá', country: 'Panamá', countryCode: 'PA' \}/);
   assert.doesNotMatch(page + script, /Alberto Castillo|Andres Vasquez|data-session-id="(gil|async)"/);
 });
 
