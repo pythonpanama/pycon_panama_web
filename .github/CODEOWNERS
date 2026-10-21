@@ -1,0 +1,6 @@
+# Responsables de revisión del sitio.
+# GitHub usa este archivo desde la rama de destino del PR.
+/2026/ @yosef7
+/netlify.toml @yosef7
+/scripts/ @yosef7
+/.github/ @yosef7
