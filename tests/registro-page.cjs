@@ -15,6 +15,12 @@ test('el registro exige al menos un día y modalidad cuando corresponde', () => 
   assert.match(pageScript, /option\.required = diaJueves\.checked/);
 });
 
+test('el registro se cierra el 21 de octubre a las 7:00 p. m. de Panamá', () => {
+  assert.match(page, /id="registroCerrado"[^>]+hidden/);
+  assert.match(pageScript, /Date\.parse\('2026-10-22T00:00:00Z'\)/);
+  assert.match(pageScript, /if \(registroEstaCerrado\(\)\) return;/);
+});
+
 test('el registro recoge accesibilidad y consentimiento de privacidad explícito', () => {
   assert.match(page, /id="accesibilidad"[^>]+maxlength="500"/);
   assert.match(page, /No incluyas diagnósticos ni información médica/);

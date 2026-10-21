@@ -129,6 +129,15 @@
             color: #28a745;
         }
 
+        /* display: grid de .registro-form anula el atributo hidden. */
+        .registro-form[hidden] {
+            display: none;
+        }
+
+        .registro-cerrado h2 {
+            margin-top: 0;
+        }
+
         @media (max-width: 768px) {
             .registro-layout,
             .field-grid {
