@@ -17,11 +17,25 @@
             });
         }
 
+        // 21 oct 2026, 7:00 p. m. en Panamá (UTC-5). Supabase rechaza los envíos desde esa hora.
+        const CIERRE_REGISTRO = Date.parse('2026-10-22T00:00:00Z');
+        const registroCerrado = document.getElementById('registroCerrado');
+
+        function registroEstaCerrado() {
+            if (Date.now() < CIERRE_REGISTRO) return false;
+            form.hidden = true;
+            registroCerrado.hidden = false;
+            return true;
+        }
+
         dayInputs.forEach(option => option.addEventListener('change', syncAttendanceFields));
         syncAttendanceFields();
+        registroEstaCerrado();
 
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
+            // La página pudo abrirse antes del cierre.
+            if (registroEstaCerrado()) return;
             syncAttendanceFields();
 
             if (!form.checkValidity()) {
