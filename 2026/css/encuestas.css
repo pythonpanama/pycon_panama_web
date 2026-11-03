@@ -1,0 +1,920 @@
+/* ==========================================================================
+   Encuestas de satisfacción · PyCon Panamá 2026
+   Una hoja para las cuatro encuestas. Cada página fija su tema con una clase en
+   <body> (tema-asistentes, tema-no_asistentes, tema-voluntariado, tema-equipo) que redefine las
+   variables --s-*; el resto de las reglas solo usa esas variables.
+   Los acentos cumplen contraste AA con texto blanco.
+   ========================================================================== */
+
+/* --- Temas --------------------------------------------------------------- */
+
+/* Asistentes: festivo, ámbar y confeti. */
+.tema-asistentes {
+  --s-accent: #b45309;
+  --s-accent-hover: #92400e;
+  --s-soft: #fff1d6;
+  --s-tint: #fffaf1;
+  --s-ring: rgba(180, 83, 9, 0.22);
+  --s-deco-1: var(--highlight);
+  --s-deco-2: var(--color-orange);
+  --s-deco-3: var(--color-sky);
+  --s-hero: linear-gradient(135deg, #fff6d9 0%, #ffe6bf 55%, #e8f3ff 100%);
+  --s-hero-text: var(--text);
+  --s-eyebrow-bg: var(--s-accent);
+  --s-eyebrow-fg: #ffffff;
+}
+
+/* Personas registradas que no asistieron: calma, azul cielo y un camino punteado. */
+.tema-no_asistentes {
+  --s-accent: #0e6f9c;
+  --s-accent-hover: #0a5679;
+  --s-soft: #dcf1fb;
+  --s-tint: #f4fafd;
+  --s-ring: rgba(14, 111, 156, 0.22);
+  --s-deco-1: var(--color-sky);
+  --s-deco-2: var(--color-cyan-light);
+  --s-deco-3: var(--highlight);
+  --s-hero: linear-gradient(135deg, #e6f6ff 0%, #eefbff 55%, #fff8e6 100%);
+  --s-hero-text: var(--text);
+  --s-eyebrow-bg: var(--s-accent);
+  --s-eyebrow-fg: #ffffff;
+}
+
+/* Voluntariado: gratitud, verdes y círculos suaves. */
+.tema-voluntariado {
+  --s-accent: #0f7a52;
+  --s-accent-hover: #0b5e3f;
+  --s-soft: #def5e8;
+  --s-tint: #f5fcf8;
+  --s-ring: rgba(15, 122, 82, 0.22);
+  --s-deco-1: var(--color-lime);
+  --s-deco-2: var(--color-green);
+  --s-deco-3: var(--color-cyan-light);
+  --s-hero: linear-gradient(135deg, #e8faef 0%, #f2ffe1 55%, #e6f6ff 100%);
+  --s-hero-text: var(--text);
+  --s-eyebrow-bg: var(--s-accent);
+  --s-eyebrow-fg: #ffffff;
+}
+
+/* Equipo organizador: retrospectiva, pizarra azul marino y notas adhesivas. */
+.tema-equipo {
+  --s-accent: #0a3d68;
+  --s-accent-hover: #072c4b;
+  --s-soft: #e3edf7;
+  --s-tint: #f4f8fc;
+  --s-ring: rgba(10, 61, 104, 0.22);
+  --s-deco-1: var(--color-sky);
+  --s-deco-2: var(--highlight);
+  --s-deco-3: var(--color-lime);
+  --s-hero: linear-gradient(135deg, #0a3d68 0%, #0d5486 60%, #0e7fb0 100%);
+  --s-hero-text: #ffffff;
+  --s-eyebrow-bg: var(--highlight);
+  --s-eyebrow-fg: var(--color-navy);
+}
+
+/* --- Portada ------------------------------------------------------------- */
+
+.survey-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  background: var(--s-hero);
+  color: var(--s-hero-text);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.survey-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.survey-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.survey-eyebrow {
+  display: inline-block;
+  margin: 0 0 0.9rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--s-eyebrow-bg);
+  color: var(--s-eyebrow-fg);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.survey-hero h1 {
+  margin: 0 0 0.75rem;
+  color: inherit;
+  font-size: clamp(2rem, 3.5vw + 1rem, 3.25rem);
+  font-weight: 800;
+}
+
+.survey-lead {
+  max-width: 38rem;
+  margin: 0 0 1.4rem;
+  color: inherit;
+  font-size: var(--fs-md);
+  opacity: 0.92;
+}
+
+.survey-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.survey-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.survey-meta i { color: var(--s-accent); }
+
+.survey-hero-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+}
+
+.survey-hero-art::before,
+.survey-hero-art::after {
+  content: "";
+  position: absolute;
+}
+
+.hero-badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: clamp(7rem, 13vw, 9.5rem);
+  aspect-ratio: 1;
+  border-radius: 32%;
+  background: var(--s-accent);
+  color: #ffffff;
+  font-size: clamp(3rem, 5.5vw, 4.25rem);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Asistentes: confeti, boleto inclinado y órbita punteada. */
+.tema-asistentes .survey-hero::before {
+  background-image:
+    radial-gradient(circle, var(--s-deco-1) 0 5px, transparent 6px),
+    radial-gradient(circle, var(--s-deco-2) 0 4px, transparent 5px),
+    radial-gradient(circle, var(--s-deco-3) 0 3px, transparent 4px);
+  background-size: 150px 120px, 190px 170px, 110px 140px;
+  background-position: 10px 20px, 70px 90px, 35px 45px;
+  opacity: 0.5;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+}
+
+.tema-asistentes .hero-badge { transform: rotate(-10deg); }
+
+.tema-asistentes .survey-hero-art::before {
+  width: 14.5rem;
+  aspect-ratio: 1;
+  border: 3px dashed var(--s-deco-2);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.tema-asistentes .survey-hero-art::after {
+  top: 12%;
+  right: 16%;
+  width: 1.6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--s-deco-1);
+  box-shadow: -11rem 8rem 0 -0.3rem var(--s-deco-3);
+}
+
+/* No asistentes: un camino punteado que llega a la insignia. */
+.tema-no_asistentes .survey-hero::before {
+  background: radial-gradient(circle at 90% 20%, rgba(150, 230, 246, 0.45), transparent 40%);
+}
+
+.tema-no_asistentes .hero-badge { border-radius: var(--radius-md); transform: rotate(-4deg); }
+
+.tema-no_asistentes .survey-hero-art::before {
+  width: 15rem;
+  aspect-ratio: 1;
+  border: 3px dotted var(--s-deco-1);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.tema-no_asistentes .survey-hero-art::after {
+  top: 14%;
+  right: 18%;
+  width: 1.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--s-deco-3);
+  box-shadow: -10.5rem 8.5rem 0 -0.25rem var(--s-deco-2);
+}
+
+/* Voluntariado: anillos concéntricos y manchas de luz. */
+.tema-voluntariado .survey-hero::before {
+  background:
+    radial-gradient(circle at 88% 15%, rgba(130, 217, 63, 0.35), transparent 38%),
+    radial-gradient(circle at 8% 95%, rgba(150, 230, 246, 0.5), transparent 32%);
+}
+
+.tema-voluntariado .hero-badge { border-radius: 50%; }
+
+.tema-voluntariado .survey-hero-art::before {
+  width: 16rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    transparent 0 44%,
+    rgba(130, 217, 63, 0.3) 44% 56%,
+    transparent 56% 68%,
+    rgba(23, 166, 115, 0.16) 68% 80%,
+    transparent 80%);
+}
+
+.tema-voluntariado .survey-hero-art::after {
+  top: 14%;
+  right: 20%;
+  width: 2.2rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--s-deco-1);
+  box-shadow: -10rem 9rem 0 -0.5rem var(--s-deco-2);
+}
+
+/* Equipo: cuadrícula de pizarra y notas adhesivas. */
+.tema-equipo .survey-hero { border-bottom: 0; }
+
+.tema-equipo .survey-hero::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.tema-equipo .survey-meta li {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.tema-equipo .survey-meta i { color: var(--highlight); }
+
+.tema-equipo .hero-badge {
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--color-navy);
+  transform: rotate(3deg);
+}
+
+.tema-equipo .survey-hero-art::before,
+.tema-equipo .survey-hero-art::after {
+  width: 5.5rem;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.tema-equipo .survey-hero-art::before {
+  top: 6%;
+  left: 12%;
+  background: var(--s-deco-2);
+  transform: rotate(-12deg);
+}
+
+.tema-equipo .survey-hero-art::after {
+  right: 10%;
+  bottom: 4%;
+  background: var(--s-deco-3);
+  transform: rotate(9deg);
+}
+
+/* --- Panel y avance ------------------------------------------------------ */
+
+.survey-body {
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  background: var(--s-tint);
+}
+
+.survey-panel {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3.5vw, 2.5rem);
+  border: 1px solid var(--border-soft);
+  border-top: 6px solid var(--s-accent);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.survey-intro,
+.survey-sent-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--s-soft);
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+
+.survey-intro i,
+.survey-sent-note i { margin-top: 0.2rem; color: var(--s-accent); }
+
+.survey-sent-note { background: var(--color-cream); }
+
+.survey-progress {
+  position: sticky;
+  top: calc(var(--header-h) + 0.5rem);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.survey-progress-text {
+  min-width: 10.5rem;
+  color: var(--s-accent);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.survey-progress progress {
+  flex: 1;
+  height: 0.6rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--s-soft);
+  overflow: hidden;
+  appearance: none;
+}
+
+.survey-progress progress::-webkit-progress-bar { background: var(--s-soft); border-radius: var(--radius-pill); }
+.survey-progress progress::-webkit-progress-value { background: var(--s-accent); border-radius: var(--radius-pill); transition: width 0.3s ease; }
+.survey-progress progress::-moz-progress-bar { background: var(--s-accent); border-radius: var(--radius-pill); }
+
+/* --- Secciones ----------------------------------------------------------- */
+
+.survey-form { display: grid; gap: 3rem; }
+
+.survey-block { display: grid; gap: 2rem; }
+
+.block-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--s-soft);
+}
+
+.block-num {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--s-accent);
+  color: #ffffff;
+  font-size: var(--fs-lg);
+  font-weight: 800;
+}
+
+.tema-asistentes .block-num { border-radius: 30%; transform: rotate(-8deg); }
+.tema-equipo .block-num { border-radius: var(--radius-sm); }
+
+.block-step {
+  margin: 0;
+  color: var(--s-accent);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.block-head h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.35rem, 1vw + 1.1rem, 1.6rem);
+}
+
+.block-sub { margin: 0.15rem 0 0; color: var(--text-secondary); font-size: var(--fs-sm); }
+
+/* --- Preguntas ----------------------------------------------------------- */
+
+.survey-question {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Una leyenda flotante deja de dibujarse sobre el borde del fieldset y pasa a
+   ser un elemento más de la cuadrícula. */
+.survey-question > legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+}
+
+.survey-question > legend,
+.survey-question.field > label,
+.grid-title {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--fs-base);
+  font-weight: 700;
+}
+
+.legend-hint {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.req {
+  margin-left: 0.15rem;
+  color: var(--s-accent);
+  font-weight: 800;
+  text-decoration: none;
+  cursor: help;
+}
+
+.survey-question--featured {
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--s-soft);
+  border-radius: var(--radius-md);
+  background: var(--s-tint);
+}
+
+/* Opciones como tarjetas: zona táctil amplia y estado marcado evidente. */
+.choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 0.6rem;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.choice:hover { border-color: var(--s-accent); }
+
+.choice input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--s-accent);
+}
+
+.choice:has(input:checked) {
+  border-color: var(--s-accent);
+  background: var(--s-soft);
+  box-shadow: inset 0 0 0 1px var(--s-accent);
+  font-weight: 700;
+}
+
+.choice:has(input:focus-visible) { outline: 3px solid var(--s-ring); outline-offset: 2px; }
+
+.survey-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--s-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--s-tint);
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.survey-callout i { margin-top: 0.2rem; color: var(--s-accent); }
+
+/* Satisfacción general: escala de caras con texto visible en cada opción. */
+.faces { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.6rem; }
+
+.face { position: relative; display: grid; }
+
+.face input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.face-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  padding: 0.95rem 0.35rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-align: center;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.face-card i {
+  color: #b8c2d1;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  transition: color var(--transition), transform var(--transition);
+}
+
+.face:hover .face-card { border-color: var(--s-accent); }
+
+.face input:checked + .face-card {
+  border-color: var(--s-accent);
+  background: var(--s-soft);
+  box-shadow: inset 0 0 0 1px var(--s-accent);
+  color: var(--text);
+}
+
+.face input:checked + .face-card i { color: var(--s-accent); transform: scale(1.12); }
+.face input:focus-visible + .face-card { outline: 3px solid var(--s-ring); outline-offset: 2px; }
+
+/* Escalas numéricas (0–10 y cuadrícula 1–5). El 0–10 usa un solo color a
+   propósito: pintar rojo/verde sesgaría la respuesta. */
+.scale-options { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.scale-option { position: relative; display: inline-flex; }
+
+.scale-option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.scale-option > span {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 0.6rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.scale-option:hover > span { border-color: var(--s-accent); background: var(--s-tint); }
+
+.scale-option input:checked + span {
+  border-color: var(--s-accent);
+  background: var(--s-accent);
+  color: #ffffff;
+}
+
+.scale-option input:focus-visible + span { outline: 3px solid var(--s-ring); outline-offset: 2px; }
+
+.scale-option--na > span { font-size: var(--fs-sm); font-weight: 500; white-space: nowrap; }
+
+.nps { display: grid; gap: 0.4rem; }
+
+.scale-options--nps { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); }
+
+.scale-options--nps .scale-option > span { min-width: 0; padding: 0; }
+
+.scale-ends {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--fs-xs);
+}
+
+/* Cuadrícula de aspectos: etiqueta a la izquierda y escala a la derecha. */
+.survey-grid {
+  gap: 0;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+}
+
+.survey-grid > .legend-hint { margin: 0.2rem 0 0.6rem; }
+
+.survey-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0.65rem 0;
+  border: 0;
+  border-top: 1px dashed var(--border);
+}
+
+.survey-row legend {
+  float: left;
+  padding: 0;
+  color: var(--text);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+/* Ancho fijo: los números quedan alineados en todas las filas, tengan o no
+   «No aplica» al final. */
+.scale-options--compact { flex-wrap: nowrap; width: 20.5rem; }
+.scale-options--compact .scale-option > span { min-width: 2.5rem; min-height: 2.5rem; }
+
+/* Campos abiertos */
+.field textarea {
+  width: 100%;
+  min-height: 7rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+}
+
+.field textarea::placeholder { color: #8a94a6; }
+
+.field textarea:focus {
+  border-color: var(--s-accent);
+  outline: 3px solid var(--s-ring);
+  outline-offset: 0;
+}
+
+/* Retrospectiva del equipo: tres notas Empezar / Dejar / Seguir. */
+.retro-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+
+.retro-card {
+  align-content: start;
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+  border-top: 6px solid var(--retro-color);
+  border-radius: var(--radius-md);
+  background: var(--retro-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.retro-card--empezar { --retro-color: #0f7a52; --retro-bg: #f0fbf5; }
+.retro-card--dejar { --retro-color: #b42318; --retro-bg: #fff4f1; }
+.retro-card--seguir { --retro-color: #1e49e2; --retro-bg: #eff4ff; }
+
+.retro-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  background: var(--retro-color);
+  color: #ffffff;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.retro-q { display: block; margin-top: 0.55rem; }
+
+.retro-card textarea { min-height: 8.5rem; background: rgba(255, 255, 255, 0.85); }
+
+/* --- Envío y agradecimiento --------------------------------------------- */
+
+.survey-submit {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--s-soft);
+}
+
+.btn-survey {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2.1rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--s-accent);
+  color: #ffffff;
+  font: inherit;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px var(--s-ring);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.btn-survey:hover { background: var(--s-accent-hover); color: #ffffff; transform: translateY(-1px); }
+.btn-survey:focus-visible { outline: 3px solid var(--s-ring); outline-offset: 3px; }
+.btn-survey:disabled { cursor: progress; opacity: 0.7; transform: none; }
+
+.btn-survey--ghost { background: transparent; color: var(--s-accent); box-shadow: inset 0 0 0 2px var(--s-accent); }
+.btn-survey--ghost:hover { background: var(--s-soft); color: var(--s-accent); }
+
+/* --- Una parte a la vez ------------------------------------------------- */
+/* encuestas.js agrega el índice de partes y los botones Anterior/Siguiente. */
+
+.survey-steps {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-margin-top: calc(var(--header-h) + 5.5rem);
+}
+
+.survey-steps li { flex: 1 1 0; min-width: 0; }
+
+.survey-step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--s-soft);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.survey-step:not(:disabled):hover { border-color: var(--s-accent); }
+.survey-step:focus-visible { outline: 3px solid var(--s-ring); outline-offset: 2px; }
+.survey-step:disabled { cursor: default; opacity: 0.55; }
+
+.survey-step-num {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--s-soft);
+  color: var(--s-accent);
+  font-weight: 800;
+}
+
+.survey-step-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.is-current .survey-step { border-color: var(--s-accent); background: var(--s-tint); color: var(--text); }
+.is-current .survey-step-num,
+.is-visited .survey-step-num { background: var(--s-accent); color: #ffffff; }
+
+.survey-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.status-message { min-height: 1.5rem; margin: 0; color: var(--s-accent); font-weight: 600; text-align: center; }
+.status-message.error { color: #b42318; }
+
+.survey-thanks {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 2rem 0 1rem;
+  text-align: center;
+}
+
+.survey-thanks:focus { outline: none; }
+
+.thanks-icon {
+  display: grid;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: var(--s-soft);
+  color: var(--s-accent);
+  font-size: 2.75rem;
+  animation: encuesta-pop 0.5s ease-out;
+}
+
+.survey-thanks h2 { margin: 0.5rem 0 0; color: var(--text); font-size: clamp(1.5rem, 2vw + 1rem, 2rem); }
+.survey-thanks p { max-width: 34rem; margin: 0; color: var(--text-secondary); }
+.thanks-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1rem; }
+
+@keyframes encuesta-pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thanks-icon { animation: none; }
+  .btn-survey:hover,
+  .face input:checked + .face-card i { transform: none; }
+}
+
+/* --- Pantallas medianas y pequeñas -------------------------------------- */
+
+@media (max-width: 860px) {
+  .survey-hero-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+  .survey-hero-art { order: -1; min-height: 0; justify-items: start; }
+  .survey-hero-art::before,
+  .survey-hero-art::after { display: none; }
+  .hero-badge { width: 4.5rem; font-size: 2rem; }
+  .retro-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .survey-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .survey-row legend { float: none; }
+  .scale-options--compact { flex-wrap: wrap; width: auto; }
+}
+
+@media (max-width: 560px) {
+  /* En el celular solo la parte actual muestra su título; las demás, el número. */
+  .survey-steps li { flex: 0 0 auto; }
+  .survey-steps li.is-current { flex: 1 1 auto; }
+  .survey-steps li:not(.is-current) .survey-step-label { display: none; }
+  .survey-nav { flex-direction: column-reverse; align-items: stretch; }
+  .eyebrow-event { display: none; }
+  .survey-panel { padding: 1rem; }
+  .survey-question--featured,
+  .survey-grid { padding: 0.9rem; }
+  .scale-options--nps { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  /* Cinco caras no caben con su texto: pasan a una lista vertical, de la peor
+     (arriba) a la mejor (abajo). */
+  .faces { grid-template-columns: 1fr; gap: 0.45rem; }
+  .face-card {
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.6rem 1rem;
+    font-size: var(--fs-sm);
+    text-align: left;
+  }
+  .face-card i { font-size: 1.6rem; }
+  .survey-progress { border-radius: var(--radius-md); gap: 0.75rem; }
+  .survey-progress-text { min-width: 0; font-size: var(--fs-xs); }
+}

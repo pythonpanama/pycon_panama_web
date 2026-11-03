@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de voluntariado - PyCon Panamá 2026</title>
+    <!-- Página sin enlazar: solo se comparte por enlace directo. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Encuesta anónima de satisfacción de PyCon Panamá 2026.">
+    <meta name="theme-color" content="#2483f2">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Encuesta de voluntariado - PyCon Panamá 2026">
+    <meta property="og:description" content="Cuéntanos cómo te fue en PyCon Panamá 2026. Es anónima y toma unos 4 minutos.">
+    <meta property="og:url" content="https://pycon.pa/2026/encuestas/voluntariado-qpntig/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <link rel="canonical" href="https://pycon.pa/2026/encuestas/voluntariado-qpntig/">
+    <link rel="icon" href="../../favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link href="../../css/variables.css" rel="stylesheet">
+    <link href="../../css/base.css?v=20261103" rel="stylesheet">
+    <link href="../../css/style.css?v=20261103" rel="stylesheet">
+    <link href="../../css/responsive.css?v=20261103" rel="stylesheet">
+    <link href="../../css/encuestas.css?v=20261103" rel="stylesheet">
+</head>
+
+<body class="encuesta tema-voluntariado">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../../index.html" aria-label="PyCon Panamá 2026, ir al inicio"><span class="brand-name">PyCon Panamá</span> <span class="brand-year">2026</span></a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="../../about.html">Acerca de</a></li>
+                    <li><a href="../../agenda.html">Agenda</a></li>
+                    <li><a href="../../sedes.html">Sedes</a></li>
+                    <li><a href="../../patrocinadores.html">Patrocinadores</a></li>
+                    <li><a href="../../faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="../../codigo_conducta.html">Código de Conducta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="survey-hero">
+            <div class="container survey-hero-inner">
+                <div class="survey-hero-text">
+                    <p class="survey-eyebrow">Encuesta de voluntariado<span class="eyebrow-event"> · PyCon Panamá 2026</span></p>
+                    <h1>¿Cómo viviste el voluntariado?</h1>
+                    <p class="survey-lead">PyCon Panamá 2026 fue posible gracias a tu tiempo y tu energía. Cuéntanos cómo lo viviste para cuidar mejor al próximo equipo.</p>
+                    <ul class="survey-meta" aria-label="Sobre esta encuesta">
+                        <li><i class="fa-regular fa-clock" aria-hidden="true"></i> 4 minutos</li>
+                        <li><i class="fa-regular fa-calendar" aria-hidden="true"></i> Hasta el 30 de noviembre</li>
+                        <li><i class="fa-solid fa-user-secret" aria-hidden="true"></i> Anónima</li>
+                        <li><i class="fa-solid fa-asterisk" aria-hidden="true"></i> 3 obligatorias</li>
+                    </ul>
+                </div>
+                <div class="survey-hero-art" aria-hidden="true">
+                    <span class="hero-badge"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="survey-body">
+            <div class="container">
+                <div class="survey-panel">
+                    <p class="survey-intro"><i class="fa-solid fa-lock" aria-hidden="true"></i> <span>No pedimos tu nombre ni tu correo; por favor no escribas datos personales en las respuestas abiertas. Solo las preguntas con * son obligatorias.</span></p>
+                    <p id="encuestaCerrada" class="survey-sent-note" hidden><i class="fa-solid fa-calendar-xmark" aria-hidden="true"></i> <span>Esta encuesta cerró el 30 de noviembre de 2026. ¡Gracias a todas las personas que respondieron!</span></p>
+                    <p id="yaEnviada" class="survey-sent-note" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span>Ya enviaste esta encuesta desde este dispositivo. ¡Gracias! Si lo compartes con otra persona, puede responderla aquí mismo.</span></p>
+
+                    <div class="survey-progress" id="surveyProgress">
+                        <span id="progresoTexto" class="survey-progress-text">Empieza cuando quieras</span>
+                        <progress id="progreso" max="1" value="0" aria-labelledby="progresoTexto"></progress>
+                    </div>
+
+                    <form id="surveyForm" class="survey-form" data-audiencia="voluntariado" data-version="2026-11" data-cierre="2026-12-01T00:00:00-05:00" novalidate>
+                        <section class="survey-block" aria-labelledby="bloque-1">
+                            <header class="block-head">
+                                <span class="block-num" aria-hidden="true">1</span>
+                                <div>
+                                    <p class="block-step">Parte 1 de 3</p>
+                                    <h2 id="bloque-1">Tu participación</h2>
+                                    <p class="block-sub">Cuándo y en qué apoyaste.</p>
+                                </div>
+                            </header>
+                            <fieldset class="survey-question" id="grupo-momentos" data-required-group>
+                                <legend>¿Cuándo colaboraste? <abbr class="req" title="obligatoria">*</abbr> <span class="legend-hint">Puedes marcar varias.</span></legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="checkbox" name="momentos" value="antes_evento"> <span>Antes del evento</span></label>
+                                    <label class="choice"><input type="checkbox" name="momentos" value="jueves_22"> <span>Jueves 22 de octubre</span></label>
+                                    <label class="choice"><input type="checkbox" name="momentos" value="viernes_23"> <span>Viernes 23 de octubre</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-areas">
+                                <legend>¿En qué áreas apoyaste? <span class="legend-hint">Puedes marcar varias.</span></legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="checkbox" name="areas" value="logistica"> <span>Operaciones y logística</span></label>
+                                    <label class="choice"><input type="checkbox" name="areas" value="programa"> <span>Programa y experiencia</span></label>
+                                    <label class="choice"><input type="checkbox" name="areas" value="comunicacion"> <span>Comunicación y alianzas</span></label>
+                                    <label class="choice"><input type="checkbox" name="areas" value="otra"> <span>Otra</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-primera_vez">
+                                <legend>¿Era tu primera experiencia de voluntariado en un evento?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="primera_vez" value="si"> <span>Sí</span></label>
+                                    <label class="choice"><input type="radio" name="primera_vez" value="no"> <span>No</span></label>
+                                </div>
+                            </fieldset>
+                        </section>
+                        <section class="survey-block" aria-labelledby="bloque-2">
+                            <header class="block-head">
+                                <span class="block-num" aria-hidden="true">2</span>
+                                <div>
+                                    <p class="block-step">Parte 2 de 3</p>
+                                    <h2 id="bloque-2">Tu experiencia</h2>
+                                    <p class="block-sub">Cómo te sentiste antes y durante el evento.</p>
+                                </div>
+                            </header>
+                            <fieldset class="survey-question survey-question--featured" id="grupo-satisfaccion">
+                                <legend>En general, ¿cómo calificas tu experiencia en el voluntariado? <abbr class="req" title="obligatoria">*</abbr></legend>
+                                <div class="faces">
+                                    <label class="face"><input type="radio" name="satisfaccion" value="1" required><span class="face-card"><i class="fa-solid fa-face-angry" aria-hidden="true"></i><span>Muy mala</span></span></label>
+                                    <label class="face"><input type="radio" name="satisfaccion" value="2"><span class="face-card"><i class="fa-solid fa-face-frown" aria-hidden="true"></i><span>Mala</span></span></label>
+                                    <label class="face"><input type="radio" name="satisfaccion" value="3"><span class="face-card"><i class="fa-solid fa-face-meh" aria-hidden="true"></i><span>Regular</span></span></label>
+                                    <label class="face"><input type="radio" name="satisfaccion" value="4"><span class="face-card"><i class="fa-solid fa-face-smile" aria-hidden="true"></i><span>Buena</span></span></label>
+                                    <label class="face"><input type="radio" name="satisfaccion" value="5"><span class="face-card"><i class="fa-solid fa-face-grin-stars" aria-hidden="true"></i><span>Excelente</span></span></label>
+                                </div>
+                            </fieldset>
+                            <div class="survey-question survey-grid" role="group" aria-labelledby="grid-titulo" aria-describedby="grid-ayuda">
+                                <p id="grid-titulo" class="grid-title">Califica cada aspecto</p>
+                                <p id="grid-ayuda" class="legend-hint">1 = muy deficiente · 5 = excelente. Deja en blanco lo que no quieras calificar.</p>
+                                <fieldset class="survey-row">
+                                    <legend>Postulación y entrevista</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_postulacion" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_postulacion" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_postulacion" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_postulacion" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_postulacion" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Inducción y preparación antes del evento</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_induccion" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_induccion" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_induccion" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_induccion" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_induccion" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Claridad de tus funciones y horarios</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_claridad" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_claridad" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_claridad" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_claridad" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_claridad" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Apoyo de la coordinación durante el evento</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_coordinacion" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_coordinacion" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_coordinacion" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_coordinacion" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_coordinacion" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Materiales y recursos para tu labor</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_recursos" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_recursos" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_recursos" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_recursos" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_recursos" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Alimentación, hidratación y descansos</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_cuidado" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_cuidado" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_cuidado" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_cuidado" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_cuidado" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Trato y ambiente con el equipo</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_equipo" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_equipo" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_equipo" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_equipo" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_equipo" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="survey-row">
+                                    <legend>Reconocimiento a tu aporte</legend>
+                                    <div class="scale-options scale-options--compact">
+                                        <label class="scale-option"><input type="radio" name="cal_reconocimiento" value="1"><span>1<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_reconocimiento" value="2"><span>2<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_reconocimiento" value="3"><span>3<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_reconocimiento" value="4"><span>4<span class="visually-hidden"> de 5</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="cal_reconocimiento" value="5"><span>5<span class="visually-hidden"> de 5</span></span></label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <fieldset class="survey-question" id="grupo-carga">
+                                <legend>La carga de trabajo te pareció…</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="carga" value="muy_ligera"> <span>Muy ligera</span></label>
+                                    <label class="choice"><input type="radio" name="carga" value="adecuada"> <span>Adecuada</span></label>
+                                    <label class="choice"><input type="radio" name="carga" value="pesada"> <span>Pesada</span></label>
+                                    <label class="choice"><input type="radio" name="carga" value="excesiva"> <span>Excesiva</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-preparacion">
+                                <legend>¿Sentiste que tenías lo necesario para hacer bien tu labor?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="preparacion" value="si"> <span>Sí</span></label>
+                                    <label class="choice"><input type="radio" name="preparacion" value="en_parte"> <span>En parte</span></label>
+                                    <label class="choice"><input type="radio" name="preparacion" value="no"> <span>No</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-ambiente_seguro">
+                                <legend>¿Sentiste un ambiente acogedor, respetuoso y seguro?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="ambiente_seguro" value="si"> <span>Sí</span></label>
+                                    <label class="choice"><input type="radio" name="ambiente_seguro" value="en_parte"> <span>En parte</span></label>
+                                    <label class="choice"><input type="radio" name="ambiente_seguro" value="no"> <span>No</span></label>
+                                    <label class="choice"><input type="radio" name="ambiente_seguro" value="prefiero_no"> <span>Prefiero no responder</span></label>
+                                </div>
+                                <p class="survey-callout"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> <span>Si viviste o presenciaste algo contrario al <a class="internal-link" href="../../codigo_conducta.html" target="_blank" rel="noopener">Código de Conducta</a>, escríbenos a <a href="mailto:pyconpanama@gmail.com">pyconpanama@gmail.com</a>. Esta encuesta es anónima, así que por aquí no podemos responderte.</span></p>
+                            </fieldset>
+                        </section>
+                        <section class="survey-block" aria-labelledby="bloque-3">
+                            <header class="block-head">
+                                <span class="block-num" aria-hidden="true">3</span>
+                                <div>
+                                    <p class="block-step">Parte 3 de 3</p>
+                                    <h2 id="bloque-3">Lo que viene</h2>
+                                    <p class="block-sub">Para cuidar mejor al próximo equipo.</p>
+                                </div>
+                            </header>
+                            <fieldset class="survey-question survey-question--featured" id="grupo-recomendacion">
+                                <legend>¿Qué tan probable es que recomiendes el voluntariado de PyCon Panamá a una amistad? <abbr class="req" title="obligatoria">*</abbr></legend>
+                                <div class="nps">
+                                    <div class="scale-options scale-options--nps">
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="0" required><span>0<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="1"><span>1<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="2"><span>2<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="3"><span>3<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="4"><span>4<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="5"><span>5<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="6"><span>6<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="7"><span>7<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="8"><span>8<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="9"><span>9<span class="visually-hidden"> de 10</span></span></label>
+                                        <label class="scale-option"><input type="radio" name="recomendacion" value="10"><span>10<span class="visually-hidden"> de 10</span></span></label>
+                                    </div>
+                                    <p class="scale-ends" aria-hidden="true"><span>0 · Nada probable</span><span>10 · Muy probable</span></p>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-volverias">
+                                <legend>¿Volverías a sumarte al voluntariado en la próxima edición?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="volverias" value="si"> <span>Sí</span></label>
+                                    <label class="choice"><input type="radio" name="volverias" value="tal_vez"> <span>Tal vez</span></label>
+                                    <label class="choice"><input type="radio" name="volverias" value="no"> <span>No</span></label>
+                                </div>
+                            </fieldset>
+                            <div class="survey-question field">
+                                <label for="lo_mejor">¿Qué fue lo mejor de tu experiencia?</label>
+                                <textarea id="lo_mejor" name="lo_mejor" maxlength="1500" placeholder="Un momento, una persona, algo que aprendiste…"></textarea>
+                            </div>
+                            <div class="survey-question field">
+                                <label for="falto">¿Qué te faltó para hacer mejor tu labor?</label>
+                                <textarea id="falto" name="falto" maxlength="1500" placeholder="Información, herramientas, más personas en tu turno…"></textarea>
+                            </div>
+                            <div class="survey-question field">
+                                <label for="mejorar">¿Qué deberíamos cambiar para el próximo voluntariado?</label>
+                                <textarea id="mejorar" name="mejorar" maxlength="1500"></textarea>
+                            </div>
+                            <div class="survey-question field">
+                                <label for="comentarios">¿Algo más que quieras contarnos?</label>
+                                <textarea id="comentarios" name="comentarios" maxlength="1500"></textarea>
+                            </div>
+                        </section>
+
+                        <div class="survey-submit">
+                            <button id="btnSubmit" class="btn-survey" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> <span>Enviar encuesta</span></button>
+                            <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+
+                    <div id="surveyThanks" class="survey-thanks" tabindex="-1" hidden>
+                        <span class="thanks-icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
+                        <h2>¡Gracias por tu tiempo, antes, durante y ahora!</h2>
+                        <p>Tus respuestas nos ayudan a preparar mejor al próximo equipo de voluntariado. Fue un gusto trabajar contigo.</p>
+                        <div class="thanks-actions">
+                            <a class="btn-survey" href="../../index.html">Volver al inicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="../../codigo_conducta.html">Código de Conducta</a> · <a class="internal-link" href="../../privacidad.html">Aviso de Privacidad</a></p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="mailto:pyconpanama@gmail.com" aria-label="Correo de contacto: pyconpanama@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="../../js/env.js"></script>
+    <script src="../../js/supabase-config.js?v=c50c42dd957b"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/encuestas.js?v=20261103"></script>
+</body>
+
+</html>
