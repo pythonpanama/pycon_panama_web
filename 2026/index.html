@@ -74,9 +74,19 @@
 
     <main id="contenido-principal" tabindex="-1">
         <section class="official-banner" aria-label="Información principal de PyCon Panamá 2026">
-            <img src="img/banner-sede-udi.webp"
-                alt="Banner oficial de PyCon Panamá 2026: 22 y 23 de octubre, organizada por Python Panamá, con sede en la Universidad del Istmo."
-                width="2400" height="1202" fetchpriority="high" decoding="async">
+            <!-- El navegador elige formato (AVIF, si no WebP) y el ancho más
+                 cercano a la pantalla. Variantes generadas desde
+                 banner-sede-udi.webp (2400 × 1202); mantener la proporción. -->
+            <picture>
+                <source type="image/avif"
+                    srcset="img/banner-sede-udi-640.avif 640w, img/banner-sede-udi-960.avif 960w, img/banner-sede-udi-1280.avif 1280w, img/banner-sede-udi-1600.avif 1600w, img/banner-sede-udi-2400.avif 2400w"
+                    sizes="(min-width: 2400px) 2400px, 100vw">
+                <img src="img/banner-sede-udi.webp"
+                    srcset="img/banner-sede-udi-640.webp 640w, img/banner-sede-udi-960.webp 960w, img/banner-sede-udi-1280.webp 1280w, img/banner-sede-udi-1600.webp 1600w, img/banner-sede-udi.webp 2400w"
+                    sizes="(min-width: 2400px) 2400px, 100vw"
+                    alt="Banner oficial de PyCon Panamá 2026: 22 y 23 de octubre, organizada por Python Panamá, con sede en la Universidad del Istmo."
+                    width="2400" height="1202" fetchpriority="high">
+            </picture>
         </section>
 
         <section class="hero-section">

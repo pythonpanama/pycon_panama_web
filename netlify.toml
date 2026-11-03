@@ -93,6 +93,13 @@ for = "/*.css"
   [headers.values]
   Cache-Control = "public, max-age=604800"
 
+# Imágenes: caché de una semana, igual que el CSS. Si se reemplaza una imagen,
+# súbela con otro nombre para que nadie siga viendo la versión anterior.
+[[headers]]
+for = "/2026/img/*"
+  [headers.values]
+  Cache-Control = "public, max-age=604800"
+
 # Los scripts cambian durante la edición: revalidar antes de reutilizarlos.
 # La URL versionada en los formularios invalida las copias antiguas ya cacheadas.
 [[headers]]
