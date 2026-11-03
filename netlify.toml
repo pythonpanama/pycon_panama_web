@@ -87,6 +87,15 @@ for = "/2026/*"
   [headers.values]
   Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co; frame-src https://www.google.com https://maps.google.com; frame-ancestors 'self'; form-action 'self'"
 
+# Encuestas de satisfacción: solo se comparten por enlace directo. Nada las
+# enlaza ni aparecen en el sitemap; esto evita además que se indexen si alguien
+# publica el enlace. No se listan en robots.txt para no revelar las rutas.
+[[headers]]
+for = "/2026/encuestas/*"
+  [headers.values]
+  X-Robots-Tag = "noindex, nofollow"
+  Referrer-Policy = "no-referrer"
+
 # CSS: caché de una semana.
 [[headers]]
 for = "/*.css"
