@@ -5,6 +5,7 @@ const path = require('node:path');
 
 const ENCUESTAS = {
   'asistentes-csgiiz': 'asistentes',
+  'no-asistentes-msphsx': 'no_asistentes',
   'voluntariado-qpntig': 'voluntariado',
   'equipo-ml38re': 'equipo'
 };
@@ -29,9 +30,15 @@ for (const [slug, audiencia] of Object.entries(ENCUESTAS)) {
     assert.match(page, new RegExp(`id="surveyForm"[^>]+data-audiencia="${audiencia}"`));
     assert.doesNotMatch(page, /name="(?:nombre|email|telefono|correo)"/);
     assert.doesNotMatch(page, /type="email"|autocomplete="(?:name|email|tel)"/);
-    assert.match(page, /input type="radio" name="satisfaccion" value="1" required/);
-    assert.match(page, /input type="radio" name="recomendacion" value="0" required/);
-    assert.equal((page.match(/name="recomendacion"/g) || []).length, 11);
+    if (audiencia === 'no_asistentes') {
+      // No vivieron el evento: sin satisfacción ni NPS, y el motivo es obligatorio.
+      assert.doesNotMatch(page, /name="(?:satisfaccion|recomendacion)"/);
+      assert.match(page, /id="grupo-motivos" data-required-group/);
+    } else {
+      assert.match(page, /input type="radio" name="satisfaccion" value="1" required/);
+      assert.match(page, /input type="radio" name="recomendacion" value="0" required/);
+      assert.equal((page.match(/name="recomendacion"/g) || []).length, 11);
+    }
     assert.match(page, /data-cierre="2026-12-01T00:00:00-05:00"/);
     assert.match(page, /id="encuestaCerrada"[^>]*hidden/);
     assert.match(page, new RegExp(`<body class="encuesta tema-${audiencia}">`));

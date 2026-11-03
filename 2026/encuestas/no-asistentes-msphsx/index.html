@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de personas registradas - PyCon Panamá 2026</title>
+    <!-- Página sin enlazar: solo se comparte por enlace directo. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Encuesta anónima de satisfacción de PyCon Panamá 2026.">
+    <meta name="theme-color" content="#2483f2">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="PyCon Panamá">
+    <meta property="og:title" content="Encuesta de personas registradas - PyCon Panamá 2026">
+    <meta property="og:description" content="Te registraste y no pudiste ir: cuéntanos por qué. Es anónima y toma unos 2 minutos.">
+    <meta property="og:url" content="https://pycon.pa/2026/encuestas/no-asistentes-msphsx/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pycon.pa/2026/img/PyConPet.jpg">
+    <link rel="canonical" href="https://pycon.pa/2026/encuestas/no-asistentes-msphsx/">
+    <link rel="icon" href="../../favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+    <link href="../../css/variables.css" rel="stylesheet">
+    <link href="../../css/base.css?v=20261103" rel="stylesheet">
+    <link href="../../css/style.css?v=20261103" rel="stylesheet">
+    <link href="../../css/responsive.css?v=20261103" rel="stylesheet">
+    <link href="../../css/encuestas.css?v=20261103" rel="stylesheet">
+</head>
+
+<body class="encuesta tema-no_asistentes">
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="../../index.html" aria-label="PyCon Panamá 2026, ir al inicio"><span class="brand-name">PyCon Panamá</span> <span class="brand-year">2026</span></a>
+            <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" class="site-nav" aria-label="Menú principal">
+                <ul class="nav-list">
+                    <li><a href="../../about.html">Acerca de</a></li>
+                    <li><a href="../../agenda.html">Agenda</a></li>
+                    <li><a href="../../sedes.html">Sedes</a></li>
+                    <li><a href="../../patrocinadores.html">Patrocinadores</a></li>
+                    <li><a href="../../faq.html">Preguntas frecuentes</a></li>
+                    <li><a href="../../codigo_conducta.html">Código de Conducta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido-principal" tabindex="-1">
+        <section class="survey-hero">
+            <div class="container survey-hero-inner">
+                <div class="survey-hero-text">
+                    <p class="survey-eyebrow">Te extrañamos<span class="eyebrow-event"> · PyCon Panamá 2026</span></p>
+                    <h1>¿Qué te impidió llegar a PyCon Panamá 2026?</h1>
+                    <p class="survey-lead">Te registraste para el 22 y 23 de octubre y no pudiste acompañarnos. Saber por qué nos ayuda a preparar una edición a la que sí puedas llegar.</p>
+                    <ul class="survey-meta" aria-label="Sobre esta encuesta">
+                        <li><i class="fa-regular fa-clock" aria-hidden="true"></i> 2 minutos</li>
+                        <li><i class="fa-regular fa-calendar" aria-hidden="true"></i> Hasta el 30 de noviembre</li>
+                        <li><i class="fa-solid fa-user-secret" aria-hidden="true"></i> Anónima</li>
+                        <li><i class="fa-solid fa-asterisk" aria-hidden="true"></i> 1 obligatorias</li>
+                    </ul>
+                </div>
+                <div class="survey-hero-art" aria-hidden="true">
+                    <span class="hero-badge"><i class="fa-solid fa-calendar-xmark"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="survey-body">
+            <div class="container">
+                <div class="survey-panel">
+                    <p class="survey-intro"><i class="fa-solid fa-lock" aria-hidden="true"></i> <span>No pedimos tu nombre ni tu correo; por favor no escribas datos personales en las respuestas abiertas. Solo las preguntas con * son obligatorias.</span></p>
+                    <p id="encuestaCerrada" class="survey-sent-note" hidden><i class="fa-solid fa-calendar-xmark" aria-hidden="true"></i> <span>Esta encuesta cerró el 30 de noviembre de 2026. ¡Gracias a todas las personas que respondieron!</span></p>
+                    <p id="yaEnviada" class="survey-sent-note" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <span>Ya enviaste esta encuesta desde este dispositivo. ¡Gracias! Si lo compartes con otra persona, puede responderla aquí mismo.</span></p>
+
+                    <div class="survey-progress" id="surveyProgress">
+                        <span id="progresoTexto" class="survey-progress-text">Empieza cuando quieras</span>
+                        <progress id="progreso" max="1" value="0" aria-labelledby="progresoTexto"></progress>
+                    </div>
+
+                    <form id="surveyForm" class="survey-form" data-audiencia="no_asistentes" data-version="2026-11" data-cierre="2026-12-01T00:00:00-05:00" novalidate>
+                        <section class="survey-block" aria-labelledby="bloque-1">
+                            <header class="block-head">
+                                <span class="block-num" aria-hidden="true">1</span>
+                                <div>
+                                    <p class="block-step">Parte 1 de 2</p>
+                                    <h2 id="bloque-1">Lo que pasó</h2>
+                                    <p class="block-sub">Sin juicios: nos pasa a todos.</p>
+                                </div>
+                            </header>
+                            <fieldset class="survey-question" id="grupo-motivos" data-required-group>
+                                <legend>¿Qué te impidió asistir? <abbr class="req" title="obligatoria">*</abbr> <span class="legend-hint">Puedes marcar varias.</span></legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="checkbox" name="motivos" value="trabajo"> <span>Trabajo</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="estudios"> <span>Clases o exámenes</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="distancia"> <span>Distancia o transporte</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="horario"> <span>El horario no me funcionó</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="olvido"> <span>Se me pasó la fecha</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="agenda"> <span>La agenda no me convenció</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="imprevisto"> <span>Salud o un imprevisto personal</span></label>
+                                    <label class="choice"><input type="checkbox" name="motivos" value="otro"> <span>Otro motivo</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-aviso">
+                                <legend>¿Cuándo supiste que no podrías ir?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="aviso" value="antes"> <span>Con más de una semana de anticipación</span></label>
+                                    <label class="choice"><input type="radio" name="aviso" value="misma_semana"> <span>La misma semana del evento</span></label>
+                                    <label class="choice"><input type="radio" name="aviso" value="mismo_dia"> <span>El mismo día</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-vio_algo">
+                                <legend>¿Pudiste seguir algo del evento?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="vio_algo" value="nada"> <span>No, nada</span></label>
+                                    <label class="choice"><input type="radio" name="vio_algo" value="jueves_virtual"> <span>Me conecté un rato al jueves en línea</span></label>
+                                    <label class="choice"><input type="radio" name="vio_algo" value="redes"> <span>Vi lo que se publicó en redes</span></label>
+                                </div>
+                            </fieldset>
+                        </section>
+                        <section class="survey-block" aria-labelledby="bloque-2">
+                            <header class="block-head">
+                                <span class="block-num" aria-hidden="true">2</span>
+                                <div>
+                                    <p class="block-step">Parte 2 de 2</p>
+                                    <h2 id="bloque-2">La próxima vez</h2>
+                                    <p class="block-sub">Para que sí puedas llegar.</p>
+                                </div>
+                            </header>
+                            <fieldset class="survey-question" id="grupo-ayudaria">
+                                <legend>¿Qué te habría ayudado a ir? <span class="legend-hint">Puedes marcar varias.</span></legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="otro_dia"> <span>Otro día de la semana</span></label>
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="fin_de_semana"> <span>Que fuera en fin de semana</span></label>
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="otro_horario"> <span>Otro horario</span></label>
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="sede"> <span>Una sede más cercana o con mejor acceso</span></label>
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="recordatorio"> <span>Un recordatorio más cerca de la fecha</span></label>
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="transmision"> <span>Poder verlo en línea también el viernes</span></label>
+                                    <label class="choice"><input type="checkbox" name="ayudaria" value="nada"> <span>Nada: fue un imprevisto</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-formato">
+                                <legend>¿Qué formato prefieres para la próxima edición?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="formato" value="presencial"> <span>Presencial</span></label>
+                                    <label class="choice"><input type="radio" name="formato" value="hibrido"> <span>Híbrido: presencial y en línea</span></label>
+                                    <label class="choice"><input type="radio" name="formato" value="virtual"> <span>En línea</span></label>
+                                    <label class="choice"><input type="radio" name="formato" value="indiferente"> <span>Me da igual</span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="survey-question" id="grupo-interes_proxima">
+                                <legend>¿Te gustaría asistir a la próxima PyCon Panamá?</legend>
+                                <div class="choices">
+                                    <label class="choice"><input type="radio" name="interes_proxima" value="si"> <span>Sí</span></label>
+                                    <label class="choice"><input type="radio" name="interes_proxima" value="tal_vez"> <span>Tal vez</span></label>
+                                    <label class="choice"><input type="radio" name="interes_proxima" value="no"> <span>No</span></label>
+                                </div>
+                            </fieldset>
+                            <div class="survey-question field">
+                                <label for="comentarios">¿Algo más que quieras contarnos?</label>
+                                <textarea id="comentarios" name="comentarios" maxlength="1500"></textarea>
+                            </div>
+                        </section>
+
+                        <div class="survey-submit">
+                            <button id="btnSubmit" class="btn-survey" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> <span>Enviar encuesta</span></button>
+                            <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
+                        </div>
+                    </form>
+
+                    <div id="surveyThanks" class="survey-thanks" tabindex="-1" hidden>
+                        <span class="thanks-icon" aria-hidden="true"><i class="fa-solid fa-envelope-open-text"></i></span>
+                        <h2>¡Gracias por contarnos!</h2>
+                        <p>Con tus respuestas buscaremos fechas, horarios y sede que te funcionen mejor. Esperamos verte en la próxima edición.</p>
+                        <div class="thanks-actions">
+                            <a class="btn-survey" href="../../index.html">Volver al inicio</a>
+                            <a class="btn-survey btn-survey--ghost" href="https://linktr.ee/pythonpanama" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-link" aria-hidden="true"></i> Síguenos en redes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>PyCon Panamá 2026 · <a class="internal-link" href="../../codigo_conducta.html">Código de Conducta</a> · <a class="internal-link" href="../../privacidad.html">Aviso de Privacidad</a></p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="mailto:pyconpanama@gmail.com" aria-label="Correo de contacto: pyconpanama@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/pythonpanama/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/company/pythonpanama" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="../../js/env.js"></script>
+    <script src="../../js/supabase-config.js?v=c50c42dd957b"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/encuestas.js?v=20261103"></script>
+</body>
+
+</html>

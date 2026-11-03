@@ -1,7 +1,7 @@
 /* ==========================================================================
    Encuestas de satisfacción · PyCon Panamá 2026
-   Una hoja para las tres encuestas. Cada página fija su tema con una clase en
-   <body> (tema-asistentes, tema-voluntariado, tema-equipo) que redefine las
+   Una hoja para las cuatro encuestas. Cada página fija su tema con una clase en
+   <body> (tema-asistentes, tema-no_asistentes, tema-voluntariado, tema-equipo) que redefine las
    variables --s-*; el resto de las reglas solo usa esas variables.
    Los acentos cumplen contraste AA con texto blanco.
    ========================================================================== */
@@ -19,6 +19,22 @@
   --s-deco-2: var(--color-orange);
   --s-deco-3: var(--color-sky);
   --s-hero: linear-gradient(135deg, #fff6d9 0%, #ffe6bf 55%, #e8f3ff 100%);
+  --s-hero-text: var(--text);
+  --s-eyebrow-bg: var(--s-accent);
+  --s-eyebrow-fg: #ffffff;
+}
+
+/* Personas registradas que no asistieron: calma, azul cielo y un camino punteado. */
+.tema-no_asistentes {
+  --s-accent: #0e6f9c;
+  --s-accent-hover: #0a5679;
+  --s-soft: #dcf1fb;
+  --s-tint: #f4fafd;
+  --s-ring: rgba(14, 111, 156, 0.22);
+  --s-deco-1: var(--color-sky);
+  --s-deco-2: var(--color-cyan-light);
+  --s-deco-3: var(--highlight);
+  --s-hero: linear-gradient(135deg, #e6f6ff 0%, #eefbff 55%, #fff8e6 100%);
   --s-hero-text: var(--text);
   --s-eyebrow-bg: var(--s-accent);
   --s-eyebrow-fg: #ffffff;
@@ -192,6 +208,31 @@
   border-radius: 50%;
   background: var(--s-deco-1);
   box-shadow: -11rem 8rem 0 -0.3rem var(--s-deco-3);
+}
+
+/* No asistentes: un camino punteado que llega a la insignia. */
+.tema-no_asistentes .survey-hero::before {
+  background: radial-gradient(circle at 90% 20%, rgba(150, 230, 246, 0.45), transparent 40%);
+}
+
+.tema-no_asistentes .hero-badge { border-radius: var(--radius-md); transform: rotate(-4deg); }
+
+.tema-no_asistentes .survey-hero-art::before {
+  width: 15rem;
+  aspect-ratio: 1;
+  border: 3px dotted var(--s-deco-1);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.tema-no_asistentes .survey-hero-art::after {
+  top: 14%;
+  right: 18%;
+  width: 1.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--s-deco-3);
+  box-shadow: -10.5rem 8.5rem 0 -0.25rem var(--s-deco-2);
 }
 
 /* Voluntariado: anillos concéntricos y manchas de luz. */
@@ -732,6 +773,67 @@
 .btn-survey--ghost { background: transparent; color: var(--s-accent); box-shadow: inset 0 0 0 2px var(--s-accent); }
 .btn-survey--ghost:hover { background: var(--s-soft); color: var(--s-accent); }
 
+/* --- Una parte a la vez ------------------------------------------------- */
+/* encuestas.js agrega el índice de partes y los botones Anterior/Siguiente. */
+
+.survey-steps {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  scroll-margin-top: calc(var(--header-h) + 5.5rem);
+}
+
+.survey-steps li { flex: 1 1 0; min-width: 0; }
+
+.survey-step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--s-soft);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.survey-step:not(:disabled):hover { border-color: var(--s-accent); }
+.survey-step:focus-visible { outline: 3px solid var(--s-ring); outline-offset: 2px; }
+.survey-step:disabled { cursor: default; opacity: 0.55; }
+
+.survey-step-num {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 1.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--s-soft);
+  color: var(--s-accent);
+  font-weight: 800;
+}
+
+.survey-step-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.is-current .survey-step { border-color: var(--s-accent); background: var(--s-tint); color: var(--text); }
+.is-current .survey-step-num,
+.is-visited .survey-step-num { background: var(--s-accent); color: #ffffff; }
+
+.survey-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 .status-message { min-height: 1.5rem; margin: 0; color: var(--s-accent); font-weight: 600; text-align: center; }
 .status-message.error { color: #b42318; }
 
@@ -790,6 +892,11 @@
 }
 
 @media (max-width: 560px) {
+  /* En el celular solo la parte actual muestra su título; las demás, el número. */
+  .survey-steps li { flex: 0 0 auto; }
+  .survey-steps li.is-current { flex: 1 1 auto; }
+  .survey-steps li:not(.is-current) .survey-step-label { display: none; }
+  .survey-nav { flex-direction: column-reverse; align-items: stretch; }
   .eyebrow-event { display: none; }
   .survey-panel { padding: 1rem; }
   .survey-question--featured,
