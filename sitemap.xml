@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pycon.pa/2026/</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pycon.pa/2026/about.html</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pycon.pa/2026/sedes.html</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pycon.pa/2026/agenda.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
@@ -32,44 +38,54 @@
   </url>
   <url>
     <loc>https://pycon.pa/2026/faq.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://pycon.pa/2026/patrocinadores.html</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Previo al evento; la página sigue publicada, pero ya no se enlaza.
   <url>
     <loc>https://pycon.pa/2026/registro.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
+  <!-- Previo al evento; la página sigue publicada, pero ya no se enlaza.
   <url>
     <loc>https://pycon.pa/2026/convence-a-tu-jefe.html</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
+  <!-- Previo al evento; la página sigue publicada, pero ya no se enlaza.
   <url>
     <loc>https://pycon.pa/2026/ponentes.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
+  <!-- Previo al evento; la página sigue publicada, pero ya no se enlaza.
   <url>
     <loc>https://pycon.pa/2026/voluntariado/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
+  <!-- Previo al evento; la página sigue publicada, pero ya no se enlaza.
   <url>
     <loc>https://pycon.pa/2026/informacion-practica.html</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  -->
 </urlset>

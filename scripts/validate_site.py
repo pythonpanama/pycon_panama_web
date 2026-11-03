@@ -28,18 +28,21 @@ REQUIRED_META = {
     "twitter:image",
 }
 SITEMAP_REQUIRED = {
-    f"{CANONICAL_BASE}/2026/informacion-practica.html",
     f"{CANONICAL_BASE}/2026/",
     f"{CANONICAL_BASE}/2026/about.html",
     f"{CANONICAL_BASE}/2026/sedes.html",
+    f"{CANONICAL_BASE}/2026/agenda.html",
     f"{CANONICAL_BASE}/2026/codigo_conducta.html",
     f"{CANONICAL_BASE}/2026/faq.html",
     f"{CANONICAL_BASE}/2026/patrocinadores.html",
     f"{CANONICAL_BASE}/2026/privacidad.html",
-    f"{CANONICAL_BASE}/2026/registro.html",
-    f"{CANONICAL_BASE}/2026/convence-a-tu-jefe.html",
-    f"{CANONICAL_BASE}/2026/ponentes.html",
-    f"{CANONICAL_BASE}/2026/voluntariado/",
+    # Páginas previas al evento: siguen publicadas, pero desde el 3 nov 2026
+    # ya no se enlazan ni se anuncian en el sitemap.
+    # f"{CANONICAL_BASE}/2026/informacion-practica.html",
+    # f"{CANONICAL_BASE}/2026/registro.html",
+    # f"{CANONICAL_BASE}/2026/convence-a-tu-jefe.html",
+    # f"{CANONICAL_BASE}/2026/ponentes.html",
+    # f"{CANONICAL_BASE}/2026/voluntariado/",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "javascript", "mailto", "tel"}
 USER_AGENT = "PyConPanamaSiteValidator/1.0 (+https://github.com/pythonpanama/pycon_panama_web)"
