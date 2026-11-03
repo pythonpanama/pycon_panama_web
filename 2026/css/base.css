@@ -116,6 +116,13 @@ main:focus-visible {
   transform: translateY(0);
 }
 
+/* El atributo hidden siempre gana: el display de componentes como .card o
+   .section lo anularía. Así se ocultó el contenido previo al evento sin
+   borrarlo. */
+[hidden] {
+  display: none !important;
+}
+
 /* Visible solo para lectores de pantalla */
 .visually-hidden {
   position: absolute;

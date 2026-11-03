@@ -3,7 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   // Debe coincidir con el corte de navegación de css/responsive.css
-  const MOBILE_QUERY = window.matchMedia('(max-width: 768px)');
+  const MOBILE_QUERY = window.matchMedia('(max-width: 1024px)');
 
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');

@@ -98,15 +98,29 @@
   min-height: var(--header-h);
 }
 
+/* Marca: el nombre lleva al inicio; el año va en una etiqueta de acento. */
 .brand {
-  font-size: var(--fs-base);
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
-.brand:hover {
+.brand-year {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand:hover .brand-name {
   color: var(--accent);
 }
 
@@ -115,31 +129,56 @@
 .nav-list {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
 }
 
 .nav-list a,
 .submenu-toggle {
+  position: relative;
   display: inline-flex;
   align-items: center;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
-  color: var(--text);
+  color: var(--text-secondary);
   font-size: var(--fs-sm);
   font-weight: 600;
   white-space: nowrap;
+  transition: color var(--transition);
+}
+
+/* Subrayado que crece desde el centro: discreto al pasar el puntero,
+   firme en la página actual. */
+.nav-list > li > a::after {
+  content: '';
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: 2px;
+  height: 2px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform var(--transition);
 }
 
 .nav-list a:hover,
 .submenu-toggle:hover {
-  color: var(--accent);
-  background: var(--accent-softer);
+  color: var(--text);
+}
+
+.nav-list > li > a:hover::after {
+  transform: scaleX(1);
+  opacity: 0.35;
 }
 
 /* Página actual: el usuario siempre sabe dónde está. */
 .nav-list a[aria-current="page"] {
   color: var(--accent);
-  background: var(--accent-soft);
+}
+
+.nav-list > li > a[aria-current="page"]::after {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 /* --- Submenú ------------------------------------------------------------- */
@@ -250,6 +289,7 @@
 
 .official-banner img {
   width: 100%;
+  height: auto;
   max-width: 2400px;
   margin-inline: auto;
 }

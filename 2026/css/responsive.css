@@ -4,11 +4,12 @@
    Todas las media queries del sitio viven aquí, ordenadas de mayor a menor
    ancho. Tres cortes, y solo tres:
 
-     ≤ 1024px  tablet horizontal — el hero pasa a una columna
-     ≤  768px  tablet y celular  — la navegación se convierte en menú
+     ≤ 1024px  tablet horizontal — el hero pasa a una columna y la
+                                   navegación se convierte en menú
+     ≤  768px  tablet y celular  — tarjetas y formularios más compactos
      ≤  480px  celular pequeño   — acciones a ancho completo
 
-   El corte de 768px debe coincidir con el de js/main.js.
+   El corte de 1024px debe coincidir con el de js/main.js.
    ========================================================================== */
 
 
@@ -26,19 +27,10 @@
   .hero-card {
     max-width: 520px;
   }
-}
-
-
-/* ==========================================================================
-   ≤ 768px — Tablet y celular
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  :root {
-    --container-gutter: 20px;
-  }
 
   /* --- Navegación como menú desplegable --------------------------------- */
+  /* Con seis opciones visibles, por debajo de 1024px ya no caben en una
+     fila junto a la marca. */
 
   .nav-toggle {
     display: inline-flex;
@@ -53,7 +45,7 @@
     display: none;
     max-height: calc(100dvh - var(--header-h));
     overflow-y: auto;
-    padding: var(--space-4) var(--container-gutter) var(--space-5);
+    padding: var(--space-2) var(--container-gutter) var(--space-5);
     background: var(--surface);
     border-bottom: 1px solid var(--border-soft);
     box-shadow: var(--shadow-lg);
@@ -66,17 +58,47 @@
   .nav-list {
     flex-direction: column;
     align-items: stretch;
-    gap: var(--space-2);
+    gap: 0;
+    max-width: var(--container-max);
+    margin-inline: auto;
   }
 
-  /* Cada opción es una fila completa y cómoda de tocar */
+  /* Filas completas, separadas por una línea fina y cómodas de tocar */
+  .nav-list > li + li {
+    border-top: 1px solid var(--border-soft);
+  }
+
   .nav-list a,
   .submenu-toggle {
     width: 100%;
-    min-height: 48px;
+    min-height: 52px;
     padding: var(--space-3) var(--space-4);
-    background: var(--accent-softer);
+    border-radius: 0;
+    color: var(--text);
     font-size: var(--fs-base);
+  }
+
+  /* El subrayado de escritorio se convierte en una barra lateral */
+  .nav-list > li > a::after {
+    left: 0;
+    right: auto;
+    top: var(--space-3);
+    bottom: var(--space-3);
+    width: 3px;
+    height: auto;
+    transform: scaleY(0);
+  }
+
+  .nav-list > li > a:hover::after {
+    transform: scaleY(1);
+  }
+
+  .nav-list > li > a[aria-current="page"] {
+    background: var(--accent-softer);
+  }
+
+  .nav-list > li > a[aria-current="page"]::after {
+    transform: scaleY(1);
   }
 
   .submenu-toggle {
@@ -87,8 +109,7 @@
   .submenu {
     position: static;
     display: none;
-    margin-top: var(--space-2);
-    padding: 0 0 0 var(--space-4);
+    padding: 0 0 var(--space-2) var(--space-4);
     background: transparent;
     border: 0;
     box-shadow: none;
@@ -101,12 +122,21 @@
 
   .nav-item-has-children.open .submenu {
     display: grid;
-    gap: var(--space-2);
   }
 
   .submenu a {
     min-height: 48px;
-    background: var(--accent-softer);
+  }
+}
+
+
+/* ==========================================================================
+   ≤ 768px — Tablet y celular
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --container-gutter: 20px;
   }
 
   /* --- Contenido --------------------------------------------------------- */
