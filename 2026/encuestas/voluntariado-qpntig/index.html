@@ -29,7 +29,7 @@
     <link href="../../css/base.css?v=20261103" rel="stylesheet">
     <link href="../../css/style.css?v=20261103" rel="stylesheet">
     <link href="../../css/responsive.css?v=20261103" rel="stylesheet">
-    <link href="../../css/encuestas.css?v=20261103" rel="stylesheet">
+    <link href="../../css/encuestas.css?v=20261108" rel="stylesheet">
 </head>
 
 <body class="encuesta tema-voluntariado">
@@ -85,7 +85,7 @@
                         <progress id="progreso" max="1" value="0" aria-labelledby="progresoTexto"></progress>
                     </div>
 
-                    <form id="surveyForm" class="survey-form" data-audiencia="voluntariado" data-version="2026-11" data-cierre="2026-12-01T00:00:00-05:00" novalidate>
+                    <form id="surveyForm" class="survey-form" data-audiencia="voluntariado" data-version="2026-11b" data-cierre="2026-12-01T00:00:00-05:00" novalidate>
                         <section class="survey-block" aria-labelledby="bloque-1">
                             <header class="block-head">
                                 <span class="block-num" aria-hidden="true">1</span>
@@ -138,7 +138,11 @@
                                     <label class="face"><input type="radio" name="satisfaccion" value="4"><span class="face-card"><i class="fa-solid fa-face-smile" aria-hidden="true"></i><span>Buena</span></span></label>
                                     <label class="face"><input type="radio" name="satisfaccion" value="5"><span class="face-card"><i class="fa-solid fa-face-grin-stars" aria-hidden="true"></i><span>Excelente</span></span></label>
                                 </div>
-                            </fieldset>
+                            <div class="survey-followup field" data-followup="satisfaccion" data-when="1 2 3" hidden>
+                                    <label for="satisfaccion_por_que">¿Qué fue lo que no funcionó? <span class="legend-hint">(opcional)</span></label>
+                                    <textarea id="satisfaccion_por_que" name="satisfaccion_por_que" maxlength="1500" rows="3" placeholder="Por ejemplo: la inducción, los horarios, la coordinación…" disabled></textarea>
+                                </div>
+                                </fieldset>
                             <div class="survey-question survey-grid" role="group" aria-labelledby="grid-titulo" aria-describedby="grid-ayuda">
                                 <p id="grid-titulo" class="grid-title">Califica cada aspecto</p>
                                 <p id="grid-ayuda" class="legend-hint">1 = muy deficiente · 5 = excelente. Deja en blanco lo que no quieras calificar.</p>
@@ -231,7 +235,11 @@
                                     <label class="choice"><input type="radio" name="carga" value="pesada"> <span>Pesada</span></label>
                                     <label class="choice"><input type="radio" name="carga" value="excesiva"> <span>Excesiva</span></label>
                                 </div>
-                            </fieldset>
+                            <div class="survey-followup field" data-followup="carga" data-when="excesiva" hidden>
+                                    <label for="carga_por_que">¿Qué hizo que la carga fuera excesiva? <span class="legend-hint">(opcional)</span></label>
+                                    <textarea id="carga_por_que" name="carga_por_que" maxlength="1500" rows="3" placeholder="Por ejemplo: turnos largos, pocas personas en un área…" disabled></textarea>
+                                </div>
+                                </fieldset>
                             <fieldset class="survey-question" id="grupo-preparacion">
                                 <legend>¿Sentiste que tenías lo necesario para hacer bien tu labor?</legend>
                                 <div class="choices">
@@ -239,7 +247,11 @@
                                     <label class="choice"><input type="radio" name="preparacion" value="en_parte"> <span>En parte</span></label>
                                     <label class="choice"><input type="radio" name="preparacion" value="no"> <span>No</span></label>
                                 </div>
-                            </fieldset>
+                            <div class="survey-followup field" data-followup="preparacion" data-when="en_parte no" hidden>
+                                    <label for="recursos_por_que">¿Qué te faltó? <span class="legend-hint">(opcional)</span></label>
+                                    <textarea id="recursos_por_que" name="recursos_por_que" maxlength="1500" rows="3" placeholder="Información, materiales, apoyo…" disabled></textarea>
+                                </div>
+                                </fieldset>
                             <fieldset class="survey-question" id="grupo-ambiente_seguro">
                                 <legend>¿Sentiste un ambiente acogedor, respetuoso y seguro?</legend>
                                 <div class="choices">
@@ -247,6 +259,10 @@
                                     <label class="choice"><input type="radio" name="ambiente_seguro" value="en_parte"> <span>En parte</span></label>
                                     <label class="choice"><input type="radio" name="ambiente_seguro" value="no"> <span>No</span></label>
                                     <label class="choice"><input type="radio" name="ambiente_seguro" value="prefiero_no"> <span>Prefiero no responder</span></label>
+                                </div>
+                                <div class="survey-followup field" data-followup="ambiente_seguro" data-when="en_parte no" hidden>
+                                    <label for="ambiente_por_que">¿Qué pasó o qué podríamos cuidar mejor? <span class="legend-hint">(opcional)</span></label>
+                                    <textarea id="ambiente_por_que" name="ambiente_por_que" maxlength="1500" rows="3" placeholder="Puedes contarlo sin dar nombres." disabled></textarea>
                                 </div>
                                 <p class="survey-callout"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> <span>Si viviste o presenciaste algo contrario al <a class="internal-link" href="../../codigo_conducta.html" target="_blank" rel="noopener">Código de Conducta</a>, escríbenos a <a href="mailto:pyconpanama@gmail.com">pyconpanama@gmail.com</a>. Esta encuesta es anónima, así que por aquí no podemos responderte.</span></p>
                             </fieldset>
@@ -278,7 +294,11 @@
                                     </div>
                                     <p class="scale-ends" aria-hidden="true"><span>0 · Nada probable</span><span>10 · Muy probable</span></p>
                                 </div>
-                            </fieldset>
+                            <div class="survey-followup field" data-followup="recomendacion" data-when="0 1 2 3 4 5 6" hidden>
+                                    <label for="recomendacion_por_que">¿Qué tendría que cambiar para que nos recomiendes? <span class="legend-hint">(opcional)</span></label>
+                                    <textarea id="recomendacion_por_que" name="recomendacion_por_que" maxlength="1500" rows="3" placeholder="Lo que más pesaría en tu decisión." disabled></textarea>
+                                </div>
+                                </fieldset>
                             <fieldset class="survey-question" id="grupo-volverias">
                                 <legend>¿Volverías a sumarte al voluntariado en la próxima edición?</legend>
                                 <div class="choices">
@@ -338,7 +358,7 @@
     <script src="../../js/env.js"></script>
     <script src="../../js/supabase-config.js?v=c50c42dd957b"></script>
     <script src="../../js/main.js"></script>
-    <script src="../../js/encuestas.js?v=20261103"></script>
+    <script src="../../js/encuestas.js?v=20261108"></script>
 </body>
 
 </html>

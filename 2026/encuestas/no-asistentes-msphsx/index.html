@@ -29,7 +29,7 @@
     <link href="../../css/base.css?v=20261103" rel="stylesheet">
     <link href="../../css/style.css?v=20261103" rel="stylesheet">
     <link href="../../css/responsive.css?v=20261103" rel="stylesheet">
-    <link href="../../css/encuestas.css?v=20261103" rel="stylesheet">
+    <link href="../../css/encuestas.css?v=20261108" rel="stylesheet">
 </head>
 
 <body class="encuesta tema-no_asistentes">
@@ -85,7 +85,7 @@
                         <progress id="progreso" max="1" value="0" aria-labelledby="progresoTexto"></progress>
                     </div>
 
-                    <form id="surveyForm" class="survey-form" data-audiencia="no_asistentes" data-version="2026-11" data-cierre="2026-12-01T00:00:00-05:00" novalidate>
+                    <form id="surveyForm" class="survey-form" data-audiencia="no_asistentes" data-version="2026-11b" data-cierre="2026-12-01T00:00:00-05:00" novalidate>
                         <section class="survey-block" aria-labelledby="bloque-1">
                             <header class="block-head">
                                 <span class="block-num" aria-hidden="true">1</span>
@@ -107,7 +107,11 @@
                                     <label class="choice"><input type="checkbox" name="motivos" value="imprevisto"> <span>Salud o un imprevisto personal</span></label>
                                     <label class="choice"><input type="checkbox" name="motivos" value="otro"> <span>Otro motivo</span></label>
                                 </div>
-                            </fieldset>
+                            <div class="survey-followup field" data-followup="motivos" data-when="otro" hidden>
+                                    <label for="impedimento_otro">¿Cuál fue el motivo? <span class="legend-hint">(opcional)</span></label>
+                                    <textarea id="impedimento_otro" name="impedimento_otro" maxlength="1500" rows="3" placeholder="Cuéntanos en pocas palabras." disabled></textarea>
+                                </div>
+                                </fieldset>
                             <fieldset class="survey-question" id="grupo-aviso">
                                 <legend>¿Cuándo supiste que no podrías ir?</legend>
                                 <div class="choices">
@@ -203,7 +207,7 @@
     <script src="../../js/env.js"></script>
     <script src="../../js/supabase-config.js?v=c50c42dd957b"></script>
     <script src="../../js/main.js"></script>
-    <script src="../../js/encuestas.js?v=20261103"></script>
+    <script src="../../js/encuestas.js?v=20261108"></script>
 </body>
 
 </html>

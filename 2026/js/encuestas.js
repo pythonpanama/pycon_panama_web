@@ -55,6 +55,21 @@
       : answered === total ? '¡Todo respondido!' : `${answered} de ${total} respondidas`;
   }
 
+  // «¿Por qué?» opcional debajo de una pregunta: aparece solo con las respuestas
+  // listadas en data-when. Oculta queda deshabilitada y collect() no la envía.
+  const followups = Array.from(form.querySelectorAll('[data-followup]'));
+  function syncFollowups() {
+    for (const box of followups) {
+      const when = box.dataset.when.split(' ');
+      const on = Array.from(form.querySelectorAll(`input[name="${box.dataset.followup}"]:checked`))
+        .some(input => when.includes(input.value));
+      box.hidden = !on;
+      box.querySelector('textarea').disabled = !on;
+    }
+  }
+  form.addEventListener('change', syncFollowups);
+  syncFollowups();
+
   form.addEventListener('change', updateProgress);
   form.addEventListener('input', updateProgress);
   updateProgress();
